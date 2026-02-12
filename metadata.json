@@ -1,0 +1,8 @@
+{
+  "name": "Maximilian Unverricht - The Agentic Developer",
+  "description": "A high-end interactive tech portfolio for Maximilian Unverricht, demonstrating the transition from legacy development to agentic, AI-driven pipelines.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
