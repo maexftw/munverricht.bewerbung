@@ -61,7 +61,7 @@ const SkillMonitor: React.FC = () => {
 
             {/* Hover Detail Element */}
             <div className="mt-4 pt-4 border-t border-neutral-900 opacity-0 group-hover:opacity-100 transition-opacity">
-               <span className="mono text-[8px] text-green-500">>> STATUS: STABLE_EXPERT</span>
+               <span className="mono text-[8px] text-green-500">{">> STATUS: STABLE_EXPERT"}</span>
             </div>
           </motion.div>
         ))}
