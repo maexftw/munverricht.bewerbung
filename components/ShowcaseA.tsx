@@ -78,19 +78,19 @@ const ShowcaseA: React.FC = () => {
         <div className="lg:col-span-5 space-y-8 self-center">
           <div className="space-y-6">
             <div className="space-y-2">
-              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">>> Ingest & Extraction</h4>
+              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">{">> Ingest & Extraction"}</h4>
               <p className="text-neutral-400 text-sm leading-relaxed">
                 Nutzung von <strong>Docling</strong> und <strong>PyMuPDF</strong> für die präzise Extraktion von Tabellen und statischen Werten aus komplexen technischen Dokumentationen.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">>> Context-Aware Translation</h4>
+              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">{">> Context-Aware Translation"}</h4>
               <p className="text-neutral-400 text-sm leading-relaxed">
                 Keine Standard-Translation. Lokale <strong>Qwen-32B</strong> Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">>> Hallucination Check</h4>
+              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">{">> Hallucination Check"}</h4>
               <p className="text-neutral-400 text-sm leading-relaxed">
                 Eine integrierte <strong>Python-Validierungsebene</strong> prüft via Regex und mathematischen Checks, ob alle Zahlenwerte im Output mit dem Original übereinstimmen.
               </p>
