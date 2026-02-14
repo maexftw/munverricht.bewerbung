@@ -41,3 +41,7 @@ Dieses Projekt ist für das Deployment auf Cloudflare Pages vorbereitet.
 
 ### Lokale Konfiguration
 Die Dateien `wrangler.toml`, `.node-version` und `public/_redirects` wurden hinzugefügt, um den Prozess zu automatisieren und das Routing sicherzustellen.
+
+### Fehlerbehebung (Troubleshooting)
+Falls der Build fehlschlägt, weil `wrangler.toml` die Sektion `[build]` nicht unterstützt:
+Die Build-Konfiguration (Befehl und Verzeichnis) muss zwingend im Cloudflare Dashboard unter **Settings** > **Builds & deployments** > **Configure methods** eingetragen werden, da `wrangler.toml` für Pages aktuell nur das Output-Verzeichnis (`pages_build_output_dir`) und Kompatibilitäts-Einstellungen unterstützt.
