@@ -2,30 +2,35 @@
 
 ## Changes Implemented
 
-I have implemented the final fix for the Cloudflare Pages deployment issue.
+I have implemented the fix for the "black screen" issue observed after deployment.
 
-### 1. Updated wrangler.toml
-**File Modified**: `wrangler.toml`
+### 1. Removed importmap from index.html
+**File Modified**: `index.html`
 
 **Change Made**:
-- Removed `pages_build_output_dir` and the `[build]` section.
+- Removed the `<script type="importmap">` block.
 
 **Reasoning**:
-In Cloudflare Pages, when `pages_build_output_dir` is present in `wrangler.toml`, the service treats the file as the "source of truth" and ignores build settings in the dashboard. However, the `wrangler.toml` file does not currently support specifying the build command for the Git integration. This resulted in the "No build command specified" error. By removing these keys, we restore auto-detection (which finds Vite) and allow dashboard settings to take effect.
+The presence of an `importmap` pointing to external ESM providers (like `esm.sh`) was conflicting with Vite's native bundling process. In a Vite project, dependencies should be managed via `package.json` and bundled by Vite. The conflict likely caused a JavaScript runtime error in the browser, preventing the React application from mounting and resulting in a black screen. By removing the map, Vite now handles all imports correctly through the generated bundle.
 
-### 2. Updated Documentation
-**Files Modified**: `DEPLOYMENT_INSTRUCTIONS.md`, `CHANGES_SUMMARY.md`
+### 2. Verified Build Integrity
+- Ran `npm run build` and confirmed that the output `dist/index.html` is clean and correctly linked to the bundled assets.
+- Confirmed that all required dependencies are present in `package.json`.
 
-**Changes Made**:
-- Clarified why `wrangler.toml` should not contain build settings for this setup.
-- Provided explicit dashboard configuration steps.
+## Why These Changes Were Necessary
+
+### The Problem
+Even though the deployment succeeded, the website showed only a black screen. This is a common symptom of a "Failed to resolve module specifier" or similar JavaScript error. The `importmap` was redundant and conflicting with the Vite-bundled code.
+
+### The Solution
+Removing the redundant `importmap` ensures that the browser only uses the bundled JavaScript provided by Vite, which contains all necessary dependencies (React, framer-motion, etc.) in a compatible state.
 
 ## How to Use These Changes
 
 1. **For Deployment**: 
-   - Ensure your `GEMINI_API_KEY` is set in Cloudflare Pages.
    - Push these changes.
-   - Cloudflare will now correctly auto-detect the Vite build command (`npm run build`) and output directory (`dist`).
+   - Cloudflare Pages will rebuild the project.
+   - The website should now load correctly.
 
 2. **For Local Testing**:
-   - `npm install` and `npm run build` still work as expected.
+   - `npm run dev` and `npm run build` remain the standard way to run the project.
