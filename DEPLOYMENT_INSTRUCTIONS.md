@@ -52,6 +52,13 @@ To test the deployment locally:
 
 ### Troubleshooting
 
+#### Issue: Website shows black screen
+
+**Solution**:
+- Perform a **Hard Refresh** (Ctrl+Shift+R or Cmd+Shift+R) to clear your browser cache.
+- Ensure you have removed any `importmap` from `index.html`.
+- Check that the `GEMINI_API_KEY` is correctly set in the dashboard.
+
 #### Issue: "Output directory 'dist' not found" or "No build command specified"
 
 **Solution**: 
