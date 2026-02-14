@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
@@ -7,6 +6,8 @@ const BackgroundAnimation: React.FC = () => {
 
   useEffect(() => {
     if (!containerRef.current) return;
+
+    let p5Instance: p5 | undefined;
 
     const sketch = (p: p5) => {
       let originalImg: p5.Image;
@@ -22,7 +23,7 @@ const BackgroundAnimation: React.FC = () => {
       const params = {
         invertWireframe: true,
         invertImage: true,
-        hue: 215, // Slightly adjusted hue for deeper blue
+        hue: 215,
         saturation: 90,
         threshold: 250,
         minStroke: 1,
@@ -119,8 +120,7 @@ const BackgroundAnimation: React.FC = () => {
       };
 
       p.draw = () => {
-        p.background(0); // Match body background
-        
+        p.background(0);
         if (!img) return;
 
         if (params.hue !== lastHue || params.saturation !== lastSaturation) {
@@ -184,10 +184,14 @@ const BackgroundAnimation: React.FC = () => {
       };
     };
 
-    const p5Instance = new p5(sketch);
+    try {
+      p5Instance = new p5(sketch);
+    } catch (e) {
+      console.error("p5 initialization failed:", e);
+    }
 
     return () => {
-      p5Instance.remove();
+      p5Instance?.remove();
     };
   }, []);
 

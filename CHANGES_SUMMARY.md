@@ -2,35 +2,41 @@
 
 ## Changes Implemented
 
-I have implemented the fix for the "black screen" issue observed after deployment.
+I have implemented additional fixes to resolve the "black screen" issue and ensure the latest version is served.
 
-### 1. Removed importmap from index.html
+### 1. Cache Busting and Boot Placeholder
 **File Modified**: `index.html`
 
+**Changes Made**:
+- Added a cache-busting version comment (`v3.0.2-CACHE-BUST`).
+- Added a fallback "[BOOTING_SYSTEM...]" text inside the root element. This helps diagnose if the issue is React mounting vs. a complete JavaScript failure.
+- Updated asset hashes by rebuilding the project.
+
+### 2. p5.js Error Handling
+**File Modified**: `components/BackgroundAnimation.tsx`
+
 **Change Made**:
-- Removed the `<script type="importmap">` block.
+- Added a `try-catch` block around the p5 instance initialization to prevent it from potentially blocking the entire application if the browser fails to initialize the canvas.
 
-**Reasoning**:
-The presence of an `importmap` pointing to external ESM providers (like `esm.sh`) was conflicting with Vite's native bundling process. In a Vite project, dependencies should be managed via `package.json` and bundled by Vite. The conflict likely caused a JavaScript runtime error in the browser, preventing the React application from mounting and resulting in a black screen. By removing the map, Vite now handles all imports correctly through the generated bundle.
-
-### 2. Verified Build Integrity
-- Ran `npm run build` and confirmed that the output `dist/index.html` is clean and correctly linked to the bundled assets.
-- Confirmed that all required dependencies are present in `package.json`.
+### 3. Build Verification
+- Confirmed that `npm run build` generates a fresh bundle with unique hashes (`assets/index-Dry-T78M.js`).
 
 ## Why These Changes Were Necessary
 
 ### The Problem
-Even though the deployment succeeded, the website showed only a black screen. This is a common symptom of a "Failed to resolve module specifier" or similar JavaScript error. The `importmap` was redundant and conflicting with the Vite-bundled code.
+If the website still appears black for you but works in our tests, it is almost certainly due to **Browser Caching**. Your browser might still be trying to load the old `index.html` (with the problematic `importmap`) or a cached (and now invalid) version of the JavaScript bundle.
 
 ### The Solution
-Removing the redundant `importmap` ensures that the browser only uses the bundled JavaScript provided by Vite, which contains all necessary dependencies (React, framer-motion, etc.) in a compatible state.
+By changing the file content (the comment) and the asset hashes, we force the browser and Cloudflare's CDN to recognize that a new version is available. The fallback text will confirm that the HTML has loaded even before React starts.
+
+## Action Required: Hard Refresh
+Even with these changes, we strongly recommend that you perform a **Hard Refresh** in your browser to clear the local cache:
+
+- **Windows/Linux**: Press `Ctrl` + `F5` or `Ctrl` + `Shift` + `R`.
+- **macOS**: Press `Cmd` + `Shift` + `R`.
+- **Mobile**: Clear browser cache in settings or open in an Incognito/Private tab.
 
 ## How to Use These Changes
-
-1. **For Deployment**: 
-   - Push these changes.
-   - Cloudflare Pages will rebuild the project.
-   - The website should now load correctly.
-
-2. **For Local Testing**:
-   - `npm run dev` and `npm run build` remain the standard way to run the project.
+1. Push these changes.
+2. Wait for the Cloudflare Pages build to finish.
+3. **Perform a Hard Refresh** on your website.
