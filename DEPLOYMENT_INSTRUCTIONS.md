@@ -25,94 +25,40 @@ Before deploying, you need to set up environment variables in your Cloudflare Pa
 
 #### 2. Build Configuration
 
-The repository is already configured for Cloudflare Pages deployment with the following settings:
+For Cloudflare Pages Git integration to work correctly with Vite, ensure the following settings are configured in the Cloudflare Dashboard (**Settings > Builds & deployments > Configure methods**):
 
 - **Build Command**: `npm run build`
 - **Build Output Directory**: `dist`
+- **Root Directory**: `/`
 
-These settings are automatically detected from the `wrangler.toml` file.
+**Important Note on wrangler.toml:**
+We have intentionally omitted `pages_build_output_dir` from `wrangler.toml`. Including it would force Cloudflare to ignore the dashboard's build settings, but since `wrangler.toml` does not yet support the build command for Git integrations, this leads to a deployment failure ("No build command specified"). By omitting it, we allow Cloudflare to auto-detect the Vite framework or use the dashboard settings.
 
 #### 3. Repository Setup
 
 Ensure your repository includes the following files:
 - `package.json` (with build scripts)
-- `wrangler.toml` (configured for Cloudflare Pages)
+- `wrangler.toml` (for local development and bindings)
 - `.gitignore` (excludes sensitive files like `.env.local`)
 
 #### 4. Local Testing
 
-To test the deployment locally before pushing to Cloudflare:
+To test the deployment locally:
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Create a `.env.local` file with your API key:
-   ```
-   GEMINI_API_KEY=your_actual_api_key_here
-   ```
-
-3. Build the project:
-   ```bash
-   npm run build
-   ```
-
-4. Verify that the `dist` directory is created with all necessary files.
-
-#### 5. Push to GitHub
-
-Once you've tested locally, push your changes to GitHub:
-
-```bash
-git add .
-git commit -m "Fix Cloudflare Pages deployment configuration"
-git push origin main
-```
-
-#### 6. Connect to Cloudflare Pages
-
-1. In your Cloudflare Dashboard, go to Workers & Pages
-2. Click "Create a project" or "Connect to Git"
-3. Select your GitHub repository
-4. Cloudflare will automatically detect the build settings from `wrangler.toml`
-5. Trigger a new deployment
+1. Install dependencies: `npm install`
+2. Create a `.env.local` file with your API key: `GEMINI_API_KEY=your_key`
+3. Build the project: `npm run build`
+4. Verify that the `dist` directory is created correctly.
 
 ### Troubleshooting
 
-#### Issue: "Output directory 'dist' not found"
+#### Issue: "Output directory 'dist' not found" or "No build command specified"
 
 **Solution**: 
-- Ensure you have run `npm install` to install all dependencies
-- Verify that your local build works by running `npm run build`
-- Check that `.env.local` is properly configured with your API key
-- Confirm that the `dist` directory is created after building
+- Ensure you haven't added `pages_build_output_dir` to `wrangler.toml` if you are using Git integration.
+- Manually set the **Build Command** to `npm run build` and **Build Output Directory** to `dist` in the Cloudflare Dashboard.
 
 #### Issue: API Key Not Working
 
 **Solution**:
-- Double-check that the GEMINI_API_KEY is set in Cloudflare Pages environment variables
-- Ensure the API key has proper permissions for the Gemini service
-- Verify that no sensitive files are committed to the repository
-
-### Security Notes
-
-- The `.env.local` file is included in `.gitignore` and should never be committed to the repository
-- All API keys should be managed through Cloudflare Pages environment variables
-- Keep your API keys secure and never expose them in public repositories
-
-### Repository Structure
-
-The repository structure is optimized for Cloudflare Pages deployment:
-
-```
-munverricht.bewerbung/
-├── src/                 # Source code
-├── public/              # Static assets
-├── components/          # React components
-├── wrangler.toml        # Cloudflare Pages configuration
-├── package.json         # Dependencies and scripts
-└── README.md            # Project documentation
-```
-
-This structure ensures compatibility with Cloudflare Pages' automatic build detection.
+- Double-check that the `GEMINI_API_KEY` is set in Cloudflare Pages environment variables (under Build variables).
