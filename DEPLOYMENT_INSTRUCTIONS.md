@@ -30,7 +30,7 @@ The repository is already configured for Cloudflare Pages deployment with the fo
 - **Build Command**: `npm run build`
 - **Build Output Directory**: `dist`
 
-These settings are automatically detected from the `wrangler.toml` file.
+These settings are explicitly defined in the `wrangler.toml` file, ensuring Cloudflare Pages correctly executes the build process.
 
 #### 3. Repository Setup
 
@@ -87,6 +87,7 @@ git push origin main
 - Verify that your local build works by running `npm run build`
 - Check that `.env.local` is properly configured with your API key
 - Confirm that the `dist` directory is created after building
+- Ensure `wrangler.toml` includes the `[build]` section with the correct `command`
 
 #### Issue: API Key Not Working
 
