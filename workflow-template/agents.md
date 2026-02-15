@@ -1,26 +1,21 @@
-# AI Agent Collaboration Log & Workflow
+# AI Agent Collaboration Log & Workflow (agents.md)
 
-This file tracks interactions between AI agents (Google Jules, Antigravity) and defines the mandatory workflow for this repository.
+## 🤖 MANDATORY AI WORKFLOW (Dienstplan)
 
-## 🤖 Standard AI Workflow (MANDATORY)
-
-To ensure synchronization and avoid build failures:
+To ensure synchronization and prevent build failures, every AI agent MUST:
 1. **Pull Latest:** Always start by pulling the `main` branch.
 2. **Feature Branching:** Never work on `main`. Create branches prefixed with `ag-` (Antigravity) or `jules-` (Jules).
-3. **Log Changes:** Update this `agents.md` file after every session.
+3. **Log Changes:** Update this `agents.md` file after every session (see Handoff Status).
 4. **Pull Requests:** Submit all changes via Pull Request for validation.
 
 ---
 
+## 🚀 ÜBERGABE-STATUS (Current Handoff)
+- **Aktueller Fokus:** [Aktuelles Ziel hier eintragen]
+- **Nächster Schritt for Jules/AG:** [Was als Nächstes zu tun ist]
+- **Blocker:** [Falls vorhanden]
+
+---
+
 ## Session [YYYY-MM-DD] - Agent: [Agent Name]
-
-### Objectives
-- [List goals]
-
-### Actions Taken
-- [ ] Task 1
-- [ ] Task 2
-
-### Status
-- **Safe Mode:** Enabled (Branching Flow)
-- **Branch:** [branch-name]
+- **Ergebnis:** [Kurze Zusammenfassung der Session]

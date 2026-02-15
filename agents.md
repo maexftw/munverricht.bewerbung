@@ -1,28 +1,19 @@
-# AI Agent Collaboration Log & Workflow
+# AI Handoff & State (agents.md)
 
-This file tracks interactions between AI agents (Google Jules, Antigravity) and defines the mandatory workflow for this repository.
+> [!NOTE]
+> Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Jules <-> Antigravity).
 
-## 🤖 Standard AI Workflow (MANDATORY)
-
-To ensure synchronization and avoid build failures:
-1. **Pull Latest:** Always start by pulling the `main` branch.
-2. **Feature Branching:** Never work on `main`. Create branches prefixed with `ag-` (Antigravity) or `jules-` (Jules).
-3. **Log Changes:** Update this `agents.md` file after every session.
-4. **Pull Requests:** Submit all changes via Pull Request for validation.
+## 🚀 Übergabe-Status
+- **Aktueller Fokus:** Workflow-Finalisierung & Deployment-Fix.
+- **Nächster Schritt für Jules/AG:** `ag-setup-workflow` PR mergen, dann Build-Fehler in `App.tsx` (Diagnostic Logs) prüfen.
+- **Blocker:** Keine.
 
 ---
 
-## Session 2026-02-15 - Agent: Antigravity
+## 🤖 AI Workflow Briefing
+1. **Source of Truth:** Der Code und die PR-Kommentare auf GitHub.
+2. **Handoff:** Vor dem Ende jeder Session wird der "Übergabe-Status" hier aktualisiert.
+3. **Branching:** `ag-*` (Antigravity), `jules-*` (Jules).
 
-### Objectives
-- Establish secure GitHub workflow and Jules API bridge.
-- Fix Cloudflare build issues via Jules' findings.
-
-### Actions Taken
-- [x] Initialized `sync.ps1` v2.0 (Unified Sync Tool).
-- [x] Merged Jules' fix branch into `ag-setup-workflow`.
-- [x] Defined permanent AI workflow in this file.
-
-### Status
-- **Current Branch:** `ag-setup-workflow`
-- **Jules Bridge:** Active.
+## Session 2026-02-15 (Antigravity)
+- **Ergebnis:** Workflow v2 stabil, Jules-Bridge aktiv, Cloudflare-Diagnose via CLI möglich.
