@@ -23,3 +23,7 @@
 
 ## Session 2026-02-15 (Antigravity)
 - **Ergebnis:** Workflow v2 stabil, Jules-Bridge aktiv, Cloudflare-Diagnose via CLI möglich.
+
+## Session 2026-02-15 (Jules)
+- **Ergebnis:** BackgroundAnimation Loop optimiert (~63% Performance-Gewinn im Kern-Loop).
+- **Änderungen:** Loops konsolidiert, Invarianten gehoistet, p.map/Math.floor durch optimierte Math-Operationen ersetzt.

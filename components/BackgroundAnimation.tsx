@@ -95,40 +95,6 @@ const BackgroundAnimation: React.FC = () => {
         img.loadPixels(); // Ensure pixels array is populated for reading in draw()
       };
 
-      const applyForceField = (mx: number, my: number) => {
-        if (!params.forceField.enabled) return;
-
-        const radiusSq = params.magnifierRadius * params.magnifierRadius;
-        const { strength, friction, restoreSpeed } = params.forceField;
-
-        for (let pt of points) {
-          // Optimization: Use manual math instead of p5.Vector methods to avoid object overhead
-          const dx = pt.pos.x - mx;
-          const dy = pt.pos.y - my;
-          const dSq = dx * dx + dy * dy;
-
-          if (dSq < radiusSq && dSq > 0) {
-            const d = Math.sqrt(dSq);
-            const forceStrength = strength / (d + 1);
-            // Add force: dir.normalize().mult(forceStrength)
-            pt.vel.x += (dx / d) * forceStrength;
-            pt.vel.y += (dy / d) * forceStrength;
-          }
-
-          // pt.vel.mult(friction)
-          pt.vel.x *= friction;
-          pt.vel.y *= friction;
-
-          // Restore force: pt.originalPos - pt.pos
-          pt.vel.x += (pt.originalPos.x - pt.pos.x) * restoreSpeed;
-          pt.vel.y += (pt.originalPos.y - pt.pos.y) * restoreSpeed;
-
-          // pt.pos.add(pt.vel)
-          pt.pos.x += pt.vel.x;
-          pt.pos.y += pt.vel.y;
-        }
-      };
-
       p.setup = () => {
         const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
         canvas.parent(containerRef.current!);
@@ -167,49 +133,78 @@ const BackgroundAnimation: React.FC = () => {
         magnifierX = p.lerp(magnifierX, p.mouseX, params.magnifierInertia);
         magnifierY = p.lerp(magnifierY, p.mouseY, params.magnifierInertia);
 
-        applyForceField(magnifierX, magnifierY);
-
-        // Optimization: img.loadPixels() removed from draw loop.
-        // It is called once in prepareImage() when the image changes.
+        // Optimization: Merged force field and drawing logic into a single loop.
+        // Hoisted invariant variables out of the loop to minimize property lookups and function calls.
         p.noFill();
 
-        const radiusSq = params.magnifierRadius * params.magnifierRadius;
+        const { enabled: forceEnabled, strength, friction, restoreSpeed } = params.forceField;
+        const { magnifierRadius, magnifierStrength, magnifierEnabled, threshold, minStroke, maxStroke, invertWireframe } = params;
+        const radiusSq = magnifierRadius * magnifierRadius;
+
+        const pixels = img.pixels;
+        const imgW = img.width;
+        const imgH = img.height;
+        const paletteLen = palette.length;
+        const shadeFactor = (paletteLen - 1) / 255;
+        const strokeFactor = (maxStroke - minStroke) / 255;
 
         for (let pt of points) {
-          const x = pt.pos.x;
-          const y = pt.pos.y;
+          // 1. Force Field Physics Update
+          if (forceEnabled) {
+            const dx = pt.pos.x - magnifierX;
+            const dy = pt.pos.y - magnifierY;
+            const dSq = dx * dx + dy * dy;
 
-          // Optimization: Skip points outside image bounds
-          const px = Math.floor(x);
-          const py = Math.floor(y);
-          if (px < 0 || px >= img.width || py < 0 || py >= img.height) continue;
-
-          const index = (px + py * img.width) * 4;
-          const brightness = img.pixels[index];
-
-          const condition = params.invertWireframe
-            ? brightness < params.threshold
-            : brightness > params.threshold;
-
-          if (condition) {
-            const shadeIndex = Math.floor(p.map(brightness, 0, 255, 0, palette.length - 1));
-            let strokeSize = p.map(brightness, 0, 255, params.minStroke, params.maxStroke);
-
-            if (params.magnifierEnabled) {
-              const dx = x - magnifierX;
-              const dy = y - magnifierY;
-              const dSq = dx * dx + dy * dy;
-
-              if (dSq < radiusSq) {
-                const d = Math.sqrt(dSq);
-                const factor = p.map(d, 0, params.magnifierRadius, params.magnifierStrength, 1);
-                strokeSize *= factor;
-              }
+            if (dSq < radiusSq && dSq > 0) {
+              const d = Math.sqrt(dSq);
+              const forceStrength = strength / (d + 1);
+              pt.vel.x += (dx / d) * forceStrength;
+              pt.vel.y += (dy / d) * forceStrength;
             }
 
-            p.stroke(palette[shadeIndex]);
-            p.strokeWeight(strokeSize);
-            p.point(x, y);
+            pt.vel.x *= friction;
+            pt.vel.y *= friction;
+            pt.vel.x += (pt.originalPos.x - pt.pos.x) * restoreSpeed;
+            pt.vel.y += (pt.originalPos.y - pt.pos.y) * restoreSpeed;
+            pt.pos.x += pt.vel.x;
+            pt.pos.y += pt.vel.y;
+          }
+
+          // 2. Optimized Rendering Logic
+          const x = pt.pos.x;
+          const y = pt.pos.y;
+          const px = x | 0;
+          const py = y | 0;
+
+          if (px >= 0 && px < imgW && py >= 0 && py < imgH) {
+            const index = (px + py * imgW) << 2;
+            const brightness = pixels[index];
+
+            const condition = invertWireframe
+              ? brightness < threshold
+              : brightness > threshold;
+
+            if (condition) {
+              const shadeIndex = (brightness * shadeFactor) | 0;
+              let strokeSize = brightness * strokeFactor + minStroke;
+
+              if (magnifierEnabled) {
+                const dx = x - magnifierX;
+                const dy = y - magnifierY;
+                const dSq = dx * dx + dy * dy;
+
+                if (dSq < radiusSq) {
+                  const d = Math.sqrt(dSq);
+                  // Optimized mapping for magnifier factor
+                  const factor = (d * (1 - magnifierStrength) / magnifierRadius) + magnifierStrength;
+                  strokeSize *= factor;
+                }
+              }
+
+              p.stroke(palette[shadeIndex]);
+              p.strokeWeight(strokeSize);
+              p.point(x, y);
+            }
           }
         }
       };
