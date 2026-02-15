@@ -3,6 +3,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Cpu, CheckCircle, ShieldCheck, Database, Server } from 'lucide-react';
 
+const BACKGROUND_TEXT = Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_QWEN_32B_RTX5090 ").join(" ");
+
 const ShowcaseA: React.FC = () => {
   return (
     <section id="architecture" className="space-y-16">
@@ -18,7 +20,7 @@ const ShowcaseA: React.FC = () => {
         {/* Left: Technical Diagram View */}
         <div className="lg:col-span-7 bg-neutral-950 border border-neutral-900 rounded-lg p-8 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none mono text-[8px] leading-tight select-none">
-            {Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_QWEN_32B_RTX5090 ").join(" ")}
+            {BACKGROUND_TEXT}
           </div>
           
           <div className="relative space-y-12">
