@@ -12,17 +12,15 @@ To ensure synchronization and avoid build failures:
 
 ---
 
-## Session 2026-02-15 - Agent: Antigravity
+## Session [YYYY-MM-DD] - Agent: [Agent Name]
 
 ### Objectives
-- Establish secure GitHub workflow and Jules API bridge.
-- Fix Cloudflare build issues via Jules' findings.
+- [List goals]
 
 ### Actions Taken
-- [x] Initialized `sync.ps1` v2.0 (Unified Sync Tool).
-- [x] Merged Jules' fix branch into `ag-setup-workflow`.
-- [x] Defined permanent AI workflow in this file.
+- [ ] Task 1
+- [ ] Task 2
 
 ### Status
-- **Current Branch:** `ag-setup-workflow`
-- **Jules Bridge:** Active.
+- **Safe Mode:** Enabled (Branching Flow)
+- **Branch:** [branch-name]

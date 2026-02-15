@@ -1,7 +1,4 @@
-# GitHub & Jules Sync Automation
-
-$JULES_API_KEY = "AQ.Ab8RN6KEn57urD61PhpSz0YiJf3Ul5Pga0nwtNqcSKD5ZIMYzg"
-$CF_PROJECT = "maximilian-unverricht"
+# GitHub Sync Automation
 
 function Pull-Main {
     Write-Host ">>> Catching up with Jules (Pulling main)..." -ForegroundColor Cyan
@@ -16,7 +13,11 @@ function New-Task {
     $branch = "ag-$name"
     Write-Host ">>> Creating new branch: $branch" -ForegroundColor Cyan
     git checkout main
-    git pull origin main
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ">>> Falling back to 'master' branch..." -ForegroundColor Yellow
+        git checkout master
+    }
+    git pull origin (git branch --show-current)
     git checkout -b $branch
 }
 
@@ -32,24 +33,10 @@ function Push-Task {
     gh pr create --fill
 }
 
-function Check-Deploy {
-    Write-Host ">>> Checking Cloudflare Status for $CF_PROJECT..." -ForegroundColor Cyan
-    npx wrangler pages deployment list --project-name $CF_PROJECT --limit 1
-}
-
-function Jules-Status {
-    Write-Host ">>> Querying Jules Sessions..." -ForegroundColor Cyan
-    $headers = @{ "X-Goog-Api-Key" = $JULES_API_KEY }
-    # Note: Using GitHub CLI to see Jules PRs as a fallback for API connectivity
-    gh pr list --author "app/google-jules" --state open
-}
-
 Write-Host "-------------------------------------------"
-Write-Host "Antigravity Unified Sync Tool v2.0"
+Write-Host "Antigravity GitHub Sync Tool Loaded"
 Write-Host "Commands:"
-Write-Host "  Pull-Main    - Get latest changes"
-Write-Host "  New-Task     - Start a safe feature branch"
-Write-Host "  Push-Task    - Push & Open PR"
-Write-Host "  Check-Deploy - Check Cloudflare health"
-Write-Host "  Jules-Status - See what Jules is doing"
+Write-Host "  Pull-Main  - Get latest changes from Jules"
+Write-Host "  New-Task   - Start a new safe feature branch"
+Write-Host "  Push-Task  - Push changes and open a PR"
 Write-Host "-------------------------------------------"
