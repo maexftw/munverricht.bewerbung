@@ -77,20 +77,55 @@ const BackgroundAnimation: React.FC = () => {
         }
       };
 
+      // Optimized image preparation - call this only when image needs re-processing
+      const prepareImage = () => {
+        if (!originalImg) return;
+        img = originalImg.get();
+        img.resize(p.width, p.height);
+        img.filter(p.GRAY);
+        if (params.invertImage) {
+          img.loadPixels();
+          for (let i = 0; i < img.pixels.length; i += 4) {
+            img.pixels[i] = 255 - img.pixels[i];
+            img.pixels[i + 1] = 255 - img.pixels[i + 1];
+            img.pixels[i + 2] = 255 - img.pixels[i + 2];
+          }
+          img.updatePixels();
+        }
+        img.loadPixels(); // Ensure pixels array is populated for reading in draw()
+      };
+
       const applyForceField = (mx: number, my: number) => {
         if (!params.forceField.enabled) return;
+
+        const radiusSq = params.magnifierRadius * params.magnifierRadius;
+        const { strength, friction, restoreSpeed } = params.forceField;
+
         for (let pt of points) {
-          let dir = p5.Vector.sub(pt.pos, p.createVector(mx, my));
-          let d = dir.mag();
-          if (d < params.magnifierRadius) {
-            dir.normalize();
-            let force = dir.mult(params.forceField.strength / (d + 1));
-            pt.vel.add(force);
+          // Optimization: Use manual math instead of p5.Vector methods to avoid object overhead
+          const dx = pt.pos.x - mx;
+          const dy = pt.pos.y - my;
+          const dSq = dx * dx + dy * dy;
+
+          if (dSq < radiusSq && dSq > 0) {
+            const d = Math.sqrt(dSq);
+            const forceStrength = strength / (d + 1);
+            // Add force: dir.normalize().mult(forceStrength)
+            pt.vel.x += (dx / d) * forceStrength;
+            pt.vel.y += (dy / d) * forceStrength;
           }
-          pt.vel.mult(params.forceField.friction);
-          let restore = p5.Vector.sub(pt.pos, pt.originalPos).mult(-params.forceField.restoreSpeed);
-          pt.vel.add(restore);
-          pt.pos.add(pt.vel);
+
+          // pt.vel.mult(friction)
+          pt.vel.x *= friction;
+          pt.vel.y *= friction;
+
+          // Restore force: pt.originalPos - pt.pos
+          pt.vel.x += (pt.originalPos.x - pt.pos.x) * restoreSpeed;
+          pt.vel.y += (pt.originalPos.y - pt.pos.y) * restoreSpeed;
+
+          // pt.pos.add(pt.vel)
+          pt.pos.x += pt.vel.x;
+          pt.pos.y += pt.vel.y;
         }
       };
 
@@ -98,10 +133,7 @@ const BackgroundAnimation: React.FC = () => {
         const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
         canvas.parent(containerRef.current!);
         
-        img = originalImg.get();
-        img.resize(p.width, p.height);
-        img.filter(p.GRAY);
-        
+        prepareImage();
         generatePalette(params.hue, params.saturation);
         generatePoints();
         
@@ -112,9 +144,7 @@ const BackgroundAnimation: React.FC = () => {
       p.windowResized = () => {
         p.resizeCanvas(p.windowWidth, p.windowHeight);
         if (originalImg) {
-            img = originalImg.get();
-            img.resize(p.width, p.height);
-            img.filter(p.GRAY);
+            prepareImage();
             generatePoints();
         }
       };
@@ -130,18 +160,7 @@ const BackgroundAnimation: React.FC = () => {
         }
 
         if (params.invertImage !== lastInvertImage) {
-          img = originalImg.get();
-          img.resize(p.width, p.height);
-          img.filter(p.GRAY);
-          if (params.invertImage) {
-            img.loadPixels();
-            for (let i = 0; i < img.pixels.length; i += 4) {
-              img.pixels[i] = 255 - img.pixels[i];
-              img.pixels[i + 1] = 255 - img.pixels[i + 1];
-              img.pixels[i + 2] = 255 - img.pixels[i + 2];
-            }
-            img.updatePixels();
-          }
+          prepareImage();
           lastInvertImage = params.invertImage;
         }
 
@@ -150,30 +169,42 @@ const BackgroundAnimation: React.FC = () => {
 
         applyForceField(magnifierX, magnifierY);
 
-        img.loadPixels();
+        // Optimization: img.loadPixels() removed from draw loop.
+        // It is called once in prepareImage() when the image changes.
         p.noFill();
 
+        const radiusSq = params.magnifierRadius * params.magnifierRadius;
+
         for (let pt of points) {
-          let x = pt.pos.x;
-          let y = pt.pos.y;
-          let d = p.dist(x, y, magnifierX, magnifierY);
+          const x = pt.pos.x;
+          const y = pt.pos.y;
 
-          let px = p.constrain(p.floor(x), 0, img.width - 1);
-          let py = p.constrain(p.floor(y), 0, img.height - 1);
-          let index = (px + py * img.width) * 4;
-          let brightness = img.pixels[index];
+          // Optimization: Skip points outside image bounds
+          const px = Math.floor(x);
+          const py = Math.floor(y);
+          if (px < 0 || px >= img.width || py < 0 || py >= img.height) continue;
 
-          let condition = params.invertWireframe
+          const index = (px + py * img.width) * 4;
+          const brightness = img.pixels[index];
+
+          const condition = params.invertWireframe
             ? brightness < params.threshold
             : brightness > params.threshold;
 
           if (condition) {
-            let shadeIndex = p.int(p.map(brightness, 0, 255, 0, palette.length - 1));
+            const shadeIndex = Math.floor(p.map(brightness, 0, 255, 0, palette.length - 1));
             let strokeSize = p.map(brightness, 0, 255, params.minStroke, params.maxStroke);
 
-            if (params.magnifierEnabled && d < params.magnifierRadius) {
-              let factor = p.map(d, 0, params.magnifierRadius, params.magnifierStrength, 1);
-              strokeSize *= factor;
+            if (params.magnifierEnabled) {
+              const dx = x - magnifierX;
+              const dy = y - magnifierY;
+              const dSq = dx * dx + dy * dy;
+
+              if (dSq < radiusSq) {
+                const d = Math.sqrt(dSq);
+                const factor = p.map(d, 0, params.magnifierRadius, params.magnifierStrength, 1);
+                strokeSize *= factor;
+              }
             }
 
             p.stroke(palette[shadeIndex]);

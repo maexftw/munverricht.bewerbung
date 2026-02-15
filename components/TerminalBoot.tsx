@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -6,20 +5,21 @@ interface TerminalBootProps {
   onComplete: () => void;
 }
 
+const bootMessages = [
+  "[INFO] Initializing System Core...",
+  "[INFO] Loading Legacy Experience (12 Years)... Complete.",
+  "[INFO] Re-indexing Expertise: WordPress (10Y), Webflow (2Y)... Done.",
+  "[INFO] Checking Certificates: Google Ads, Analytics... Verified.",
+  "[WARN] Legacy Logic detected. Triggering REFACTORE_CAREER.exe...",
+  "[INFO] Connecting to Anti-Gravity IDE... Connected via Local SSH.",
+  "[INFO] Initializing Agentic Workflow: Google AI Studio & Stitch...",
+  "[INFO] Syncing Local LLMs (Mistral-Large, Qwen-32B)... Ready.",
+  "[OK] System Optimization Level: MAXIMAL.",
+  "[SYSTEM] Agentic Mode: ACTIVE."
+];
+
 const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
   const [logs, setLogs] = useState<string[]>([]);
-  const bootMessages = [
-    "[INFO] Initializing System Core...",
-    "[INFO] Loading Legacy Experience (12 Years)... Complete.",
-    "[INFO] Re-indexing Expertise: WordPress (10Y), Webflow (2Y)... Done.",
-    "[INFO] Checking Certificates: Google Ads, Analytics... Verified.",
-    "[WARN] Legacy Logic detected. Triggering REFACTORE_CAREER.exe...",
-    "[INFO] Connecting to Anti-Gravity IDE... Connected via Local SSH.",
-    "[INFO] Initializing Agentic Workflow: Google AI Studio & Stitch...",
-    "[INFO] Syncing Local LLMs (Mistral-Large, Qwen-32B)... Ready.",
-    "[OK] System Optimization Level: MAXIMAL.",
-    "[SYSTEM] Agentic Mode: ACTIVE."
-  ];
 
   useEffect(() => {
     let currentLine = 0;
@@ -37,7 +37,7 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
     }, 120);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [onComplete]);
 
   return (
     <div className="fixed inset-0 bg-black z-[1000] flex items-center justify-center p-6 mono text-sm overflow-hidden">
