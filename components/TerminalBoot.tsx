@@ -1,8 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { motion } from 'framer-motion';
 
 interface TerminalBootProps {
   onComplete: () => void;
+}
+
+interface LogEntry {
+  message: string;
+  timestamp: string;
 }
 
 const bootMessages = [
@@ -18,8 +23,29 @@ const bootMessages = [
   "[SYSTEM] Agentic Mode: ACTIVE."
 ];
 
+const CURSOR_ANIMATION = { opacity: [0, 1, 0] };
+const CURSOR_TRANSITION = { repeat: Infinity, duration: 0.8 };
+
+// Optimized LogItem component with memoization to prevent re-renders of previous logs
+const LogItem = memo(({ log }: { log: LogEntry }) => {
+  const isSpecial = log.message && (log.message.includes('[OK]') || log.message.includes('ACTIVE'));
+  const isWarn = log.message && log.message.includes('[WARN]');
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -5 }}
+      animate={{ opacity: 1, x: 0 }}
+      className={`${isSpecial ? 'text-green-500 font-bold' : isWarn ? 'text-yellow-500' : 'text-neutral-400'}`}
+    >
+      <span className="text-neutral-600">[{log.timestamp}]</span> {log.message}
+    </motion.div>
+  );
+});
+
+LogItem.displayName = 'LogItem';
+
 const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
-  const [logs, setLogs] = useState<string[]>([]);
+  const [logs, setLogs] = useState<LogEntry[]>([]);
 
   useEffect(() => {
     let currentLine = 0;
@@ -27,7 +53,9 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
       if (currentLine < bootMessages.length) {
         const nextLog = bootMessages[currentLine];
         if (nextLog) {
-          setLogs(prev => [...prev, nextLog]);
+          // Calculate timestamp once when the log is created, not on every render
+          const timestamp = new Date().toLocaleTimeString('de-DE', { hour12: false });
+          setLogs(prev => [...prev, { message: nextLog, timestamp }]);
         }
         currentLine++;
       } else {
@@ -49,19 +77,11 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
         </div>
         <div className="space-y-1">
           {logs.map((log, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -5 }}
-              animate={{ opacity: 1, x: 0 }}
-              className={`${log && (log.includes('[OK]') || log.includes('ACTIVE')) ? 'text-green-500 font-bold' : 
-                          log && log.includes('[WARN]') ? 'text-yellow-500' : 'text-neutral-400'}`}
-            >
-              <span className="text-neutral-600">[{new Date().toLocaleTimeString('de-DE', { hour12: false })}]</span> {log}
-            </motion.div>
+            <LogItem key={i} log={log} />
           ))}
           <motion.div
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ repeat: Infinity, duration: 0.8 }}
+            animate={CURSOR_ANIMATION}
+            transition={CURSOR_TRANSITION}
             className="w-2 h-4 bg-blue-500 inline-block align-middle ml-1"
           />
         </div>
