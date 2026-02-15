@@ -3,9 +3,15 @@
 > [!NOTE]
 > Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Jules <-> Antigravity).
 
-## 🚀 Übergabe-Status
-- **Aktueller Fokus:** Workflow-Finalisierung & Deployment-Fix.
-- **Nächster Schritt für Jules/AG:** `ag-setup-workflow` PR mergen, dann Build-Fehler in `App.tsx` (Diagnostic Logs) prüfen.
+## 🚀 ÜBERGABE-STATUS (Current Handoff)
+- **Status:** Deployment-Rätsel gelöst. 
+- **Erkenntnis:** Der Code ist perfekt (Jules' Fixes funktionieren), aber Cloudflare ist falsch konfiguriert (serviert Root statt `dist`).
+- **Nächster Schritt for Jules/AG:** 
+  1. Den PR mergen.
+  2. Im Cloudflare Dashboard unter Pages > Settings > Build & Deploy:
+     - Framework Preset: `Vite`
+     - Build Command: `npm run build`
+     - Build Output Directory: `dist`
 - **Blocker:** Keine.
 
 ---
