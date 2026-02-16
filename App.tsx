@@ -6,17 +6,45 @@ import ShowcaseA from './components/ShowcaseA';
 import ShowcaseB from './components/ShowcaseB';
 import SkillMonitor from './components/SkillMonitor';
 import ContactShell from './components/ContactShell';
-// Lazy load BackgroundAnimation to move the heavy p5.js dependency to a separate chunk.
-// This significantly improves initial bundle size and speeds up the boot screen appearance.
-const BackgroundAnimation = React.lazy(() => import('./components/BackgroundAnimation'));
-import { motion, AnimatePresence } from 'framer-motion';
-
 import Navigation from './components/Navigation';
-
 import Projects from './components/Projects';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useTina } from 'tinacms/dist/react';
+import { client } from './tina/__generated__/client';
+
+// Lazy load BackgroundAnimation
+const BackgroundAnimation = React.lazy(() => import('./components/BackgroundAnimation'));
 
 const App: React.FC = () => {
   const [booting, setBooting] = useState(true);
+  const [tinaData, setTinaData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const pageResponse = await client.queries.page({ relativePath: 'home.md' });
+        const projectsResponse = await client.queries.projectConnection();
+
+        setTinaData({
+          page: pageResponse,
+          projects: projectsResponse.data.projectConnection.edges?.map((edge: any) => edge.node) || []
+        });
+      } catch (error) {
+        console.error("Error fetching Tina data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // useTina hook for live editing the home page
+  const { data } = useTina({
+    query: tinaData?.page?.query,
+    variables: tinaData?.page?.variables,
+    data: tinaData?.page?.data,
+  });
+
+  const page = data?.page || {};
+  const projects = tinaData?.projects || [];
 
   return (
     <div className="relative min-h-screen selection:bg-blue-500/30 selection:text-blue-200 overflow-hidden">
@@ -38,7 +66,7 @@ const App: React.FC = () => {
         <BackgroundAnimation isPaused={false} />
       </React.Suspense>
 
-      {/* Main Content - Immediately Visible */}
+      {/* Main Content */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -46,12 +74,12 @@ const App: React.FC = () => {
         className="flex flex-col items-center w-full px-4 md:px-0"
       >
         <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
-          <Hero />
-          <Evolution />
+          <Hero data={page.hero} />
+          <Evolution data={page.evolution} />
           <ShowcaseA />
           <ShowcaseB />
-          <Projects />
-          <SkillMonitor />
+          <Projects data={projects} />
+          <SkillMonitor data={page.skills} />
           <ContactShell />
           <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">
             <p>© 2026 MAXIMILIAN UNVERRICHT // THE AGENTIC DEVELOPER // v3.1.0-STABLE</p>
