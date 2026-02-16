@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tinacms dev -c vite",
-    "build": "tinacms build && vite build",
+    "build": "tinacms build || echo 'Tina build failed, using pre-generated files' && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

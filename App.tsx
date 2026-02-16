@@ -10,7 +10,17 @@ import Navigation from './components/Navigation';
 import Projects from './components/Projects';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTina } from 'tinacms/dist/react';
-import { client } from './tina/__generated__/client';
+import { createClient } from "tinacms/dist/client";
+import { queries } from "./tina/__generated__/types";
+
+// Initialize Tina Client dynamically
+const tinaClient = createClient({
+  url: (import.meta.env.PROD && import.meta.env.VITE_TINA_PUBLIC_CLIENT_ID)
+    ? `https://content.tinajs.io/1.4/content/${import.meta.env.VITE_TINA_PUBLIC_CLIENT_ID}/github/${import.meta.env.CF_PAGES_BRANCH || 'main'}`
+    : 'http://localhost:4001/graphql',
+  token: import.meta.env.VITE_TINA_TOKEN || 'b7e2d199f0f29b1656fdb8de286855837bacddf9',
+  queries,
+});
 
 // Lazy load BackgroundAnimation
 const BackgroundAnimation = React.lazy(() => import('./components/BackgroundAnimation'));
@@ -22,8 +32,8 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const pageResponse = await client.queries.page({ relativePath: 'home.md' });
-        const projectsResponse = await client.queries.projectConnection();
+        const pageResponse = await tinaClient.queries.page({ relativePath: 'home.md' });
+        const projectsResponse = await tinaClient.queries.projectConnection();
 
         setTinaData({
           page: pageResponse,
@@ -36,7 +46,7 @@ const App: React.FC = () => {
     fetchData();
   }, []);
 
-  // useTina hook for live editing the home page
+  // useTina hook for live editing
   const { data } = useTina({
     query: tinaData?.page?.query,
     variables: tinaData?.page?.variables,

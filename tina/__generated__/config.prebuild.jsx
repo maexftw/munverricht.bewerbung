@@ -1,25 +1,19 @@
+// tina/config.ts
 import { defineConfig } from "tinacms";
-
-const branch =
-  process.env.CF_PAGES_BRANCH ||
-  process.env.HEAD ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  "main";
-
-export default defineConfig({
+var branch = process.env.CF_PAGES_BRANCH || process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+var config_default = defineConfig({
   branch,
   clientId: process.env.TINA_PUBLIC_CLIENT_ID || process.env.VITE_TINA_PUBLIC_CLIENT_ID || null,
   token: process.env.TINA_TOKEN || process.env.VITE_TINA_TOKEN || null,
-
   build: {
     outputFolder: "admin",
-    publicFolder: "public",
+    publicFolder: "public"
   },
   media: {
     tina: {
       mediaRoot: "",
-      publicFolder: "public",
-    },
+      publicFolder: "public"
+    }
   },
   schema: {
     collections: [
@@ -34,7 +28,7 @@ export default defineConfig({
             name: "title",
             label: "Title",
             isTitle: true,
-            required: true,
+            required: true
           },
           {
             type: "object",
@@ -44,8 +38,8 @@ export default defineConfig({
               { type: "string", name: "slogan", label: "Slogan" },
               { type: "string", name: "firstName", label: "First Name" },
               { type: "string", name: "lastName", label: "Last Name" },
-              { type: "rich-text", name: "description", label: "Description" },
-            ],
+              { type: "rich-text", name: "description", label: "Description" }
+            ]
           },
           {
             type: "object",
@@ -56,8 +50,8 @@ export default defineConfig({
               { type: "string", name: "period", label: "Zeitraum" },
               { type: "string", name: "title", label: "Titel" },
               { type: "string", name: "tagline", label: "Tagline" },
-              { type: "rich-text", name: "description", label: "Beschreibung" },
-            ],
+              { type: "rich-text", name: "description", label: "Beschreibung" }
+            ]
           },
           {
             type: "object",
@@ -67,10 +61,10 @@ export default defineConfig({
             fields: [
               { type: "string", name: "category", label: "Kategorie" },
               { type: "string", name: "items", label: "Items", list: true },
-              { type: "number", name: "level", label: "Level (0-100)" },
-            ],
-          },
-        ],
+              { type: "number", name: "level", label: "Level (0-100)" }
+            ]
+          }
+        ]
       },
       {
         name: "project",
@@ -83,13 +77,16 @@ export default defineConfig({
             name: "title",
             label: "Title",
             isTitle: true,
-            required: true,
+            required: true
           },
           { type: "string", name: "url", label: "URL" },
           { type: "string", name: "desc", label: "Description" },
-          { type: "string", name: "stack", label: "Stack", list: true },
-        ],
-      },
-    ],
-  },
+          { type: "string", name: "stack", label: "Stack", list: true }
+        ]
+      }
+    ]
+  }
 });
+export {
+  config_default as default
+};
