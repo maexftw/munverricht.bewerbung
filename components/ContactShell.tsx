@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Terminal, Loader2 } from 'lucide-react';
+import { Send, Terminal, Loader2, Check } from 'lucide-react';
 
 const ContactShell: React.FC = () => {
   const [input, setInput] = useState('');
@@ -99,16 +99,18 @@ const ContactShell: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Prompt me for a collaboration..."
-              className="w-full bg-neutral-900 border border-neutral-800 rounded px-4 py-3 mono text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-colors pr-12 text-white"
+              className="w-full bg-neutral-900 border border-neutral-800 rounded px-4 py-3 mono text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors pr-12 text-white"
             />
             <button
               type="submit"
               disabled={status === 'sending'}
-              aria-label={status === 'sending' ? 'Nachricht wird gesendet' : 'Nachricht senden'}
+              aria-label={status === 'sending' ? 'Nachricht wird gesendet' : status === 'success' ? 'Nachricht erfolgreich gesendet' : 'Nachricht senden'}
               className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-neutral-500 hover:text-blue-500 transition-colors disabled:opacity-50 flex items-center justify-center"
             >
               {status === 'sending' ? (
                 <Loader2 className="w-5 h-5 animate-spin text-blue-500" aria-hidden="true" />
+              ) : status === 'success' ? (
+                <Check className="w-5 h-5 text-green-500" aria-hidden="true" />
               ) : (
                 <Send className="w-5 h-5" aria-hidden="true" />
               )}
