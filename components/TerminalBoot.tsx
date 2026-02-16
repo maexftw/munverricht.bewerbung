@@ -68,14 +68,14 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 bg-black z-[1000] flex items-center justify-center p-6 mono text-sm overflow-hidden">
+    <div className="fixed inset-0 bg-black z-[1000] flex items-center justify-center p-6 mono text-sm overflow-hidden" role="dialog" aria-modal="true" aria-label="System-Boot-Vorgang">
       <div className="w-full max-w-2xl bg-neutral-950 border border-neutral-800 rounded p-6 shadow-2xl relative">
-        <div className="absolute top-2 right-4 flex space-x-2">
+        <div className="absolute top-2 right-4 flex space-x-2" aria-hidden="true">
           <div className="w-2 h-2 rounded-full bg-red-500/50" />
           <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
           <div className="w-2 h-2 rounded-full bg-green-500/50" />
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1" role="status" aria-live="polite">
           {logs.map((log, i) => (
             <LogItem key={i} log={log} />
           ))}
@@ -83,6 +83,7 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
             animate={CURSOR_ANIMATION}
             transition={CURSOR_TRANSITION}
             className="w-2 h-4 bg-blue-500 inline-block align-middle ml-1"
+            aria-hidden="true"
           />
         </div>
       </div>

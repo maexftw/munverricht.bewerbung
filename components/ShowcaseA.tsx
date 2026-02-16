@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Cpu, CheckCircle, ShieldCheck, Database, Server } from 'lucide-react';
+import { FileText, Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
 
 const BACKGROUND_TEXT = Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_QWEN_32B_RTX5090 ").join(" ");
 
@@ -9,7 +8,7 @@ const ShowcaseA: React.FC = () => {
   return (
     <section id="architecture" className="space-y-16">
       <div className="space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70">// ARCHITECTURE_CASE_01</h3>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// ARCHITECTURE_CASE_01</h3>
         <h2 className="text-4xl font-bold uppercase tracking-tight">Zero-Cloud Engineering Pipeline</h2>
         <p className="max-w-2xl text-neutral-500 text-sm leading-relaxed">
           Für Ingenieurbüros und Statiker entwickelte Lösung zur automatisierten Verarbeitung technischer Dokumente. Der Fokus liegt auf absoluter Datensouveränität durch lokale KI-Inferenz.
@@ -19,13 +18,13 @@ const ShowcaseA: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left: Technical Diagram View */}
         <div className="lg:col-span-7 bg-neutral-950 border border-neutral-900 rounded-lg p-8 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03] pointer-events-none mono text-[8px] leading-tight select-none">
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none mono text-[8px] leading-tight select-none" aria-hidden="true">
             {BACKGROUND_TEXT}
           </div>
           
           <div className="relative space-y-12">
             {/* Steps Visual */}
-            <div className="flex flex-col space-y-8">
+            <div className="flex flex-col space-y-8" aria-hidden="true">
               {/* Step 1: Ingest */}
               <div className="flex items-center gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-neutral-800 bg-neutral-900 flex items-center justify-center shadow-lg">
@@ -100,7 +99,7 @@ const ShowcaseA: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 px-4 py-3 rounded">
-            <ShieldCheck className="w-5 h-5 text-green-500" />
+            <ShieldCheck className="w-5 h-5 text-green-500" aria-hidden="true" />
             <div className="mono text-[10px] text-neutral-500">
                STATUS: <span className="text-green-500">100% SECURE / ZERO_CLOUD</span>
             </div>

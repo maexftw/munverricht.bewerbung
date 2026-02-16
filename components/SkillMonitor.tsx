@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Database, Brain, Globe, Cpu } from 'lucide-react';
@@ -15,7 +14,7 @@ const SkillMonitor: React.FC = () => {
   return (
     <section className="space-y-12">
       <div className="flex flex-col items-center text-center">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2">// RESOURCE_MONITOR</h3>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// RESOURCE_MONITOR</h3>
         <h2 className="text-3xl font-bold uppercase tracking-tight">System Performance</h2>
       </div>
 
@@ -29,7 +28,7 @@ const SkillMonitor: React.FC = () => {
             transition={{ delay: i * 0.1 }}
             className="group relative p-6 bg-neutral-950 border border-neutral-900 rounded-lg hover:border-blue-500 transition-all duration-300"
           >
-            <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity">
+            <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity" aria-hidden="true">
               {skill.icon}
             </div>
 
@@ -61,7 +60,7 @@ const SkillMonitor: React.FC = () => {
             </div>
 
             {/* Hover Detail Element */}
-            <div className="mt-4 pt-4 border-t border-neutral-900 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="mt-4 pt-4 border-t border-neutral-900 opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
               <span className="mono text-[8px] text-green-500">{">> STATUS: STABLE_EXPERT"}</span>
             </div>
           </motion.div>

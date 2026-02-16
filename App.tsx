@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import TerminalBoot from './components/TerminalBoot';
 import Hero from './components/Hero';
@@ -20,6 +19,13 @@ const App: React.FC = () => {
       <div className="scanline" />
       <div className="crt-overlay opacity-50" />
 
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[2000] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black mono text-xs font-bold uppercase tracking-widest"
+      >
+        Zum Hauptinhalt springen
+      </a>
+
       <BackgroundAnimation />
 
       <AnimatePresence mode="wait">
@@ -35,7 +41,7 @@ const App: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="flex flex-col items-center w-full px-4 md:px-0"
           >
-            <main className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12">
+            <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
               <Hero />
               <Evolution />
               <ShowcaseA />
