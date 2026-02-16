@@ -46,13 +46,13 @@ const ContactShell: React.FC = () => {
   return (
     <section className="space-y-12 pb-20">
       <div className="flex flex-col items-center text-center">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2">// OPEN_FREQUENCY</h3>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// OPEN_FREQUENCY</h3>
         <h2 className="text-4xl font-bold uppercase">Execute Collaboration</h2>
       </div>
 
       <div className="max-w-3xl mx-auto bg-neutral-950 border border-neutral-800 rounded-lg overflow-hidden shadow-2xl">
         {/* Terminal Header */}
-        <div className="bg-neutral-900 px-4 py-2 flex justify-between items-center border-b border-neutral-800">
+        <div className="bg-neutral-900 px-4 py-2 flex justify-between items-center border-b border-neutral-800" aria-hidden="true">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-blue-500" />
             <span className="mono text-[10px] text-neutral-400">AGENTIC_CONTACT_SHELL_v1.0</span>
@@ -85,7 +85,7 @@ const ContactShell: React.FC = () => {
 
           {status === 'sending' && (
             <div className="flex items-center gap-2 text-blue-500 italic">
-              <Loader2 className="w-4 h-4 animate-spin" /> Transmitting data...
+              <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Transmitting data...
             </div>
           )}
         </div>
@@ -104,12 +104,17 @@ const ContactShell: React.FC = () => {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-neutral-500 hover:text-blue-500 transition-colors disabled:opacity-50"
+              aria-label={status === 'sending' ? 'Nachricht wird gesendet' : 'Nachricht senden'}
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-neutral-500 hover:text-blue-500 transition-colors disabled:opacity-50 flex items-center justify-center"
             >
-              <Send className="w-5 h-5" />
+              {status === 'sending' ? (
+                <Loader2 className="w-5 h-5 animate-spin text-blue-500" aria-hidden="true" />
+              ) : (
+                <Send className="w-5 h-5" aria-hidden="true" />
+              )}
             </button>
           </div>
-          <div className="mt-4 flex justify-between items-center mono text-[9px] text-neutral-600 uppercase tracking-tighter">
+          <div className="mt-4 flex justify-between items-center mono text-[9px] text-neutral-600 uppercase tracking-tighter" aria-hidden="true">
             <div className="flex gap-4">
               <span>ENCRYPTION: AES-256</span>
               <span>UPLINK: ACTIVE</span>

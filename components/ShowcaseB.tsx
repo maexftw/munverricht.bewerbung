@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Code2, Monitor, Layers, MousePointer2, Settings } from 'lucide-react';
+import { Zap, Code2, Monitor, MousePointer2, Settings } from 'lucide-react';
 
 const ShowcaseB: React.FC = () => {
   return (
     <section className="space-y-16 py-12">
       <div className="flex flex-col items-end text-right space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70">// ARCHITECTURE_CASE_02</h3>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// ARCHITECTURE_CASE_02</h3>
         <h2 className="text-4xl font-bold uppercase tracking-tight">AI-Accelerated Agency Workflow</h2>
         <p className="max-w-2xl text-neutral-500 text-sm leading-relaxed">
           Vibe-Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von KI-Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
@@ -22,11 +21,11 @@ const ShowcaseB: React.FC = () => {
             className="bg-neutral-950 border border-neutral-900 rounded-lg p-6 space-y-6 relative group hover:border-blue-500/50 transition-colors"
         >
           <div className="flex justify-between items-center">
-            <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase">PHASE_01</span>
-            <Zap className="w-4 h-4 text-blue-500" />
+            <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase" aria-hidden="true">PHASE_01</span>
+            <Zap className="w-4 h-4 text-blue-500" aria-hidden="true" />
           </div>
           <h4 className="text-white font-bold uppercase tracking-tight">AI-Generation (Boilerplate)</h4>
-          <div className="h-24 bg-neutral-900 rounded border border-neutral-800 p-4 mono text-[8px] text-neutral-500 overflow-hidden relative">
+          <div className="h-24 bg-neutral-900 rounded border border-neutral-800 p-4 mono text-[8px] text-neutral-500 overflow-hidden relative" aria-hidden="true">
             <div className="absolute top-2 right-2 flex items-center gap-1 text-blue-500">
               <span className="animate-pulse">●</span> VIBE_MODE
             </div>
@@ -53,11 +52,11 @@ const Layout = () => {
             className="bg-neutral-950 border border-neutral-900 rounded-lg p-6 space-y-6 relative hover:border-blue-500/50 transition-colors"
         >
           <div className="flex justify-between items-center">
-            <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase">PHASE_02</span>
-            <Code2 className="w-4 h-4 text-blue-500" />
+            <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase" aria-hidden="true">PHASE_02</span>
+            <Code2 className="w-4 h-4 text-blue-500" aria-hidden="true" />
           </div>
           <h4 className="text-white font-bold uppercase tracking-tight">Human Refinement (Logic)</h4>
-          <div className="h-24 flex items-center justify-center border-2 border-dashed border-neutral-800 rounded">
+          <div className="h-24 flex items-center justify-center border-2 border-dashed border-neutral-800 rounded" aria-hidden="true">
             <div className="flex flex-col items-center gap-2">
                 <Settings className="w-6 h-6 text-neutral-700 animate-spin-slow" />
                 <span className="mono text-[8px] text-neutral-600">ANTI-GRAVITY IDE_ACTIVE</span>
@@ -76,11 +75,11 @@ const Layout = () => {
             className="bg-neutral-950 border border-neutral-900 rounded-lg p-6 space-y-6 relative hover:border-green-500/50 transition-colors"
         >
           <div className="flex justify-between items-center">
-            <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase">PHASE_03</span>
-            <Monitor className="w-4 h-4 text-green-500" />
+            <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase" aria-hidden="true">PHASE_03</span>
+            <Monitor className="w-4 h-4 text-green-500" aria-hidden="true" />
           </div>
           <h4 className="text-white font-bold uppercase tracking-tight">Client Access (Visual Edit)</h4>
-          <div className="h-24 bg-white rounded border border-neutral-200 flex flex-col items-center justify-center gap-2">
+          <div className="h-24 bg-white rounded border border-neutral-200 flex flex-col items-center justify-center gap-2" aria-hidden="true">
              <div className="w-1/2 h-2 bg-neutral-200 rounded" />
              <div className="w-3/4 h-4 bg-blue-500/20 rounded" />
              <div className="flex items-center gap-1 text-blue-500 mono text-[7px] font-bold">
