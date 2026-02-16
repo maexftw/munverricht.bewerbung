@@ -15,7 +15,7 @@ const SkillMonitor: React.FC = () => {
     <section className="space-y-12">
       <div className="flex flex-col items-center text-center">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// RESOURCE_MONITOR</h3>
-        <h2 className="text-3xl font-bold uppercase tracking-tight">System Performance</h2>
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">System Performance</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -26,7 +26,7 @@ const SkillMonitor: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group relative p-6 bg-neutral-950 border border-neutral-900 rounded-lg hover:border-blue-500 transition-all duration-300"
+            className="group relative p-6 bg-[#111111] border border-neutral-900 rounded-lg hover:border-blue-500 transition-all duration-300"
           >
             <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity" aria-hidden="true">
               {skill.icon}
@@ -37,7 +37,7 @@ const SkillMonitor: React.FC = () => {
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2">
                 {skill.items.map(item => (
-                  <span key={item} className="text-xs text-neutral-400 font-medium">
+                  <span key={item} className="text-xs text-neutral-200 font-medium">
                     {item}
                   </span>
                 ))}

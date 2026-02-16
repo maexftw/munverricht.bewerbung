@@ -14,8 +14,8 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen selection:bg-blue-500/30 selection:text-blue-200 overflow-hidden">
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent pointer-events-none" />
-      <div className="fixed bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/40 via-blue-900/10 to-transparent pointer-events-none z-0" />
+      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none" />
+      <div className="fixed bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/20 via-blue-900/10 to-transparent pointer-events-none z-0" />
       <div className="scanline" />
       <div className="crt-overlay opacity-50" />
 
@@ -48,7 +48,7 @@ const App: React.FC = () => {
               <ShowcaseB />
               <SkillMonitor />
               <ContactShell />
-              <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-400 border-t border-neutral-800">
+              <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">
                 <p>© 2026 MAXIMILIAN UNVERRICHT // THE AGENTIC DEVELOPER // v3.1.0-STABLE</p>
               </footer>
             </main>
