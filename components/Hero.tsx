@@ -2,8 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cpu, Zap, Activity } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  data?: {
+    slogan?: string;
+    firstName?: string;
+    lastName?: string;
+    description?: any;
+  };
+}
+
+const Hero: React.FC<HeroProps> = ({ data }) => {
+  const slogan = data?.slogan || "THE AGENTIC DEVELOPER // AI WORKFLOW SPECIALIST";
+  const firstName = data?.firstName || "MAXIMILIAN";
+  const lastName = data?.lastName || "UNVERRICHT";
+
   return (
     <section className="relative flex flex-col items-center justify-center text-center space-y-8 pt-20">
       <motion.div
@@ -14,21 +28,32 @@ const Hero: React.FC = () => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          <ASCIIText text="THE AGENTIC DEVELOPER // AI WORKFLOW SPECIALIST" />
+          <ASCIIText text={slogan} />
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
-          <ASCIIText text="MAXIMILIAN" /> <ASCIIText text="UNVERRICHT" className="text-blue-500" />
+          <ASCIIText text={firstName} /> <ASCIIText text={lastName} className="text-blue-500" />
         </h1>
       </motion.div>
 
-      <motion.p
+      <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
       >
-        Building <span className="text-white">AI-Powered Web Solutions</span>. Ich verbinde 10+ Jahre Marketing-Erfahrung mit modernen Agentic Workflows für maximale Effizienz und Performance.
-      </motion.p>
+        {data?.description ? (
+          <TinaMarkdown
+            content={data.description}
+            components={{
+              bold: (props) => <span className="text-white" {...props} />,
+            }}
+          />
+        ) : (
+          <>
+            Building <span className="text-white">AI-Powered Web Solutions</span>. Ich verbinde 10+ Jahre Marketing-Erfahrung mit modernen Agentic Workflows für maximale Effizienz und Performance.
+          </>
+        )}
+      </motion.div>
 
       <motion.div
         initial={{ y: 10, opacity: 0 }}
@@ -45,7 +70,7 @@ const Hero: React.FC = () => {
         </button>
 
         <button
-          onClick={() => document.getElementById('showcase-a')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           className="group px-8 py-4 bg-neutral-900 border border-neutral-700 hover:border-blue-500 text-neutral-300 hover:text-white transition-all duration-300 rounded font-bold uppercase tracking-wider text-sm flex items-center"
           aria-label="Projekte ansehen"
         >
