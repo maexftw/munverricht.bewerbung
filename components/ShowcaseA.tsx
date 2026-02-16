@@ -9,9 +9,9 @@ const ShowcaseA: React.FC = () => {
     <section id="architecture" className="space-y-16">
       <div className="space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// ARCHITECTURE_CASE_01</h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">Zero-Cloud Engineering Pipeline</h2>
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">Local AI Analysis Pipeline</h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Für Ingenieurbüros und Statiker entwickelte Lösung zur automatisierten Verarbeitung technischer Dokumente. Der Fokus liegt auf absoluter Datensouveränität durch lokale KI-Inferenz.
+          Für Ingenieurbüros (RAC) entwickelte Lösung zur automatisierten Analyse technischer Dokumente. Maximale Datensouveränität durch lokale Inferenz.
         </p>
       </div>
 
@@ -21,7 +21,7 @@ const ShowcaseA: React.FC = () => {
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none mono text-[8px] leading-tight select-none" aria-hidden="true">
             {BACKGROUND_TEXT}
           </div>
-          
+
           <div className="relative space-y-12">
             {/* Steps Visual */}
             <div className="flex flex-col space-y-8" aria-hidden="true">
@@ -45,11 +45,11 @@ const ShowcaseA: React.FC = () => {
                     <span>ACTIVE</span>
                   </div>
                   <div className="w-full bg-neutral-900 h-1 rounded-full">
-                    <motion.div 
-                        initial={{ width: 0 }}
-                        animate={{ width: '85%' }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-                        className="bg-blue-500 h-full rounded-full" 
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: '85%' }}
+                      transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
+                      className="bg-blue-500 h-full rounded-full"
                     />
                   </div>
                 </div>
@@ -68,9 +68,9 @@ const ShowcaseA: React.FC = () => {
 
             {/* Labels Area */}
             <div className="grid grid-cols-3 gap-4 pt-4 text-center">
-                <div className="mono text-[8px] text-neutral-600 uppercase">Input: Engineering PDF</div>
-                <div className="mono text-[8px] text-blue-500 uppercase">RTX 5090 Inferenz</div>
-                <div className="mono text-[8px] text-green-600 uppercase">Validiertes JSON</div>
+              <div className="mono text-[8px] text-neutral-600 uppercase">Input: Engineering PDF</div>
+              <div className="mono text-[8px] text-blue-500 uppercase">RTX 5090 Inferenz</div>
+              <div className="mono text-[8px] text-green-600 uppercase">Validiertes JSON</div>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ const ShowcaseA: React.FC = () => {
           <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 px-4 py-3 rounded">
             <ShieldCheck className="w-5 h-5 text-green-500" aria-hidden="true" />
             <div className="mono text-[10px] text-neutral-500">
-               STATUS: <span className="text-green-500">100% SECURE / ZERO_CLOUD</span>
+              STATUS: <span className="text-green-500">100% SECURE / ZERO_CLOUD</span>
             </div>
           </div>
         </div>

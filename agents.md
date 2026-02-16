@@ -35,3 +35,11 @@
   - **UX:** Sticky Navigation + Neue "Selected Work" Sektion.
   - **Content:** Hero-Pitch geschärft ("AI-Powered Web Solutions") + CV Download CTA.
 - **Status:** Ready for Review / Deployment.
+
+## Session 2026-02-16 (Antigravity - Content Refinement)
+- **Ergebnis:** Feinschliff des Contents und der Links basierend auf User-Feedback.
+- **Änderungen:**
+  - **Projects:** Liste aktualisiert (TriXstar, Immo, etc.) mit korrekten Links.
+  - **Tone:** "Vibe Coder" statt "Engineer". "ZBN" -> "RAC Analysis".
+  - **Links:** Navigation und CV-Download gefixt.
+- **Status:** Validation.

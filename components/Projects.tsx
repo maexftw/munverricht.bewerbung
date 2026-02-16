@@ -4,51 +4,63 @@ import { ExternalLink, Layers, Layout } from 'lucide-react';
 
 const projects = [
     {
-        title: 'Neurozentrierte Achtsamkeit',
-        url: 'https://neurozentrierteachtsamkeit.de',
-        desc: 'Membership-Plattform & Kurs-System',
-        stack: ['WordPress', 'MemberPress', 'Learndash']
+        title: 'TriXstar Portfolio',
+        url: 'https://trixstar-portfolio.pages.dev/',
+        desc: 'Musiker & Artist Portfolio (Vibe Coded)',
+        stack: ['React', 'Vite', 'Cloudflare']
     },
     {
-        title: 'Croelle',
-        url: 'https://croelle.com',
-        desc: 'E-Commerce & Brand Identity',
-        stack: ['Shopify', 'Liquid', 'GSAP']
+        title: 'Fitness Drensteinfurt',
+        url: 'https://fitness-drensteinfurt-v2.pages.dev/',
+        desc: 'Lokalmarketing & Lead Gen (Relaunch)',
+        stack: ['Landing Page', 'Conversion Opt.']
     },
     {
-        title: 'Böckel-Bartscher',
-        url: 'https://bockel-bartscher.de',
-        desc: 'Corporate Website für Kanzlei',
-        stack: ['WordPress', 'Custom Theme']
+        title: 'Immo Netzwerk Portal',
+        url: 'https://immonetzwerkportal.pages.dev/',
+        desc: 'Immobilien-Plattform Prototyp',
+        stack: ['React', 'Dashboard', 'Concept']
     },
     {
-        title: 'MS Bau Hamm',
-        url: 'https://msbau-hamm.de',
-        desc: 'Handwerker-Website & Lead Gen',
-        stack: ['Webflow', 'Local SEO']
+        title: 'Baker & Charlie',
+        url: 'https://bakerandcharlie.pages.dev/',
+        desc: 'Bäckerei-Website Concept',
+        stack: ['Design', 'Local Business']
+    },
+    {
+        title: 'Kaffee Faensen',
+        url: 'https://www.kaffee-faensen.de/shop/homepage',
+        desc: 'E-Commerce Shopware/Shopify',
+        stack: ['Shop', 'Brand Identity']
     },
     {
         title: 'Kost Sicherheitstechnik',
-        url: 'https://kost-sicherheitstechnik.de',
-        desc: 'Unternehmensauftritt',
+        url: 'https://www.kost-sicherheitstechnik.de/',
+        desc: 'Unternehmensauftritt & SEO',
         stack: ['WordPress', 'Elementor Pro']
     },
     {
-        title: 'Fitnesscenter Drensteinfurt',
-        url: 'https://fitnesscenter-drensteinfurt.de',
-        desc: 'Lokalmarketing & Web-Visitenkarte',
-        stack: ['Astra Theme', 'Google Maps API']
+        title: 'Böckel-Bartscher',
+        url: 'https://www.bockel-bartscher.de/',
+        desc: 'Kanzlei-Website',
+        stack: ['WordPress', 'Corporate Design']
+    },
+    {
+        title: 'RAC / ZBN Pipeline',
+        url: 'https://www.zbn.de',
+        desc: 'Ingenieurbüro (RAG Pipeline Client)',
+        stack: ['AI Analysis', 'Automation']
     },
 ];
 
 const Projects: React.FC = () => {
     return (
-        <section className="space-y-12 py-12 border-t border-neutral-900">
+        <section id="projects" className="space-y-12 py-12 border-t border-neutral-900">
             <div className="flex flex-col items-center text-center space-y-4">
-                <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// CLIENT_ARCHIVE</h3>
-                <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Selected Web Design Work</h2>
+                <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// SELECTED_WORK</h3>
+                <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Project Archive</h2>
                 <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
-                    Auszug aus über 10 Jahren Agentur-Tätigkeit. Fokus auf Conversion, SEO und performante Umsetzung.
+                    Eine Auswahl aktueller Vibe-Coding Projekte und langjähriger Agentur-Arbeiten.
                 </p>
             </div>
 

@@ -22,10 +22,10 @@ const Evolution: React.FC = () => {
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-blue-500">2025 - HEUTE // INDIE_GAME_DEV</span>
-              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">Game Development & Interactive Media</h4>
+              <span className="mono text-[10px] text-blue-500">2024 - HEUTE // AGENTIC_PIPELINES</span>
+              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">AI Orchestrator & Vibe Coding</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Entwicklung eines eigenen Videospiels (Unreal Engine 5 / Godot). Fokus auf immersive Storytelling-Mechaniken, High-Fidelity Assets und komplexe C++ Logik. Übertragung von Web-Technologien in die Game-Engine.
+                Entwicklung lokaler RAG-Systeme für technische Gutachten (RAC Analysis). Bau der "Stitch-to-Tina" Pipeline: Automatische Überführung von AI-Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.
               </p>
             </div>
           </motion.li>
@@ -40,10 +40,10 @@ const Evolution: React.FC = () => {
               <GitCommit className="w-3 h-3 text-neutral-500" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-neutral-600">2023 - 2025 // AGENTIC_PIPELINES</span>
-              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">AI Engineering & ZBN Pipeline</h4>
+              <span className="mono text-[10px] text-neutral-600">2023 - 2024 // EXPERIMENTAL_TECH</span>
+              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Creative Tech & Prototyping</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Entwicklung lokaler RAG-Systeme für technische Gutachten (ZBN). Bau der "Stitch-to-Tina" Pipeline: Automatische Überführung von AI-Code in CMS-basierte Kundenprojekte. 100% lokale Inferenz auf High-End Hardware.
+                Tiefer Einstieg in LLMs und generative AI. Nutzung von Game-Engines (Unreal 5) für interaktive Erlebnisse. Experimente mit neuen Interfaces jenseits des klassischen Webs.
               </p>
             </div>
           </motion.li>
