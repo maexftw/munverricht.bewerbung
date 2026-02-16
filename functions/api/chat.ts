@@ -4,6 +4,14 @@ export const onRequestPost: PagesFunction<{ GEMINI_API_KEY: string }> = async (c
   try {
     const { message } = await request.json() as { message: string };
 
+    // Security: Input validation
+    if (!message || typeof message !== 'string' || message.length > 2000) {
+      return new Response(JSON.stringify({ error: 'Invalid transmission. Data payload out of bounds.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     if (!env.GEMINI_API_KEY) {
       return new Response(JSON.stringify({ error: 'System configuration error: API uplink not established.' }), {
         status: 500,
@@ -20,7 +28,7 @@ export const onRequestPost: PagesFunction<{ GEMINI_API_KEY: string }> = async (c
         contents: [{
           parts: [{
             text: `Du bist die KI-Assistenz von Maximilian Unverricht (The Agentic Developer).
-                  Jemand schreibt ihm gerade diese Nachricht: "${message}".
+                  Jemand schreibt ihm gerade diese Nachricht: "${message.replace(/"/g, "'")}".
                   Antworte extrem kurz, professionell und in seinem "High-Tech/Agentic" Stil (Deutsch).
                   Bestätige, dass die Nachricht sicher in seinem System eingegangen ist.
                   SystemInstruction: Sei kurz angebunden, aber hilfsbereit. Nutze technische Metaphern.`
@@ -39,6 +47,7 @@ export const onRequestPost: PagesFunction<{ GEMINI_API_KEY: string }> = async (c
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
+    // Security: Generic error message to avoid leaking internals
     return new Response(JSON.stringify({ error: 'Uplink failure. Connection reset.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }

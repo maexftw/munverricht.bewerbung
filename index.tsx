@@ -27,7 +27,7 @@ if (!rootElement) {
         rootElement.innerHTML = `
             <div style="color: #ef4444; font-family: monospace; padding: 40px; text-align: center;">
                 <h2 style="font-size: 20px;">[BOOT_CRASH]</h2>
-                <pre style="text-align: left; background: #111; padding: 20px; border: 1px solid #333; margin-top: 20px; overflow-x: auto; font-size: 12px;">${error.stack || error.message || error}</pre>
+                <p style="margin-top: 20px; color: #888;">System initialization failed. Please refresh or contact support.</p>
             </div>
         `;
     }
