@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Database, Brain, Globe, Cpu } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const skills = [
   { category: 'Core Tools', items: ['Google Anti-Gravity IDE', 'Google Stitch', 'Vibe Coding'], icon: <Globe className="w-4 h-4" />, level: 98 },
@@ -14,8 +15,12 @@ const SkillMonitor: React.FC = () => {
   return (
     <section className="space-y-12">
       <div className="flex flex-col items-center text-center">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// RESOURCE_MONITOR</h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">System Performance</h2>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">
+            <ASCIIText text="// RESOURCE_MONITOR" />
+        </h3>
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">
+            <ASCIIText text="System Performance" />
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -32,7 +37,9 @@ const SkillMonitor: React.FC = () => {
               {skill.icon}
             </div>
 
-            <h4 className="mono text-[10px] text-blue-500 uppercase tracking-widest mb-4">{skill.category}</h4>
+            <h4 className="mono text-[10px] text-blue-500 uppercase tracking-widest mb-4">
+                <ASCIIText text={skill.category} />
+            </h4>
 
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2">

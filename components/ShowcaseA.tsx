@@ -1,15 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const BACKGROUND_TEXT = Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_QWEN_32B_RTX5090 ").join(" ");
 
 const ShowcaseA: React.FC = () => {
   return (
-    <section id="architecture" className="space-y-16">
+    <section id="showcase-a" className="space-y-16">
       <div className="space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// ARCHITECTURE_CASE_01</h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">Local AI Analysis Pipeline</h2>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
+            <ASCIIText text="// ARCHITECTURE_CASE_01" />
+        </h3>
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">
+            <ASCIIText text="Local AI Analysis Pipeline" />
+        </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           Für Ingenieurbüros (RAC) entwickelte Lösung zur automatisierten Analyse technischer Dokumente. Maximale Datensouveränität durch lokale Inferenz.
         </p>
@@ -79,19 +84,25 @@ const ShowcaseA: React.FC = () => {
         <div className="lg:col-span-5 space-y-8 self-center">
           <div className="space-y-6">
             <div className="space-y-2">
-              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">{">> Ingest & Extraction"}</h4>
+              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
+                  <ASCIIText text=">> Ingest & Extraction" />
+              </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 Nutzung von <strong>Docling</strong> und <strong>PyMuPDF</strong> für die präzise Extraktion von Tabellen und statischen Werten aus komplexen technischen Dokumentationen.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">{">> Context-Aware Translation"}</h4>
+              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
+                  <ASCIIText text=">> Context-Aware Translation" />
+              </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 Keine Standard-Translation. Lokale <strong>Qwen-32B</strong> Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.
               </p>
             </div>
             <div className="space-y-2">
-              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">{">> Hallucination Check"}</h4>
+              <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
+                  <ASCIIText text=">> Hallucination Check" />
+              </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 Eine integrierte <strong>Python-Validierungsebene</strong> prüft via Regex und mathematischen Checks, ob alle Zahlenwerte im Output mit dem Original übereinstimmen.
               </p>

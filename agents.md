@@ -43,3 +43,11 @@
   - **Tone:** "Vibe Coder" statt "Engineer". "ZBN" -> "RAC Analysis".
   - **Links:** Navigation und CV-Download gefixt.
 - **Status:** Validation.
+## Session 2026-02-16 (Jules - ASCII Effect)
+- **Ergebnis:** ASCII Glitch Ripple Effekt für Überschriften implementiert.
+- **Änderungen:**
+  - Neue Komponente `ASCIIText.tsx` erstellt (Portierung von CodePen).
+  - Effekt auf alle Sektions-Überschriften und Hero-Titel angewendet.
+  - Barrierefreiheit durch `aria-label` sichergestellt.
+  - Layout-Stabilität durch Breitenmessung (`useLayoutEffect`) gewährleistet.
+- **Status:** Abgeschlossen.

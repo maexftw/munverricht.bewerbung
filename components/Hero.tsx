@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cpu, Zap, Activity } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const Hero: React.FC = () => {
   return (
@@ -13,10 +14,10 @@ const Hero: React.FC = () => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          THE AGENTIC DEVELOPER // AI WORKFLOW SPECIALIST
+          <ASCIIText text="THE AGENTIC DEVELOPER // AI WORKFLOW SPECIALIST" />
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
-          MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
+          <ASCIIText text="MAXIMILIAN" /> <ASCIIText text="UNVERRICHT" className="text-blue-500" />
         </h1>
       </motion.div>
 

@@ -1,13 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GitCommit, History } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const Evolution: React.FC = () => {
   return (
     <section id="evolution" className="space-y-16 py-12">
       <div className="flex flex-col items-center text-center space-y-2">
-        <h3 className="mono text-blue-500 text-[10px] tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// CHRONOLOGICAL_DATABASE</h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Werdegang & Meilensteine</h2>
+        <h3 className="mono text-blue-500 text-[10px] tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
+          <ASCIIText text="// CHRONOLOGICAL_DATABASE" />
+        </h3>
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">
+          <ASCIIText text="Werdegang & Meilensteine" />
+        </h2>
       </div>
 
       <div className="max-w-[65ch] mx-auto space-y-12">
