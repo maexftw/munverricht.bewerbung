@@ -1,20 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Layout } from 'lucide-react';
+import { ExternalLink, Layers, Layout } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-interface Project {
-  title?: string;
-  url?: string;
-  desc?: string;
-  stack?: string[];
-}
-
-interface ProjectsProps {
-  data?: Project[];
-}
-
-const defaultProjects: Project[] = [
+const projects = [
     {
         title: 'TriXstar Portfolio',
         url: 'https://trixstar-portfolio.pages.dev/',
@@ -33,11 +22,39 @@ const defaultProjects: Project[] = [
         desc: 'Immobilien-Plattform Prototyp',
         stack: ['React', 'Dashboard', 'Concept']
     },
+    {
+        title: 'Baker & Charlie',
+        url: 'https://bakerandcharlie.pages.dev/',
+        desc: 'Bäckerei-Website Concept',
+        stack: ['Design', 'Local Business']
+    },
+    {
+        title: 'Kaffee Faensen',
+        url: 'https://www.kaffee-faensen.de/shop/homepage',
+        desc: 'E-Commerce Shopware/Shopify',
+        stack: ['Shop', 'Brand Identity']
+    },
+    {
+        title: 'Kost Sicherheitstechnik',
+        url: 'https://www.kost-sicherheitstechnik.de/',
+        desc: 'Unternehmensauftritt & SEO',
+        stack: ['WordPress', 'Elementor Pro']
+    },
+    {
+        title: 'Böckel-Bartscher',
+        url: 'https://www.bockel-bartscher.de/',
+        desc: 'Kanzlei-Website',
+        stack: ['WordPress', 'Corporate Design']
+    },
+    {
+        title: 'RAC / ZBN Pipeline',
+        url: 'https://www.zbn.de',
+        desc: 'Ingenieurbüro (RAG Pipeline Client)',
+        stack: ['AI Analysis', 'Automation']
+    },
 ];
 
-const Projects: React.FC<ProjectsProps> = ({ data }) => {
-    const projects = data || defaultProjects;
-
+const Projects: React.FC = () => {
     return (
         <section id="projects" className="space-y-12 py-12 border-t border-neutral-900">
             <div className="flex flex-col items-center text-center space-y-4">
@@ -72,7 +89,7 @@ const Projects: React.FC<ProjectsProps> = ({ data }) => {
                             <div className="flex items-center gap-3 mb-2">
                                 <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" aria-hidden="true" />
                                 <h4 className="font-bold text-neutral-200 group-hover:text-white uppercase text-sm tracking-wide">
-                                    <ASCIIText text={p.title || ""} />
+                                    <ASCIIText text={p.title} />
                                 </h4>
                             </div>
 
@@ -81,7 +98,7 @@ const Projects: React.FC<ProjectsProps> = ({ data }) => {
                             </p>
 
                             <div className="flex flex-wrap gap-2 pt-2 border-t border-neutral-900/50">
-                                {p.stack?.map(s => (
+                                {p.stack.map(s => (
                                     <span key={s} className="px-2 py-1 bg-neutral-900 rounded text-[9px] mono text-neutral-500 uppercase tracking-wider">
                                         {s}
                                     </span>
