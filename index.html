@@ -154,10 +154,7 @@
                 if (diag) diag.innerText = '[RUNTIME_ERROR]';
                 if (errDisplay) {
                     errDisplay.style.display = 'block';
-                    errDisplay.innerText = 'Error: ' + msg + '\nAt: ' + (url ? url.split('/').pop() : 'unknown') + ':' + line + ':' + col;
-                    if (error && error.stack) {
-                        errDisplay.innerText += '\n\nStack:\n' + error.stack;
-                    }
+                    errDisplay.innerText = "A runtime error occurred. Please refresh the page.";
                 }
                 return false;
             };
@@ -166,7 +163,7 @@
                 if (diag) diag.innerText = '[PROMISE_REJECTION]';
                 if (errDisplay) {
                     errDisplay.style.display = 'block';
-                    errDisplay.innerText = 'Promise Error: ' + event.reason;
+                    errDisplay.innerText = "A runtime error occurred. Please refresh the page.";
                 }
             });
 

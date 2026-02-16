@@ -1,6 +1,6 @@
 # GitHub & Jules Sync Automation
 
-$JULES_API_KEY = "AQ.Ab8RN6KEn57urD61PhpSz0YiJf3Ul5Pga0nwtNqcSKD5ZIMYzg"
+$JULES_API_KEY = "REDACTED_BY_SENTINEL"
 $CF_PROJECT = "maximilian-unverricht"
 
 function Pull-Main {
