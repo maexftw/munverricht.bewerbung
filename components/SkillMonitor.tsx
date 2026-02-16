@@ -3,35 +3,15 @@ import { motion } from 'framer-motion';
 import { Activity, Database, Brain, Globe, Cpu } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-interface Skill {
-  category?: string;
-  items?: string[];
-  level?: number;
-}
-
-interface SkillMonitorProps {
-  data?: Skill[];
-}
-
-const iconMap: Record<string, React.ReactNode> = {
-  'Core Tools': <Globe className="w-4 h-4" />,
-  'Intelligence': <Brain className="w-4 h-4" />,
-  'High-End Station': <Cpu className="w-4 h-4" />,
-  'Legacy Roots': <Database className="w-4 h-4" />,
-  'Business Data': <Activity className="w-4 h-4" />,
-};
-
-const defaultSkills: Skill[] = [
-  { category: 'Core Tools', items: ['Google Anti-Gravity IDE', 'Google Stitch', 'Vibe Coding'], level: 98 },
-  { category: 'Intelligence', items: ['LM Studio', 'Mistral-Large', 'Qwen-32B (Local)', 'RAG Pipelines'], level: 95 },
-  { category: 'High-End Station', items: ['NVIDIA RTX 5090', 'Local Inference Server', 'Unreal Engine 5'], level: 100 },
-  { category: 'Legacy Roots', items: ['WordPress (10Y)', 'Webflow (2Y)', 'PHP', 'GSAP'], level: 90 },
-  { category: 'Business Data', items: ['Google Ads (Cert.)', 'Google Analytics (Cert.)', 'Tag Manager'], level: 85 },
+const skills = [
+  { category: 'Core Tools', items: ['Google Anti-Gravity IDE', 'Google Stitch', 'Vibe Coding'], icon: <Globe className="w-4 h-4" />, level: 98 },
+  { category: 'Intelligence', items: ['LM Studio', 'Mistral-Large', 'Qwen-32B (Local)', 'RAG Pipelines'], icon: <Brain className="w-4 h-4" />, level: 95 },
+  { category: 'High-End Station', items: ['NVIDIA RTX 5090', 'Local Inference Server', 'Unreal Engine 5'], icon: <Cpu className="w-4 h-4" />, level: 100 },
+  { category: 'Legacy Roots', items: ['WordPress (10Y)', 'Webflow (2Y)', 'PHP', 'GSAP'], icon: <Database className="w-4 h-4" />, level: 90 },
+  { category: 'Business Data', items: ['Google Ads (Cert.)', 'Google Analytics (Cert.)', 'Tag Manager'], icon: <Activity className="w-4 h-4" />, level: 85 },
 ];
 
-const SkillMonitor: React.FC<SkillMonitorProps> = ({ data }) => {
-  const skills = data || defaultSkills;
-
+const SkillMonitor: React.FC = () => {
   return (
     <section className="space-y-12">
       <div className="flex flex-col items-center text-center">
@@ -54,16 +34,16 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ data }) => {
             className="group relative p-6 bg-[#111111] border border-neutral-900 rounded-lg hover:border-blue-500 transition-all duration-300"
           >
             <div className="absolute top-0 right-0 p-3 opacity-20 group-hover:opacity-100 transition-opacity" aria-hidden="true">
-              {skill.category ? iconMap[skill.category] || <Activity className="w-4 h-4" /> : <Activity className="w-4 h-4" />}
+              {skill.icon}
             </div>
 
             <h4 className="mono text-[10px] text-blue-500 uppercase tracking-widest mb-4">
-                <ASCIIText text={skill.category || ""} />
+                <ASCIIText text={skill.category} />
             </h4>
 
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2">
-                {skill.items?.map(item => (
+                {skill.items.map(item => (
                   <span key={item} className="text-xs text-neutral-200 font-medium">
                     {item}
                   </span>
