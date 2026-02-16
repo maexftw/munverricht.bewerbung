@@ -61,7 +61,7 @@ const Projects: React.FC = () => {
                 <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
                     <ASCIIText text="// SELECTED_WORK" />
                 </h3>
-                <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">
+                <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
                     <ASCIIText text="Project Archive" />
                 </h2>
                 <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">

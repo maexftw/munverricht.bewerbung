@@ -4,7 +4,7 @@ const WAVE_THRESH = 3;
 const CHAR_MULT = 3;
 const ANIM_STEP = 40;
 const WAVE_BUF = 5;
-const CHARS = '.,·-─~+:;=*π""┐┌┘┴┬╗╔╝╚╬╠╣╩╦║░▒▓█▄▀▌▐■!?&#$@0123456789*';
+const CHARS = '.,·-─~+:;=*π""┐┌┘┴┬╗╔╝╚╬╠╣╩╦║░▒▓█▄▀▌▐■!?&#0123456789*';
 
 interface Wave {
   startPos: number;
@@ -40,17 +40,53 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   const lastCursorPosRef = useRef(-1);
   const [width, setWidth] = useState<number | null>(null);
 
-  // Measure initial width to prevent layout shifts
-  useLayoutEffect(() => {
+  const measureWidth = useCallback(() => {
     if (containerRef.current) {
       // Temporarily ensure natural width to measure
       const originalWidth = containerRef.current.style.width;
       containerRef.current.style.width = 'auto';
+      // Force a reflow to get accurate measurement
       const rect = containerRef.current.getBoundingClientRect();
-      setWidth(rect.width);
+      if (rect.width > 0) {
+        setWidth(rect.width);
+      }
       containerRef.current.style.width = originalWidth;
     }
-  }, [text]);
+  }, []);
+
+  // Measure initial width and respond to font loading
+  useLayoutEffect(() => {
+    measureWidth();
+
+    // Re-measure after fonts are loaded to prevent overlap/spacing issues
+    // especially important for custom fonts like 'Inter' or 'JetBrains Mono'
+    if (typeof document !== 'undefined' && 'fonts' in (document as any)) {
+      (document as any).fonts.ready.then(() => {
+        measureWidth();
+      });
+    }
+  }, [text, measureWidth]);
+
+  // Use ResizeObserver to catch any other layout changes (e.g. window resize)
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        // Only update if the width is significantly different to avoid jitter
+        // and only when not hovering to avoid feedback loops during animation
+        if (!isHoveringRef.current) {
+          const newWidth = entry.contentRect.width;
+          if (width && Math.abs(newWidth - width) > 1) {
+             measureWidth();
+          }
+        }
+      }
+    });
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [measureWidth, width]);
 
   const getCursorPos = useCallback((e: React.MouseEvent | MouseEvent) => {
     if (!containerRef.current) return 0;
@@ -153,11 +189,14 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   return (
     <Component
       ref={containerRef as any}
-      className={`${className} inline-block cursor-default select-none`}
+      className={`${className} inline-block cursor-default select-none whitespace-nowrap`}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ width: width ? `${width}px` : 'auto' }}
+      style={{
+        width: width ? `${width}px` : 'auto',
+        minWidth: 'fit-content'
+      }}
       aria-label={text}
     >
       {displayText}

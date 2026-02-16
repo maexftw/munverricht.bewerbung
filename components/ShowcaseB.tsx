@@ -10,7 +10,7 @@ const ShowcaseB: React.FC = () => {
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
             <ASCIIText text="// ARCHITECTURE_CASE_02" />
         </h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
             <ASCIIText text="AI-Accelerated Agency Workflow" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
