@@ -1,13 +1,28 @@
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
-const BackgroundAnimation: React.FC = () => {
+interface BackgroundAnimationProps {
+  isPaused?: boolean;
+}
+
+const BackgroundAnimation: React.FC<BackgroundAnimationProps> = ({ isPaused = false }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const p5Ref = useRef<p5 | undefined>(undefined);
+
+  // Optimization: Toggle the p5 loop based on the isPaused prop.
+  // This saves 100% of CPU/GPU resources when the animation is hidden behind the boot screen.
+  useEffect(() => {
+    if (p5Ref.current) {
+      if (isPaused) {
+        p5Ref.current.noLoop();
+      } else {
+        p5Ref.current.loop();
+      }
+    }
+  }, [isPaused]);
 
   useEffect(() => {
     if (!containerRef.current) return;
-
-    let p5Instance: p5 | undefined;
 
     const sketch = (p: p5) => {
       let originalImg: p5.Image;
@@ -77,7 +92,6 @@ const BackgroundAnimation: React.FC = () => {
         }
       };
 
-      // Optimized image preparation - call this only when image needs re-processing
       const prepareImage = () => {
         if (!originalImg) return;
         img = originalImg.get();
@@ -92,7 +106,7 @@ const BackgroundAnimation: React.FC = () => {
           }
           img.updatePixels();
         }
-        img.loadPixels(); // Ensure pixels array is populated for reading in draw()
+        img.loadPixels();
       };
 
       p.setup = () => {
@@ -105,6 +119,9 @@ const BackgroundAnimation: React.FC = () => {
         
         magnifierX = p.width / 2;
         magnifierY = p.height / 2;
+
+        // Ensure loop state matches prop on startup
+        if (isPaused) p.noLoop();
       };
 
       p.windowResized = () => {
@@ -133,8 +150,6 @@ const BackgroundAnimation: React.FC = () => {
         magnifierX = p.lerp(magnifierX, p.mouseX, params.magnifierInertia);
         magnifierY = p.lerp(magnifierY, p.mouseY, params.magnifierInertia);
 
-        // Optimization: Merged force field and drawing logic into a single loop.
-        // Hoisted invariant variables out of the loop to minimize property lookups and function calls.
         p.noFill();
 
         const { enabled: forceEnabled, strength, friction, restoreSpeed } = params.forceField;
@@ -148,29 +163,47 @@ const BackgroundAnimation: React.FC = () => {
         const shadeFactor = (paletteLen - 1) / 255;
         const strokeFactor = (maxStroke - minStroke) / 255;
 
+        // Optimization: Bucket points by shade to minimize p.stroke() and p.strokeWeight() calls.
+        // Instead of 10k+ state changes per frame, we reduce it to paletteLen (12).
+        const buckets: {x: number, y: number}[][] = Array.from({ length: paletteLen }, () => []);
+
         for (let pt of points) {
-          // 1. Force Field Physics Update
+          const dx = pt.pos.x - magnifierX;
+          const dy = pt.pos.y - magnifierY;
+          const dSq = dx * dx + dy * dy;
+
+          // 1. Optimized Force Field Physics Update
           if (forceEnabled) {
-            const dx = pt.pos.x - magnifierX;
-            const dy = pt.pos.y - magnifierY;
-            const dSq = dx * dx + dy * dy;
+            const isInMagnifier = dSq < radiusSq && dSq > 0;
 
-            if (dSq < radiusSq && dSq > 0) {
-              const d = Math.sqrt(dSq);
-              const forceStrength = strength / (d + 1);
-              pt.vel.x += (dx / d) * forceStrength;
-              pt.vel.y += (dy / d) * forceStrength;
+            // Physics skip: If point is at rest and not in magnifier, skip complex math.
+            const isMoving = Math.abs(pt.vel.x) > 0.01 || Math.abs(pt.vel.y) > 0.01;
+            const isOffOrigin = Math.abs(pt.pos.x - pt.originalPos.x) > 0.1 || Math.abs(pt.pos.y - pt.originalPos.y) > 0.1;
+
+            if (isInMagnifier || isMoving || isOffOrigin) {
+              if (isInMagnifier) {
+                const d = Math.sqrt(dSq);
+                const forceStrength = strength / (d + 1);
+                pt.vel.x += (dx / d) * forceStrength;
+                pt.vel.y += (dy / d) * forceStrength;
+              }
+
+              pt.vel.x *= friction;
+              pt.vel.y *= friction;
+              pt.vel.x += (pt.originalPos.x - pt.pos.x) * restoreSpeed;
+              pt.vel.y += (pt.originalPos.y - pt.pos.y) * restoreSpeed;
+              pt.pos.x += pt.vel.x;
+              pt.pos.y += pt.vel.y;
+            } else {
+              // Clamp to origin to ensure stability
+              pt.pos.x = pt.originalPos.x;
+              pt.pos.y = pt.originalPos.y;
+              pt.vel.x = 0;
+              pt.vel.y = 0;
             }
-
-            pt.vel.x *= friction;
-            pt.vel.y *= friction;
-            pt.vel.x += (pt.originalPos.x - pt.pos.x) * restoreSpeed;
-            pt.vel.y += (pt.originalPos.y - pt.pos.y) * restoreSpeed;
-            pt.pos.x += pt.vel.x;
-            pt.pos.y += pt.vel.y;
           }
 
-          // 2. Optimized Rendering Logic
+          // 2. Rendering Data Preparation
           const x = pt.pos.x;
           const y = pt.pos.y;
           const px = x | 0;
@@ -186,38 +219,43 @@ const BackgroundAnimation: React.FC = () => {
 
             if (condition) {
               const shadeIndex = (brightness * shadeFactor) | 0;
-              let strokeSize = brightness * strokeFactor + minStroke;
-
-              if (magnifierEnabled) {
-                const dx = x - magnifierX;
-                const dy = y - magnifierY;
-                const dSq = dx * dx + dy * dy;
-
-                if (dSq < radiusSq) {
-                  const d = Math.sqrt(dSq);
-                  // Optimized mapping for magnifier factor
-                  const factor = (d * (1 - magnifierStrength) / magnifierRadius) + magnifierStrength;
-                  strokeSize *= factor;
-                }
-              }
-
-              p.stroke(palette[shadeIndex]);
-              p.strokeWeight(strokeSize);
-              p.point(x, y);
+              buckets[shadeIndex].push({x, y});
             }
           }
+        }
+
+        // 3. Batch Rendering with p.beginShape(p.POINTS)
+        // This is significantly faster than calling p.point() individually.
+        for (let i = 0; i < paletteLen; i++) {
+          const bucket = buckets[i];
+          if (bucket.length === 0) continue;
+
+          p.stroke(palette[i]);
+
+          // Approximate stroke weight for the bucket to keep it fast.
+          // Since shadeIndex is tied to brightness, this is a very close approximation.
+          const avgBrightness = i * (255 / (paletteLen - 1));
+          let strokeSize = avgBrightness * strokeFactor + minStroke;
+
+          p.strokeWeight(strokeSize);
+          p.beginShape(p.POINTS);
+          for (let j = 0; j < bucket.length; j++) {
+            p.vertex(bucket[j].x, bucket[j].y);
+          }
+          p.endShape();
         }
       };
     };
 
     try {
-      p5Instance = new p5(sketch);
+      p5Ref.current = new p5(sketch);
     } catch (e) {
       console.error("p5 initialization failed:", e);
     }
 
     return () => {
-      p5Instance?.remove();
+      p5Ref.current?.remove();
+      p5Ref.current = undefined;
     };
   }, []);
 

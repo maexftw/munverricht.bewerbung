@@ -6,7 +6,9 @@ import ShowcaseA from './components/ShowcaseA';
 import ShowcaseB from './components/ShowcaseB';
 import SkillMonitor from './components/SkillMonitor';
 import ContactShell from './components/ContactShell';
-import BackgroundAnimation from './components/BackgroundAnimation';
+// Lazy load BackgroundAnimation to move the heavy p5.js dependency to a separate chunk.
+// This significantly improves initial bundle size and speeds up the boot screen appearance.
+const BackgroundAnimation = React.lazy(() => import('./components/BackgroundAnimation'));
 import { motion, AnimatePresence } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -26,7 +28,9 @@ const App: React.FC = () => {
         Zum Hauptinhalt springen
       </a>
 
-      <BackgroundAnimation />
+      <React.Suspense fallback={null}>
+        <BackgroundAnimation isPaused={booting} />
+      </React.Suspense>
 
       <AnimatePresence mode="wait">
         {booting ? (
