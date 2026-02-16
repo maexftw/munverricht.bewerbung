@@ -1,8 +1,6 @@
-
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Terminal, Loader2 } from 'lucide-react';
-import { GoogleGenAI } from "@google/genai";
 
 const ContactShell: React.FC = () => {
   const [input, setInput] = useState('');
@@ -20,25 +18,25 @@ const ContactShell: React.FC = () => {
     setStatus('sending');
 
     try {
-      // Initialize AI to simulate an "Agentic Response"
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `Du bist die KI-Assistenz von Maximilian Unverricht (The Agentic Developer). 
-                  Jemand schreibt ihm gerade diese Nachricht: "${userMsg}".
-                  Antworte extrem kurz, professionell und in seinem "High-Tech/Agentic" Stil (Deutsch).
-                  Bestätige, dass die Nachricht sicher in seinem System eingegangen ist.`,
-        config: {
-            systemInstruction: "Sei kurz angebunden, aber hilfsbereit. Nutze technische Metaphern.",
-            maxOutputTokens: 100
-        }
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userMsg }),
       });
 
-      setMessages(prev => [...prev, { role: 'agent', text: response.text || 'Message received. Transmission successful.' }]);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Network response was not ok');
+      }
+
+      const data = await response.json();
+      setMessages(prev => [...prev, { role: 'agent', text: data.text || 'Message received. Transmission successful.' }]);
       setStatus('success');
       setTimeout(() => setStatus('idle'), 3000);
-    } catch (err) {
-      setMessages(prev => [...prev, { role: 'agent', text: 'Error in uplink. Connection reset. Please try again.' }]);
+    } catch (err: any) {
+      setMessages(prev => [...prev, { role: 'agent', text: err.message || 'Error in uplink. Connection reset. Please try again.' }]);
       setStatus('idle');
     }
     
