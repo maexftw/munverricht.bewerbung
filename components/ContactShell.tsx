@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Terminal, Loader2, Check } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const ContactShell: React.FC = () => {
   const [input, setInput] = useState('');
@@ -44,10 +45,14 @@ const ContactShell: React.FC = () => {
   };
 
   return (
-    <section className="space-y-12 pb-20">
+    <section id="contact-shell" className="space-y-12 pb-20">
       <div className="flex flex-col items-center text-center">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// OPEN_FREQUENCY</h3>
-        <h2 className="text-4xl font-bold uppercase">Execute Collaboration</h2>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">
+            <ASCIIText text="// OPEN_FREQUENCY" />
+        </h3>
+        <h2 className="text-4xl font-bold uppercase">
+            <ASCIIText text="Execute Collaboration" />
+        </h2>
       </div>
 
       <div className="max-w-3xl mx-auto bg-[#111111] border border-blue-500/30 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.1)]">
@@ -55,7 +60,9 @@ const ContactShell: React.FC = () => {
         <div className="bg-neutral-900 px-4 py-2 flex justify-between items-center border-b border-neutral-800" aria-hidden="true">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-blue-500" />
-            <span className="mono text-[10px] text-neutral-400">AGENTIC_CONTACT_SHELL_v1.0</span>
+            <span className="mono text-[10px] text-neutral-400">
+                <ASCIIText text="AGENTIC_CONTACT_SHELL_v1.0" />
+            </span>
           </div>
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />

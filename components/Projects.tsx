@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const projects = [
     {
@@ -57,8 +58,12 @@ const Projects: React.FC = () => {
     return (
         <section id="projects" className="space-y-12 py-12 border-t border-neutral-900">
             <div className="flex flex-col items-center text-center space-y-4">
-                <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// SELECTED_WORK</h3>
-                <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Project Archive</h2>
+                <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
+                    <ASCIIText text="// SELECTED_WORK" />
+                </h3>
+                <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">
+                    <ASCIIText text="Project Archive" />
+                </h2>
                 <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
                     Eine Auswahl aktueller Vibe-Coding Projekte und langjähriger Agentur-Arbeiten.
                 </p>
@@ -83,7 +88,9 @@ const Projects: React.FC = () => {
                         <div className="space-y-4 relative z-10">
                             <div className="flex items-center gap-3 mb-2">
                                 <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" aria-hidden="true" />
-                                <h4 className="font-bold text-neutral-200 group-hover:text-white uppercase text-sm tracking-wide">{p.title}</h4>
+                                <h4 className="font-bold text-neutral-200 group-hover:text-white uppercase text-sm tracking-wide">
+                                    <ASCIIText text={p.title} />
+                                </h4>
                             </div>
 
                             <p className="text-xs text-neutral-400 leading-relaxed font-mono min-h-[3em]">

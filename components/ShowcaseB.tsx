@@ -1,13 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Code2, Monitor, MousePointer2, Settings } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const ShowcaseB: React.FC = () => {
   return (
     <section className="space-y-16 py-12">
       <div className="flex flex-col items-end text-right space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// ARCHITECTURE_CASE_02</h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">AI-Accelerated Agency Workflow</h2>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
+            <ASCIIText text="// ARCHITECTURE_CASE_02" />
+        </h3>
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">
+            <ASCIIText text="AI-Accelerated Agency Workflow" />
+        </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           Vibe-Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von KI-Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
         </p>
@@ -24,7 +29,9 @@ const ShowcaseB: React.FC = () => {
             <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase" aria-hidden="true">PHASE_01</span>
             <Zap className="w-4 h-4 text-blue-500" aria-hidden="true" />
           </div>
-          <h4 className="text-white font-bold uppercase tracking-[0.05em]">AI-Generation (Boilerplate)</h4>
+          <h4 className="text-white font-bold uppercase tracking-[0.05em]">
+              <ASCIIText text="AI-Generation (Boilerplate)" />
+          </h4>
           <div className="h-24 bg-neutral-900 rounded border border-neutral-800 p-4 mono text-[8px] overflow-hidden relative" aria-hidden="true">
             <div className="absolute top-2 right-2 flex items-center gap-1 text-blue-500">
               <span className="animate-pulse">●</span> VIBE_MODE
@@ -67,7 +74,9 @@ const ShowcaseB: React.FC = () => {
             <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase" aria-hidden="true">PHASE_02</span>
             <Code2 className="w-4 h-4 text-blue-500" aria-hidden="true" />
           </div>
-          <h4 className="text-white font-bold uppercase tracking-[0.05em]">Human Refinement (Logic)</h4>
+          <h4 className="text-white font-bold uppercase tracking-[0.05em]">
+              <ASCIIText text="Human Refinement (Logic)" />
+          </h4>
           <div className="h-24 flex items-center justify-center border-2 border-dashed border-neutral-800 rounded" aria-hidden="true">
             <div className="flex flex-col items-center gap-2">
                 <Settings className="w-6 h-6 text-neutral-700 animate-spin-slow" />
@@ -90,7 +99,9 @@ const ShowcaseB: React.FC = () => {
             <span className="mono text-[9px] text-neutral-600 tracking-widest uppercase" aria-hidden="true">PHASE_03</span>
             <Monitor className="w-4 h-4 text-green-500" aria-hidden="true" />
           </div>
-          <h4 className="text-white font-bold uppercase tracking-[0.05em]">Client Access (Visual Edit)</h4>
+          <h4 className="text-white font-bold uppercase tracking-[0.05em]">
+              <ASCIIText text="Client Access (Visual Edit)" />
+          </h4>
           <div className="h-24 bg-white rounded border border-neutral-200 flex flex-col items-center justify-center gap-2" aria-hidden="true">
              <div className="w-1/2 h-2 bg-neutral-200 rounded" />
              <div className="w-3/4 h-4 bg-blue-500/20 rounded" />
