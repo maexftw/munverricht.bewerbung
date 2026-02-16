@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
           <ASCIIText text="THE AGENTIC DEVELOPER // AI WORKFLOW SPECIALIST" />
         </h2>
-        <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
+        <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2 mono">
           <ASCIIText text="MAXIMILIAN" /> <ASCIIText text="UNVERRICHT" className="text-blue-500" />
         </h1>
       </motion.div>

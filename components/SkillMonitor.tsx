@@ -18,7 +18,7 @@ const SkillMonitor: React.FC = () => {
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">
             <ASCIIText text="// RESOURCE_MONITOR" />
         </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
             <ASCIIText text="System Performance" />
         </h2>
       </div>
