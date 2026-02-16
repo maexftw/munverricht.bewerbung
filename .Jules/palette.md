@@ -9,3 +9,7 @@
 ## 2026-02-17 - Focus Visibility & Success Affirmation
 **Learning:** In a minimal, "command-line" inspired UI, focus states must be punchy to be usable. The project's standard 15px glow (`shadow-[0_0_15px_rgba(59,130,246,0.5)]`) provides high visibility without breaking the aesthetic. Furthermore, for terminal-like inputs, transitioning the action icon to a "Success" state (e.g., a green checkmark) provides crucial positive reinforcement that the action completed, which can otherwise be ambiguous in a scroll-heavy log.
 **Action:** Use the 15px blue glow for focus-visible states on interactive terminal inputs. Always provide a clear, distinct success icon transition and ARIA label update for completed async tasks.
+
+## 2025-05-15 - Localizing Navigation & Scroll-to-Top Accessibility
+**Learning:** For a localized portfolio site (German), keeping navigation items in English creates a cognitive dissonance and reduces accessibility for native speakers who might rely on familiar German terms. Additionally, for long-scrolling single-page sites, a "Scroll to Top" button is a critical micro-UX feature that aids navigation, especially on mobile.
+**Action:** Always check the primary language of the content and ensure the navigation matches. Implement "Scroll to Top" for any page that exceeds 2-3 viewports in height.

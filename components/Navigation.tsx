@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, ArrowUp } from 'lucide-react';
 
 const navItems = [
     { name: 'Start', href: '#main-content', icon: Terminal },
-    { name: 'About', href: '#evolution', icon: User },
-    { name: 'Projects', href: '#showcase-a', icon: Briefcase },
-    { name: 'Skills', href: '#skill-monitor', icon: Code },
-    { name: 'Contact', href: '#contact-shell', icon: Mail },
+    { name: 'Über Mich', href: '#evolution', icon: User },
+    { name: 'Projekte', href: '#showcase-a', icon: Briefcase },
+    { name: 'Expertise', href: '#skill-monitor', icon: Code },
+    { name: 'Kontakt', href: '#contact-shell', icon: Mail },
 ];
 
 const Navigation: React.FC = () => {
@@ -77,7 +77,7 @@ const Navigation: React.FC = () => {
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
-                    aria-label="Toggle Menu"
+                    aria-label={isOpen ? "Menü schließen" : "Menü öffnen"}
                 >
                     {isOpen ? <X /> : <Menu />}
                 </button>
@@ -107,9 +107,25 @@ const Navigation: React.FC = () => {
                             href="Maximilian_Unverricht_Resume.html"
                             className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                         >
-                            Download Resume
+                            Lebenslauf herunterladen
                         </a>
                     </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Scroll to Top Button */}
+            <AnimatePresence>
+                {scrolled && (
+                    <motion.button
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        className="fixed bottom-8 right-8 z-[100] p-3 bg-neutral-900 border border-neutral-800 rounded-full text-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.15)] hover:border-blue-500 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] transition-all flex items-center justify-center group"
+                        aria-label="Zum Seitenanfang springen"
+                    >
+                        <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+                    </motion.button>
                 )}
             </AnimatePresence>
         </>
