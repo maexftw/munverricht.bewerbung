@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximilian Unverricht | The Agentic Developer</title>
+    <meta name="description"
+        content="AI Workflow & Web Specialist | React, WordPress, KI - Portfolio von Maximilian Unverricht">
+    <meta property="og:image" content="maximilian-unverricht.pages.dev_.png">
+    <!-- v3.0.5-CACHE-BUST -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1a1a1a;
+            border-radius: 2px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b82f6;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 50;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            pointer-events: none;
+            animation: scanline 10s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% {
+                top: -100px;
+            }
+
+            100% {
+                top: 100%;
+            }
+        }
+
+        .crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 255, 0, 0.06));
+            z-index: 100;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+
+        #background-canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        #background-canvas-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0.45;
+            filter: blur(0.5px);
+        }
+
+        /* Ensure main content is above canvas */
+        #root {
+            position: relative;
+            z-index: 10;
+        }
+
+        *:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div id="initial-loader"
+            style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; text-align: center; padding: 20px;">
+            <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.05em;">Maximilian
+                Unverricht</h1>
+            <p style="font-size: 1.1rem; color: #888; margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace;">
+                The Agentic Developer | AI Workflow & Web Specialist</p>
+
+            <div style="display: flex; gap: 20px; margin-bottom: 3rem;">
+                <a href="mailto:info@graphiks.de"
+                    style="color: #3b82f6; text-decoration: none; font-weight: 500;">Contact</a>
+                <a href="https://github.com/maexftw" target="_blank" rel="noopener noreferrer"
+                    style="color: #3b82f6; text-decoration: none; font-weight: 500;">GitHub</a>
+                <a href="Maximilian_Unverricht_Resume.html"
+                    style="color: #3b82f6; text-decoration: none; font-weight: 500;">Download CV</a>
+            </div>
+
+            <div id="boot-diagnostic"
+                style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #444; margin-top: 2rem;">
+                [LOADING_ASSETS...]</div>
+            <div id="error-display"
+                style="color: #ef4444; margin-top: 20px; font-size: 12px; display: none; background: #111; padding: 10px; border: 1px solid #333; text-align: left; overflow-x: auto; max-width: 800px;">
+            </div>
+        </div>
+    </div>
+    <noscript>
+        <div style="padding: 40px; text-align: center; color: #fff; background-color: #050505; min-height: 100vh;">
+            <h1>Maximilian Unverricht</h1>
+            <p>AI Workflow & Web Specialist</p>
+            <p>
+                <a href="mailto:info@graphiks.de" style="color: #3b82f6;">info@graphiks.de</a> |
+                <a href="https://github.com/maexftw" style="color: #3b82f6;">GitHub</a>
+            </p>
+            <p>Please enable JavaScript to view the full interactive experience.</p>
+        </div>
+    </noscript>
+    <script>
+        (function () {
+            var diag = document.getElementById('boot-diagnostic');
+            var errDisplay = document.getElementById('error-display');
+
+            window.onerror = function (msg, url, line, col, error) {
+                if (diag) diag.innerText = '[RUNTIME_ERROR]';
+                if (errDisplay) {
+                    errDisplay.style.display = 'block';
+                    errDisplay.innerText = 'Error: ' + msg + '\nAt: ' + (url ? url.split('/').pop() : 'unknown') + ':' + line + ':' + col;
+                    if (error && error.stack) {
+                        errDisplay.innerText += '\n\nStack:\n' + error.stack;
+                    }
+                }
+                return false;
+            };
+
+            window.addEventListener('unhandledrejection', function (event) {
+                if (diag) diag.innerText = '[PROMISE_REJECTION]';
+                if (errDisplay) {
+                    errDisplay.style.display = 'block';
+                    errDisplay.innerText = 'Promise Error: ' + event.reason;
+                }
+            });
+
+            setTimeout(function () {
+                var loader = document.getElementById('initial-loader');
+                if (loader && diag && diag.innerText === '[LOADING_ASSETS...]') {
+                    // Only show stalled message if we are still strictly in the initial state
+                    diag.innerText = '[STALLED_OR_SLOW_LOAD]';
+                }
+            }, 8000);
+        })();
+    </script>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>

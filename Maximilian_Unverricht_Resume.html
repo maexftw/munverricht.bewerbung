@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf - Maximilian Unverricht</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d3436;
+            --secondary: #636e72;
+            --accent: #0984e3;
+            --bg: #ffffff;
+            --text: #2d3436;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f5f6fa;
+        }
+
+        .resume-container {
+            background: #ffffff;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .contact-info {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .contact-info span {
+            margin-right: 15px;
+        }
+
+        .summary {
+            font-size: 16px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #444;
+        }
+
+        h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            color: var(--accent);
+        }
+
+        .experience-item,
+        .project-item {
+            margin-bottom: 25px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .item-subtitle {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .item-date {
+            font-weight: 400;
+            font-size: 14px;
+            color: #999;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-category strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="resume-container">
+        <header>
+            <h1>Maximilian Unverricht</h1>
+            <div class="contact-info">
+                <span>Dortmund, 44149</span>
+                <span>info@graphiks.de</span>
+                <span>+49 163 3229892</span>
+            </div>
+        </header>
+
+        <div class="summary">
+            Nach 10 Jahren als selbstständiger Webdesigner (WordPress, Webflow, Google Ads) habe ich meinen Workflow
+            modernisiert. Ich bin ein Praktiker, der KI als Force-Multiplier nutzt, um moderne Web-Lösungen präzise und
+            effizient umzusetzen. Mein Fokus liegt auf der Verbindung von langjähriger Marketing-Erfahrung mit neuen,
+            KI-gestützten Entwicklungsprozessen.
+        </div>
+
+        <h2>Berufserfahrung</h2>
+
+        <div class="experience-item">
+            <div class="item-title">
+                <span>AI Workflow & Web Development Specialist</span>
+                <span class="item-date">08/2025 – Heute</span>
+            </div>
+            <ul>
+                <li><strong>Automatisierung:</strong> Aufbau lokaler Pipelines zur Dokumentenanalyse (Python, IBM
+                    Docling) unter Verwendung lokaler Modelle (Qwen 2.5 Coder, Mistral).</li>
+                <li><strong>Modern Dev:</strong> Erstellung interaktiver Frontends mit Vite und React, beschleunigt
+                    durch "Vibe Coding" Workflows in Cursor und Google Anti-Gravity.</li>
+                <li><strong>Hybrid Workflows:</strong> Integration von Google AI Studio Designs in professionelle
+                    TinaCMS-Umgebungen zur Maximierung der Time-to-Market.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="item-title">
+                <span>Selbstständiger Webdesigner & Performance Marketer</span>
+                <span class="item-date">2013 – 2025</span>
+            </div>
+            <div class="item-subtitle">Graphiks.de, Dortmund</div>
+            <ul>
+                <li>Konzeption, Design und Launch zahlreicher Web-Projekte für KMU-Kunden mit <strong>WordPress</strong>
+                    und <strong>Webflow</strong>.</li>
+                <li><strong>Digital Marketing:</strong> Strategisches Management von Google Ads Kampagnen und
+                    detaillierte Analyse via Google Analytics.</li>
+                <li>Technische Betreuung, SEO-Optimierung und Hosting-Management von der Anfrage bis zum Live-Gang.</li>
+                <li>Spezialisierung auf GSAP-Animationen und interaktive Spline 3D Elemente.</li>
+            </ul>
+        </div>
+
+        <h2>Skills & Technologien</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>AI & Automation</strong>
+                Google AI Studio, Google Stitch, Cursor IDE, Anti-Gravity IDE, Local Inference (RTX 5090), Qwen/Mistral
+                Models.
+            </div>
+            <div class="skill-category">
+                <strong>Web Development</strong>
+                Vite, React, WordPress, Webflow, HTML/CSS, Tailwind CSS, GSAP, Spline 3D.
+            </div>
+            <div class="skill-category">
+                <strong>Marketing & Analytics</strong>
+                Google Ads (Zertifiziert), Google Analytics, SEO, Lead-Generierung.
+            </div>
+            <div class="skill-category">
+                <strong>Soft Skills</strong>
+                Pragmatismus, Projektleitung, Datensouveränität, Kommunikationsfähigkeit.
+            </div>
+        </div>
+
+        <h2>Projekte (Auszug)</h2>
+        <div class="project-item">
+            <ul>
+                <li>neurozentrierteachtsamkeit.de</li>
+                <li>croelle.com</li>
+                <li>bockel-bartscher.de</li>
+                <li>msbau-hamm.de</li>
+                <li>kost-sicherheitstechnik.de</li>
+                <li>fitnesscenter-drensteinfurt.de</li>
+            </ul>
+        </div>
+
+        <h2>Bildungsweg</h2>
+        <div class="experience-item">
+            <div class="item-title">
+                <span>Fachhochschulreife</span>
+            </div>
+        </div>
+
+        <h2>Zertifikate & Lizenzen</h2>
+        <ul>
+            <li>Google Ads-Zertifizierung</li>
+            <li>Führerschein Klasse B</li>
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
