@@ -35,7 +35,7 @@ const LogItem = memo(({ log }: { log: LogEntry }) => {
     <motion.div
       initial={{ opacity: 0, x: -5 }}
       animate={{ opacity: 1, x: 0 }}
-      className={`${isSpecial ? 'text-green-500 font-bold' : isWarn ? 'text-yellow-500' : 'text-neutral-400'}`}
+      className={`${isSpecial ? 'text-green-500 font-bold' : isWarn ? 'text-yellow-500' : 'text-neutral-300'}`}
     >
       <span className="text-neutral-600">[{log.timestamp}]</span> {log.message}
     </motion.div>
@@ -69,7 +69,7 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
 
   return (
     <div className="fixed inset-0 bg-black z-[1000] flex items-center justify-center p-6 mono text-sm overflow-hidden" role="dialog" aria-modal="true" aria-label="System-Boot-Vorgang">
-      <div className="w-full max-w-2xl bg-neutral-950 border border-neutral-800 rounded p-6 shadow-2xl relative">
+      <div className="w-full max-w-2xl bg-[#111111] border border-neutral-800 rounded p-6 shadow-2xl relative">
         <div className="absolute top-2 right-4 flex space-x-2" aria-hidden="true">
           <div className="w-2 h-2 rounded-full bg-red-500/50" />
           <div className="w-2 h-2 rounded-full bg-yellow-500/50" />

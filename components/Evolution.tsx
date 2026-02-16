@@ -7,10 +7,10 @@ const Evolution: React.FC = () => {
     <section id="evolution" className="space-y-16 py-12">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-[10px] tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// CHRONOLOGICAL_DATABASE</h3>
-        <h2 className="text-3xl font-bold uppercase tracking-tight">Werdegang & Meilensteine</h2>
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Werdegang & Meilensteine</h2>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-12">
+      <div className="max-w-[65ch] mx-auto space-y-12">
         <ul className="relative pl-8 border-l border-neutral-800 space-y-16">
           {/* Game Dev Era */}
           <motion.li
@@ -23,8 +23,8 @@ const Evolution: React.FC = () => {
             </div>
             <div className="space-y-2">
               <span className="mono text-[10px] text-blue-500">2025 - HEUTE // INDIE_GAME_DEV</span>
-              <h4 className="text-xl font-bold text-white uppercase tracking-tight">Game Development & Interactive Media</h4>
-              <p className="text-neutral-500 text-sm leading-relaxed">
+              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">Game Development & Interactive Media</h4>
+              <p className="text-neutral-200 text-sm leading-relaxed">
                 Entwicklung eines eigenen Videospiels (Unreal Engine 5 / Godot). Fokus auf immersive Storytelling-Mechaniken, High-Fidelity Assets und komplexe C++ Logik. Übertragung von Web-Technologien in die Game-Engine.
               </p>
             </div>
@@ -41,8 +41,8 @@ const Evolution: React.FC = () => {
             </div>
             <div className="space-y-2">
               <span className="mono text-[10px] text-neutral-600">2023 - 2025 // AGENTIC_PIPELINES</span>
-              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-tight">AI Engineering & ZBN Pipeline</h4>
-              <p className="text-neutral-500 text-sm leading-relaxed">
+              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">AI Engineering & ZBN Pipeline</h4>
+              <p className="text-neutral-200 text-sm leading-relaxed">
                 Entwicklung lokaler RAG-Systeme für technische Gutachten (ZBN). Bau der "Stitch-to-Tina" Pipeline: Automatische Überführung von AI-Code in CMS-basierte Kundenprojekte. 100% lokale Inferenz auf High-End Hardware.
               </p>
             </div>
@@ -59,8 +59,8 @@ const Evolution: React.FC = () => {
             </div>
             <div className="space-y-2">
               <span className="mono text-[10px] text-neutral-600">2012 - 2023 // LEGACY_FOUNDATION</span>
-              <h4 className="text-xl font-bold text-neutral-500 uppercase tracking-tight">Full-Stack & Marketing Roots</h4>
-              <p className="text-neutral-600 text-sm leading-relaxed">
+              <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">Full-Stack & Marketing Roots</h4>
+              <p className="text-neutral-300 text-sm leading-relaxed">
                 10+ Jahre Erfahrung. WordPress Expert, Webflow Prototyping, zertifizierter Google Ads & Analytics Spezialist. Solides Fundament in klassischer Web-Entwicklung und digitalem Marketing.
               </p>
             </div>
