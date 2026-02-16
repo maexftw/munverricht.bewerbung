@@ -14,10 +14,10 @@ const Hero: React.FC = () => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          // SYSTEM_ARCHITECTURE: READY
+          CREATIVE TECHNOLOGIST // GAME DEVELOPER // AGENTIC PIONEER
         </h2>
         <h1 className="text-5xl md:text-7xl font-bold uppercase tracking-tight leading-tight">
-          THE <span className="text-blue-500">AGENTIC</span><br />DEVELOPER.
+          MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
         </h1>
       </motion.div>
 
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
         transition={{ delay: 0.2 }}
         className="max-w-2xl text-neutral-400 text-lg font-medium leading-relaxed"
       >
-        Architekt autonomer Pipelines. Ich nutze generative KI nicht nur als Werkzeug, sondern als Kernkomponente für <span className="text-white">hochperformante, lokale Workflows</span>.
+        Architekt autonomer Pipelines & Indie Game Developer. Ich verbinde <span className="text-white">High-End Engineering</span> mit <span className="text-white">künstlerischer Vision</span>. Spezialisiert auf lokale KI-Infrastruktur und immersive interaktive Erlebnisse.
       </motion.p>
 
       <motion.div
@@ -35,12 +35,12 @@ const Hero: React.FC = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4 }}
       >
-        <button 
+        <button
           onClick={() => document.getElementById('architecture')?.scrollIntoView({ behavior: 'smooth' })}
           className="group relative px-8 py-4 bg-neutral-900 border border-neutral-800 hover:border-blue-500 transition-all duration-300 rounded shadow-lg"
         >
           <span className="relative flex items-center mono font-bold uppercase tracking-widest text-xs">
-            Show System Architecture <Zap className="ml-2 w-3 h-3 text-blue-500" />
+            Show System Architecture <Zap className="ml-2 w-3 h-3 text-blue-500" aria-hidden="true" />
           </span>
         </button>
       </motion.div>
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-widest">
             <div className="w-3 h-3 rounded-full border border-blue-500 flex items-center justify-center mr-2">
-                <div className="w-1 h-1 bg-blue-500 rounded-full" />
+              <div className="w-1 h-1 bg-blue-500 rounded-full" />
             </div> 03 / SOVEREIGNTY
           </div>
           <p className="text-sm text-neutral-500 leading-relaxed">Fokus auf lokale Inferenz (Zero-Cloud). Datensouveränität durch Private LLM Hosting.</p>
