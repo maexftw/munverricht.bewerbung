@@ -56,7 +56,7 @@ const projects = [
 
 const Projects: React.FC = () => {
     return (
-        <section id="projects" className="space-y-12 py-12 border-t border-neutral-900">
+        <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
             <div className="flex flex-col items-center text-center space-y-4">
                 <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
                     <ASCIIText text="// SELECTED_WORK" />

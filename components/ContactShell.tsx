@@ -3,7 +3,7 @@ import { Mail, Phone, Terminal } from 'lucide-react';
 
 const ContactShell: React.FC = () => {
   return (
-    <section className="space-y-12 pb-20">
+    <section id="contact-shell" className="space-y-12 pb-20 scroll-mt-28">
       <div className="flex flex-col items-center text-center">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// OPEN_FREQUENCY</h3>
         <h2 className="text-4xl font-bold uppercase">Direkter Kontakt</h2>

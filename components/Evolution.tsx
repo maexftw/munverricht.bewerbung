@@ -5,7 +5,7 @@ import ASCIIText from './ASCIIText';
 
 const Evolution: React.FC = () => {
   return (
-    <section id="evolution" className="space-y-16 py-12">
+    <section id="evolution" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-[10px] tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// CHRONOLOGICAL_DATABASE" />
@@ -72,10 +72,10 @@ const Evolution: React.FC = () => {
           </motion.li>
         </ul>
 
-        <div className="pt-8 text-center">
-          <p className="mono text-[11px] text-neutral-500 italic border-t border-neutral-900 pt-8" aria-hidden="true">
-            "Hier ist, wie ich arbeite: Erfahrung trifft auf radikale neue Effizienz."
-          </p>
+        <div className="pt-10 text-center border-t border-neutral-900">
+          <h3 className="mono text-base md:text-lg text-blue-200 uppercase tracking-[0.18em]">
+            Hier ist, wie ich arbeite: Erfahrung trifft auf radikale neue Effizienz.
+          </h3>
         </div>
       </div>
     </section>
