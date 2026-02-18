@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative flex flex-col items-center justify-center text-center space-y-8 pt-20">
+    <section id="hero" className="relative scroll-mt-28 flex flex-col items-center justify-center text-center space-y-8 pt-20">
       <div
         ref={headingBlockRef}
         className="relative"

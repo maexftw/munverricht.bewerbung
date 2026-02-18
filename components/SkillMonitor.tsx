@@ -75,7 +75,7 @@ const accentStyles: Record<string, { glow: string; border: string; text: string;
 
 const SkillMonitor: React.FC = () => {
   return (
-    <section className="space-y-12 py-6">
+    <section id="skill-monitor" className="space-y-12 py-6 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// RESOURCE_MONITOR</h3>
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Capability Matrix</h2>
