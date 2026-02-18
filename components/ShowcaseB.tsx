@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Code2, CreditCard, Monitor, MousePointer2, Settings, Workflow, Zap } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const phases = [
   {
@@ -25,10 +26,10 @@ const phases = [
 
 const ShowcaseB: React.FC = () => {
   return (
-    <section className="space-y-16 py-12">
+    <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-end text-right space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">// ARCHITECTURE_CASE_02</h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em]">AI-Accelerated Agency Workflow</h2>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ARCHITECTURE_CASE_02" /></h3>
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="AI-Accelerated Agency Workflow" /></h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           Vibe-Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von KI-Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
         </p>
@@ -103,13 +104,19 @@ const ShowcaseB: React.FC = () => {
         })}
       </div>
 
-      <div className="rounded-xl border border-blue-500/20 bg-gradient-to-br from-[#111111] via-[#0f1118] to-[#111111] p-8 md:p-10 space-y-8 overflow-hidden relative">
+      <motion.div
+        initial={{ opacity: 0, y: 14 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25, duration: 0.45 }}
+        whileHover={{ scale: 1.01 }}
+        className="group rounded-xl border border-blue-500/20 bg-gradient-to-br from-[#111111] via-[#0f1118] to-[#111111] p-8 md:p-10 space-y-8 overflow-hidden relative transition-all duration-300 hover:border-blue-500/60 hover:shadow-[0_0_35px_rgba(59,130,246,0.16)]"
+      >
         <div className="absolute top-0 right-0 h-52 w-52 bg-blue-500/10 blur-3xl rounded-full" aria-hidden="true" />
 
         <div className="relative space-y-3">
           <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-500">// CASE_03</p>
           <div className="flex items-start justify-between gap-4 flex-wrap">
-            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em]">Kaffee FÄNSEN Commerce Engine</h3>
+            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee FÄNSEN Commerce Engine" /></h3>
             <a
               href="https://www.kaffee-faensen.de/shop/homepage"
               target="_blank"
@@ -156,7 +163,7 @@ const ShowcaseB: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

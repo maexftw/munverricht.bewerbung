@@ -1,6 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
 import { Terminal, Zap, Activity } from 'lucide-react';
+import ASCIIText from './ASCIIText';
+
+const toolLogos = [
+  { name: 'Visual Studio Code', src: 'https://cdn.simpleicons.org/visualstudiocode/3B82F6' },
+  { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB' },
+  { name: 'Vite', src: 'https://cdn.simpleicons.org/vite/646CFF' },
+  { name: 'TypeScript', src: 'https://cdn.simpleicons.org/typescript/3178C6' },
+  { name: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/F38020' },
+  { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
+  { name: 'Google', src: 'https://cdn.simpleicons.org/google/4285F4' },
+  { name: 'GitHub', src: 'https://cdn.simpleicons.org/github/FFFFFF' },
+];
+
+const scrollToId = (id: string) => {
+  const target = document.getElementById(id) ?? document.querySelector(`#${id}`);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
 
 const Hero: React.FC = () => {
   const headingBlockRef = useRef<HTMLDivElement | null>(null);
@@ -76,13 +95,27 @@ const Hero: React.FC = () => {
         Ich entwickle <span className="text-white">performante Websites und AI-gestützte Workflows</span> mit klarem Fokus auf Business-Impact: schnellere Umsetzung, saubere Übergaben und messbare Ergebnisse.
       </p>
 
+      <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
+        <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
+          <ASCIIText text="// TOOLING_STACK" />
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-5 md:gap-6">
+          {toolLogos.map((tool) => (
+            <div key={tool.name} className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors">
+              <img src={tool.src} alt={tool.name} className="h-4 w-4 md:h-5 md:w-5 object-contain" loading="lazy" />
+              <span className="mono text-[10px] md:text-[11px] text-neutral-300 group-hover:text-blue-300 transition-colors">{tool.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div
         ref={ctaGroupRef}
         className="flex flex-wrap gap-4 justify-center mt-8"
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
         <button
-          onClick={() => document.getElementById('contact-shell')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => scrollToId('contact-shell')}
           className="group relative shadow-[0_0_30px_rgba(59,130,246,0.3)] px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 rounded shadow-lg font-bold uppercase tracking-wider text-sm flex items-center"
           aria-label="Kontakt aufnehmen"
         >
@@ -90,7 +123,7 @@ const Hero: React.FC = () => {
         </button>
 
         <button
-          onClick={() => document.getElementById('showcase-a')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => scrollToId('projects')}
           className="group px-8 py-4 bg-neutral-900 border border-neutral-700 hover:border-blue-500 text-neutral-300 hover:text-white transition-all duration-300 rounded font-bold uppercase tracking-wider text-sm flex items-center"
           aria-label="Projekte ansehen"
         >

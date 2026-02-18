@@ -45,7 +45,7 @@ const Navigation: React.FC = () => {
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
                     >
-                        <ASCIIText text="unverricht" className="lowercase" />
+                        <ASCIIText text="munverricht" className="lowercase" />
                         <span className="text-blue-500">.org</span>
                     </div>
 
