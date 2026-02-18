@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Terminal, User, Code, Briefcase, Mail } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const navItems = [
-    { name: 'Start', href: '#main-content', icon: Terminal },
+    { name: 'Start', href: '#hero', icon: Terminal },
     { name: 'About', href: '#evolution', icon: User },
-    { name: 'Projects', href: '#showcase-a', icon: Briefcase },
+    { name: 'Projects', href: '#projects', icon: Briefcase },
     { name: 'Skills', href: '#skill-monitor', icon: Code },
     { name: 'Contact', href: '#contact-shell', icon: Mail },
 ];
@@ -41,10 +42,11 @@ const Navigation: React.FC = () => {
             >
                 <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
                     <div
-                        className="font-bold text-xl tracking-tighter cursor-pointer"
-                        onClick={() => scrollToSection('#main-content')}
+                        className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
+                        onClick={() => scrollToSection('#hero')}
                     >
-                        MU<span className="text-blue-500">.DEV</span>
+                        <ASCIIText text="munverricht" className="lowercase" />
+                        <span className="text-blue-500">.org</span>
                     </div>
 
                     <ul className="flex space-x-8">

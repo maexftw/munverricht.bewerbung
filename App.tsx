@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Evolution from './components/Evolution';
 import ShowcaseA from './components/ShowcaseA';
 import ShowcaseB from './components/ShowcaseB';
+import UseCasesIntro from './components/UseCasesIntro';
 import SkillMonitor from './components/SkillMonitor';
 import ContactShell from './components/ContactShell';
 import CodeAmbientBackground from './components/CodeAmbientBackground';
@@ -12,6 +13,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/Navigation';
 
 import Projects from './components/Projects';
+import LegalInfo from './components/LegalInfo';
+import CookieConsent from './components/CookieConsent';
 
 const App: React.FC = () => {
   const [booting, setBooting] = useState(true);
@@ -44,16 +47,20 @@ const App: React.FC = () => {
         <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
           <Hero />
           <Evolution />
+          <UseCasesIntro />
           <ShowcaseA />
           <ShowcaseB />
           <Projects />
           <SkillMonitor />
           <ContactShell />
+          <LegalInfo />
           <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">
             <p>© 2026 MAXIMILIAN UNVERRICHT // THE AGENTIC DEVELOPER // v3.1.0-STABLE</p>
           </footer>
         </main>
       </motion.div>
+
+      <CookieConsent />
 
       {/* Non-blocking System Boot Overlay */}
       <AnimatePresence>

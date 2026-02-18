@@ -1,11 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Database, Brain, Globe, Cpu } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 
 const skills = [
   {
     category: 'Core Tools',
-    items: ['Google Anti-Gravity IDE', 'Google Stitch', 'Vibe Coding'],
+    items: ['Visual Studio Code', 'Cline', 'Roo Code', 'Google Stitch'],
     icon: Globe,
     level: 98,
     accent: 'blue',
@@ -75,12 +76,12 @@ const accentStyles: Record<string, { glow: string; border: string; text: string;
 
 const SkillMonitor: React.FC = () => {
   return (
-    <section className="space-y-12 py-6">
+    <section id="skill-monitor" className="space-y-12 py-6 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// RESOURCE_MONITOR</h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em]">Capability Matrix</h2>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true"><ASCIIText text="// RESOURCE_MONITOR" /></h3>
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Capability Matrix" /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
-          Gleiche Inhalte, neues Interface: eine kompaktere Ops-Ansicht mit klaren Schwerpunkten statt klassischer Kartenwand.
+          Hier siehst du meinen täglichen Workflow: die wichtigsten Tools, Modelle und Systeme, mit denen ich Projekte strukturiert, schnell und zuverlässig umsetze.
         </p>
       </div>
 
@@ -89,8 +90,7 @@ const SkillMonitor: React.FC = () => {
           <motion.article
             key={skill.category}
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08 }}
             className={`group relative overflow-hidden rounded-xl border border-neutral-900 bg-[#111111] p-6 transition-all duration-300 ${accentStyles[skill.accent].border}`}
           >
@@ -110,9 +110,8 @@ const SkillMonitor: React.FC = () => {
             <div className="mt-4 h-[2px] w-full bg-neutral-900 overflow-hidden rounded-full" aria-hidden="true">
               <motion.div
                 initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.2, delay: 0.2 + i * 0.06 }}
+                animate={{ width: `${skill.level}%` }}
+                transition={{ duration: 1.2, delay: 0.2 + i * 0.06, ease: 'easeOut' }}
                 className={`h-full bg-gradient-to-r ${accentStyles[skill.accent].bar}`}
               />
             </div>
