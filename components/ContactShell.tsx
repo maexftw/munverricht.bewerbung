@@ -1,58 +1,12 @@
-import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Send, Terminal, Loader2, Check } from 'lucide-react';
-import ASCIIText from './ASCIIText';
+import React from 'react';
+import { Mail, Phone, Terminal } from 'lucide-react';
 
 const ContactShell: React.FC = () => {
-  const [input, setInput] = useState('');
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
-  const [messages, setMessages] = useState<{ role: 'user' | 'agent', text: string }[]>([]);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || status === 'sending') return;
-
-    const userMsg = input;
-    setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
-    setInput('');
-    setStatus('sending');
-
-    try {
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: userMsg }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || 'Network response was not ok');
-      }
-
-      const data = await response.json();
-      setMessages(prev => [...prev, { role: 'agent', text: data.text || 'Message received. Transmission successful.' }]);
-      setStatus('success');
-      setTimeout(() => setStatus('idle'), 3000);
-    } catch (err: any) {
-      setMessages(prev => [...prev, { role: 'agent', text: err.message || 'Error in uplink. Connection reset. Please try again.' }]);
-      setStatus('idle');
-    }
-
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
-  };
-
   return (
-    <section id="contact-shell" className="space-y-12 pb-20">
+    <section className="space-y-12 pb-20">
       <div className="flex flex-col items-center text-center">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">
-            <ASCIIText text="// OPEN_FREQUENCY" />
-        </h3>
-        <h2 className="text-4xl font-bold uppercase">
-            <ASCIIText text="Execute Collaboration" />
-        </h2>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// OPEN_FREQUENCY</h3>
+        <h2 className="text-4xl font-bold uppercase">Direkter Kontakt</h2>
       </div>
 
       <div className="max-w-3xl mx-auto bg-[#111111] border border-blue-500/30 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.1)]">
@@ -60,9 +14,7 @@ const ContactShell: React.FC = () => {
         <div className="bg-neutral-900 px-4 py-2 flex justify-between items-center border-b border-neutral-800" aria-hidden="true">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-blue-500" />
-            <span className="mono text-[10px] text-neutral-400">
-                <ASCIIText text="AGENTIC_CONTACT_SHELL_v1.0" />
-            </span>
+            <span className="mono text-[10px] text-neutral-400">DIRECT_CONTACT_v1.0</span>
           </div>
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
@@ -71,66 +23,44 @@ const ContactShell: React.FC = () => {
           </div>
         </div>
 
-        {/* Console Body */}
-        <div
-          ref={scrollRef}
-          role="log"
-          aria-live="polite"
-          className="h-80 overflow-y-auto p-6 space-y-4 mono text-sm scroll-smooth"
-        >
-          <div className="text-neutral-300">
-            [SYS] Initializing secure frequency for collaboration...<br />
-            [SYS] Ready to receive your prompt.
+        <div className="p-6 space-y-6 mono text-sm">
+          <div className="text-neutral-300 leading-relaxed">
+            [SYS] Kontaktkanal aktiv.<br />
+            [SYS] Schreib mir direkt per E-Mail oder ruf mich an.
           </div>
 
-          {messages.map((m, i) => (
-            <div key={i} className={`${m.role === 'user' ? 'text-neutral-300' : 'text-blue-400'}`}>
-              <span className="opacity-50">{m.role === 'user' ? '> USER: ' : '> AGENT: '}</span>
-              {m.text}
-            </div>
-          ))}
-
-          {status === 'sending' && (
-            <div className="flex items-center gap-2 text-blue-500 italic">
-              <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> Transmitting data...
-            </div>
-          )}
-        </div>
-
-        {/* Input Area */}
-        <form onSubmit={handleSubmit} className="p-4 border-t border-neutral-900 bg-[#111111]">
-          <div className="relative group">
-            <input
-              type="text"
-              aria-label="Collaboration Prompt"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Prompt me for a collaboration..."
-              className="w-full bg-neutral-900 border border-neutral-800 rounded px-4 py-3 mono text-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 focus:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-colors pr-12 text-white"
-            />
-            <button
-              type="submit"
-              disabled={status === 'sending'}
-              aria-label={status === 'sending' ? 'Nachricht wird gesendet' : status === 'success' ? 'Nachricht erfolgreich gesendet' : 'Nachricht senden'}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-neutral-500 hover:text-blue-500 transition-colors disabled:opacity-50 flex items-center justify-center"
+          <div className="grid gap-4 sm:grid-cols-2">
+            <a
+              href="mailto:info@graphiks.de"
+              className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors"
             >
-              {status === 'sending' ? (
-                <Loader2 className="w-5 h-5 animate-spin text-blue-500" aria-hidden="true" />
-              ) : status === 'success' ? (
-                <Check className="w-5 h-5 text-green-500" aria-hidden="true" />
-              ) : (
-                <Send className="w-5 h-5" aria-hidden="true" />
-              )}
-            </button>
+              <span className="flex items-center gap-2 text-blue-400 mb-2">
+                <Mail className="w-4 h-4" aria-hidden="true" />
+                <span className="mono text-[10px] uppercase tracking-widest">E-Mail</span>
+              </span>
+              <span className="text-neutral-100 text-sm break-all">info@graphiks.de</span>
+            </a>
+
+            <a
+              href="tel:+491633229892"
+              className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors"
+            >
+              <span className="flex items-center gap-2 text-blue-400 mb-2">
+                <Phone className="w-4 h-4" aria-hidden="true" />
+                <span className="mono text-[10px] uppercase tracking-widest">Handynummer</span>
+              </span>
+              <span className="text-neutral-100 text-sm">+49 163 3229892</span>
+            </a>
           </div>
+
           <div className="mt-4 flex justify-between items-center mono text-[9px] text-neutral-600 uppercase tracking-tighter" aria-hidden="true">
             <div className="flex gap-4">
-              <span>ENCRYPTION: AES-256</span>
-              <span>UPLINK: ACTIVE</span>
+              <span>DIRECT CHANNEL</span>
+              <span>STATUS: ACTIVE</span>
             </div>
             <div className="text-blue-500/50">MAXIMILIAN_UNVERRICHT // DIRECT_LINK</div>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );

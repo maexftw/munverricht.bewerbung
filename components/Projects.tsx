@@ -31,8 +31,8 @@ const projects = [
     {
         title: 'Kaffee Faensen',
         url: 'https://www.kaffee-faensen.de/shop/homepage',
-        desc: 'E-Commerce Shopware/Shopify',
-        stack: ['Shop', 'Brand Identity']
+        desc: 'Custom Commerce mit eigener Shop-Logik + Stripe',
+        stack: ['Custom Shop Logic', 'Stripe', 'Brand Identity']
     },
     {
         title: 'Kost Sicherheitstechnik',
@@ -41,13 +41,13 @@ const projects = [
         stack: ['WordPress', 'Elementor Pro']
     },
     {
-        title: 'Böckel-Bartscher',
+        title: 'Bockel-Bartscher',
         url: 'https://www.bockel-bartscher.de/',
         desc: 'Kanzlei-Website',
         stack: ['WordPress', 'Corporate Design']
     },
     {
-        title: 'RAC / ZBN Pipeline',
+        title: 'RAG / ZBN Pipeline',
         url: 'https://www.zbn.de',
         desc: 'Ingenieurbüro (RAG Pipeline Client)',
         stack: ['AI Analysis', 'Automation']

@@ -42,12 +42,31 @@
   - **Projects:** Liste aktualisiert (TriXstar, Immo, etc.) mit korrekten Links.
   - **Tone:** "Vibe Coder" statt "Engineer". "ZBN" -> "RAC Analysis".
   - **Links:** Navigation und CV-Download gefixt.
-- **Status:** Validation.
-## Session 2026-02-16 (Jules - ASCII Effect)
-- **Ergebnis:** ASCII Glitch Ripple Effekt für Überschriften implementiert.
+- **Status:** Deployed to Main (Clean Slate).
+
+## Session 2026-02-18 (AnimeJS Workspace Split)
+- **Ergebnis:** Eigenständiger Arbeitsordner für Anime.js-Migration erstellt und Kontaktbereich vereinfacht.
 - **Änderungen:**
-  - Neue Komponente `ASCIIText.tsx` erstellt (Portierung von CodePen).
-  - Effekt auf alle Sektions-Überschriften und Hero-Titel angewendet.
-  - Barrierefreiheit durch `aria-label` sichergestellt.
-  - Layout-Stabilität durch Breitenmessung (`useLayoutEffect`) gewährleistet.
-- **Status:** Abgeschlossen.
+  - Projekt wurde als separater Workspace-Ordner `website-animejs` angelegt (Kopie zur Trennung von alter Website).
+  - Kontaktbereich in `components/ContactShell.tsx` von Formular/Chat auf direkte Kontaktsektion reduziert.
+  - Kontaktsektion zeigt jetzt nur noch:
+    - E-Mail: `info@graphiks.de`
+    - Handy: `+49 163 3229892`
+- **Status:** Lokal im Dev-Server sichtbar, bereit für nächste Anime.js-Migrationsschritte.
+
+## Session 2026-02-18 (Content + Design Refinement)
+- **Ergebnis:** Inhalte fachlich geschärft und betroffene Sektionen visuell modernisiert.
+- **Änderungen:**
+  - `ShowcaseA.tsx`: Formulierung von „RAC“ auf „RAG“ korrigiert.
+  - `Evolution.tsx`: „RAC Analysis“ auf „RAG Analysis“ angepasst.
+  - `Projects.tsx`:
+    - `Böckel-Bartscher` -> `Bockel-Bartscher`
+    - Kaffee-Faensen-Beschreibung auf Custom-Commerce + Stripe korrigiert
+    - `RAC / ZBN Pipeline` -> `RAG / ZBN Pipeline`
+  - `ShowcaseB.tsx`:
+    - Zitat-Block entfernt.
+    - Workflow-Karten visuell aufgewertet.
+    - Neue dedizierte Case-Sektion „Kaffee FÄNSEN Commerce Engine“ direkt unter dem Workflow ergänzt (Custom vibecoded Shop-Logik + Stripe).
+  - `SkillMonitor.tsx`:
+    - Vorherige Kartenansicht durch „Capability Matrix“ mit stärkerem Visual-Layer (Glows, Accent-Farben, kompaktere Chips, klarere Statuszeile) ersetzt.
+- **Status:** Lokal validiert (HMR) und Build erfolgreich.

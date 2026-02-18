@@ -16,7 +16,7 @@ const ShowcaseA: React.FC = () => {
             <ASCIIText text="Local AI Analysis Pipeline" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Für Ingenieurbüros (RAC) entwickelte Lösung zur automatisierten Analyse technischer Dokumente. Maximale Datensouveränität durch lokale Inferenz.
+          Für Ingenieurbüros entwickelte RAG-Lösung zur automatisierten Analyse technischer Dokumente. Maximale Datensouveränität durch lokale Inferenz.
         </p>
       </div>
 

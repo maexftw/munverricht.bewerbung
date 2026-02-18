@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TerminalBoot from './components/TerminalBoot';
 import Hero from './components/Hero';
 import Evolution from './components/Evolution';
@@ -6,9 +6,7 @@ import ShowcaseA from './components/ShowcaseA';
 import ShowcaseB from './components/ShowcaseB';
 import SkillMonitor from './components/SkillMonitor';
 import ContactShell from './components/ContactShell';
-// Lazy load BackgroundAnimation to move the heavy p5.js dependency to a separate chunk.
-// This significantly improves initial bundle size and speeds up the boot screen appearance.
-const BackgroundAnimation = React.lazy(() => import('./components/BackgroundAnimation'));
+import CodeAmbientBackground from './components/CodeAmbientBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Navigation from './components/Navigation';
@@ -20,10 +18,10 @@ const App: React.FC = () => {
 
   return (
     <div className="relative min-h-screen selection:bg-blue-500/30 selection:text-blue-200 overflow-hidden">
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none" />
-      <div className="fixed bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/20 via-blue-900/10 to-transparent pointer-events-none z-0" />
+      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/8 via-transparent to-transparent pointer-events-none" />
+      <div className="fixed bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/15 via-blue-900/5 to-transparent pointer-events-none z-0" />
       <div className="scanline" />
-      <div className="crt-overlay opacity-50" />
+      <div className="crt-overlay" />
 
       <a
         href="#main-content"
@@ -34,9 +32,7 @@ const App: React.FC = () => {
 
       <Navigation />
 
-      <React.Suspense fallback={null}>
-        <BackgroundAnimation isPaused={false} />
-      </React.Suspense>
+      <CodeAmbientBackground />
 
       {/* Main Content - Immediately Visible */}
       <motion.div

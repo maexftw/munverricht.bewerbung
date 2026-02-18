@@ -45,3 +45,37 @@ Die Dateien `wrangler.toml`, `.node-version` und `public/_redirects` wurden hinz
 ### Fehlerbehebung (Troubleshooting)
 Falls der Build fehlschlägt, weil `wrangler.toml` die Sektion `[build]` nicht unterstützt:
 Die Build-Konfiguration (Befehl und Verzeichnis) muss zwingend im Cloudflare Dashboard unter **Settings** > **Builds & deployments** > **Configure methods** eingetragen werden, da `wrangler.toml` für Pages aktuell nur das Output-Verzeichnis (`pages_build_output_dir`) und Kompatibilitäts-Einstellungen unterstützt.
+
+## VS Code + GitHub PR Workflow (Quick)
+
+Basierend auf [agents.md](agents.md) gilt: **Source of Truth ist Code + PR-Kommentare auf GitHub**.
+
+### Empfohlene VS Code Extensions
+- `GitHub Pull Requests and Issues` (ID: `github.vscode-pull-request-github`)
+- `GitLens` (ID: `eamodio.gitlens`)
+
+Empfehlungen sind im Repo hinterlegt in [.vscode/extensions.json](.vscode/extensions.json).
+
+### Praktischer Ablauf pro Task
+1. **Main synchronisieren**
+   - Source Control oder Terminal: `git checkout main && git pull origin main`
+2. **Feature-Branch erstellen**
+   - Namensschema aus [agents.md](agents.md): `ag-<topic>` oder `jules-<topic>`
+3. **Änderungen umsetzen + prüfen**
+   - Source Control Diff prüfen
+   - optional lokal testen/builden
+4. **Committen**
+   - Kurze, klare Commit Message mit Scope
+5. **Push + PR erstellen**
+   - In Source Control: `Publish Branch`
+   - In GitHub PR Extension: `Create Pull Request`
+6. **PR reviewen und updaten**
+   - Feedback/Checks in VS Code PR-Panel bearbeiten
+   - Bei Änderungen: neuer Commit, Push auf denselben Branch
+7. **Merge + Branch löschen**
+   - Nach erfolgreichem Review/Checks mergen
+8. **Handoff aktualisieren**
+   - Vor Session-Ende den Übergabe-Block in [agents.md](agents.md) aktualisieren
+
+### Optional: vorhandenes Script nutzen
+Das bestehende PowerShell-Script [sync.ps1](sync.ps1) unterstützt den Ablauf mit `Pull-Main`, `New-Task` und `Push-Task`.

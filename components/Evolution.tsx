@@ -30,7 +30,7 @@ const Evolution: React.FC = () => {
               <span className="mono text-[10px] text-blue-500">2024 - HEUTE // AGENTIC_PIPELINES</span>
               <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">AI Orchestrator & Vibe Coding</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Entwicklung lokaler RAG-Systeme für technische Gutachten (RAC Analysis). Bau der "Stitch-to-Tina" Pipeline: Automatische Überführung von AI-Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.
+                Entwicklung lokaler RAG-Systeme für technische Gutachten (RAG Analysis). Bau der "Stitch-to-Tina" Pipeline: Automatische Überführung von AI-Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.
               </p>
             </div>
           </motion.li>
