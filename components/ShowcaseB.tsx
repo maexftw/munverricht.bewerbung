@@ -6,8 +6,8 @@ import ASCIIText from './ASCIIText';
 const phases = [
   {
     id: 'PHASE_01',
-    title: 'AI-Generation (Boilerplate)',
-    text: 'Nutzung von Google AI Studio & Stitch, um in Sekunden 90% des Boilerplate-Codes für Layouts und Komponenten zu generieren.',
+    title: 'Rapid Generation (Boilerplate)',
+    text: 'Nutzung modernster Generation-Tools, um in Sekunden 90% des Boilerplate-Codes für Layouts und Komponenten zu generieren.',
     tone: 'blue' as const,
   },
   {
@@ -29,9 +29,9 @@ const ShowcaseB: React.FC = () => {
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-end text-right space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ARCHITECTURE_CASE_02" /></h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="AI-Accelerated Agency Workflow" /></h2>
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Rapid Agency Workflow" /></h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Vibe-Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von KI-Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
+          Moderner Workflow trifft auf Client-Control. Ein Workflow, der Agenturen maximale Geschwindigkeit gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
         </p>
       </div>
 
@@ -64,10 +64,10 @@ const ShowcaseB: React.FC = () => {
                 {index === 0 && (
                   <>
                     <div className="absolute top-2 right-2 flex items-center gap-1 text-blue-500">
-                      <span className="animate-pulse">●</span> VIBE_MODE
+                      <span className="animate-pulse">●</span> RAPID_MODE
                     </div>
                     <div className="space-y-0.5">
-                      <div className="text-neutral-500">// AI Studio Gen</div>
+                      <div className="text-neutral-500">// Rapid Gen</div>
                       <div>
                         <span className="text-blue-400">const</span> <span className="text-green-400">Layout</span> = compose({`{`}
                       </div>
@@ -82,7 +82,7 @@ const ShowcaseB: React.FC = () => {
                   <div className="h-full flex items-center justify-center border-2 border-dashed border-neutral-800 rounded">
                     <div className="flex flex-col items-center gap-2">
                       <Settings className="w-6 h-6 text-neutral-700 animate-spin-slow" />
-                      <span className="mono text-[8px] text-neutral-600">ANTI-GRAVITY IDE_ACTIVE</span>
+                      <span className="mono text-[8px] text-neutral-600">ADVANCED IDE_ACTIVE</span>
                     </div>
                   </div>
                 )}

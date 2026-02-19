@@ -6,21 +6,21 @@ import ASCIIText from './ASCIIText';
 const skills = [
   {
     category: 'Core Tools',
-    items: ['Visual Studio Code', 'Cline', 'Roo Code', 'Google Stitch'],
+    items: ['Visual Studio Code', 'Git', 'TypeScript', 'Advanced Tooling'],
     icon: Globe,
     level: 98,
     accent: 'blue',
   },
   {
-    category: 'Intelligence',
-    items: ['LM Studio', 'Mistral-Large', 'Qwen-32B (Local)', 'RAG Pipelines'],
+    category: 'Data & Logic',
+    items: ['Data Analysis', 'Logic Orchestration', 'Local Pipelines', 'Optimized Querying'],
     icon: Brain,
     level: 95,
     accent: 'violet',
   },
   {
     category: 'High-End Station',
-    items: ['NVIDIA RTX 5090', 'Local Inference Server', 'Unreal Engine 5'],
+    items: ['High-Performance Infrastructure', 'Local Performance Server', 'Unreal Engine 5'],
     icon: Cpu,
     level: 100,
     accent: 'cyan',
