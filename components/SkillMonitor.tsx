@@ -92,9 +92,9 @@ const SkillMonitor: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08 }}
-            className={`group relative overflow-hidden rounded-xl border border-neutral-900 bg-[#111111] p-6 transition-all duration-300 ${accentStyles[skill.accent].border}`}
+            className={`group relative overflow-hidden rounded-xl border border-neutral-900 bg-[#111111] p-6 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 ${accentStyles[skill.accent].border}`}
           >
-            <div className={`absolute -top-14 -right-14 h-28 w-28 rounded-full bg-gradient-to-br ${accentStyles[skill.accent].glow} blur-2xl`} aria-hidden="true" />
+            <div className={`absolute -top-14 -right-14 h-28 w-28 rounded-full bg-gradient-to-br ${accentStyles[skill.accent].glow} blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500`} aria-hidden="true" />
 
             <div className="flex items-start justify-between gap-4 relative z-10">
               <div className="space-y-2">

@@ -45,9 +45,8 @@ const ShowcaseB: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
-              className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${
-                isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'
-              }`}
+              className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'
+                }`}
             >
               <div className="absolute -top-14 -right-14 h-28 w-28 rounded-full bg-blue-500/10 blur-2xl" aria-hidden="true" />
 
@@ -116,7 +115,7 @@ const ShowcaseB: React.FC = () => {
         <div className="relative space-y-3">
           <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-500">// CASE_03</p>
           <div className="flex items-start justify-between gap-4 flex-wrap">
-            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee FÄNSEN Commerce Engine" /></h3>
+            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee Faensen Commerce Engine" /></h3>
             <a
               href="https://www.kaffee-faensen.de/shop/homepage"
               target="_blank"

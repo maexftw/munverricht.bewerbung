@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import Evolution from './components/Evolution';
 import ShowcaseA from './components/ShowcaseA';
 import ShowcaseB from './components/ShowcaseB';
-import UseCasesIntro from './components/UseCasesIntro';
 import SkillMonitor from './components/SkillMonitor';
 import ContactShell from './components/ContactShell';
 import CodeAmbientBackground from './components/CodeAmbientBackground';
@@ -47,7 +46,6 @@ const App: React.FC = () => {
         <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
           <Hero />
           <Evolution />
-          <UseCasesIntro />
           <ShowcaseA />
           <ShowcaseB />
           <Projects />

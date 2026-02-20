@@ -4,13 +4,15 @@ import { Terminal, Zap, Activity } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
 const toolLogos = [
-  { name: 'Visual Studio Code', src: 'https://cdn.simpleicons.org/visualstudiocode/3B82F6' },
+  { name: 'VS Code', src: 'https://cdn.simpleicons.org/visualstudiocode/3B82F6' },
+  { name: 'Roo Code', src: 'https://cdn.simpleicons.org/androidstudio/3DDC84' }, /* placeholder for roo */
   { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB' },
+  { name: 'Tailwind', src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
   { name: 'Vite', src: 'https://cdn.simpleicons.org/vite/646CFF' },
   { name: 'TypeScript', src: 'https://cdn.simpleicons.org/typescript/3178C6' },
-  { name: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/F38020' },
-  { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
-  { name: 'Google', src: 'https://cdn.simpleicons.org/google/4285F4' },
+  { name: 'GSAP', src: 'https://cdn.simpleicons.org/greensock/88CE02' },
+  { name: 'Anime.js', src: 'https://cdn.simpleicons.org/javascript/F7DF1E' }, /* placeholder for anime */
+  { name: 'HTML5', src: 'https://cdn.simpleicons.org/html5/E34F26' },
   { name: 'GitHub', src: 'https://cdn.simpleicons.org/github/FFFFFF' },
 ];
 
@@ -144,7 +146,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
             <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / AI WORKFLOWS
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">Agentic Development mit Google AI Studio & Stitch. Schnelle Iterationen, präzise Resultate.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">Agentic Development über multiple IDEs (VS Code, Roo Code, Cline) und Google AI Studio. Dynamische Workflows statt starrer Generierung.</p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">

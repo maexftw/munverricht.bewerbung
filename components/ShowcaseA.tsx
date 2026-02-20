@@ -10,13 +10,13 @@ const ShowcaseA: React.FC = () => {
     <section id="showcase-a" className="space-y-16">
       <div className="space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
-            <ASCIIText text="// ARCHITECTURE_CASE_01" />
+          <ASCIIText text="// ARCHITECTURE_CASE_01" />
         </h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
-            <ASCIIText text="Local AI Analysis Pipeline" />
+          <ASCIIText text="Local AI Analysis Pipeline" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Für Ingenieurbüros entwickelte RAG-Lösung zur automatisierten Analyse technischer Dokumente. Maximale Datensouveränität durch lokale Inferenz.
+          Lokale RAG-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ const ShowcaseA: React.FC = () => {
           <div className="space-y-6">
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                  <ASCIIText text=">> Ingest & Extraction" />
+                <ASCIIText text=">> Ingest & Extraction" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 Nutzung von <strong>Docling</strong> und <strong>PyMuPDF</strong> für die präzise Extraktion von Tabellen und statischen Werten aus komplexen technischen Dokumentationen.
@@ -93,7 +93,7 @@ const ShowcaseA: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                  <ASCIIText text=">> Context-Aware Translation" />
+                <ASCIIText text=">> Context-Aware Translation" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 Keine Standard-Translation. Lokale <strong>Qwen-32B</strong> Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.
@@ -101,7 +101,7 @@ const ShowcaseA: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                  <ASCIIText text=">> Hallucination Check" />
+                <ASCIIText text=">> Hallucination Check" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 Eine integrierte <strong>Python-Validierungsebene</strong> prüft via Regex und mathematischen Checks, ob alle Zahlenwerte im Output mit dem Original übereinstimmen.
