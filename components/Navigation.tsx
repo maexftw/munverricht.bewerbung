@@ -5,10 +5,10 @@ import ASCIIText from './ASCIIText';
 
 const navItems = [
     { name: 'Start', href: '#hero', icon: Terminal },
-    { name: 'About', href: '#evolution', icon: User },
-    { name: 'Projects', href: '#projects', icon: Briefcase },
+    { name: 'Über mich', href: '#evolution', icon: User },
+    { name: 'Projekte', href: '#projects', icon: Briefcase },
     { name: 'Skills', href: '#skill-monitor', icon: Code },
-    { name: 'Contact', href: '#contact-shell', icon: Mail },
+    { name: 'Kontakt', href: '#contact-shell', icon: Mail },
 ];
 
 const Navigation: React.FC = () => {
@@ -69,7 +69,7 @@ const Navigation: React.FC = () => {
                         href="Maximilian_Unverricht_Resume.html"
                         className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                     >
-                        CV <span className="text-blue-500">↓</span>
+                        Lebenslauf <span className="text-blue-500">↓</span>
                     </a>
                 </div>
             </motion.nav>
@@ -79,7 +79,7 @@ const Navigation: React.FC = () => {
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
-                    aria-label="Toggle Menu"
+                    aria-label="Menü umschalten"
                 >
                     {isOpen ? <X /> : <Menu />}
                 </button>
@@ -109,7 +109,7 @@ const Navigation: React.FC = () => {
                             href="Maximilian_Unverricht_Resume.html"
                             className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                         >
-                            Download Resume
+                            Lebenslauf herunterladen
                         </a>
                     </motion.div>
                 )}

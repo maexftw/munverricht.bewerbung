@@ -14,6 +14,7 @@ import Navigation from './components/Navigation';
 import Projects from './components/Projects';
 import LegalInfo from './components/LegalInfo';
 import CookieConsent from './components/CookieConsent';
+import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   const [booting, setBooting] = useState(true);
@@ -58,6 +59,7 @@ const App: React.FC = () => {
         </main>
       </motion.div>
 
+      <ScrollToTop />
       <CookieConsent />
 
       {/* Non-blocking System Boot Overlay */}

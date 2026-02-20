@@ -25,7 +25,7 @@ const CookieConsent: React.FC = () => {
   return (
     <div className="fixed bottom-4 left-4 right-4 z-[1200] md:left-auto md:max-w-xl">
       <div className="rounded-xl border border-neutral-700 bg-[#0b0d14]/95 backdrop-blur-md p-5 shadow-[0_0_35px_rgba(59,130,246,0.2)] space-y-4">
-        <h3 className="mono text-xs uppercase tracking-[0.2em] text-blue-400">Cookie Consent</h3>
+        <h3 className="mono text-xs uppercase tracking-[0.2em] text-blue-400">Cookie-Zustimmung</h3>
         <p className="text-sm text-neutral-200 leading-relaxed">
           Diese Website wird über Cloudflare bereitgestellt. Es werden technisch notwendige Cookies genutzt.
           Optionale Messung (z. B. Cloudflare Analytics) wird erst nach deiner Zustimmung aktiviert.
