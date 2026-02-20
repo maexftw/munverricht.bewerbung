@@ -28,7 +28,7 @@ const ShowcaseB: React.FC = () => {
   return (
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-end text-right space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ARCHITECTURE_CASE_02" /></h3>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ECOMMERCE_USE_CASE_02" /></h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="AI-Accelerated Agency Workflow" /></h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           Vibe-Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von KI-Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
@@ -45,9 +45,8 @@ const ShowcaseB: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
-              className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${
-                isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'
-              }`}
+              className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'
+                }`}
             >
               <div className="absolute -top-14 -right-14 h-28 w-28 rounded-full bg-blue-500/10 blur-2xl" aria-hidden="true" />
 
@@ -116,7 +115,7 @@ const ShowcaseB: React.FC = () => {
         <div className="relative space-y-3">
           <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-500">// CASE_03</p>
           <div className="flex items-start justify-between gap-4 flex-wrap">
-            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee FÄNSEN Commerce Engine" /></h3>
+            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee Faensen Commerce Engine" /></h3>
             <a
               href="https://www.kaffee-faensen.de/shop/homepage"
               target="_blank"

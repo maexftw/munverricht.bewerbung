@@ -2,15 +2,18 @@ import React, { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
 import { Terminal, Zap, Activity } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { VSCodeIcon, RooCodeIcon, GsapIcon, AnimeJsIcon } from './Icons';
 
 const toolLogos = [
-  { name: 'Visual Studio Code', src: 'https://cdn.simpleicons.org/visualstudiocode/3B82F6' },
+  { name: 'VS Code', Icon: VSCodeIcon },
+  { name: 'Roo Code', Icon: RooCodeIcon },
   { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB' },
+  { name: 'Tailwind', src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
   { name: 'Vite', src: 'https://cdn.simpleicons.org/vite/646CFF' },
   { name: 'TypeScript', src: 'https://cdn.simpleicons.org/typescript/3178C6' },
-  { name: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/F38020' },
-  { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
-  { name: 'Google', src: 'https://cdn.simpleicons.org/google/4285F4' },
+  { name: 'GSAP', Icon: GsapIcon },
+  { name: 'Anime.js', Icon: AnimeJsIcon },
+  { name: 'HTML5', src: 'https://cdn.simpleicons.org/html5/E34F26' },
   { name: 'GitHub', src: 'https://cdn.simpleicons.org/github/FFFFFF' },
 ];
 
@@ -102,7 +105,11 @@ const Hero: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-5 md:gap-6">
           {toolLogos.map((tool) => (
             <div key={tool.name} className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors">
-              <img src={tool.src} alt={tool.name} className="h-4 w-4 md:h-5 md:w-5 object-contain" loading="lazy" />
+              {tool.Icon ? (
+                <tool.Icon className="h-4 w-4 md:h-5 md:w-5 text-neutral-300 group-hover:text-blue-500 transition-colors" aria-hidden="true" />
+              ) : (
+                <img src={tool.src} alt={tool.name} className="h-4 w-4 md:h-5 md:w-5 object-contain" loading="lazy" />
+              )}
               <span className="mono text-[10px] md:text-[11px] text-neutral-300 group-hover:text-blue-300 transition-colors">{tool.name}</span>
             </div>
           ))}
@@ -144,7 +151,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
             <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / AI WORKFLOWS
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">Agentic Development mit Google AI Studio & Stitch. Schnelle Iterationen, präzise Resultate.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">Agentic Development über multiple IDEs (VS Code, Roo Code, Cline) und Google AI Studio. Dynamische Workflows statt starrer Generierung.</p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">

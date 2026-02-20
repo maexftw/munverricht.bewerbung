@@ -29,7 +29,7 @@ const projects = [
         stack: ['Design', 'Local Business']
     },
     {
-        title: 'Kaffee Faensen',
+        title: 'Kaffee Faensen Commerce',
         url: 'https://www.kaffee-faensen.de/shop/homepage',
         desc: 'Custom Commerce mit eigener Shop-Logik + Stripe',
         stack: ['Custom Shop Logic', 'Stripe', 'Brand Identity']
@@ -47,7 +47,7 @@ const projects = [
         stack: ['WordPress', 'Corporate Design']
     },
     {
-        title: 'RAG / ZBN Pipeline',
+        title: 'RAG Analysis Node',
         url: 'https://www.zbn.de',
         desc: 'Ingenieurbüro (RAG Pipeline Client)',
         stack: ['AI Analysis', 'Automation']
