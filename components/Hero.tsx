@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          AI WORKFLOW & WEB DELIVERY // PROFESSIONAL EXECUTION
+          MODERN WORKFLOW & WEB DELIVERY // PROFESSIONAL EXECUTION
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
-        Ich entwickle <span className="text-white">performante Websites und AI-gestützte Workflows</span> mit klarem Fokus auf Business-Impact: schnellere Umsetzung, saubere Übergaben und messbare Ergebnisse.
+        Ich entwickle <span className="text-white">performante Websites und moderne Workflows</span> mit klarem Fokus auf Business-Impact: schnellere Umsetzung, saubere Übergaben und messbare Ergebnisse.
       </p>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
@@ -149,9 +149,9 @@ const Hero: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / AI WORKFLOWS
+            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / MODERN WORKFLOWS
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">Agentic Development über multiple IDEs (VS Code, Roo Code, Cline) und Google AI Studio. Dynamische Workflows statt starrer Generierung.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">Effiziente Entwicklung über multiple IDEs (VS Code, Roo Code, Cline) und Advanced Pipelines. Dynamische Workflows statt starrer Prozesse.</p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">

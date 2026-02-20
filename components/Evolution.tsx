@@ -27,15 +27,15 @@ const Evolution: React.FC = () => {
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-blue-500">2024 - HEUTE // AGENTIC_PIPELINES</span>
-              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">AI Orchestrator & Vibe Coding</h4>
+              <span className="mono text-[10px] text-blue-500">2024 - HEUTE // MODERN_PIPELINES</span>
+              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">System Architect & Rapid Prototyping</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Entwicklung lokaler RAG-Systeme für technische Gutachten (RAG Analysis). Bau der "Stitch-to-Tina" Pipeline: Automatische Überführung von AI-Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.
+                Entwicklung lokaler Daten-Systeme für technische Gutachten. Bau hocheffizienter Pipelines: Automatische Überführung von optimiertem Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.
               </p>
             </div>
           </motion.li>
 
-          {/* Agentic Era */}
+          {/* Modern Era */}
           <motion.li
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -48,7 +48,7 @@ const Evolution: React.FC = () => {
               <span className="mono text-[10px] text-neutral-600">2023 - 2024 // EXPERIMENTAL_TECH</span>
               <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Creative Tech & Prototyping</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Tiefer Einstieg in LLMs und generative AI. Nutzung von Game-Engines (Unreal 5) für interaktive Erlebnisse. Experimente mit neuen Interfaces jenseits des klassischen Webs.
+                Tiefer Einstieg in moderne Automatisierung und generative Systeme. Nutzung von Game-Engines (Unreal 5) für interaktive Erlebnisse. Experimente mit neuen Interfaces jenseits des klassischen Webs.
               </p>
             </div>
           </motion.li>

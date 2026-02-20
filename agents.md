@@ -1,46 +1,46 @@
-# AI Handoff & State (agents.md)
+# System Handoff & State (agents.md)
 
 > [!NOTE]
-> Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Jules <-> Antigravity).
+> Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Agent A <-> Agent B).
 
 ## 🚀 ÜBERGABE-STATUS (Current Handoff)
 - **Status:** Profil-Optimierung V4.0 abgeschlossen. Browser-Login (Indeed) aufgrund Cloudflare blockiert (Pivoted to HTML Resume).
-- **Erkenntnis:** Der Nutzer bevorzugt einen bescheidenen, pragmatischen Ton ("Vibe Coder") statt technischer Überhöhung. 
-- **Nächster Schritt for Jules/AG:** 
+- **Erkenntnis:** Der Nutzer bevorzugt einen bescheidenen, pragmatischen Ton ("Modern Developer") statt technischer Überhöhung.
+- **Nächster Schritt for Agents:**
   1. Feedback zum HTML-Lebenslauf (`Maximilian_Unverricht_Resume.html`) einholen.
   2. Arbeitgeber-Recherche (Remote/NRW) starten.
 - **Blocker:** Keine.
 
 ---
 
-## 🤖 AI Workflow Briefing
+## 🤖 System Workflow Briefing
 1. **Source of Truth:** Der Code und die PR-Kommentare auf GitHub.
 2. **Handoff:** Vor dem Ende jeder Session wird der "Übergabe-Status" hier aktualisiert.
-3. **Branching:** `ag-*` (Antigravity), `jules-*` (Jules).
+3. **Branching:** `b-*` (Agent B), `a-*` (Agent A).
 
-## Session 2026-02-15 (Antigravity)
-- **Ergebnis:** Workflow v2 stabil, Jules-Bridge aktiv, Cloudflare-Diagnose via CLI möglich.
+## Session 2026-02-15 (Agent B)
+- **Ergebnis:** Workflow v2 stabil, Agent A-Bridge aktiv, Cloudflare-Diagnose via CLI möglich.
 
-## Session 2026-02-15 (Jules)
+## Session 2026-02-15 (Agent A)
 - **Ergebnis:** BackgroundAnimation Loop optimiert (~63% Performance-Gewinn im Kern-Loop).
 - **Änderungen:** Loops konsolidiert, Invarianten gehoistet, p.map/Math.floor durch optimierte Math-Operationen ersetzt.
-## Session 2026-02-16 (Antigravity)
+## Session 2026-02-16 (Agent B)
 - **Ergebnis:** LinkedIn/Indeed Profil-Content (V4.0) finalisiert. HTML-Lebenslauf-Vorlage erstellt.
-- **Änderungen:** Textbausteine für Slogan, Über Mich & Erfahrung erstellt; Fokus auf WordPress/Marketing + AI-Workflow.
+- **Änderungen:** Textbausteine für Slogan, Über Mich & Erfahrung erstellt; Fokus auf WordPress/Marketing + Modern Workflow.
 
-## Session 2026-02-16 (Antigravity - Sonet Feedback)
+## Session 2026-02-16 (Agent B - Sonet Feedback)
 - **Ergebnis:** Website für Recruiter optimiert (Performance & Content).
 - **Änderungen:**
   - **Performance:** `index.html` Static Fallback + Non-blocking Boot Overlay.
   - **UX:** Sticky Navigation + Neue "Selected Work" Sektion.
-  - **Content:** Hero-Pitch geschärft ("AI-Powered Web Solutions") + CV Download CTA.
+  - **Content:** Hero-Pitch geschärft ("Advanced Web Solutions") + CV Download CTA.
 - **Status:** Ready for Review / Deployment.
 
-## Session 2026-02-16 (Antigravity - Content Refinement)
+## Session 2026-02-16 (Agent B - Content Refinement)
 - **Ergebnis:** Feinschliff des Contents und der Links basierend auf User-Feedback.
 - **Änderungen:**
   - **Projects:** Liste aktualisiert (TriXstar, Immo, etc.) mit korrekten Links.
-  - **Tone:** "Vibe Coder" statt "Engineer". "ZBN" -> "RAC Analysis".
+  - **Tone:** "Modern Developer" statt "Engineer". "ZBN" -> "RAC Analysis".
   - **Links:** Navigation und CV-Download gefixt.
 - **Status:** Deployed to Main (Clean Slate).
 
@@ -66,7 +66,7 @@
   - `ShowcaseB.tsx`:
     - Zitat-Block entfernt.
     - Workflow-Karten visuell aufgewertet.
-    - Neue dedizierte Case-Sektion „Kaffee FÄNSEN Commerce Engine“ direkt unter dem Workflow ergänzt (Custom vibecoded Shop-Logik + Stripe).
+    - Neue dedizierte Case-Sektion „Kaffee FÄNSEN Commerce Engine“ direkt unter dem Workflow ergänzt (Custom tailored Shop-Logik + Stripe).
   - `SkillMonitor.tsx`:
     - Vorherige Kartenansicht durch „Capability Matrix“ mit stärkerem Visual-Layer (Glows, Accent-Farben, kompaktere Chips, klarere Statuszeile) ersetzt.
 - **Status:** Lokal validiert (HMR) und Build erfolgreich.

@@ -1,4 +1,4 @@
-# AI Agent Collaboration Log & Workflow (agents.md)
+# System Agent Collaboration Log & Workflow (agents.md)
 
 ## 🤖 MANDATORY AI WORKFLOW (Dienstplan)
 
@@ -12,7 +12,7 @@ To ensure synchronization and prevent build failures, every AI agent MUST:
 
 ## 🚀 ÜBERGABE-STATUS (Current Handoff)
 - **Aktueller Fokus:** Profil-Optimierung & Resume-Erstellung (V4.0).
-- **Nächster Schritt for Jules/AG:** 
+- **Nächster Schritt for Agents:**
   1. Feedback vom Nutzer zum neuen HTML-Resume (`Maximilian_Unverricht_Resume.html`) abwarten.
   2. Start der Arbeitgeber-Recherche (Remote/NRW) basierend auf dem geerdeten Profil.
 - **Blocker:** Keine. Browser-Login (Indeed) wurde abgebrochen, da Headless-Blockade (Cloudflare).

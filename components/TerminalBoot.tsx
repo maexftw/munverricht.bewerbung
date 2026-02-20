@@ -16,11 +16,11 @@ const bootMessages = [
   "[INFO] Re-indexing Expertise: WordPress (10Y), Webflow (2Y)... Done.",
   "[INFO] Checking Certificates: Google Ads, Analytics... Verified.",
   "[WARN] Legacy Logic detected. Triggering REFACTORE_CAREER.exe...",
-  "[INFO] Connecting to Anti-Gravity IDE... Connected via Local SSH.",
-  "[INFO] Initializing Agentic Workflow: Google AI Studio & Stitch...",
-  "[INFO] Syncing Local LLMs (Mistral-Large, Qwen-32B)... Ready.",
+  "[INFO] Connecting to Advanced IDE... Connected via Local SSH.",
+  "[INFO] Initializing Modern Workflow: Advanced Pipelines...",
+  "[INFO] Syncing Local Systems (High-Performance Core)... Ready.",
   "[OK] System Optimization Level: MAXIMAL.",
-  "[SYSTEM] Agentic Mode: ACTIVE."
+  "[SYSTEM] Advanced Mode: ACTIVE."
 ];
 
 const CURSOR_ANIMATION = { opacity: [0, 1, 0] };

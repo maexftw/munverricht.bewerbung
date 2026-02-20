@@ -1,7 +1,7 @@
 # GitHub Sync Automation
 
 function Pull-Main {
-    Write-Host ">>> Catching up with Jules (Pulling main)..." -ForegroundColor Cyan
+    Write-Host ">>> Catching up with Agent (Pulling main)..." -ForegroundColor Cyan
     git checkout main
     git pull origin main
     Write-Host ">>> Sync complete." -ForegroundColor Green
@@ -10,7 +10,7 @@ function Pull-Main {
 function New-Task {
     param([string]$name)
     if (-not $name) { $name = Read-Host "Enter task name (e.g., feature-x)" }
-    $branch = "ag-$name"
+    $branch = "b-$name"
     Write-Host ">>> Creating new branch: $branch" -ForegroundColor Cyan
     git checkout main
     if ($LASTEXITCODE -ne 0) {
@@ -34,9 +34,9 @@ function Push-Task {
 }
 
 Write-Host "-------------------------------------------"
-Write-Host "Antigravity GitHub Sync Tool Loaded"
+Write-Host "Advanced GitHub Sync Tool Loaded"
 Write-Host "Commands:"
-Write-Host "  Pull-Main  - Get latest changes from Jules"
+Write-Host "  Pull-Main  - Get latest changes from Agent"
 Write-Host "  New-Task   - Start a new safe feature branch"
 Write-Host "  Push-Task  - Push changes and open a PR"
 Write-Host "-------------------------------------------"
