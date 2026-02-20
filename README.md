@@ -1,11 +1,11 @@
 ## Über dieses Projekt
 
-Dieses Projekt ist mein praktisches Portfolio als Vibe Coder.
+Dieses Projekt ist mein praktisches Portfolio als Modern Developer.
 Ich baue nicht „perfekt auf dem Papier“, sondern arbeite Schritt für Schritt: Idee, Umsetzung, Test, Verbesserung, Deployment.
 
 ### Worum es hier geht
 
-Die Website zeigt, wie ich moderne Seiten mit KI-Unterstützung aufbaue und produktiv online bringe.
+Die Website zeigt, wie ich moderne Seiten mit modernen Workflows aufbaue und produktiv online bringe.
 Der Fokus liegt auf klarer Wirkung, guter Lesbarkeit und einem sauberen Live-Stand.
 
 ### Was ich konkret gemacht habe
@@ -45,5 +45,5 @@ Der Fokus liegt auf klarer Wirkung, guter Lesbarkeit und einem sauberen Live-Sta
 
 ### Kurz gesagt
 
-Ich bin kein klassischer „Senior Engineer“, sondern ein pragmatischer Vibe Coder:
+Ich bin kein klassischer „Senior Engineer“, sondern ein pragmatischer Modern Developer:
 Ich lerne schnell, setze zuverlässig um und liefere funktionierende Ergebnisse, die online sichtbar sind.

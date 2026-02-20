@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FileText, Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-const BACKGROUND_TEXT = Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_QWEN_32B_RTX5090 ").join(" ");
+const BACKGROUND_TEXT = Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_ADVANCED_SYSTEM_RTX5090 ").join(" ");
 
 const ShowcaseA: React.FC = () => {
   return (
@@ -13,10 +13,10 @@ const ShowcaseA: React.FC = () => {
           <ASCIIText text="// ENGINEERING_USE_CASE_01" />
         </h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text="ZBN Offline RAG System" />
+          <ASCIIText text="ZBN Offline Semantic Data System" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Lokale RAG-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.
+          Lokale Semantic Data-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.
         </p>
       </div>
 
@@ -46,7 +46,7 @@ const ShowcaseA: React.FC = () => {
                 </div>
                 <div className="flex-1 bg-blue-500/10 border border-blue-500/20 rounded p-3 mono text-[9px] text-blue-400">
                   <div className="flex justify-between mb-1">
-                    <span>LOCAL_INFERENCE_QWEN_32B</span>
+                    <span>LOCAL_INFERENCE_ADVANCED_SYSTEM</span>
                     <span>ACTIVE</span>
                   </div>
                   <div className="w-full bg-neutral-900 h-1 rounded-full">
@@ -96,7 +96,7 @@ const ShowcaseA: React.FC = () => {
                 <ASCIIText text=">> Context-Aware Translation" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Keine Standard-Translation. Lokale <strong>Qwen-32B</strong> Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.
+                Keine Standard-Translation. Lokale <strong>Hochleistungs-System</strong> Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.
               </p>
             </div>
             <div className="space-y-2">

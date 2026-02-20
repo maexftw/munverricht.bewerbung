@@ -1,10 +1,10 @@
-# GitHub & Jules Sync Automation
+# GitHub & Agent Sync Automation
 
-$JULES_API_KEY = "REDACTED_BY_SENTINEL"
+
 $CF_PROJECT = "maximilian-unverricht"
 
 function Pull-Main {
-    Write-Host ">>> Catching up with Jules (Pulling main)..." -ForegroundColor Cyan
+    Write-Host ">>> Catching up with Agent (Pulling main)..." -ForegroundColor Cyan
     git checkout main
     git pull origin main
     Write-Host ">>> Sync complete." -ForegroundColor Green
@@ -37,19 +37,19 @@ function Check-Deploy {
     npx wrangler pages deployment list --project-name $CF_PROJECT --limit 1
 }
 
-function Jules-Status {
-    Write-Host ">>> Querying Jules Sessions..." -ForegroundColor Cyan
+function Agent-Status {
+    Write-Host ">>> Querying Agent Sessions..." -ForegroundColor Cyan
     $headers = @{ "X-Goog-Api-Key" = $JULES_API_KEY }
-    # Note: Using GitHub CLI to see Jules PRs as a fallback for API connectivity
-    gh pr list --author "app/google-jules" --state open
+    # Note: Using GitHub CLI to see Agent PRs as a fallback for API connectivity
+    gh pr list --author "app/google-agent" --state open
 }
 
 Write-Host "-------------------------------------------"
-Write-Host "Antigravity Unified Sync Tool v2.0"
+Write-Host "Advanced Unified Sync Tool v2.0"
 Write-Host "Commands:"
 Write-Host "  Pull-Main    - Get latest changes"
 Write-Host "  New-Task     - Start a safe feature branch"
 Write-Host "  Push-Task    - Push & Open PR"
 Write-Host "  Check-Deploy - Check Cloudflare health"
-Write-Host "  Jules-Status - See what Jules is doing"
+Write-Host "  Agent-Status - See what Agent is doing"
 Write-Host "-------------------------------------------"

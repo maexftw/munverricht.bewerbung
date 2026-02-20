@@ -6,14 +6,14 @@ import ASCIIText from './ASCIIText';
 const skills = [
   {
     category: 'Core Tools',
-    items: ['Visual Studio Code', 'Cline', 'Roo Code', 'Google Stitch'],
+    items: ['Visual Studio Code', 'Cline', 'Roo Code', 'Advanced Pipelines'],
     icon: Globe,
     level: 98,
     accent: 'blue',
   },
   {
-    category: 'Intelligence',
-    items: ['LM Studio', 'Mistral-Large', 'Qwen-32B (Local)', 'RAG Pipelines'],
+    category: 'Modern Logic',
+    items: ['Advanced Systems', 'High-End Logic', 'Data Pipelines', 'Modern Automation'],
     icon: Brain,
     level: 95,
     accent: 'violet',
@@ -81,7 +81,7 @@ const SkillMonitor: React.FC = () => {
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true"><ASCIIText text="// RESOURCE_MONITOR" /></h3>
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Capability Matrix" /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
-          Hier siehst du meinen täglichen Workflow: die wichtigsten Tools, Modelle und Systeme, mit denen ich Projekte strukturiert, schnell und zuverlässig umsetze.
+          Hier siehst du meinen täglichen Workflow: die wichtigsten Tools und Systeme, mit denen ich Projekte strukturiert, schnell und zuverlässig umsetze.
         </p>
       </div>
 

@@ -50,7 +50,7 @@ const projects = [
         title: 'RAG Analysis Node',
         url: 'https://www.zbn.de',
         desc: 'Ingenieurbüro (RAG Pipeline Client)',
-        stack: ['AI Analysis', 'Automation']
+        stack: ['Advanced Analysis', 'Automation']
     },
 ];
 

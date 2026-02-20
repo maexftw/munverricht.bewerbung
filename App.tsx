@@ -53,7 +53,7 @@ const App: React.FC = () => {
           <ContactShell />
           <LegalInfo />
           <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">
-            <p>© 2026 MAXIMILIAN UNVERRICHT // THE AGENTIC DEVELOPER // v3.1.0-STABLE</p>
+            <p>© 2026 MAXIMILIAN UNVERRICHT // THE ADVANCED DEVELOPER // v3.1.0-STABLE</p>
           </footer>
         </main>
       </motion.div>
