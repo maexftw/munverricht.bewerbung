@@ -32,7 +32,7 @@ const CodeAmbientBackground: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -42,6 +42,19 @@ const CodeAmbientBackground: React.FC = () => {
     let time = 0;
     let leftRows: SideRow[] = [];
     let rightRows: SideRow[] = [];
+
+    // Optimization: Cache offscreen canvas for dot matrix base
+    const dotCache = document.createElement('canvas');
+    const dotCacheCtx = dotCache.getContext('2d');
+    let dotPattern: CanvasPattern | null = null;
+
+    // Optimization: Cache gradients and measurements
+    let leftVignette: CanvasGradient | null = null;
+    let rightVignette: CanvasGradient | null = null;
+    let pulseGradient: CanvasGradient | null = null;
+    let mainGlow: CanvasRadialGradient | null = null;
+    let cachedRailWidth = 0;
+    const railText = TOKENS.join('   ');
 
     const createRows = (): SideRow[] => {
       const rows = Math.max(18, Math.floor(height / 34));
@@ -68,16 +81,46 @@ const CodeAmbientBackground: React.FC = () => {
 
       leftRows = createRows();
       rightRows = createRows();
+
+      // Reset cached elements on resize
+      leftVignette = null;
+      rightVignette = null;
+      pulseGradient = null;
+      mainGlow = null;
+      cachedRailWidth = 0;
+      dotPattern = null;
     };
 
     const drawDotMatrix = () => {
       const gap = 16;
       const offsetY = (time * 10) % gap;
+
+      if (!dotPattern && dotCacheCtx) {
+        dotCache.width = gap;
+        dotCache.height = gap;
+        dotCacheCtx.fillStyle = 'rgba(59,130,246,0.034)';
+        dotCacheCtx.fillRect(0, 0, 1.2, 1.2);
+        dotPattern = ctx.createPattern(dotCache, 'repeat');
+      }
+
+      if (dotPattern) {
+        ctx.save();
+        // Translate to match the original 6, 6 starting position and handle scroll
+        ctx.translate(6, 6 - offsetY);
+        ctx.fillStyle = dotPattern;
+        // Draw a larger area to cover the scroll
+        ctx.fillRect(-6, -6, width + gap, height + gap);
+        ctx.restore();
+      }
+
+      // Only draw the "pulse" dots on top
+      ctx.fillStyle = 'rgba(59,130,246,0.11)';
+      const time90 = Math.floor(time * 90);
       for (let y = 6 - offsetY; y < height + gap; y += gap) {
         for (let x = 6; x < width; x += gap) {
-          const pulse = ((x + y + Math.floor(time * 90)) % 64 === 0) ? 0.11 : 0.034;
-          ctx.fillStyle = `rgba(59,130,246,${pulse})`;
-          ctx.fillRect(x, y, 1.2, 1.2);
+          if ((x + y + time90) % 64 === 0) {
+            ctx.fillRect(x, y, 1.2, 1.2);
+          }
         }
       }
     };
@@ -137,24 +180,30 @@ const CodeAmbientBackground: React.FC = () => {
       ctx.font = '600 12px "JetBrains Mono", monospace';
       ctx.textBaseline = 'top';
 
-      const rail = TOKENS.join('   ');
-      const railWidth = ctx.measureText(rail).width;
-      const offset = (time * speed) % (railWidth + 180);
+      if (!cachedRailWidth) {
+        cachedRailWidth = ctx.measureText(railText).width;
+      }
+
+      const offset = (time * speed) % (cachedRailWidth + 180);
       const x = -offset;
 
       ctx.fillStyle = `rgba(56,189,248,${alpha})`;
-      ctx.fillText(rail, x, y);
-      ctx.fillText(rail, x + railWidth + 140, y);
-      ctx.fillText(rail, x + (railWidth + 140) * 2, y);
+      ctx.fillText(railText, x, y);
+      ctx.fillText(railText, x + cachedRailWidth + 140, y);
+      ctx.fillText(railText, x + (cachedRailWidth + 140) * 2, y);
     };
 
     const drawPulseLine = () => {
       const pulseY = ((Math.sin(time * 0.45) + 1) * 0.5) * height;
-      const grad = ctx.createLinearGradient(0, pulseY, width, pulseY);
-      grad.addColorStop(0, 'rgba(56,189,248,0)');
-      grad.addColorStop(0.5, 'rgba(56,189,248,0.22)');
-      grad.addColorStop(1, 'rgba(56,189,248,0)');
-      ctx.strokeStyle = grad;
+
+      if (!pulseGradient) {
+        pulseGradient = ctx.createLinearGradient(0, 0, width, 0);
+        pulseGradient.addColorStop(0, 'rgba(56,189,248,0)');
+        pulseGradient.addColorStop(0.5, 'rgba(56,189,248,0.22)');
+        pulseGradient.addColorStop(1, 'rgba(56,189,248,0)');
+      }
+
+      ctx.strokeStyle = pulseGradient;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, pulseY);
@@ -163,16 +212,20 @@ const CodeAmbientBackground: React.FC = () => {
     };
 
     const drawSideVignette = () => {
-      const left = ctx.createLinearGradient(0, 0, width * 0.24, 0);
-      left.addColorStop(0, 'rgba(2,6,23,0.72)');
-      left.addColorStop(1, 'rgba(2,6,23,0)');
-      ctx.fillStyle = left;
+      if (!leftVignette || !rightVignette) {
+        leftVignette = ctx.createLinearGradient(0, 0, width * 0.24, 0);
+        leftVignette.addColorStop(0, 'rgba(2,6,23,0.72)');
+        leftVignette.addColorStop(1, 'rgba(2,6,23,0)');
+
+        rightVignette = ctx.createLinearGradient(width, 0, width * 0.76, 0);
+        rightVignette.addColorStop(0, 'rgba(2,6,23,0.72)');
+        rightVignette.addColorStop(1, 'rgba(2,6,23,0)');
+      }
+
+      ctx.fillStyle = leftVignette;
       ctx.fillRect(0, 0, width * 0.24, height);
 
-      const right = ctx.createLinearGradient(width, 0, width * 0.76, 0);
-      right.addColorStop(0, 'rgba(2,6,23,0.72)');
-      right.addColorStop(1, 'rgba(2,6,23,0)');
-      ctx.fillStyle = right;
+      ctx.fillStyle = rightVignette;
       ctx.fillRect(width * 0.76, 0, width * 0.24, height);
     };
 
@@ -180,11 +233,14 @@ const CodeAmbientBackground: React.FC = () => {
       const dt = media.matches ? 0.006 : 0.016;
       ctx.clearRect(0, 0, width, height);
 
-      const glow = ctx.createRadialGradient(width * 0.5, height * 0.27, 30, width * 0.5, height * 0.27, Math.max(width, height) * 0.75);
-      glow.addColorStop(0, 'rgba(37,99,235,0.23)');
-      glow.addColorStop(0.48, 'rgba(37,99,235,0.06)');
-      glow.addColorStop(1, 'rgba(2,6,23,0)');
-      ctx.fillStyle = glow;
+      if (!mainGlow) {
+        mainGlow = ctx.createRadialGradient(width * 0.5, height * 0.27, 30, width * 0.5, height * 0.27, Math.max(width, height) * 0.75);
+        mainGlow.addColorStop(0, 'rgba(37,99,235,0.23)');
+        mainGlow.addColorStop(0.48, 'rgba(37,99,235,0.06)');
+        mainGlow.addColorStop(1, 'rgba(2,6,23,0)');
+      }
+
+      ctx.fillStyle = mainGlow;
       ctx.fillRect(0, 0, width, height);
 
       drawDotMatrix();
