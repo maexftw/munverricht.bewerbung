@@ -10,10 +10,10 @@ const ShowcaseA: React.FC = () => {
     <section id="showcase-a" className="space-y-16">
       <div className="space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
-          <ASCIIText text="// ARCHITECTURE_CASE_01" />
+          <ASCIIText text="// ENGINEERING_USE_CASE_01" />
         </h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text="Local AI Analysis Pipeline" />
+          <ASCIIText text="ZBN Offline RAG System" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           Lokale RAG-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.

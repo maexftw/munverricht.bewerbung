@@ -4,14 +4,14 @@ import { Terminal, Zap, Activity } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
 const toolLogos = [
-  { name: 'VS Code', src: 'https://cdn.simpleicons.org/visualstudiocode/3B82F6' },
-  { name: 'Roo Code', src: 'https://cdn.simpleicons.org/androidstudio/3DDC84' }, /* placeholder for roo */
+  { name: 'VS Code', src: 'https://cdn.simpleicons.org/visualstudiocode/007ACC' },
+  { name: 'Roo Code', src: 'https://avatars.githubusercontent.com/u/179574803?s=48&v=4' },
   { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB' },
   { name: 'Tailwind', src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
   { name: 'Vite', src: 'https://cdn.simpleicons.org/vite/646CFF' },
   { name: 'TypeScript', src: 'https://cdn.simpleicons.org/typescript/3178C6' },
-  { name: 'GSAP', src: 'https://cdn.simpleicons.org/greensock/88CE02' },
-  { name: 'Anime.js', src: 'https://cdn.simpleicons.org/javascript/F7DF1E' }, /* placeholder for anime */
+  { name: 'GSAP', src: 'https://cdn.worldvectorlogo.com/logos/gsap-greensock.svg' },
+  { name: 'Anime.js', src: 'https://cdn.simpleicons.org/animedotjs/FFFFFF' },
   { name: 'HTML5', src: 'https://cdn.simpleicons.org/html5/E34F26' },
   { name: 'GitHub', src: 'https://cdn.simpleicons.org/github/FFFFFF' },
 ];

@@ -71,12 +71,6 @@ const Evolution: React.FC = () => {
             </div>
           </motion.li>
         </ul>
-
-        <div className="pt-10 text-center border-t border-neutral-900">
-          <h3 className="mono text-base md:text-lg text-blue-200 uppercase tracking-[0.18em]">
-            Hier ist, wie ich arbeite: Erfahrung trifft auf radikale neue Effizienz.
-          </h3>
-        </div>
       </div>
     </section>
   );

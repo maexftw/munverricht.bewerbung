@@ -28,7 +28,7 @@ const ShowcaseB: React.FC = () => {
   return (
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-end text-right space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ARCHITECTURE_CASE_02" /></h3>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ECOMMERCE_USE_CASE_02" /></h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="AI-Accelerated Agency Workflow" /></h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           Vibe-Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von KI-Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
