@@ -13,3 +13,7 @@
 ## 2026-02-18 - Full Localization & Navigation Aids
 **Learning:** In a multi-lingual project, partial localization (e.g., German content but English navigation) creates a disjointed user experience. Providing clear navigation aids like a "Scroll to Top" button on long-scrolling pages is essential for usability, especially when using fixed navigation bars that might obscure content.
 **Action:** Always ensure 100% localization of UI elements (Navigation, Loaders, Tooltips) and implement "Scroll to Top" functionality for pages exceeding 3 viewports.
+
+## 2026-02-21 - Professional Branding & Interactive Restoration
+**Learning:** Restoring interactive features that were previously disabled due to security concerns significantly enhances user engagement. However, ensuring that AI-driven features align with the site's professional tone (e.g., using "Modern Workflow" instead of generic AI labels) preserves the premium branding and technical focus of the portfolio.
+**Action:** Re-enabled interactive terminal chat via secure proxy and unified branding under "Modern Workflow" terminology.
