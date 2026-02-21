@@ -62,7 +62,7 @@ const CodeAmbientBackground: React.FC = () => {
         y: i * (height / rows) + randomBetween(-12, 12),
         speed: randomBetween(8, 24),
         drift: randomBetween(8, 22),
-        alpha: randomBetween(0.12, 0.34),
+        alpha: randomBetween(0.066, 0.187),
         text: createAsciiLine(90),
         mutateEvery: randomBetween(0.18, 0.55),
         mutateT: randomBetween(0, 0.55)
@@ -98,7 +98,7 @@ const CodeAmbientBackground: React.FC = () => {
       if (!dotPattern && dotCacheCtx) {
         dotCache.width = gap;
         dotCache.height = gap;
-        dotCacheCtx.fillStyle = 'rgba(59,130,246,0.034)';
+        dotCacheCtx.fillStyle = 'rgba(59,130,246,0.019)';
         dotCacheCtx.fillRect(0, 0, 1.2, 1.2);
         dotPattern = ctx.createPattern(dotCache, 'repeat');
       }
@@ -114,7 +114,7 @@ const CodeAmbientBackground: React.FC = () => {
       }
 
       // Only draw the "pulse" dots on top
-      ctx.fillStyle = 'rgba(59,130,246,0.11)';
+      ctx.fillStyle = 'rgba(59,130,246,0.061)';
       const time90 = Math.floor(time * 90);
       for (let y = 6 - offsetY; y < height + gap; y += gap) {
         for (let x = 6; x < width; x += gap) {
@@ -199,7 +199,7 @@ const CodeAmbientBackground: React.FC = () => {
       if (!pulseGradient) {
         pulseGradient = ctx.createLinearGradient(0, 0, width, 0);
         pulseGradient.addColorStop(0, 'rgba(56,189,248,0)');
-        pulseGradient.addColorStop(0.5, 'rgba(56,189,248,0.22)');
+        pulseGradient.addColorStop(0.5, 'rgba(56,189,248,0.121)');
         pulseGradient.addColorStop(1, 'rgba(56,189,248,0)');
       }
 
@@ -214,11 +214,11 @@ const CodeAmbientBackground: React.FC = () => {
     const drawSideVignette = () => {
       if (!leftVignette || !rightVignette) {
         leftVignette = ctx.createLinearGradient(0, 0, width * 0.24, 0);
-        leftVignette.addColorStop(0, 'rgba(2,6,23,0.72)');
+        leftVignette.addColorStop(0, 'rgba(2,6,23,0.396)');
         leftVignette.addColorStop(1, 'rgba(2,6,23,0)');
 
         rightVignette = ctx.createLinearGradient(width, 0, width * 0.76, 0);
-        rightVignette.addColorStop(0, 'rgba(2,6,23,0.72)');
+        rightVignette.addColorStop(0, 'rgba(2,6,23,0.396)');
         rightVignette.addColorStop(1, 'rgba(2,6,23,0)');
       }
 
@@ -235,8 +235,8 @@ const CodeAmbientBackground: React.FC = () => {
 
       if (!mainGlow) {
         mainGlow = ctx.createRadialGradient(width * 0.5, height * 0.27, 30, width * 0.5, height * 0.27, Math.max(width, height) * 0.75);
-        mainGlow.addColorStop(0, 'rgba(37,99,235,0.23)');
-        mainGlow.addColorStop(0.48, 'rgba(37,99,235,0.06)');
+        mainGlow.addColorStop(0, 'rgba(37,99,235,0.127)');
+        mainGlow.addColorStop(0.48, 'rgba(37,99,235,0.033)');
         mainGlow.addColorStop(1, 'rgba(2,6,23,0)');
       }
 
@@ -246,8 +246,8 @@ const CodeAmbientBackground: React.FC = () => {
       drawDotMatrix();
       drawSideRows(leftRows, false, dt);
       drawSideRows(rightRows, true, dt);
-      drawTokenRail(Math.max(90, height * 0.16), 58, 0.72);
-      drawTokenRail(Math.max(132, height * 0.21), -44, 0.45);
+      drawTokenRail(Math.max(90, height * 0.16), 29, 0.396);
+      drawTokenRail(Math.max(132, height * 0.21), -22, 0.248);
       drawPulseLine();
       drawSideVignette();
 

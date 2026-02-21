@@ -4,11 +4,11 @@
 > Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Agent A <-> Agent B).
 
 ## 🚀 ÜBERGABE-STATUS (Current Handoff)
-- **Status:** Profil-Optimierung V4.0 abgeschlossen. Browser-Login (Indeed) aufgrund Cloudflare blockiert (Pivoted to HTML Resume).
-- **Erkenntnis:** Der Nutzer bevorzugt einen bescheidenen, pragmatischen Ton ("Modern Developer") statt technischer Überhöhung.
+- **Status:** Frischer Website-Zyklus gestartet. Hintergrundanimation in der Main-Website gezielt um ~45% in der Sichtbarkeit reduziert (Motion/Struktur unverändert).
+- **Erkenntnis:** Der Nutzer priorisiert Lesbarkeit und Fokus auf Content; visuelle Effekte sollen unterstützend, nicht dominierend sein.
 - **Nächster Schritt for Agents:**
-  1. Feedback zum HTML-Lebenslauf (`Maximilian_Unverricht_Resume.html`) einholen.
-  2. Arbeitgeber-Recherche (Remote/NRW) starten.
+  1. User-Feedback zum neuen Background-Balance im Live-Review einholen.
+  2. Optional Feintuning (Desktop/Mobile getrennt) oder nächster Refresh-Block (Content/Sections) planen.
 - **Blocker:** Keine.
 
 ---
@@ -70,3 +70,16 @@
   - `SkillMonitor.tsx`:
     - Vorherige Kartenansicht durch „Capability Matrix“ mit stärkerem Visual-Layer (Glows, Accent-Farben, kompaktere Chips, klarere Statuszeile) ersetzt.
 - **Status:** Lokal validiert (HMR) und Build erfolgreich.
+
+## Session 2026-02-21 (Agent B - Background Visibility Reduction)
+- **Ergebnis:** Neuer Arbeitszyklus im Main-Repo gestartet; Hintergrundebenen deutlich dezenter gemacht, ohne Animation/Struktur anzutasten.
+- **Änderungen:**
+  - `components/CodeAmbientBackground.tsx`:
+    - Opacity/Alpha-Werte für Side Rows, Dot Matrix, Pulse Dots, Token Rails, Pulse Line, Vignette und Glow auf ca. 55% des vorherigen Niveaus reduziert.
+    - Bewegungslogik, Timings und Rendering-Struktur unverändert belassen.
+  - `index.html`:
+    - `.scanline`, `.crt-overlay` und Canvas-Opacity ebenfalls auf ca. 55% reduziert.
+- **Validierung:**
+  - Lokaler Dev-Server geprüft (Playwright Snapshot): Animation sichtbar, aber klar weniger ablenkend.
+  - Production Build erfolgreich (`vite build`).
+- **Status:** Ready for Review / PR.
