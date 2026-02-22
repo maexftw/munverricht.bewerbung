@@ -4,11 +4,11 @@
 > Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Agent A <-> Agent B).
 
 ## 🚀 ÜBERGABE-STATUS (Current Handoff)
-- **Status:** Frischer Website-Zyklus gestartet. Hintergrundanimation in der Main-Website gezielt um ~45% in der Sichtbarkeit reduziert (Motion/Struktur unverändert).
-- **Erkenntnis:** Der Nutzer priorisiert Lesbarkeit und Fokus auf Content; visuelle Effekte sollen unterstützend, nicht dominierend sein.
+- **Status:** Day-Mode Umschalter als Sidebar-Icon rechts integriert (persistiert via localStorage), inklusive Light-Theme Basis-Overrides im globalen Styling.
+- **Erkenntnis:** Nutzer möchte zwischen Dark/Day visuell direkt wechseln können, ohne Layout-Bruch.
 - **Nächster Schritt for Agents:**
-  1. User-Feedback zum neuen Background-Balance im Live-Review einholen.
-  2. Optional Feintuning (Desktop/Mobile getrennt) oder nächster Refresh-Block (Content/Sections) planen.
+  1. User-Feedback zur Light-Theme Lesbarkeit in allen Sektionen einholen.
+  2. Bei Bedarf Fine-Tuning einzelner Komponentenfarben im Day Mode durchführen.
 - **Blocker:** Keine.
 
 ---
@@ -82,4 +82,14 @@
 - **Validierung:**
   - Lokaler Dev-Server geprüft (Playwright Snapshot): Animation sichtbar, aber klar weniger ablenkend.
   - Production Build erfolgreich (`vite build`).
+- **Status:** Ready for Review / PR.
+
+
+## Session 2026-02-22 (Agent B - Day Mode Toggle)
+- **Ergebnis:** Day Mode per Icon in rechter Sidebar hinzugefügt und Theme-Auswahl persistent gemacht.
+- **Änderungen:**
+  - `components/ThemeToggle.tsx` neu erstellt (Sun/Moon Icon, fixed right sidebar, Responsive Label).
+  - `App.tsx`: Theme-State + localStorage + body class Toggle integriert und ThemeToggle eingebunden.
+  - `index.html`: globale CSS-Overrides für Light Theme (Body, Overlays, Canvas, Text/Borders, Scrollbar) ergänzt.
+- **Validierung:** Production Build erfolgreich; Screenshot im Day Mode erzeugt.
 - **Status:** Ready for Review / PR.
