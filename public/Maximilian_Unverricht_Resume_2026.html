@@ -5,234 +5,224 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lebenslauf – Maximilian Unverricht (2026)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <style>
         :root {
-            --bg: #0b0f14;
-            --card: #111827;
-            --text: #e5e7eb;
-            --muted: #9ca3af;
-            --line: #1f2937;
-            --accent: #3b82f6;
-            --accent-2: #60a5fa;
-            --white: #f9fafb;
+            --page-bg: #eceff3;
+            --paper: #ffffff;
+            --text: #111111;
+            --muted: #444444;
+            --line: #d7dce3;
+            --accent: #1f3a66;
         }
 
         * {
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top, #111827 0%, var(--bg) 60%);
-            color: var(--text);
-            line-height: 1.5;
-            padding: 30px;
+        html {
+            font-size: 16px;
         }
 
-        .page {
-            max-width: 960px;
+        body {
+            margin: 0;
+            font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--page-bg);
+            line-height: 1.45;
+            padding: 24px;
+        }
+
+        .resume {
+            width: min(210mm, 100%);
             margin: 0 auto;
-            background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(11, 15, 20, 0.96));
+            background: var(--paper);
             border: 1px solid var(--line);
-            border-radius: 14px;
-            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
-            overflow: hidden;
+            box-shadow: 0 16px 38px rgba(10, 16, 28, 0.14);
+            padding: 18mm 16mm;
         }
 
         .header {
-            padding: 32px;
+            margin-bottom: 12px;
             border-bottom: 1px solid var(--line);
-            background: linear-gradient(120deg, rgba(59, 130, 246, 0.18), rgba(17, 24, 39, 0));
+            padding-bottom: 10px;
         }
 
         .name {
             margin: 0;
-            font-size: 34px;
-            letter-spacing: -0.02em;
-            color: var(--white);
-            font-weight: 800;
+            font-size: 2rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: #000;
         }
 
-        .title {
-            margin-top: 8px;
-            font-size: 15px;
-            color: var(--accent-2);
+        .headline {
+            margin: 6px 0 10px;
+            font-size: 1rem;
             font-weight: 600;
-            letter-spacing: 0.02em;
+            color: var(--accent);
         }
 
-        .contact {
-            margin-top: 16px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .contact span {
-            border: 1px solid #243244;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: rgba(17, 24, 39, 0.6);
-        }
-
-        .contact a {
-            border: 1px solid #243244;
-            padding: 6px 10px;
-            border-radius: 999px;
-            background: rgba(17, 24, 39, 0.6);
-            color: #bfdbfe;
-            text-decoration: none;
-        }
-
-        .contact a:hover {
-            color: #dbeafe;
-            border-color: #1d4ed8;
-        }
-
-        .content {
-            padding: 28px 32px 34px;
+        .contact-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 28px;
+            gap: 4px;
+            font-size: 0.94rem;
+            color: var(--muted);
         }
 
-        h2 {
-            margin: 0 0 10px;
-            color: var(--accent-2);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .contact-list strong {
+            color: #000;
+        }
+
+        .contact-list a,
+        .project-url {
+            color: #000;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+            word-break: break-word;
         }
 
         section {
-            margin-bottom: 24px;
+            margin-top: 14px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        h2 {
+            margin: 0 0 8px;
+            font-size: 0.87rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 4px;
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: #000;
+            break-after: avoid;
+            page-break-after: avoid;
         }
 
         p {
             margin: 0;
-            color: var(--text);
-            font-size: 14px;
-        }
-
-        .muted {
-            color: var(--muted);
-        }
-
-        .item {
-            margin-bottom: 16px;
-            padding-bottom: 14px;
-            border-bottom: 1px dashed #243244;
-        }
-
-        .item:last-child {
-            margin-bottom: 0;
-            border-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .item h3 {
-            margin: 0;
-            font-size: 16px;
-            color: var(--white);
-        }
-
-        .meta {
-            font-size: 13px;
-            color: var(--muted);
-            margin-top: 4px;
-            margin-bottom: 8px;
+            font-size: 0.96rem;
         }
 
         ul {
-            margin: 0;
+            margin: 7px 0 0;
             padding-left: 18px;
         }
 
         li {
-            margin-bottom: 6px;
-            font-size: 14px;
-            color: var(--text);
+            margin: 0 0 5px;
+            orphans: 3;
+            widows: 3;
         }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+        .entry {
+            margin-bottom: 10px;
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
 
-        .competency-list {
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .meta {
+            margin: 3px 0 0;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .skill-group {
+            margin-bottom: 9px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-label {
+            margin: 0;
+            font-size: 0.96rem;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .projects {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .project-item {
+            margin-bottom: 10px;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .project-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-title {
+            font-weight: 700;
+        }
+
+        .project-description {
+            margin-top: 2px;
+        }
+
+        .project-url {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.9rem;
+        }
+
+        .single-line-list {
             margin: 0;
             padding-left: 18px;
         }
 
-        .competency-list li {
-            margin-bottom: 8px;
-            color: var(--text);
-            font-size: 14px;
-        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
 
-        .competency-list strong {
-            color: var(--white);
-        }
+            .resume {
+                width: 100%;
+                padding: 14px;
+            }
 
-        .skill-group {
-            margin-bottom: 12px;
-        }
-
-        .skill-group h3 {
-            margin: 0 0 6px;
-            font-size: 13px;
-            color: var(--white);
-        }
-
-        .tag {
-            font-size: 12px;
-            color: #dbeafe;
-            border: 1px solid #1d4ed8;
-            background: rgba(29, 78, 216, 0.18);
-            border-radius: 999px;
-            padding: 5px 10px;
-        }
-
-        .projects a {
-            color: #bfdbfe;
-            text-decoration: none;
-            word-break: break-all;
-        }
-
-        .projects a:hover {
-            color: #dbeafe;
-            text-decoration: underline;
-        }
-
-        .footer-note {
-            margin-top: 10px;
-            color: #6b7280;
-            font-size: 12px;
-        }
-
-        .projects li {
-            margin-bottom: 10px;
-        }
-
-        .projects strong {
-            color: var(--white);
-        }
-
-        @media (max-width: 900px) {
-            .content {
-                grid-template-columns: 1fr;
+            .name {
+                font-size: 1.7rem;
             }
         }
 
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+
         @media print {
-            @page {
-                size: A4;
-                margin: 10mm;
+            :root {
+                --paper: #ffffff;
+                --text: #000000;
+                --muted: #222222;
+                --line: #bfc6d0;
+                --accent: #000000;
             }
 
             * {
@@ -240,148 +230,217 @@
                 print-color-adjust: exact;
             }
 
+            html,
             body {
-                background: radial-gradient(circle at top, #111827 0%, var(--bg) 60%) !important;
-                color: var(--text) !important;
+                background: #fff !important;
+                color: #000 !important;
                 padding: 0;
+                margin: 0;
+                font-size: 10.6pt;
+                line-height: 1.37;
             }
 
-            .page {
-                border: 1px solid var(--line);
-                border-radius: 14px;
-                max-width: 100%;
+            .resume {
+                width: auto;
+                margin: 0;
+                padding: 0;
+                border: none;
                 box-shadow: none;
-                background: linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(11, 15, 20, 0.96)) !important;
+                background: #fff;
             }
 
-            .header,
-            .content,
-            .item,
-            .contact span,
-            .contact a {
-                background: transparent !important;
-                color: inherit !important;
-                border-color: #243244 !important;
+            .header {
+                padding-bottom: 6px;
+                margin-bottom: 8px;
+                border-bottom: 1px solid #9fa8b5;
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
 
-            .title,
-            h2,
-            .projects a {
-                color: var(--accent-2) !important;
+            .name {
+                font-size: 17.5pt;
+                color: #000;
             }
+
+            .headline {
+                margin-top: 4px;
+                margin-bottom: 7px;
+                font-size: 10.8pt;
+                color: #000;
+            }
+
+            .contact-list {
+                gap: 1.5px;
+                font-size: 9.8pt;
+            }
+
+            h2 {
+                margin-top: 0;
+                margin-bottom: 4px;
+                font-size: 9.3pt;
+                border-bottom: 1px solid #9fa8b5;
+            }
+
+            h3 {
+                font-size: 10.5pt;
+            }
+
+            p,
+            li,
+            .meta,
+            .skill-label,
+            .project-url {
+                font-size: 9.8pt;
+                color: #000;
+            }
+
+            section,
+            .entry,
+            .skill-group,
+            .project-item,
+            ul,
+            li,
+            p {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            a,
+            .project-url {
+                color: #000 !important;
+                text-decoration: underline;
+                text-decoration-thickness: 1px;
+            }
+
         }
     </style>
 </head>
 
 <body>
-    <article class="page">
+    <article class="resume">
         <header class="header">
             <h1 class="name">Maximilian Unverricht</h1>
-            <div class="title">AI Workflow & Web Delivery (React/WordPress)</div>
-            <div class="contact">
-                <span>Dortmund (DE) · Remote/Hybrid</span>
-                <a href="tel:+491633229892">+49 163 3229892</a>
-                <a href="mailto:info@munverricht.org">info@munverricht.org</a>
-                <a href="https://munverricht.org" target="_blank" rel="noopener noreferrer">Portfolio: munverricht.org</a>
-            </div>
+            <p class="headline">AI Workflow &amp; Web Delivery (React/WordPress)</p>
+            <ul class="contact-list">
+                <li><strong>Standort:</strong> Dortmund (DE) · <strong>Arbeitsmodell:</strong> Remote / Hybrid</li>
+                <li><strong>E-Mail:</strong> <a href="mailto:info@munverricht.org">info@munverricht.org</a> · <strong>Telefon:</strong> <a href="tel:+491633229892">+49 163 3229892</a></li>
+                <li><strong>Portfolio:</strong> <a href="https://munverricht.org" target="_blank" rel="noopener noreferrer">https://munverricht.org</a></li>
+            </ul>
         </header>
 
-        <main class="content">
-            <div>
-                <section>
-                    <h2>Profil</h2>
-                    <p>
-                        Pragmatischer Web- und Workflow-Spezialist mit <strong>12 Jahren Berufserfahrung</strong> und Fokus auf AI-gestützte Delivery:
-                        schnelle Iterationen, saubere Implementierung, zuverlässiges Deployment. Ich kombiniere WordPress-/Webflow-Praxis mit
-                        React/TypeScript sowie lokalen RAG-/Inferenz-Workflows (Datensouveränität/Zero-Cloud). Meine Arbeitsweise: AI-gestützte,
-                        iterative Umsetzung (Vibe-Coding mit Review/Testing/Deployment-Fokus) – mit dem Ziel, live-fähige Ergebnisse statt
-                        Konzeptfolien zu liefern.
-                    </p>
-                </section>
+        <section>
+            <h2>Profil</h2>
+            <p>Pragmatischer Web- und Workflow-Spezialist mit <strong>12 Jahren Berufserfahrung</strong> und Fokus auf AI-gestützte Delivery: schnelle Iterationen, saubere Implementierung, zuverlässiges Deployment. Ich kombiniere WordPress-/Webflow-Praxis mit React/TypeScript sowie lokalen RAG-/Inferenz-Workflows (Datensouveränität/Zero-Cloud). Meine Arbeitsweise: <strong>AI-gestützte, iterative Umsetzung (Vibe-Coding mit Review/Testing/Deployment-Fokus)</strong> – mit dem Ziel, live-fähige Ergebnisse statt Konzeptfolien zu liefern.</p>
+        </section>
 
-                <section>
-                    <h2>Berufserfahrung</h2>
+        <section>
+            <h2>Berufserfahrung</h2>
 
-                    <div class="item">
-                        <h3>AI Workflow & Web Specialist / Creative Technologist (selbstständig)</h3>
-                        <div class="meta">Dortmund · seit 08/2025</div>
-                        <ul>
-                            <li>Aufbau und Dokumentation lokaler <strong>Offline-RAG-Workflows</strong> zur Dokumentanalyse (Zero-Cloud, Validierung, Datenkontrolle).</li>
-                            <li>Umsetzung moderner Web-Projekte mit <strong>React/TypeScript/Vite</strong> inkl. Deployment über Cloudflare Pages/Wrangler.</li>
-                            <li>Aufbau einer AI-gestützten Umsetzungspipeline (<strong>Roo Code/Cline/Cursor/VS Code</strong>): Prototyp → Review → produktionsnaher Stand.</li>
-                            <li>Kontinuierliche Optimierung von Portfolio/Positionierung (UX/Content/Performance) mit schnellen, iterativen Releases.</li>
-                        </ul>
-                    </div>
+            <article class="entry">
+                <h3>AI Workflow &amp; Web Specialist / Creative Technologist (selbstständig)</h3>
+                <p class="meta">Dortmund · seit 08/2025</p>
+                <ul>
+                    <li>Aufbau und Dokumentation lokaler <strong>Offline-RAG-Workflows</strong> zur Dokumentanalyse (Zero-Cloud, Validierung, Datenkontrolle).</li>
+                    <li>Umsetzung moderner Web-Projekte mit <strong>React/TypeScript/Vite</strong> inkl. Deployment über Cloudflare Pages/Wrangler.</li>
+                    <li>Aufbau einer AI-gestützten Umsetzungspipeline (<strong>Roo Code/Cline/Cursor/VS Code</strong>): Prototyp → Review → produktionsnaher Stand.</li>
+                    <li>Kontinuierliche Optimierung von Portfolio/Positionierung (UX/Content/Performance) mit schnellen, iterativen Releases.</li>
+                </ul>
+            </article>
 
-                    <div class="item">
-                        <h3>Selbstständiger Webdesigner & Performance Marketer (Graphiks.de)</h3>
-                        <div class="meta">Dortmund · 02/2013 – 08/2025 (freiberuflich), seitdem projektbasiert</div>
-                        <ul>
-                            <li>Konzeption, Design, Umsetzung und Betrieb von KMU-Websites (WordPress; Webflow für schnelle Prototypen).</li>
-                            <li>Performance-Marketing: Google Ads Setup/Optimierung, Tracking/Analytics-Auswertung, Landingpages & Conversion-Struktur.</li>
-                            <li>SEO-nahe Strukturarbeit, technischer Betrieb (Performance/Stabilität) und kontinuierliche Content-Iteration.</li>
-                        </ul>
-                    </div>
-                </section>
+            <article class="entry">
+                <h3>Selbstständiger Webdesigner &amp; Performance Marketer (Graphiks.de)</h3>
+                <p class="meta">Dortmund · 02/2013 – 08/2025 (freiberuflich), seitdem projektbasiert</p>
+                <ul>
+                    <li>Konzeption, Design, Umsetzung und Betrieb von KMU-Websites (WordPress; Webflow für schnelle Prototypen).</li>
+                    <li>Performance-Marketing: Google Ads Setup/Optimierung, Tracking/Analytics-Auswertung, Landingpages &amp; Conversion-Struktur.</li>
+                    <li>SEO-nahe Strukturarbeit, technischer Betrieb (Performance/Stabilität) und kontinuierliche Content-Iteration.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section>
+            <h2>Kernkompetenzen</h2>
+
+            <div class="skill-group">
+                <p class="skill-label">Tech</p>
+                <ul>
+                    <li>React, TypeScript, Vite</li>
+                    <li>Framer Motion, Anime.js</li>
+                    <li>Cloudflare Pages, Wrangler (Build/Release)</li>
+                </ul>
             </div>
 
-            <aside>
-                <section>
-                    <h2>Kernkompetenzen</h2>
-                    <div class="skill-group">
-                        <h3>Tech</h3>
-                        <ul class="competency-list">
-                            <li>React, TypeScript, Vite</li>
-                            <li>Framer Motion, Anime.js</li>
-                            <li>Cloudflare Pages, Wrangler (Build/Release)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-group">
-                        <h3>AI & Workflow</h3>
-                        <ul class="competency-list">
-                            <li>Agentic Coding: Roo Code, Cline, Cursor, VS Code</li>
-                            <li>Google AI Studio / Stitch</li>
-                            <li>Local AI & RAG: Offline-Workflows, lokale Inferenz, Datensouveränität (Zero-Cloud)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-group">
-                        <h3>Growth</h3>
-                        <ul class="competency-list">
-                            <li>WordPress (10+ Jahre), Webflow (2 Jahre)</li>
-                            <li>SEO-Struktur, Google Ads, Analytics</li>
-                            <li>Conversion-orientierte Seiten- und UX-Struktur</li>
-                        </ul>
-                    </div>
-                </section>
+            <div class="skill-group">
+                <p class="skill-label">AI &amp; Workflow</p>
+                <ul>
+                    <li>Agentic Coding: Roo Code, Cline, Cursor, VS Code</li>
+                    <li>Google AI Studio / Stitch</li>
+                    <li>Local AI &amp; RAG: Offline-Workflows, lokale Inferenz, Datensouveränität (Zero-Cloud)</li>
+                </ul>
+            </div>
 
-                <section class="projects">
-                    <h2>Projekt-Highlights</h2>
-                    <ul>
-                        <li><strong>munverricht.org</strong> – eigenes Portfolio für AI-Workflow & Web-Delivery (React/Vite, iterative Releases).<br><a href="https://munverricht.org">https://munverricht.org</a></li>
-                        <li><strong>Fitness Drensteinfurt</strong> – Relaunch mit Lead-Gen-Fokus (Landing-Ansatz, schnelle Live-Iteration).<br><a href="https://fitness-drensteinfurt-v2.pages.dev/">https://fitness-drensteinfurt-v2.pages.dev/</a></li>
-                        <li><strong>TriXstar Portfolio</strong> – Artist-Portfolio als Vibe-Coding-Umsetzung (React/Vite/Cloudflare).<br><a href="https://trixstar-portfolio.pages.dev/">https://trixstar-portfolio.pages.dev/</a></li>
-                        <li><strong>Immo Netzwerk Portal</strong> – Plattform-Prototyp im React-Umfeld (Dashboard/Concept).<br><a href="https://immonetzwerkportal.pages.dev/">https://immonetzwerkportal.pages.dev/</a></li>
-                        <li><strong>Kaffee Faensen Commerce</strong> – Custom-Commerce-Logik mit Stripe-Integration und Conversion-Fokus.<br><a href="https://www.kaffee-faensen.de/shop/homepage">https://www.kaffee-faensen.de/shop/homepage</a></li>
-                        <li><strong>Kost Sicherheitstechnik / Bockel-Bartscher</strong> – laufende Unternehmensseiten im Live-Betrieb.<br><a href="https://www.kost-sicherheitstechnik.de/">https://www.kost-sicherheitstechnik.de/</a> · <a href="https://www.bockel-bartscher.de/">https://www.bockel-bartscher.de/</a></li>
-                    </ul>
-                </section>
+            <div class="skill-group">
+                <p class="skill-label">Growth</p>
+                <ul>
+                    <li>WordPress (10+ Jahre), Webflow (2 Jahre)</li>
+                    <li>SEO-Struktur, Google Ads, Analytics</li>
+                    <li>Conversion-orientierte Seiten- und UX-Struktur</li>
+                </ul>
+            </div>
+        </section>
 
-                <section>
-                    <h2>Bildung</h2>
-                    <p>Fachhochschulreife</p>
-                </section>
+        <section>
+            <h2>Projekt-Auszug</h2>
+            <ul class="projects">
+                <li class="project-item">
+                    <span class="project-title">munverricht.org</span>
+                    <p class="project-description">Eigenes Portfolio für AI-Workflow &amp; Web-Delivery (React/Vite, iterative Releases).</p>
+                    <a class="project-url" href="https://munverricht.org" target="_blank" rel="noopener noreferrer">https://munverricht.org</a>
+                </li>
+                <li class="project-item">
+                    <span class="project-title">Fitness Drensteinfurt</span>
+                    <p class="project-description">Relaunch mit Lead-Gen-Fokus (Landing-Ansatz, schnelle Live-Iteration).</p>
+                    <a class="project-url" href="https://fitness-drensteinfurt-v2.pages.dev/" target="_blank" rel="noopener noreferrer">https://fitness-drensteinfurt-v2.pages.dev/</a>
+                </li>
+                <li class="project-item">
+                    <span class="project-title">TriXstar Portfolio</span>
+                    <p class="project-description">Artist-Portfolio als Vibe-Coding-Umsetzung (React/Vite/Cloudflare).</p>
+                    <a class="project-url" href="https://trixstar-portfolio.pages.dev/" target="_blank" rel="noopener noreferrer">https://trixstar-portfolio.pages.dev/</a>
+                </li>
+                <li class="project-item">
+                    <span class="project-title">Immo Netzwerk Portal</span>
+                    <p class="project-description">Plattform-Prototyp im React-Umfeld (Dashboard/Concept).</p>
+                    <a class="project-url" href="https://immonetzwerkportal.pages.dev/" target="_blank" rel="noopener noreferrer">https://immonetzwerkportal.pages.dev/</a>
+                </li>
+                <li class="project-item">
+                    <span class="project-title">Kaffee Faensen Commerce</span>
+                    <p class="project-description">Custom-Commerce-Logik mit Stripe-Integration und Conversion-Fokus.</p>
+                    <a class="project-url" href="https://www.kaffee-faensen.de/shop/homepage" target="_blank" rel="noopener noreferrer">https://www.kaffee-faensen.de/shop/homepage</a>
+                </li>
+                <li class="project-item">
+                    <span class="project-title">Kost Sicherheitstechnik / Bockel-Bartscher</span>
+                    <p class="project-description">Laufende Unternehmensseiten im Live-Betrieb.</p>
+                    <a class="project-url" href="https://www.kost-sicherheitstechnik.de/" target="_blank" rel="noopener noreferrer">https://www.kost-sicherheitstechnik.de/</a>
+                    <a class="project-url" href="https://www.bockel-bartscher.de/" target="_blank" rel="noopener noreferrer">https://www.bockel-bartscher.de/</a>
+                </li>
+            </ul>
+        </section>
 
-                <section>
-                    <h2>Zertifikate</h2>
-                    <ul>
-                        <li>Google Ads-Zertifizierung</li>
-                        <li>Führerschein Klasse B</li>
-                    </ul>
-                </section>
+        <section>
+            <h2>Bildungsweg</h2>
+            <ul class="single-line-list">
+                <li>Fachhochschulreife</li>
+            </ul>
+        </section>
 
-                <div class="footer-note">Stand: 2026 · Bewerbungs-Version</div>
-            </aside>
-        </main>
+        <section>
+            <h2>Zertifikate</h2>
+            <ul class="single-line-list">
+                <li>Google Ads-Zertifizierung</li>
+                <li>Führerschein Klasse B</li>
+            </ul>
+        </section>
+
     </article>
 </body>
 
