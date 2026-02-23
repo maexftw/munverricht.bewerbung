@@ -7,49 +7,65 @@ const projects = [
     {
         title: 'TriXstar Portfolio',
         url: 'https://trixstar-portfolio.pages.dev/',
-        desc: 'Musiker & Artist Portfolio (Vibe Coded)',
+        problem: 'Artist-Portfolio sollte modern wirken, auf Mobile überzeugen und schnell aktualisierbar sein.',
+        solution: 'React/Vite-basierter Relaunch mit klarer Struktur und performanter Auslieferung über Cloudflare.',
+        result: 'Professionellerer Erstauftritt für Booking-Anfragen und bessere Scanbarkeit der Inhalte für neue Besucher.',
         stack: ['React', 'Vite', 'Cloudflare']
     },
     {
         title: 'Fitness Drensteinfurt',
         url: 'https://fitness-drensteinfurt-v2.pages.dev/',
-        desc: 'Lokalmarketing & Lead Gen (Relaunch)',
+        problem: 'Lokale Sichtbarkeit und Leadgewinnung sollten trotz begrenzter Zeit und Budgets verbessert werden.',
+        solution: 'Relaunch als fokussierte Landingpage mit klaren CTAs, strukturierter Informationshierarchie und Conversion-Fokus.',
+        result: 'Bessere Grundlage für Kampagnen und eine deutlich klarere Nutzerführung bis zur Kontaktaufnahme.',
         stack: ['Landing Page', 'Conversion Opt.']
     },
     {
         title: 'Immo Netzwerk Portal',
         url: 'https://immonetzwerkportal.pages.dev/',
-        desc: 'Immobilien-Plattform Prototyp',
+        problem: 'Komplexe Plattform-Idee musste für Stakeholder früh greifbar und testbar gemacht werden.',
+        solution: 'Interaktiver Prototyp mit Dashboard-Struktur zur schnellen Validierung von User-Flows und Funktionsumfang.',
+        result: 'Schnellere Entscheidungsgrundlage für nächste Produkt-Schritte ohne teuren Full-Build im ersten Schritt.',
         stack: ['React', 'Dashboard', 'Concept']
     },
     {
         title: 'Baker & Charlie',
         url: 'https://bakerandcharlie.pages.dev/',
-        desc: 'Bäckerei-Website Concept',
+        problem: 'Traditionelles Angebot brauchte einen zeitgemäßen digitalen Markenauftritt.',
+        solution: 'Website-Concept mit moderner visueller Führung und klaren Content-Modulen für lokale Zielgruppen.',
+        result: 'Stärkerer Markenfit als Basis für einen vertrauenswürdigen, lokalen Erstkontakt online.',
         stack: ['Design', 'Local Business']
     },
     {
         title: 'Kaffee Faensen Commerce',
         url: 'https://www.kaffee-faensen.de/shop/homepage',
-        desc: 'Custom Commerce mit eigener Shop-Logik + Stripe',
+        problem: 'Standard-Shop-Logik deckte individuelle Produkt- und Prozessanforderungen nicht ab.',
+        solution: 'Custom-Commerce-Setup mit eigener Shop-Logik, Stripe-Integration und markenkonformer UX.',
+        result: 'Flexiblerer Verkaufsprozess und bessere technische Basis für künftige Shop-Erweiterungen.',
         stack: ['Custom Shop Logic', 'Stripe', 'Brand Identity']
     },
     {
         title: 'Kost Sicherheitstechnik',
         url: 'https://www.kost-sicherheitstechnik.de/',
-        desc: 'Unternehmensauftritt & SEO',
+        problem: 'Unternehmensauftritt sollte seriöser wirken und lokal besser gefunden werden.',
+        solution: 'WordPress-Relaunch mit strukturierter Service-Kommunikation, sauberer Seitenarchitektur und SEO-Basis.',
+        result: 'Mehr Vertrauen im Erstkontakt und eine belastbare Grundlage für fortlaufende organische Sichtbarkeit.',
         stack: ['WordPress', 'Elementor Pro']
     },
     {
         title: 'Bockel-Bartscher',
         url: 'https://www.bockel-bartscher.de/',
-        desc: 'Kanzlei-Website',
+        problem: 'Kanzlei-Inhalte waren zu wenig strukturiert für schnelle Orientierung potenzieller Mandanten.',
+        solution: 'Klar gegliederter Kanzlei-Auftritt mit fokussierter Informationsarchitektur und professionellem Corporate-Design-Rahmen.',
+        result: 'Seriöserer digitaler Eindruck und bessere inhaltliche Scanbarkeit bei Erstbesuchen.',
         stack: ['WordPress', 'Corporate Design']
     },
     {
         title: 'RAG Analysis Node',
         url: 'https://www.zbn.de',
-        desc: 'Ingenieurbüro (RAG Pipeline Client)',
+        problem: 'Dokumenten- und Wissensprozesse benötigten eine präzisere, reproduzierbare Analyse-Logik.',
+        solution: 'RAG-orientierter Analyseansatz mit automatisierten Verarbeitungsschritten und klarer Ergebnisstruktur.',
+        result: 'Schneller nutzbare Analyseergebnisse und robustere Basis für wiederkehrende Fachauswertungen.',
         stack: ['Advanced Analysis', 'Automation']
     },
 ];
@@ -62,10 +78,10 @@ const Projects: React.FC = () => {
                     <ASCIIText text="// SELECTED_WORK" />
                 </h3>
                 <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-                    <ASCIIText text="Project Archive" />
+                    <ASCIIText text="Projektübersicht" />
                 </h2>
                 <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
-                    Eine Auswahl aktueller Vibe-Coding Projekte und langjähriger Agentur-Arbeiten.
+                    Auswahl recruiter-relevanter Praxisprojekte im Format Problem → Lösung → Ergebnis für schnelle Einordnung.
                 </p>
             </div>
 
@@ -85,17 +101,25 @@ const Projects: React.FC = () => {
                             <ExternalLink className="w-5 h-5" />
                         </div>
 
-                        <div className="space-y-4 relative z-10">
-                            <div className="flex items-center gap-3 mb-2">
-                                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" aria-hidden="true" />
-                                <h4 className="font-bold text-neutral-200 group-hover:text-white uppercase text-sm tracking-wide">
-                                    <ASCIIText text={p.title} />
-                                </h4>
-                            </div>
+                            <div className="space-y-4 relative z-10">
+                                <div className="flex items-center gap-3 mb-2">
+                                    <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" aria-hidden="true" />
+                                    <h4 className="font-bold text-neutral-200 group-hover:text-white uppercase text-sm tracking-wide">
+                                        <ASCIIText text={p.title} />
+                                    </h4>
+                                </div>
 
-                            <p className="text-xs text-neutral-400 leading-relaxed font-mono min-h-[3em]">
-                                {p.desc}
-                            </p>
+                            <div className="space-y-2 text-xs leading-relaxed min-h-[11.5em]">
+                                <p className="text-neutral-300">
+                                    <span className="mono text-[10px] uppercase tracking-wider text-blue-400">Problem:</span> {p.problem}
+                                </p>
+                                <p className="text-neutral-300">
+                                    <span className="mono text-[10px] uppercase tracking-wider text-blue-400">Lösung:</span> {p.solution}
+                                </p>
+                                <p className="text-neutral-200">
+                                    <span className="mono text-[10px] uppercase tracking-wider text-blue-400">Ergebnis:</span> {p.result}
+                                </p>
+                            </div>
 
                             <div className="flex flex-wrap gap-2 pt-2 border-t border-neutral-900/50">
                                 {p.stack.map(s => (
