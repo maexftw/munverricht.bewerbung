@@ -1,0 +1,38 @@
+<<<<<<< SEARCH
+    {
+        title: 'Kost Sicherheitstechnik',
+        url: 'https://www.kost-sicherheitstechnik.de/',
+        problem: 'Unternehmensauftritt sollte seriöser wirken und lokal besser gefunden werden.',
+        solution: 'WordPress-Relaunch mit strukturierter Service-Kommunikation, sauberer Seitenarchitektur und SEO-Basis.',
+        result: 'Mehr Vertrauen im Erstkontakt und eine belastbare Grundlage für fortlaufende organische Sichtbarkeit.',
+        stack: ['WordPress', 'Elementor Pro']
+    },
+    {
+        title: 'Bockel-Bartscher',
+        url: 'https://www.bockel-bartscher.de/',
+        problem: 'Kanzlei-Inhalte waren zu wenig strukturiert für schnelle Orientierung potenzieller Mandanten.',
+        solution: 'Klar gegliederter Kanzlei-Auftritt mit fokussierter Informationsarchitektur und professionellem Corporate-Design-Rahmen.',
+        result: 'Seriöserer digitaler Eindruck und bessere inhaltliche Scanbarkeit bei Erstbesuchen.',
+        stack: ['WordPress', 'Corporate Design']
+    },
+    {
+];
+=======
+    {
+        title: 'Kost Sicherheitstechnik',
+        url: 'https://www.kost-sicherheitstechnik.de/',
+        problem: 'Unternehmensauftritt sollte seriöser wirken und lokal besser gefunden werden.',
+        solution: 'Migration von WordPress auf ein performantes Cloudflare-System für maximale Geschwindigkeit und Sicherheit.',
+        result: 'Mehr Vertrauen im Erstkontakt und eine belastbare Grundlage für fortlaufende organische Sichtbarkeit.',
+        stack: ['Cloudflare', 'Modern Workflows', 'Performance']
+    },
+    {
+        title: 'Bockel-Bartscher',
+        url: 'https://www.bockel-bartscher.de/',
+        problem: 'Kanzlei-Inhalte waren zu wenig strukturiert für schnelle Orientierung potenzieller Mandanten.',
+        solution: 'Klar gegliederter Kanzlei-Auftritt mit fokussierter Informationsarchitektur und professionellem Corporate-Design-Rahmen.',
+        result: 'Seriöserer digitaler Eindruck und bessere inhaltliche Scanbarkeit bei Erstbesuchen.',
+        stack: ['Cloudflare', 'Modern Workflows', 'Corporate Design']
+    },
+];
+>>>>>>> REPLACE

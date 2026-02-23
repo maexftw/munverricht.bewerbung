@@ -1,0 +1,12 @@
+<<<<<<< SEARCH
+    items: [
+      'Visual Studio Code',
+      'Cline',
+      'Roo Code',
+      'Google Stitch',
+      'React',
+=======
+    items: [
+      'Visual Studio Code',
+      'React',
+>>>>>>> REPLACE

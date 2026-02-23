@@ -8,9 +8,6 @@ const skills = [
     category: 'Core Tools',
     items: [
       'Visual Studio Code',
-      'Cline',
-      'Roo Code',
-      'Google Stitch',
       'React',
       'Vite',
       'TypeScript',
@@ -20,7 +17,6 @@ const skills = [
       'HTML5',
       'GitHub',
       'Cloudflare',
-      'WordPress',
       'Webflow',
       'Stripe',
       'Advanced Pipelines',
@@ -45,7 +41,7 @@ const skills = [
   },
   {
     category: 'Legacy Roots',
-    items: ['WordPress (10Y)', 'Webflow (2Y)', 'PHP', 'GSAP'],
+    items: ['Cloudflare (3Y)', 'Webflow (2Y)', 'PHP', 'GSAP'],
     icon: Database,
     level: 90,
     accent: 'amber',

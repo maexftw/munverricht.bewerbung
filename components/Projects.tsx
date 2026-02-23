@@ -48,9 +48,9 @@ const projects = [
         title: 'Kost Sicherheitstechnik',
         url: 'https://www.kost-sicherheitstechnik.de/',
         problem: 'Unternehmensauftritt sollte seriöser wirken und lokal besser gefunden werden.',
-        solution: 'WordPress-Relaunch mit strukturierter Service-Kommunikation, sauberer Seitenarchitektur und SEO-Basis.',
+        solution: 'Migration von WordPress auf ein performantes Cloudflare-System für maximale Geschwindigkeit und Sicherheit.',
         result: 'Mehr Vertrauen im Erstkontakt und eine belastbare Grundlage für fortlaufende organische Sichtbarkeit.',
-        stack: ['WordPress', 'Elementor Pro']
+        stack: ['Cloudflare', 'Modern Workflows', 'Performance']
     },
     {
         title: 'Bockel-Bartscher',
@@ -58,15 +58,7 @@ const projects = [
         problem: 'Kanzlei-Inhalte waren zu wenig strukturiert für schnelle Orientierung potenzieller Mandanten.',
         solution: 'Klar gegliederter Kanzlei-Auftritt mit fokussierter Informationsarchitektur und professionellem Corporate-Design-Rahmen.',
         result: 'Seriöserer digitaler Eindruck und bessere inhaltliche Scanbarkeit bei Erstbesuchen.',
-        stack: ['WordPress', 'Corporate Design']
-    },
-    {
-        title: 'RAG Analysis Node',
-        url: 'https://www.zbn.de',
-        problem: 'Dokumenten- und Wissensprozesse benötigten eine präzisere, reproduzierbare Analyse-Logik.',
-        solution: 'RAG-orientierter Analyseansatz mit automatisierten Verarbeitungsschritten und klarer Ergebnisstruktur.',
-        result: 'Schneller nutzbare Analyseergebnisse und robustere Basis für wiederkehrende Fachauswertungen.',
-        stack: ['Advanced Analysis', 'Automation']
+        stack: ['Cloudflare', 'Modern Workflows', 'Corporate Design']
     },
 ];
 
