@@ -4,11 +4,11 @@
 > Diese Datei ist kein zweites Git-Log. Sie dient ausschließlich dem **Handoff** zwischen AIs (Agent A <-> Agent B).
 
 ## 🚀 ÜBERGABE-STATUS (Current Handoff)
-- **Status:** Frischer Website-Zyklus gestartet. Hintergrundanimation in der Main-Website gezielt um ~45% in der Sichtbarkeit reduziert (Motion/Struktur unverändert).
-- **Erkenntnis:** Der Nutzer priorisiert Lesbarkeit und Fokus auf Content; visuelle Effekte sollen unterstützend, nicht dominierend sein.
+- **Status:** Recruiter-Conversion-Refresh im Main-Portfolio umgesetzt (Content + CTA-Präsenz), Build erfolgreich.
+- **Erkenntnis:** Für Recruiter-Scans funktionieren klare Rollenpositionierung, sichtbare Kontaktpfade und Problem→Lösung→Ergebnis-Storys deutlich besser als generische Portfolio-Texte.
 - **Nächster Schritt for Agents:**
-  1. User-Feedback zum neuen Background-Balance im Live-Review einholen.
-  2. Optional Feintuning (Desktop/Mobile getrennt) oder nächster Refresh-Block (Content/Sections) planen.
+  1. PR-Review auf Copy/Tonality gegen Zielrollen (Frontend / Web / Conversion-nah) durchführen.
+  2. Nach Merge optional Feintuning der Projekt-Ergebnisformulierungen mit späteren echten KPIs ergänzen.
 - **Blocker:** Keine.
 
 ---
@@ -82,4 +82,19 @@
 - **Validierung:**
   - Lokaler Dev-Server geprüft (Playwright Snapshot): Animation sichtbar, aber klar weniger ablenkend.
   - Production Build erfolgreich (`vite build`).
+- **Status:** Ready for Review / PR.
+
+## Session 2026-02-23 (Agent B - Recruiter Conversion Refresh)
+- **Ergebnis:** Recruiter-Fit der Hauptseite erhöht, ohne visuelle Identität zu verändern.
+- **Änderungen:**
+  - `components/Hero.tsx`:
+    - Hero-Claim auf klare Recruiter-Positionierung umgestellt (Rolle + Hiring-Relevanz).
+    - Neue kompakte `HIRING_SNAPSHOT`-Box (Standort, Sprachen, Arbeitsmodell, Verfügbarkeit) direkt im Top-Fold ergänzt.
+    - Prominente `QUICK_RECRUITER_ACCESS`-Leiste mit Lebenslauf, E-Mail, Telefon, LinkedIn und GitHub eingebaut.
+    - CTA-Wording durchgängig auf Deutsch harmonisiert.
+  - `components/Projects.tsx`:
+    - Projektkarten auf recruiter-schnelles Format `Problem → Lösung → Ergebnis` normalisiert.
+    - Sektionstitel/Einleitung auf konsistente, scanfreundliche Sprache angepasst.
+- **Validierung:**
+  - Production Build erfolgreich (`npm run build` / `vite build`).
 - **Status:** Ready for Review / PR.
