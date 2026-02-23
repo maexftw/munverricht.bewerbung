@@ -3,6 +3,14 @@ import { animate } from 'animejs';
 import {
   Activity,
   Bot,
+  BriefcaseBusiness,
+  Clock3,
+  Github,
+  Languages,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
   Sparkles,
   Terminal,
   Zap,
@@ -35,6 +43,14 @@ const scrollToId = (id: string) => {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 };
+
+const recruiterQuickActions = [
+  { label: 'Lebenslauf', href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
+  { label: 'E-Mail', href: 'mailto:info@graphiks.de', icon: Mail },
+  { label: 'Telefon', href: 'tel:+491633229892', icon: Phone },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/maximilian-unverricht-590203392', icon: Linkedin, external: true },
+  { label: 'GitHub', href: 'https://github.com/maexftw', icon: Github, external: true },
+];
 
 const Hero: React.FC = () => {
   const headingBlockRef = useRef<HTMLDivElement | null>(null);
@@ -95,7 +111,7 @@ const Hero: React.FC = () => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          MODERN WORKFLOW & WEB DELIVERY // PROFESSIONAL EXECUTION
+          RECRUITER PROFIL // FRONTEND & MODERNE WEB-DELIVERY
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
@@ -107,8 +123,42 @@ const Hero: React.FC = () => {
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
-        Ich entwickle <span className="text-white">performante Websites und moderne Workflows</span> mit klarem Fokus auf Business-Impact: schnellere Umsetzung, saubere Übergaben und messbare Ergebnisse.
+        Ich bin <span className="text-white">Frontend & Modern Workflow Developer</span> mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing.
+        Für Hiring Teams bedeutet das: schnelle Umsetzung, saubere Übergaben und Websites, die nicht nur gut aussehen,
+        sondern auch operativ und vertrieblich funktionieren.
       </p>
+
+      <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
+        <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
+          <ASCIIText text="// HIRING_SNAPSHOT" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+            <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
+              <MapPin className="w-3.5 h-3.5" aria-hidden="true" /> Standort
+            </p>
+            <p className="text-sm text-neutral-200">Dortmund, NRW</p>
+          </div>
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+            <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
+              <Languages className="w-3.5 h-3.5" aria-hidden="true" /> Sprachen
+            </p>
+            <p className="text-sm text-neutral-200">Deutsch, Englisch</p>
+          </div>
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+            <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
+              <BriefcaseBusiness className="w-3.5 h-3.5" aria-hidden="true" /> Arbeitsmodell
+            </p>
+            <p className="text-sm text-neutral-200">Remote / Hybrid</p>
+          </div>
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+            <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
+              <Clock3 className="w-3.5 h-3.5" aria-hidden="true" /> Verfügbarkeit
+            </p>
+            <p className="text-sm text-neutral-200">Kurzfristig verfügbar</p>
+          </div>
+        </div>
+      </div>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
@@ -146,7 +196,7 @@ const Hero: React.FC = () => {
           className="group relative shadow-[0_0_30px_rgba(59,130,246,0.3)] px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 rounded shadow-lg font-bold uppercase tracking-wider text-sm flex items-center"
           aria-label="Kontakt aufnehmen"
         >
-          Contact Me <Terminal className="ml-2 w-4 h-4" aria-hidden="true" />
+          Kontakt <Terminal className="ml-2 w-4 h-4" aria-hidden="true" />
         </button>
 
         <button
@@ -154,7 +204,7 @@ const Hero: React.FC = () => {
           className="group px-8 py-4 bg-neutral-900 border border-neutral-700 hover:border-blue-500 text-neutral-300 hover:text-white transition-all duration-300 rounded font-bold uppercase tracking-wider text-sm flex items-center"
           aria-label="Projekte ansehen"
         >
-          View Projects <Activity className="ml-2 w-4 h-4 text-blue-500" aria-hidden="true" />
+          Projekte <Activity className="ml-2 w-4 h-4 text-blue-500" aria-hidden="true" />
         </button>
 
         <a
@@ -162,28 +212,49 @@ const Hero: React.FC = () => {
           className="group px-8 py-4 bg-neutral-900 border border-neutral-700 hover:border-blue-500 text-neutral-300 hover:text-white transition-all duration-300 rounded font-bold uppercase tracking-wider text-sm flex items-center"
           aria-label="Lebenslauf herunterladen"
         >
-          Download CV <span className="ml-2 text-blue-500">↓</span>
+          Lebenslauf <span className="ml-2 text-blue-500">↓</span>
         </a>
+      </div>
+
+      <div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4">
+        <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
+          <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          {recruiterQuickActions.map((action) => (
+            <a
+              key={action.label}
+              href={action.href}
+              target={action.external ? '_blank' : undefined}
+              rel={action.external ? 'noopener noreferrer' : undefined}
+              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-950/70 px-3 py-3 text-sm text-neutral-200 hover:border-blue-500/70 hover:text-white transition-colors"
+              aria-label={`${action.label} öffnen`}
+            >
+              <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
+              <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
+            </a>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / MODERN WORKFLOWS
+            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / 12+ JAHRE PRAXIS
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">Effiziente Entwicklung über multiple IDEs (VS Code, Roo Code, Cline) und Advanced Pipelines. Dynamische Workflows statt starrer Prozesse.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">Erfahrung aus Agentur-, KMU- und Self-Employed-Projekten. Ich kenne Delivery-Druck, Kundenkommunikation und saubere Live-Übergaben.</p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 02 / MODERN WEB
+            <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 02 / SCHNELLE UMSETZUNG
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript. Performance-optimiert und barrierefrei für moderne Anforderungen.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript sowie WordPress/Webflow. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.</p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Zap className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 03 / MARKETING MINDSET
+            <Zap className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 03 / HIRING RELEVANZ
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">10 Jahre Erfahrung als selbstständiger Webdesigner. Fokus auf Conversion und User Experience.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">Ich verbinde technische Umsetzung mit Marketing-Logik: klare Nutzerführung, schnellere Iterationen und Inhalte, die Recruiter und Kunden sofort verstehen.</p>
         </div>
       </div>
     </section>
