@@ -1,0 +1,8 @@
+<<<<<<< SEARCH
+  { name: 'VS Code', Icon: VSCodeIcon },
+  { name: 'Cline', Icon: Bot },
+  { name: 'Roo Code', src: 'https://raw.githubusercontent.com/RooCodeInc/Roo-Code/main/assets/logo.png' },
+  { name: 'Google Stitch', Icon: Sparkles },
+=======
+  { name: 'VS Code', Icon: VSCodeIcon },
+>>>>>>> REPLACE

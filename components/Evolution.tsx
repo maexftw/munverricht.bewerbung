@@ -66,7 +66,7 @@ const Evolution: React.FC = () => {
               <span className="mono text-[10px] text-neutral-600">2012 - 2023 // LEGACY_FOUNDATION</span>
               <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">Full-Stack & Marketing Roots</h4>
               <p className="text-neutral-300 text-sm leading-relaxed">
-                10+ Jahre Erfahrung. WordPress Expert, Webflow Prototyping, zertifizierter Google Ads & Analytics Spezialist. Solides Fundament in klassischer Web-Entwicklung und digitalem Marketing.
+                10+ Jahre Erfahrung. Cloudflare & Modern Workflows, Web-Delivery, zertifizierter Google Ads & Analytics Spezialist. Solides Fundament in klassischer Web-Entwicklung und digitalem Marketing.
               </p>
             </div>
           </motion.li>

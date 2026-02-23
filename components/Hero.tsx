@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
 import {
   Activity,
-  Bot,
   BriefcaseBusiness,
   Clock3,
   Github,
@@ -11,7 +10,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Sparkles,
   Terminal,
   Zap,
 } from 'lucide-react';
@@ -20,9 +18,6 @@ import { VSCodeIcon, GsapIcon } from './Icons';
 
 const toolLogos = [
   { name: 'VS Code', Icon: VSCodeIcon },
-  { name: 'Cline', Icon: Bot },
-  { name: 'Roo Code', src: 'https://raw.githubusercontent.com/RooCodeInc/Roo-Code/main/assets/logo.png' },
-  { name: 'Google Stitch', Icon: Sparkles },
   { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB' },
   { name: 'Tailwind', src: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
   { name: 'Vite', src: 'https://cdn.simpleicons.org/vite/646CFF' },
@@ -32,7 +27,6 @@ const toolLogos = [
   { name: 'HTML5', src: 'https://cdn.simpleicons.org/html5/E34F26' },
   { name: 'GitHub', src: 'https://cdn.simpleicons.org/github/FFFFFF' },
   { name: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/F38020' },
-  { name: 'WordPress', src: 'https://cdn.simpleicons.org/wordpress/21759B' },
   { name: 'Webflow', src: 'https://cdn.simpleicons.org/webflow/146EF5' },
   { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
 ];
@@ -198,7 +192,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
             <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 02 / SCHNELLE UMSETZUNG
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript sowie WordPress/Webflow. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript sowie Cloudflare & Modern Workflows. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.</p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
