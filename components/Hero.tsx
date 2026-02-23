@@ -37,13 +37,6 @@ const toolLogos = [
   { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
 ];
 
-const scrollToId = (id: string) => {
-  const target = document.getElementById(id) ?? document.querySelector(`#${id}`);
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-};
-
 const recruiterQuickActions = [
   { label: 'Lebenslauf', href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
   { label: 'E-Mail', href: 'mailto:info@graphiks.de', icon: Mail },
@@ -55,7 +48,6 @@ const recruiterQuickActions = [
 const Hero: React.FC = () => {
   const headingBlockRef = useRef<HTMLDivElement | null>(null);
   const introTextRef = useRef<HTMLParagraphElement | null>(null);
-  const ctaGroupRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const runningAnimations = [];
@@ -77,18 +69,6 @@ const Hero: React.FC = () => {
           translateY: [10, 0],
           opacity: [0, 1],
           delay: 200,
-          duration: 700,
-          ease: 'outQuad',
-        }),
-      );
-    }
-
-    if (ctaGroupRef.current) {
-      runningAnimations.push(
-        animate(ctaGroupRef.current, {
-          translateY: [10, 0],
-          opacity: [0, 1],
-          delay: 400,
           duration: 700,
           ease: 'outQuad',
         }),
@@ -186,37 +166,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div
-        ref={ctaGroupRef}
-        className="flex flex-wrap gap-4 justify-center mt-8"
-        style={{ transform: 'translateY(10px)', opacity: 0 }}
-      >
-        <button
-          onClick={() => scrollToId('contact-shell')}
-          className="group relative shadow-[0_0_30px_rgba(59,130,246,0.3)] px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 rounded shadow-lg font-bold uppercase tracking-wider text-sm flex items-center"
-          aria-label="Kontakt aufnehmen"
-        >
-          Kontakt <Terminal className="ml-2 w-4 h-4" aria-hidden="true" />
-        </button>
-
-        <button
-          onClick={() => scrollToId('projects')}
-          className="group px-8 py-4 bg-neutral-900 border border-neutral-700 hover:border-blue-500 text-neutral-300 hover:text-white transition-all duration-300 rounded font-bold uppercase tracking-wider text-sm flex items-center"
-          aria-label="Projekte ansehen"
-        >
-          Projekte <Activity className="ml-2 w-4 h-4 text-blue-500" aria-hidden="true" />
-        </button>
-
-        <a
-          href="Maximilian_Unverricht_Resume.html"
-          className="group px-8 py-4 bg-neutral-900 border border-neutral-700 hover:border-blue-500 text-neutral-300 hover:text-white transition-all duration-300 rounded font-bold uppercase tracking-wider text-sm flex items-center"
-          aria-label="Lebenslauf herunterladen"
-        >
-          Lebenslauf <span className="ml-2 text-blue-500">↓</span>
-        </a>
-      </div>
-
-      <div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4">
+      <div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4">
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
         </div>
