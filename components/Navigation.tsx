@@ -3,15 +3,31 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Terminal, User, Code, Briefcase, Mail } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-const navItems = [
-    { name: 'Start', href: '#hero', icon: Terminal },
-    { name: 'Über mich', href: '#evolution', icon: User },
-    { name: 'Projekte', href: '#projects', icon: Briefcase },
-    { name: 'Skills', href: '#skill-monitor', icon: Code },
-    { name: 'Kontakt', href: '#contact-shell', icon: Mail },
-];
+type Language = 'de' | 'en';
 
-const Navigation: React.FC = () => {
+type NavigationProps = {
+    language: Language;
+    onLanguageChange: (language: Language) => void;
+};
+
+const navItems = {
+    de: [
+        { name: 'Start', href: '#hero', icon: Terminal },
+        { name: 'Über mich', href: '#evolution', icon: User },
+        { name: 'Projekte', href: '#projects', icon: Briefcase },
+        { name: 'Skills', href: '#skill-monitor', icon: Code },
+        { name: 'Kontakt', href: '#contact-shell', icon: Mail },
+    ],
+    en: [
+        { name: 'Home', href: '#hero', icon: Terminal },
+        { name: 'About', href: '#evolution', icon: User },
+        { name: 'Projects', href: '#projects', icon: Briefcase },
+        { name: 'Skills', href: '#skill-monitor', icon: Code },
+        { name: 'Contact', href: '#contact-shell', icon: Mail },
+    ],
+};
+
+const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -50,7 +66,7 @@ const Navigation: React.FC = () => {
                     </div>
 
                     <ul className="flex space-x-8">
-                        {navItems.map((item) => (
+                        {navItems[language].map((item) => (
                             <li key={item.name}>
                                 <button
                                     onClick={() => scrollToSection(item.href)}
@@ -65,11 +81,18 @@ const Navigation: React.FC = () => {
                         ))}
                     </ul>
 
+                    <button
+                        onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                        className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                    >
+                        {language === 'de' ? 'EN' : 'DE'}
+                    </button>
+
                     <a
                         href="Maximilian_Unverricht_Resume.html"
                         className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                     >
-                        Lebenslauf <span className="text-blue-500">↓</span>
+                        {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
                     </a>
                 </div>
             </motion.nav>
@@ -79,7 +102,7 @@ const Navigation: React.FC = () => {
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
-                    aria-label="Menü umschalten"
+                    aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
                 >
                     {isOpen ? <X /> : <Menu />}
                 </button>
@@ -95,7 +118,14 @@ const Navigation: React.FC = () => {
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
                         className="fixed inset-0 z-40 bg-[#050505] md:hidden flex flex-col justify-center items-center space-y-8"
                     >
-                        {navItems.map((item) => (
+                        <button
+                            onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                            className="text-sm font-bold uppercase tracking-widest text-blue-400"
+                        >
+                            {language === 'de' ? 'Switch to EN' : 'Wechsel zu DE'}
+                        </button>
+
+                        {navItems[language].map((item) => (
                             <button
                                 key={item.name}
                                 onClick={() => scrollToSection(item.href)}
@@ -109,7 +139,7 @@ const Navigation: React.FC = () => {
                             href="Maximilian_Unverricht_Resume.html"
                             className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                         >
-                            Lebenslauf herunterladen
+                            {language === 'de' ? 'Lebenslauf herunterladen' : 'Download resume'}
                         </a>
                     </motion.div>
                 )}

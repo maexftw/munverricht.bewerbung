@@ -3,7 +3,13 @@ import { motion } from 'framer-motion';
 import { GitCommit, History } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-const Evolution: React.FC = () => {
+type Language = 'de' | 'en';
+
+type EvolutionProps = {
+  language: Language;
+};
+
+const Evolution: React.FC<EvolutionProps> = ({ language }) => {
   return (
     <section id="evolution" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
@@ -11,36 +17,28 @@ const Evolution: React.FC = () => {
           <ASCIIText text="// CHRONOLOGICAL_DATABASE" />
         </h3>
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text="Werdegang & Meilensteine" />
+          <ASCIIText text={language === 'de' ? 'Werdegang & Meilensteine' : 'Journey & Milestones'} />
         </h2>
       </div>
 
       <div className="max-w-[65ch] mx-auto space-y-12">
         <ul className="relative pl-8 border-l border-neutral-800 space-y-16">
-          {/* Game Dev Era */}
-          <motion.li
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="relative"
-          >
+          <motion.li initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-black border-2 border-blue-500 rounded-full flex items-center justify-center" aria-hidden="true">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-blue-500">2024 - HEUTE // MODERN_PIPELINES</span>
+              <span className="mono text-[10px] text-blue-500">2024 - {language === 'de' ? 'HEUTE' : 'TODAY'} // MODERN_PIPELINES</span>
               <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">System Architect & Rapid Prototyping</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Entwicklung lokaler Daten-Systeme für technische Gutachten. Bau hocheffizienter Pipelines: Automatische Überführung von optimiertem Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.
+                {language === 'de'
+                  ? 'Entwicklung lokaler Daten-Systeme für technische Gutachten. Bau hocheffizienter Pipelines: Automatische Überführung von optimiertem Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.'
+                  : 'Building local data systems for technical reports. Creating high-efficiency pipelines: automated transfer of optimized code into CMS-based client projects. Focus on speed and efficiency over boilerplate.'}
               </p>
             </div>
           </motion.li>
 
-          {/* Modern Era */}
-          <motion.li
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="relative"
-          >
+          <motion.li initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-black border border-neutral-700 rounded-full flex items-center justify-center" aria-hidden="true">
               <GitCommit className="w-3 h-3 text-neutral-500" />
             </div>
@@ -48,17 +46,14 @@ const Evolution: React.FC = () => {
               <span className="mono text-[10px] text-neutral-600">2023 - 2024 // EXPERIMENTAL_TECH</span>
               <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Creative Tech & Prototyping</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Tiefer Einstieg in moderne Automatisierung und generative Systeme. Nutzung von Game-Engines (Unreal 5) für interaktive Erlebnisse. Experimente mit neuen Interfaces jenseits des klassischen Webs.
+                {language === 'de'
+                  ? 'Tiefer Einstieg in moderne Automatisierung und generative Systeme. Nutzung von Game-Engines (Unreal 5) für interaktive Erlebnisse. Experimente mit neuen Interfaces jenseits des klassischen Webs.'
+                  : 'Deep dive into modern automation and generative systems. Using game engines (Unreal 5) for interactive experiences. Experiments with interfaces beyond classic web surfaces.'}
               </p>
             </div>
           </motion.li>
 
-          {/* Legacy */}
-          <motion.li
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="relative"
-          >
+          <motion.li initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-black border border-neutral-800 rounded-full flex items-center justify-center" aria-hidden="true">
               <History className="w-3 h-3 text-neutral-700" />
             </div>
@@ -66,7 +61,9 @@ const Evolution: React.FC = () => {
               <span className="mono text-[10px] text-neutral-600">2012 - 2023 // LEGACY_FOUNDATION</span>
               <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">Full-Stack & Marketing Roots</h4>
               <p className="text-neutral-300 text-sm leading-relaxed">
-                10+ Jahre Erfahrung. Cloudflare & Modern Workflows, Web-Delivery, zertifizierter Google Ads & Analytics Spezialist. Solides Fundament in klassischer Web-Entwicklung und digitalem Marketing.
+                {language === 'de'
+                  ? '10+ Jahre Erfahrung. Cloudflare & Modern Workflows, Web-Delivery, zertifizierter Google Ads & Analytics Spezialist. Solides Fundament in klassischer Web-Entwicklung und digitalem Marketing.'
+                  : '10+ years of experience. Cloudflare and modern workflows, web delivery, certified Google Ads and Analytics specialist. Solid foundation in classic web development and digital marketing.'}
               </p>
             </div>
           </motion.li>

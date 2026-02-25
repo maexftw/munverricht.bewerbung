@@ -16,6 +16,12 @@ import {
 import ASCIIText from './ASCIIText';
 import { VSCodeIcon, GsapIcon } from './Icons';
 
+type Language = 'de' | 'en';
+
+type HeroProps = {
+  language: Language;
+};
+
 const toolLogos = [
   { name: 'VS Code', Icon: VSCodeIcon },
   { name: 'React', src: 'https://cdn.simpleicons.org/react/61DAFB' },
@@ -31,17 +37,22 @@ const toolLogos = [
   { name: 'Stripe', src: 'https://cdn.simpleicons.org/stripe/635BFF' },
 ];
 
-const recruiterQuickActions = [
-  { label: 'Lebenslauf', href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
-  { label: 'E-Mail', href: 'mailto:info@graphiks.de', icon: Mail },
-  { label: 'Telefon', href: 'tel:+491633229892', icon: Phone },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/maximilian-unverricht-590203392', icon: Linkedin, external: true },
-  { label: 'GitHub', href: 'https://github.com/maexftw', icon: Github, external: true },
-];
+const quickActionLabels = {
+  de: { resume: 'Lebenslauf', email: 'E-Mail', phone: 'Telefon', open: 'öffnen' },
+  en: { resume: 'Resume', email: 'Email', phone: 'Phone', open: 'open' },
+};
 
-const Hero: React.FC = () => {
+const Hero: React.FC<HeroProps> = ({ language }) => {
   const headingBlockRef = useRef<HTMLDivElement | null>(null);
   const introTextRef = useRef<HTMLParagraphElement | null>(null);
+
+  const recruiterQuickActions = [
+    { label: quickActionLabels[language].resume, href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
+    { label: quickActionLabels[language].email, href: 'mailto:info@graphiks.de', icon: Mail },
+    { label: quickActionLabels[language].phone, href: 'tel:+491633229892', icon: Phone },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/maximilian-unverricht-590203392', icon: Linkedin, external: true },
+    { label: 'GitHub', href: 'https://github.com/maexftw', icon: Github, external: true },
+  ];
 
   useEffect(() => {
     const runningAnimations = [];
@@ -85,7 +96,7 @@ const Hero: React.FC = () => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          RECRUITER PROFIL // FRONTEND & MODERNE WEB-DELIVERY
+          {language === 'de' ? 'RECRUITER PROFIL // FRONTEND & MODERNE WEB-DELIVERY' : 'RECRUITER PROFILE // FRONTEND & MODERN WEB DELIVERY'}
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
@@ -97,9 +108,9 @@ const Hero: React.FC = () => {
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
-        Ich bin <span className="text-white">Frontend & Modern Workflow Developer</span> mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing.
-        Für Hiring Teams bedeutet das: schnelle Umsetzung, saubere Übergaben und Websites, die nicht nur gut aussehen,
-        sondern auch operativ und vertrieblich funktionieren.
+        {language === 'de'
+          ? 'Ich bin Frontend & Modern Workflow Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Für Hiring Teams bedeutet das: schnelle Umsetzung, saubere Übergaben und Websites, die nicht nur gut aussehen, sondern auch operativ und vertrieblich funktionieren.'
+          : 'I am a Frontend & Modern Workflow Developer with 12+ years of hands-on experience in web design and marketing. For hiring teams this means fast delivery, clean handovers, and websites that not only look strong but also work commercially and operationally.'}
       </p>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
@@ -109,27 +120,27 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5" aria-hidden="true" /> Standort
+              <MapPin className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Standort' : 'Location'}
             </p>
             <p className="text-sm text-neutral-200">Dortmund, NRW</p>
           </div>
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
-              <Languages className="w-3.5 h-3.5" aria-hidden="true" /> Sprachen
+              <Languages className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Sprachen' : 'Languages'}
             </p>
-            <p className="text-sm text-neutral-200">Deutsch, Englisch</p>
+            <p className="text-sm text-neutral-200">Deutsch, English</p>
           </div>
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
-              <BriefcaseBusiness className="w-3.5 h-3.5" aria-hidden="true" /> Arbeitsmodell
+              <BriefcaseBusiness className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Arbeitsmodell' : 'Work model'}
             </p>
             <p className="text-sm text-neutral-200">Remote / Hybrid</p>
           </div>
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
-              <Clock3 className="w-3.5 h-3.5" aria-hidden="true" /> Verfügbarkeit
+              <Clock3 className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Verfügbarkeit' : 'Availability'}
             </p>
-            <p className="text-sm text-neutral-200">Kurzfristig verfügbar</p>
+            <p className="text-sm text-neutral-200">{language === 'de' ? 'Kurzfristig verfügbar' : 'Available at short notice'}</p>
           </div>
         </div>
       </div>
@@ -172,7 +183,7 @@ const Hero: React.FC = () => {
               target={action.external ? '_blank' : undefined}
               rel={action.external ? 'noopener noreferrer' : undefined}
               className="flex items-center justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-950/70 px-3 py-3 text-sm text-neutral-200 hover:border-blue-500/70 hover:text-white transition-colors"
-              aria-label={`${action.label} öffnen`}
+              aria-label={`${action.label} ${quickActionLabels[language].open}`}
             >
               <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
               <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
@@ -184,21 +195,33 @@ const Hero: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 01 / 12+ JAHRE PRAXIS
+            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '01 / 12+ JAHRE PRAXIS' : '01 / 12+ YEARS EXPERIENCE'}
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">Erfahrung aus Agentur-, KMU- und Self-Employed-Projekten. Ich kenne Delivery-Druck, Kundenkommunikation und saubere Live-Übergaben.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">
+            {language === 'de'
+              ? 'Erfahrung aus Agentur-, KMU- und Self-Employed-Projekten. Ich kenne Delivery-Druck, Kundenkommunikation und saubere Live-Übergaben.'
+              : 'Experience from agency, SME and self-employed projects. I know delivery pressure, client communication and production-ready handovers.'}
+          </p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 02 / SCHNELLE UMSETZUNG
+            <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '02 / SCHNELLE UMSETZUNG' : '02 / FAST EXECUTION'}
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript sowie Cloudflare & Modern Workflows. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">
+            {language === 'de'
+              ? 'React, Vite, TypeScript sowie Cloudflare & Modern Workflows. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.'
+              : 'React, Vite, TypeScript plus Cloudflare and modern workflows. From prototype to production website with focus on readability, performance, and conversion.'}
+          </p>
         </div>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Zap className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 03 / HIRING RELEVANZ
+            <Zap className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '03 / HIRING RELEVANZ' : '03 / HIRING RELEVANCE'}
           </div>
-          <p className="text-sm text-neutral-200 leading-relaxed">Ich verbinde technische Umsetzung mit Marketing-Logik: klare Nutzerführung, schnellere Iterationen und Inhalte, die Recruiter und Kunden sofort verstehen.</p>
+          <p className="text-sm text-neutral-200 leading-relaxed">
+            {language === 'de'
+              ? 'Ich verbinde technische Umsetzung mit Marketing-Logik: klare Nutzerführung, schnellere Iterationen und Inhalte, die Recruiter und Kunden sofort verstehen.'
+              : 'I combine technical execution with marketing logic: clear user guidance, faster iterations, and content that recruiters and clients can grasp immediately.'}
+          </p>
         </div>
       </div>
     </section>
