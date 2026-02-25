@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
               <Languages className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Sprachen' : 'Languages'}
             </p>
-            <p className="text-sm text-neutral-200">Deutsch, English</p>
+            <p className="text-sm text-neutral-200">German, English</p>
           </div>
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">

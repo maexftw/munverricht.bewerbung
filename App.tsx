@@ -57,10 +57,10 @@ const App: React.FC = () => {
         <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
           <Hero language={language} />
           <Evolution language={language} />
-          <ShowcaseA />
-          <ShowcaseB />
+          <ShowcaseA language={language} />
+          <ShowcaseB language={language} />
           <Projects language={language} />
-          <SkillMonitor />
+          <SkillMonitor language={language} />
           <ContactShell language={language} />
           <LegalInfo language={language} />
           <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">

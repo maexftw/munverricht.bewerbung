@@ -3,40 +3,70 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Code2, CreditCard, Monitor, MousePointer2, Settings, Workflow, Zap } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-const phases = [
-  {
-    id: 'PHASE_01',
-    title: 'Rapid Prototyping (Boilerplate)',
-    text: 'Nutzung moderner Pipelines, um in Sekunden 90% des Boilerplate-Codes für Layouts und Komponenten zu generieren.',
-    tone: 'blue' as const,
-  },
-  {
-    id: 'PHASE_02',
-    title: 'Human Refinement (Logic)',
-    text: 'Manuelle Verfeinerung der Logik, Sicherheit und UI-Nuancen in der IDE. Der Mensch steuert Architektur und Qualität.',
-    tone: 'blue' as const,
-  },
-  {
-    id: 'PHASE_03',
-    title: 'Client Access (Visual Edit)',
-    text: 'Deployment via Cloudflare. Integration von TinaCMS erlaubt dem Kunden visuelle Inhaltskontrolle, ohne den Kerncode zu beschädigen.',
-    tone: 'green' as const,
-  },
-];
+type Language = 'de' | 'en';
 
-const ShowcaseB: React.FC = () => {
+type ShowcaseBProps = {
+  language: Language;
+};
+
+const phaseContent = {
+  de: [
+    {
+      id: 'PHASE_01',
+      title: 'Rapid Prototyping (Boilerplate)',
+      text: 'Nutzung moderner Pipelines, um in Sekunden 90% des Boilerplate-Codes für Layouts und Komponenten zu generieren.',
+      tone: 'blue' as const,
+    },
+    {
+      id: 'PHASE_02',
+      title: 'Human Refinement (Logic)',
+      text: 'Manuelle Verfeinerung der Logik, Sicherheit und UI-Nuancen in der IDE. Der Mensch steuert Architektur und Qualität.',
+      tone: 'blue' as const,
+    },
+    {
+      id: 'PHASE_03',
+      title: 'Client Access (Visual Edit)',
+      text: 'Deployment via Cloudflare. Integration von TinaCMS erlaubt dem Kunden visuelle Inhaltskontrolle, ohne den Kerncode zu beschädigen.',
+      tone: 'green' as const,
+    },
+  ],
+  en: [
+    {
+      id: 'PHASE_01',
+      title: 'Rapid Prototyping (Boilerplate)',
+      text: 'Using modern pipelines to generate 90% of boilerplate code for layouts and components within seconds.',
+      tone: 'blue' as const,
+    },
+    {
+      id: 'PHASE_02',
+      title: 'Human Refinement (Logic)',
+      text: 'Manual refinement of logic, security, and UI details in the IDE. Humans control architecture and quality.',
+      tone: 'blue' as const,
+    },
+    {
+      id: 'PHASE_03',
+      title: 'Client Access (Visual Edit)',
+      text: 'Deployment via Cloudflare. TinaCMS integration gives clients visual content control without breaking core code.',
+      tone: 'green' as const,
+    },
+  ],
+};
+
+const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
   return (
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-end text-right space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ECOMMERCE_USE_CASE_02" /></h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Modern Accelerated Agency Workflow" /></h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Modernes Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit von effiziente Generierung gibt, ohne die Wartbarkeit oder Kunden-Freiheit zu opfern.
+          {language === 'de'
+            ? 'Modernes Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit effizienter Generierung gibt, ohne Wartbarkeit oder Kundenfreiheit zu opfern.'
+            : 'Modern coding meets client control. A workflow that gives agencies generation speed without sacrificing maintainability or client freedom.'}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {phases.map((phase, index) => {
+        {phaseContent[language].map((phase, index) => {
           const isGreen = phase.tone === 'green';
 
           return (
@@ -45,8 +75,7 @@ const ShowcaseB: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08 }}
-              className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'
-                }`}
+              className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'}`}
             >
               <div className="absolute -top-14 -right-14 h-28 w-28 rounded-full bg-blue-500/10 blur-2xl" aria-hidden="true" />
 
@@ -122,12 +151,13 @@ const ShowcaseB: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mono text-[10px] uppercase tracking-widest"
             >
-              Live ansehen <ArrowUpRight className="w-3 h-3" aria-hidden="true" />
+              {language === 'de' ? 'Live ansehen' : 'View live'} <ArrowUpRight className="w-3 h-3" aria-hidden="true" />
             </a>
           </div>
           <p className="text-neutral-200 text-sm leading-relaxed max-w-[72ch]">
-            Für den Shop entstand eine eigene maßgeschneiderte Commerce-Logik mit individueller Produkt-, Cart- und Checkout-Orchestrierung.
-            Für Zahlungen ist Stripe sauber integriert.
+            {language === 'de'
+              ? 'Für den Shop entstand eine eigene maßgeschneiderte Commerce-Logik mit individueller Produkt-, Cart- und Checkout-Orchestrierung. Für Zahlungen ist Stripe sauber integriert.'
+              : 'A custom commerce logic was built for the shop with individual product, cart, and checkout orchestration. Stripe is integrated cleanly for payments.'}
           </p>
         </div>
 
@@ -138,7 +168,9 @@ const ShowcaseB: React.FC = () => {
               Custom Flow
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
-              Eigene Shop-Logik statt Baukasten: volle Kontrolle über Produktdarstellung, Zustände und Conversion-Strecke.
+              {language === 'de'
+                ? 'Eigene Shop-Logik statt Baukasten: volle Kontrolle über Produktdarstellung, Zustände und Conversion-Strecke.'
+                : 'Own shop logic instead of a template builder: full control over product presentation, states, and conversion path.'}
             </p>
           </div>
 
@@ -148,7 +180,9 @@ const ShowcaseB: React.FC = () => {
               Stripe Layer
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
-              Zahlungsabwicklung über Stripe als robuster Finishing-Layer über dem eigenen Shop-Core.
+              {language === 'de'
+                ? 'Zahlungsabwicklung über Stripe als robuster Finishing-Layer über dem eigenen Shop-Core.'
+                : 'Payment processing via Stripe as a robust finishing layer on top of the custom shop core.'}
             </p>
           </div>
 
@@ -158,7 +192,9 @@ const ShowcaseB: React.FC = () => {
               Agency Advantage
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
-              Schnell erweiterbar, keine SaaS-Abhängigkeit, keine Limitierung durch vorgegebene Shop-Themes.
+              {language === 'de'
+                ? 'Schnell erweiterbar, keine SaaS-Abhängigkeit, keine Limitierung durch vorgegebene Shop-Themes.'
+                : 'Quickly extendable, no SaaS dependency, and no limitation from predefined shop themes.'}
             </p>
           </div>
         </div>
