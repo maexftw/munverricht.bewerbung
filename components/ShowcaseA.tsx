@@ -3,9 +3,17 @@ import { motion } from 'framer-motion';
 import { FileText, Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-const BACKGROUND_TEXT = Array(50).fill("DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_ADVANCED_SYSTEM_RTX5090 ").join(" ");
+type Language = 'de' | 'en';
 
-const ShowcaseA: React.FC = () => {
+type ShowcaseAProps = {
+  language: Language;
+};
+
+const BACKGROUND_TEXT = Array(50)
+  .fill('DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_ADVANCED_SYSTEM_RTX5090 ')
+  .join(' ');
+
+const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
   return (
     <section id="showcase-a" className="space-y-16">
       <div className="space-y-4">
@@ -16,21 +24,20 @@ const ShowcaseA: React.FC = () => {
           <ASCIIText text="ZBN Offline Semantic Data System" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
-          Lokale Semantic Data-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.
+          {language === 'de'
+            ? 'Lokale Semantic Data-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.'
+            : 'Local semantic data solution for automated semantic evaluation and translation of complex technical documentation. Full data sovereignty through "zero-cloud" inference.'}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Left: Technical Diagram View */}
         <div className="lg:col-span-7 bg-[#111111] border border-neutral-900 rounded-lg p-8 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none mono text-[8px] leading-tight select-none" aria-hidden="true">
             {BACKGROUND_TEXT}
           </div>
 
           <div className="relative space-y-12">
-            {/* Steps Visual */}
             <div className="flex flex-col space-y-8" aria-hidden="true">
-              {/* Step 1: Ingest */}
               <div className="flex items-center gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-neutral-800 bg-neutral-900 flex items-center justify-center shadow-lg">
                   <FileText className="w-5 h-5 text-neutral-400" />
@@ -39,7 +46,6 @@ const ShowcaseA: React.FC = () => {
                 <div className="mono text-[10px] text-neutral-500 text-right w-24">01_INGEST</div>
               </div>
 
-              {/* Step 2: Processing (Central Hub) */}
               <div className="flex items-center gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-blue-500 bg-blue-500/10 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                   <Cpu className="w-5 h-5 text-blue-500" />
@@ -61,7 +67,6 @@ const ShowcaseA: React.FC = () => {
                 <div className="mono text-[10px] text-blue-500 text-right w-24">02_PROCESS</div>
               </div>
 
-              {/* Step 3: Verify & Output */}
               <div className="flex items-center gap-6">
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-green-500/50 bg-green-500/5 flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-green-500" />
@@ -71,16 +76,14 @@ const ShowcaseA: React.FC = () => {
               </div>
             </div>
 
-            {/* Labels Area */}
             <div className="grid grid-cols-3 gap-4 pt-4 text-center">
               <div className="mono text-[8px] text-neutral-600 uppercase">Input: Engineering PDF</div>
-              <div className="mono text-[8px] text-blue-500 uppercase">RTX 5090 Inferenz</div>
-              <div className="mono text-[8px] text-green-600 uppercase">Validiertes JSON</div>
+              <div className="mono text-[8px] text-blue-500 uppercase">{language === 'de' ? 'RTX 5090 Inferenz' : 'RTX 5090 Inference'}</div>
+              <div className="mono text-[8px] text-green-600 uppercase">{language === 'de' ? 'Validiertes JSON' : 'Validated JSON'}</div>
             </div>
           </div>
         </div>
 
-        {/* Right: Technical Description */}
         <div className="lg:col-span-5 space-y-8 self-center">
           <div className="space-y-6">
             <div className="space-y-2">
@@ -88,7 +91,9 @@ const ShowcaseA: React.FC = () => {
                 <ASCIIText text=">> Ingest & Extraction" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Nutzung von <strong>Docling</strong> und <strong>PyMuPDF</strong> für die präzise Extraktion von Tabellen und statischen Werten aus komplexen technischen Dokumentationen.
+                {language === 'de'
+                  ? 'Nutzung von Docling und PyMuPDF für die präzise Extraktion von Tabellen und statischen Werten aus komplexen technischen Dokumentationen.'
+                  : 'Using Docling and PyMuPDF for precise extraction of tables and static values from complex technical documentation.'}
               </p>
             </div>
             <div className="space-y-2">
@@ -96,7 +101,9 @@ const ShowcaseA: React.FC = () => {
                 <ASCIIText text=">> Context-Aware Translation" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Keine Standard-Translation. Lokale <strong>Hochleistungs-System</strong> Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.
+                {language === 'de'
+                  ? 'Keine Standard-Translation. Lokale Hochleistungs-System-Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.'
+                  : 'No standard translation. Local high-performance system models interpret structural context to transform technical terminology without loss.'}
               </p>
             </div>
             <div className="space-y-2">
@@ -104,7 +111,9 @@ const ShowcaseA: React.FC = () => {
                 <ASCIIText text=">> Hallucination Check" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
-                Eine integrierte <strong>Python-Validierungsebene</strong> prüft via Regex und mathematischen Checks, ob alle Zahlenwerte im Output mit dem Original übereinstimmen.
+                {language === 'de'
+                  ? 'Eine integrierte Python-Validierungsebene prüft via Regex und mathematischen Checks, ob alle Zahlenwerte im Output mit dem Original übereinstimmen.'
+                  : 'An integrated Python validation layer verifies via regex and mathematical checks that all numeric values in the output match the original.'}
               </p>
             </div>
           </div>
