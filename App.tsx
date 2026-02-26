@@ -10,6 +10,7 @@ import CodeAmbientBackground from './components/CodeAmbientBackground';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import Navigation from './components/Navigation';
+import { ThemeProvider } from './components/ThemeContext';
 
 import Projects from './components/Projects';
 import LegalInfo from './components/LegalInfo';
@@ -30,11 +31,12 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen selection:bg-blue-500/30 selection:text-blue-200 overflow-hidden">
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/8 via-transparent to-transparent pointer-events-none" />
-      <div className="fixed bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/15 via-blue-900/5 to-transparent pointer-events-none z-0" />
-      <div className="scanline" />
-      <div className="crt-overlay" />
+    <ThemeProvider>
+      <div className="relative min-h-screen selection:bg-blue-500/30 selection:text-blue-200 overflow-hidden">
+        <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/8 via-transparent to-transparent pointer-events-none" />
+        <div className="fixed bottom-0 left-0 right-0 h-[50vh] bg-gradient-to-t from-blue-900/15 via-blue-900/5 to-transparent pointer-events-none z-0" />
+        <div className="scanline" />
+        <div className="crt-overlay" />
 
       <a
         href="#main-content"
@@ -45,7 +47,7 @@ const App: React.FC = () => {
 
       <Navigation language={language} onLanguageChange={handleLanguageChange} />
 
-      <CodeAmbientBackground />
+        <CodeAmbientBackground />
 
       {/* Main Content - Immediately Visible */}
       <motion.div
@@ -72,13 +74,14 @@ const App: React.FC = () => {
       <ScrollToTop />
       <CookieConsent language={language} />
 
-      {/* Non-blocking System Boot Overlay */}
-      <AnimatePresence>
-        {booting && (
-          <TerminalBoot onComplete={() => setBooting(false)} />
-        )}
-      </AnimatePresence>
-    </div>
+        {/* Non-blocking System Boot Overlay */}
+        <AnimatePresence>
+          {booting && (
+            <TerminalBoot onComplete={() => setBooting(false)} />
+          )}
+        </AnimatePresence>
+      </div>
+    </ThemeProvider>
   );
 };
 

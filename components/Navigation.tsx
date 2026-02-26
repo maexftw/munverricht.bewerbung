@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { useTheme } from './ThemeContext';
 
 type Language = 'de' | 'en';
 
@@ -30,6 +31,7 @@ const navItems = {
 const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -105,6 +107,17 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                     aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
                 >
                     {isOpen ? <X /> : <Menu />}
+                </button>
+            </div>
+
+            {/* Mobile Theme Toggle */}
+            <div className="fixed top-4 left-4 z-50 md:hidden">
+                <button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
+                    aria-label={`Zu ${theme === 'light' ? 'dunklem' : 'hellem'} Modus wechseln`}
+                >
+                    {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
                 </button>
             </div>
 
