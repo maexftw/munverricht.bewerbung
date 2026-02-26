@@ -60,8 +60,27 @@ const BackgroundAnimation: React.FC<BackgroundAnimationProps> = ({ isPaused = fa
       };
 
       p.preload = () => {
+        // Use a local resource to avoid dependency on external assets (Security & Stability)
         originalImg = p.loadImage(
-          "https://assets.laboutiqueofficielle.com/w_1100,q_auto,f_auto/media/products/2011/01/20/supreme-ntm_4482_ntm-stk-lyrics-blanc_20180712T071700_02.jpg"
+          "/background-source.jpg",
+          undefined,
+          (err) => {
+            console.error("Background image failed to load, creating fallback:", err);
+            // Create a simple fallback pattern if the image is missing
+            originalImg = p.createImage(400, 400);
+            originalImg.loadPixels();
+            for (let y = 0; y < 400; y++) {
+              for (let x = 0; x < 400; x++) {
+                const index = (x + y * 400) * 4;
+                const val = (x ^ y) % 255; // Simple XOR pattern
+                originalImg.pixels[index] = val;
+                originalImg.pixels[index + 1] = val;
+                originalImg.pixels[index + 2] = val;
+                originalImg.pixels[index + 3] = 255;
+              }
+            }
+            originalImg.updatePixels();
+          }
         );
       };
 

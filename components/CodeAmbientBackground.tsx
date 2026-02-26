@@ -52,7 +52,7 @@ const CodeAmbientBackground: React.FC = () => {
     let leftVignette: CanvasGradient | null = null;
     let rightVignette: CanvasGradient | null = null;
     let pulseGradient: CanvasGradient | null = null;
-    let mainGlow: CanvasRadialGradient | null = null;
+    let mainGlow: CanvasGradient | null = null;
     let cachedRailWidth = 0;
     const railText = TOKENS.join('   ');
 
