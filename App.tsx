@@ -19,6 +19,16 @@ import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   const [booting, setBooting] = useState(true);
+  const [language, setLanguage] = useState<'de' | 'en'>(() => {
+    if (typeof window === 'undefined') return 'de';
+    const saved = window.localStorage.getItem('mu_language');
+    return saved === 'en' ? 'en' : 'de';
+  });
+
+  const handleLanguageChange = (nextLanguage: 'de' | 'en') => {
+    setLanguage(nextLanguage);
+    window.localStorage.setItem('mu_language', nextLanguage);
+  };
 
   return (
     <ThemeProvider>
@@ -28,41 +38,41 @@ const App: React.FC = () => {
         <div className="scanline" />
         <div className="crt-overlay" />
 
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[2000] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black mono text-xs font-bold uppercase tracking-widest"
-        >
-          Zum Hauptinhalt springen
-        </a>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[2000] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-black mono text-xs font-bold uppercase tracking-widest"
+      >
+        {language === 'de' ? 'Zum Hauptinhalt springen' : 'Skip to main content'}
+      </a>
 
-        <Navigation />
+      <Navigation language={language} onLanguageChange={handleLanguageChange} />
 
         <CodeAmbientBackground />
 
-        {/* Main Content - Immediately Visible */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center w-full px-4 md:px-0"
-        >
-          <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
-            <Hero />
-            <Evolution />
-            <ShowcaseA />
-            <ShowcaseB />
-            <Projects />
-            <SkillMonitor />
-            <ContactShell />
-            <LegalInfo />
-            <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">
-              <p>© 2026 MAXIMILIAN UNVERRICHT // THE ADVANCED DEVELOPER // v3.1.0-STABLE</p>
-            </footer>
-          </main>
-        </motion.div>
+      {/* Main Content - Immediately Visible */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col items-center w-full px-4 md:px-0"
+      >
+        <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-32 py-12 outline-none" tabIndex={-1}>
+          <Hero language={language} />
+          <Evolution language={language} />
+          <ShowcaseA language={language} />
+          <ShowcaseB language={language} />
+          <Projects language={language} />
+          <SkillMonitor language={language} />
+          <ContactShell language={language} />
+          <LegalInfo language={language} />
+          <footer className="pt-20 pb-8 text-center mono text-xs text-neutral-300 border-t border-neutral-800">
+            <p>© 2026 MAXIMILIAN UNVERRICHT // THE ADVANCED DEVELOPER // v3.1.0-STABLE</p>
+          </footer>
+        </main>
+      </motion.div>
 
-        <ScrollToTop />
-        <CookieConsent />
+      <ScrollToTop />
+      <CookieConsent language={language} />
 
         {/* Non-blocking System Boot Overlay */}
         <AnimatePresence>

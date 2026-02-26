@@ -3,14 +3,17 @@ import { motion } from 'framer-motion';
 import { Activity, Database, Brain, Globe, Cpu } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
+type Language = 'de' | 'en';
+
+type SkillMonitorProps = {
+  language: Language;
+};
+
 const skills = [
   {
     category: 'Core Tools',
     items: [
       'Visual Studio Code',
-      'Cline',
-      'Roo Code',
-      'Google Stitch',
       'React',
       'Vite',
       'TypeScript',
@@ -20,7 +23,6 @@ const skills = [
       'HTML5',
       'GitHub',
       'Cloudflare',
-      'WordPress',
       'Webflow',
       'Stripe',
       'Advanced Pipelines',
@@ -45,7 +47,7 @@ const skills = [
   },
   {
     category: 'Legacy Roots',
-    items: ['WordPress (10Y)', 'Webflow (2Y)', 'PHP', 'GSAP'],
+    items: ['Cloudflare (3Y)', 'Webflow (2Y)', 'PHP', 'GSAP'],
     icon: Database,
     level: 90,
     accent: 'amber',
@@ -92,14 +94,16 @@ const accentStyles: Record<string, { glow: string; border: string; text: string;
   },
 };
 
-const SkillMonitor: React.FC = () => {
+const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
   return (
     <section id="skill-monitor" className="space-y-12 py-6 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true"><ASCIIText text="// RESOURCE_MONITOR" /></h3>
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Capability Matrix" /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
-          Hier siehst du meinen täglichen Workflow: die wichtigsten Tools und Systeme, mit denen ich Projekte strukturiert, schnell und zuverlässig umsetze.
+          {language === 'de'
+            ? 'Hier siehst du meinen täglichen Workflow: die wichtigsten Tools und Systeme, mit denen ich Projekte strukturiert, schnell und zuverlässig umsetze.'
+            : 'Here you can see my daily workflow: the key tools and systems I use to deliver projects in a structured, fast, and reliable way.'}
         </p>
       </div>
 
@@ -136,7 +140,7 @@ const SkillMonitor: React.FC = () => {
             </div>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {skill.items.map(item => (
+              {skill.items.map((item) => (
                 <span
                   key={item}
                   className="px-2.5 py-1 rounded bg-neutral-950 border border-neutral-800 text-[10px] text-neutral-200 mono tracking-wide"

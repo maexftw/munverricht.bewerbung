@@ -13,7 +13,7 @@ interface LogEntry {
 const bootMessages = [
   "[INFO] Initializing System Core...",
   "[INFO] Loading Legacy Experience (12 Years)... Complete.",
-  "[INFO] Re-indexing Expertise: WordPress (10Y), Webflow (2Y)... Done.",
+  "[INFO] Re-indexing Expertise: Cloudflare (3Y), Webflow (2Y)... Done.",
   "[INFO] Checking Certificates: Google Ads, Analytics... Verified.",
   "[WARN] Legacy Logic detected. Triggering REFACTORE_CAREER.exe...",
   "[INFO] Connecting to Advanced IDE... Connected via Local SSH.",

@@ -1,0 +1,23 @@
+<<<<<<< SEARCH
+  { name: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/F38020' },
+  { name: 'WordPress', src: 'https://cdn.simpleicons.org/wordpress/21759B' },
+  { name: 'Webflow', src: 'https://cdn.simpleicons.org/webflow/146EF5' },
+=======
+  { name: 'Cloudflare', src: 'https://cdn.simpleicons.org/cloudflare/F38020' },
+  { name: 'Webflow', src: 'https://cdn.simpleicons.org/webflow/146EF5' },
+>>>>>>> REPLACE
+<<<<<<< SEARCH
+        <div className="space-y-3">
+          <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
+            <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 02 / SCHNELLE UMSETZUNG
+          </div>
+          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript sowie WordPress/Webflow. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.</p>
+        </div>
+=======
+        <div className="space-y-3">
+          <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
+            <Activity className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> 02 / SCHNELLE UMSETZUNG
+          </div>
+          <p className="text-sm text-neutral-200 leading-relaxed">React, Vite, TypeScript sowie Cloudflare & Modern Workflows. Von Prototyp bis produktiver Seite mit Fokus auf Lesbarkeit, Performance und Conversion.</p>
+        </div>
+>>>>>>> REPLACE
