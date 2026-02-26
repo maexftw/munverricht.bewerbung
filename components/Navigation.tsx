@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { useTheme } from './ThemeContext';
 
 const navItems = [
     { name: 'Start', href: '#hero', icon: Terminal },
@@ -14,6 +15,7 @@ const navItems = [
 const Navigation: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,12 +67,21 @@ const Navigation: React.FC = () => {
                         ))}
                     </ul>
 
-                    <a
-                        href="Maximilian_Unverricht_Resume.html"
-                        className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
-                    >
-                        Lebenslauf <span className="text-blue-500">↓</span>
-                    </a>
+                    <div className="flex items-center space-x-4">
+                        <button
+                            onClick={toggleTheme}
+                            className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
+                            aria-label={`Zu ${theme === 'light' ? 'dunklem' : 'hellem'} Modus wechseln`}
+                        >
+                            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                        </button>
+                        <a
+                            href="Maximilian_Unverricht_Resume.html"
+                            className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                        >
+                            Lebenslauf <span className="text-blue-500">↓</span>
+                        </a>
+                    </div>
                 </div>
             </motion.nav>
 
@@ -82,6 +93,17 @@ const Navigation: React.FC = () => {
                     aria-label="Menü umschalten"
                 >
                     {isOpen ? <X /> : <Menu />}
+                </button>
+            </div>
+
+            {/* Mobile Theme Toggle */}
+            <div className="fixed top-4 left-4 z-50 md:hidden">
+                <button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
+                    aria-label={`Zu ${theme === 'light' ? 'dunklem' : 'hellem'} Modus wechseln`}
+                >
+                    {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
                 </button>
             </div>
 
