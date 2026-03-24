@@ -15,8 +15,92 @@
         rel="stylesheet">
     <style>
         :root {
-            --bg-color: #050505;
-            --text-color: #e5e5e5;
+            color-scheme: dark;
+            --bg-color: #05070d;
+            --surface-1: rgba(10, 14, 24, 0.88);
+            --surface-2: rgba(14, 19, 31, 0.82);
+            --surface-3: rgba(18, 24, 38, 0.74);
+            --surface-solid: #101624;
+            --nav-bg: rgba(5, 7, 13, 0.8);
+            --overlay-page: rgba(5, 7, 13, 0.98);
+            --text-color: #edf2ff;
+            --text-primary: #edf2ff;
+            --text-secondary: #c8d3eb;
+            --text-muted: #8e9ab2;
+            --text-subtle: #67748e;
+            --border-subtle: rgba(149, 165, 195, 0.18);
+            --border-strong: rgba(149, 165, 195, 0.28);
+            --accent-color: #60a5fa;
+            --accent-soft: #93c5fd;
+            --accent-strong: #bfdbfe;
+            --accent-contrast: #f8fbff;
+            --accent-border: rgba(96, 165, 250, 0.34);
+            --accent-border-strong: rgba(96, 165, 250, 0.58);
+            --accent-fill: rgba(37, 99, 235, 0.82);
+            --accent-fill-strong: rgba(59, 130, 246, 0.92);
+            --shadow-soft: 0 14px 34px rgba(4, 8, 18, 0.16);
+            --shadow-glow-soft: 0 0 18px rgba(59, 130, 246, 0.1);
+            --focus-ring: rgba(96, 165, 250, 0.5);
+            --focus-ring-strong: rgba(147, 197, 253, 0.92);
+            --scrollbar-track: #05070d;
+            --scrollbar-thumb: #1a2334;
+            --scrollbar-thumb-hover: #3b82f6;
+            --scanline-color: rgba(59, 130, 246, 0.01);
+            --scanline-opacity: 0.018;
+            --crt-scanline-strong: rgba(0, 0, 0, 0.05);
+            --crt-rgb-a: rgba(59, 130, 246, 0.005);
+            --crt-rgb-b: rgba(37, 99, 235, 0.003);
+            --crt-opacity: 0.11;
+            --ambient-canvas-opacity: 0.24;
+            --selection-bg: rgba(59, 130, 246, 0.3);
+            --selection-text: #dbeafe;
+        }
+
+        :root[data-theme='light'] {
+            color-scheme: light;
+            --bg-color: #eef3fb;
+            --surface-1: rgba(255, 255, 255, 0.9);
+            --surface-2: rgba(247, 250, 255, 0.92);
+            --surface-3: rgba(237, 243, 251, 0.96);
+            --surface-solid: #ffffff;
+            --nav-bg: rgba(238, 243, 251, 0.82);
+            --overlay-page: rgba(238, 243, 251, 0.98);
+            --text-color: #0f172a;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #52627a;
+            --text-subtle: #748399;
+            --border-subtle: rgba(71, 85, 105, 0.14);
+            --border-strong: rgba(71, 85, 105, 0.24);
+            --accent-color: #2563eb;
+            --accent-soft: #1d4ed8;
+            --accent-strong: #1e40af;
+            --accent-contrast: #ffffff;
+            --accent-border: rgba(37, 99, 235, 0.24);
+            --accent-border-strong: rgba(37, 99, 235, 0.4);
+            --accent-fill: rgba(37, 99, 235, 0.92);
+            --accent-fill-strong: rgba(29, 78, 216, 0.96);
+            --shadow-soft: 0 14px 34px rgba(15, 23, 42, 0.06);
+            --shadow-glow-soft: 0 0 16px rgba(37, 99, 235, 0.06);
+            --focus-ring: rgba(37, 99, 235, 0.35);
+            --focus-ring-strong: rgba(37, 99, 235, 0.78);
+            --scrollbar-track: #dfe8f5;
+            --scrollbar-thumb: #b8c4d9;
+            --scrollbar-thumb-hover: #2563eb;
+            --scanline-color: rgba(37, 99, 235, 0.008);
+            --scanline-opacity: 0.012;
+            --crt-scanline-strong: rgba(148, 163, 184, 0.025);
+            --crt-rgb-a: rgba(37, 99, 235, 0.004);
+            --crt-rgb-b: rgba(59, 130, 246, 0.002);
+            --crt-opacity: 0.06;
+            --ambient-canvas-opacity: 0.16;
+            --selection-bg: rgba(37, 99, 235, 0.18);
+            --selection-text: #172554;
+        }
+
+        ::selection {
+            background: var(--selection-bg);
+            color: var(--selection-text);
         }
 
         body {
@@ -25,6 +109,13 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             margin: 0;
+            overflow-wrap: anywhere;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         .mono {
@@ -36,27 +127,27 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #000;
+            background: var(--scrollbar-track);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #1a1a1a;
+            background: var(--scrollbar-thumb);
             border-radius: 2px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #3b82f6;
+            background: var(--scrollbar-thumb-hover);
         }
 
         .scanline {
             width: 100%;
             height: 100px;
             z-index: 50;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(59, 130, 246, 0.015) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.033;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, var(--scanline-color) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: var(--scanline-opacity);
             position: fixed;
             pointer-events: none;
-            animation: scanline 14s linear infinite;
+            animation: scanline 22s linear infinite;
         }
 
         @keyframes scanline {
@@ -69,17 +160,30 @@
             }
         }
 
+        @keyframes firecrawl-pill {
+            0%,
+            100% {
+                transform: translate3d(0, 0, 0);
+                opacity: 0.56;
+            }
+
+            50% {
+                transform: translate3d(0, -10px, 0);
+                opacity: 0.88;
+            }
+        }
+
         .crt-overlay {
             position: fixed;
             top: 0;
             left: 0;
             bottom: 0;
             right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.083) 50%), linear-gradient(90deg, rgba(59, 130, 246, 0.01), rgba(37, 99, 235, 0.006), rgba(59, 130, 246, 0.01));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, var(--crt-scanline-strong) 50%), linear-gradient(90deg, var(--crt-rgb-a), var(--crt-rgb-b), var(--crt-rgb-a));
             z-index: 100;
             background-size: 100% 3px, 4px 100%;
             pointer-events: none;
-            opacity: 0.231;
+            opacity: var(--crt-opacity);
         }
 
         #background-canvas-container,
@@ -98,8 +202,9 @@
             display: block;
             width: 100% !important;
             height: 100% !important;
-            opacity: 0.429;
-            filter: blur(0.2px);
+            opacity: var(--ambient-canvas-opacity);
+            filter: none;
+            contain: strict;
         }
 
         /* Ensure main content is above canvas */
@@ -109,46 +214,195 @@
         }
 
         *:focus-visible {
-            outline: 2px solid #3b82f6;
-            outline-offset: 2px;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+            outline: 2px solid var(--focus-ring-strong);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 3px color-mix(in srgb, var(--bg-color) 70%, transparent), 0 0 18px var(--focus-ring);
+        }
+
+        .boot-shell {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, color-mix(in srgb, var(--accent-color) 8%, transparent) 0%, transparent 45%), var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .boot-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.05em;
+            line-height: 0.95;
+            text-wrap: balance;
+        }
+
+        .boot-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            max-width: 34rem;
+            text-wrap: balance;
+        }
+
+        .boot-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .boot-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            overflow-wrap: anywhere;
+            transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+        }
+
+        .boot-link:hover {
+            color: var(--accent-strong);
+        }
+
+        .boot-link:focus-visible {
+            border-radius: 999px;
+        }
+
+        .boot-diagnostic {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-subtle);
+            margin-top: 2rem;
+        }
+
+        .boot-error {
+            color: #ef4444;
+            margin-top: 20px;
+            font-size: 12px;
+            display: none;
+            background: var(--surface-2);
+            padding: 10px;
+            border: 1px solid var(--border-subtle);
+            text-align: left;
+            overflow-x: auto;
+            max-width: 800px;
+        }
+
+        @media (max-width: 767px) {
+            .boot-shell {
+                padding: 24px 16px;
+            }
+
+            .boot-title {
+                font-size: 2rem;
+            }
+
+            .boot-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .boot-links {
+                gap: 12px;
+                margin-bottom: 2rem;
+            }
+
+            .boot-link {
+                padding: 0.35rem 0.6rem;
+                border: 1px solid var(--border-subtle);
+                border-radius: 999px;
+                background: var(--surface-2);
+            }
+
+            .boot-diagnostic {
+                margin-top: 1.5rem;
+                font-size: 11px;
+            }
+
+            .noscript-shell {
+                padding: 24px 16px;
+            }
+        }
+
+        .noscript-shell {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            min-height: 100vh;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scanline {
+                animation: none;
+                opacity: calc(var(--scanline-opacity) * 0.4);
+            }
+
+            .crt-overlay {
+                opacity: calc(var(--crt-opacity) * 0.55);
+            }
+
+            #background-canvas-container canvas,
+            #code-ambient-canvas-container canvas {
+                opacity: calc(var(--ambient-canvas-opacity) * 0.7);
+            }
+
+            html:focus-within {
+                scroll-behavior: auto;
+            }
         }
     </style>
+    <script>
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
 
 <body>
     <div id="root">
-        <div id="initial-loader"
-            style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; text-align: center; padding: 20px;">
-            <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.05em;">Maximilian
+        <div id="initial-loader" class="boot-shell">
+            <h1 class="boot-title">Maximilian
                 Unverricht</h1>
-            <p style="font-size: 1.1rem; color: #888; margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace;">
+            <p class="boot-subtitle">
                 The Advanced Developer | Modern Workflow & Web Specialist</p>
 
-            <div style="display: flex; gap: 20px; margin-bottom: 3rem;">
-                <a href="mailto:info@graphiks.de"
-                    style="color: #3b82f6; text-decoration: none; font-weight: 500;">Kontakt</a>
-                <a href="https://github.com/maexftw" target="_blank" rel="noopener noreferrer"
-                    style="color: #3b82f6; text-decoration: none; font-weight: 500;">GitHub</a>
-                <a href="Maximilian_Unverricht_Resume.html"
-                    style="color: #3b82f6; text-decoration: none; font-weight: 500;">Lebenslauf</a>
+            <div class="boot-links">
+                <a href="mailto:info@graphiks.de" class="boot-link">Kontakt</a>
+                <a href="https://github.com/maexftw" target="_blank" rel="noopener noreferrer" class="boot-link">GitHub</a>
+                <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a>
             </div>
 
-            <div id="boot-diagnostic"
-                style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #444; margin-top: 2rem;">
-                [LADE_ASSETS...]</div>
-            <div id="error-display"
-                style="color: #ef4444; margin-top: 20px; font-size: 12px; display: none; background: #111; padding: 10px; border: 1px solid #333; text-align: left; overflow-x: auto; max-width: 800px;">
-            </div>
+            <div id="boot-diagnostic" class="boot-diagnostic">[LADE_ASSETS...]</div>
+            <div id="error-display" class="boot-error"></div>
         </div>
     </div>
     <noscript>
-        <div style="padding: 40px; text-align: center; color: #fff; background-color: #050505; min-height: 100vh;">
+        <div class="noscript-shell">
             <h1>Maximilian Unverricht</h1>
             <p>Modern Workflow & Web Specialist</p>
             <p>
-                <a href="mailto:info@graphiks.de" style="color: #3b82f6;">info@graphiks.de</a> |
-                <a href="https://github.com/maexftw" style="color: #3b82f6;">GitHub</a>
+                <a href="mailto:info@graphiks.de" class="boot-link">info@graphiks.de</a> |
+                <a href="https://github.com/maexftw" class="boot-link">GitHub</a>
             </p>
             <p>Please enable JavaScript to view the full interactive experience.</p>
         </div>

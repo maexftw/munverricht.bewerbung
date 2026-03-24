@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-style: normal;
+}
+html {
+  --color-bg: #121211;
+  --color-text: #f9f9f7;
+  --color-muted: #bdbdbd;
+  --u-thickness: 1.1px;
+  --u-spacing: 0.4rem;
+  --u-offset: 0.2rem;
+}
+body {
+  background: var(--color-bg);
+  font: 14px/1.45 "Lucida Console", "Monaco", monospace;
+  letter-spacing: 0.01em;
+}
+body,
+a {
+  color: var(--color-text);
+}
+::selection {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ct {
+  margin: 0 auto;
+  padding: 0.6em 1.6em;
+  max-width: 52ch;
+  position: relative;
+  z-index: 1;
+}
+.ct > * {
+  margin: 1rem 0 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2em 0;
+}
+li {
+  margin: 0.6rem 0;
+  position: relative;
+}
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.h a::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1.1 * var(--u-offset));
+  left: 0;
+  right: 0;
+  height: var(--u-thickness);
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-muted) 0,
+    var(--color-muted) 2px,
+    transparent 2px,
+    transparent var(--u-spacing)
+  );
+  transition: background 0.3s ease-out;
+  opacity: 0.75;
+}
+.h a:hover::after {
+  background: var(--color-muted);
+  height: calc(var(--u-thickness) * 0.5);
+}
+a:focus,
+a:hover {
+  text-decoration: none;
+}
+header {
+  margin-bottom: 1.5em;
+}
+footer {
+  padding: 1em 0;
+}
+small {
+  color: var(--color-muted);
+  font-size: 0.8em;
+  display: block;
+  margin-top: 1.5em;
+  text-align: center;
+}
+/* Active ascii anim on link */
+a.as {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Disable text selection during ASCII animation */
+a.as::selection {
+  background: transparent;
+}
+
+/* hover state for links with ASCII animation */
+a.as:hover {
+  position: relative;
+  cursor: pointer;
+}
+
+.pt li {
+  padding: 0 0 0 0.6em;
+}
+.pt li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 68%;
+  width: 0.6em;
+  height: 1px;
+  background: var(--color-text);
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 1s ease;
+}
+
+.pt li:hover::before {
+  transform: scaleX(2);
+  transition-duration: 0.3s;
+}
+
+.pt li a {
+  display: inline-block;
+  margin-left: 0.6em;
+  white-space: nowrap;
+}
+/* sr-only */
+.so {
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}

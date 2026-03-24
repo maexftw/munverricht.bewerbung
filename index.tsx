@@ -2,27 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-console.log("[BOOT] Initializing React Application...");
-
 const rootElement = document.getElementById('root');
 const diag = document.getElementById('boot-diagnostic');
+const errorDisplay = document.getElementById('error-display');
 
 if (diag) diag.innerText = '[REACT_STARTING]';
 
 if (!rootElement) {
-  console.error("[BOOT] Fatal: Root element not found");
+  if (diag) diag.innerText = '[BOOT_FAILURE]';
+  if (errorDisplay) {
+    errorDisplay.textContent = 'System initialization failed. Please refresh or contact support.';
+    (errorDisplay as HTMLElement).style.display = 'block';
+  }
 } else {
   try {
     const root = ReactDOM.createRoot(rootElement);
-    console.log("[BOOT] Root created, rendering...");
     root.render(
       <React.StrictMode>
         <App />
       </React.StrictMode>
     );
-    console.log("[BOOT] Initial render call complete.");
   } catch (error: any) {
-    console.error("[BOOT] Render crash:", error);
+    if (diag) diag.innerText = '[BOOT_CRASH]';
     if (rootElement) {
         rootElement.innerHTML = `
             <div style="color: #ef4444; font-family: monospace; padding: 40px; text-align: center;">
