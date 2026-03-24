@@ -17,7 +17,7 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
           <ASCIIText text="// CHRONOLOGICAL_DATABASE" />
         </h3>
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text={language === 'de' ? 'Werdegang & Meilensteine' : 'Journey & Milestones'} />
+          <ASCIIText text={language === 'de' ? 'Werdegang & Aufbau der Praxis' : 'Career Path & Practical Foundation'} />
         </h2>
       </div>
 
@@ -28,12 +28,12 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-blue-500">2024 - {language === 'de' ? 'HEUTE' : 'TODAY'} // MODERN_PIPELINES</span>
-              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">System Architect & Rapid Prototyping</h4>
+              <span className="mono text-[10px] text-blue-500">2024 - {language === 'de' ? 'HEUTE' : 'TODAY'} // FRONTEND DELIVERY & WORKFLOWS</span>
+              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">Frontend Delivery, Prototyping & lokale Workflows</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Entwicklung lokaler Daten-Systeme für technische Gutachten. Bau hocheffizienter Pipelines: Automatische Überführung von optimiertem Code in CMS-basierte Kundenprojekte. Fokus auf Speed & Efficiency statt Boilerplate.'
-                  : 'Building local data systems for technical reports. Creating high-efficiency pipelines: automated transfer of optimized code into CMS-based client projects. Focus on speed and efficiency over boilerplate.'}
+                  ? 'Arbeit an React/Vite-basierten Websites, Prototypen und lokalen Dokument-Workflows. Fokus: schneller vom Konzept zur testbaren Oberfläche kommen, Deployments sauber halten und wiederkehrende Schritte sinnvoll beschleunigen.'
+                  : 'Working on React/Vite-based websites, prototypes, and local document workflows. Focus: getting from concept to testable interface quickly, keeping deployments clean, and speeding up repeatable steps where it helps.'}
               </p>
             </div>
           </motion.li>
@@ -43,12 +43,12 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <GitCommit className="w-3 h-3 text-neutral-500" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-neutral-600">2023 - 2024 // EXPERIMENTAL_TECH</span>
-              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Creative Tech & Prototyping</h4>
+              <span className="mono text-[10px] text-neutral-600">2023 - 2024 // TRANSITION INTO NEW TOOLS</span>
+              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Übergang in neue Tools und schnellere Prototypen</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Tiefer Einstieg in moderne Automatisierung und generative Systeme. Nutzung von Game-Engines (Unreal 5) für interaktive Erlebnisse. Experimente mit neuen Interfaces jenseits des klassischen Webs.'
-                  : 'Deep dive into modern automation and generative systems. Using game engines (Unreal 5) for interactive experiences. Experiments with interfaces beyond classic web surfaces.'}
+                  ? 'Vertiefung in neue Entwicklungswerkzeuge, Automatisierung und prototypische Interfaces. In dieser Phase habe ich ausprobiert, welche Tools echte Arbeit beschleunigen und welche nur gut klingen.'
+                  : 'Deeper work with newer development tools, automation, and prototype interfaces. This phase was about finding out which tools actually speed up delivery and which ones only sound impressive.'}
               </p>
             </div>
           </motion.li>
@@ -58,12 +58,12 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <History className="w-3 h-3 text-neutral-700" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-neutral-600">2012 - 2023 // LEGACY_FOUNDATION</span>
-              <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">Full-Stack & Marketing Roots</h4>
+              <span className="mono text-[10px] text-neutral-600">2012 - 2023 // WEB, CMS & MARKETING FOUNDATION</span>
+              <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">Web-Projekte, CMS-Alltag und Marketing-Praxis</h4>
               <p className="text-neutral-300 text-sm leading-relaxed">
                 {language === 'de'
-                  ? '10+ Jahre Erfahrung. Cloudflare & Modern Workflows, Web-Delivery, zertifizierter Google Ads & Analytics Spezialist. Solides Fundament in klassischer Web-Entwicklung und digitalem Marketing.'
-                  : '10+ years of experience. Cloudflare and modern workflows, web delivery, certified Google Ads and Analytics specialist. Solid foundation in classic web development and digital marketing.'}
+                  ? 'Mehr als ein Jahrzehnt praktische Arbeit an Kundenwebsites, Content-Strukturen, WordPress/Webflow-Projekten und Marketing-nahen Anforderungen. Daraus kommt mein Blick für klare Inhalte, saubere Launches und nachvollziehbare Nutzerführung.'
+                  : 'More than a decade of practical work on client websites, content structures, WordPress/Webflow projects, and marketing-adjacent requirements. That is where my focus on clear content, clean launches, and understandable user guidance comes from.'}
               </p>
             </div>
           </motion.li>

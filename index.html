@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maximilian Unverricht | The Advanced Developer</title>
+    <title>Maximilian Unverricht | Frontend Developer & Web Delivery</title>
     <meta name="description"
-        content="Modern Workflow & Web Specialist | React, Cloudflare, High-Performance Systems - Portfolio von Maximilian Unverricht">
+        content="Frontend Developer for websites, prototypes, and web delivery workflows | React, TypeScript, Vite, Cloudflare - Portfolio von Maximilian Unverricht">
     <meta property="og:image" content="maximilian-unverricht.pages.dev_.png">
     <!-- v3.0.5-CACHE-BUST -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -384,7 +384,7 @@
             <h1 class="boot-title">Maximilian
                 Unverricht</h1>
             <p class="boot-subtitle">
-                The Advanced Developer | Modern Workflow & Web Specialist</p>
+                Frontend Developer &amp; Web Delivery</p>
 
             <div class="boot-links">
                 <a href="mailto:info@graphiks.de" class="boot-link">Kontakt</a>
@@ -392,19 +392,19 @@
                 <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a>
             </div>
 
-            <div id="boot-diagnostic" class="boot-diagnostic">[LADE_ASSETS...]</div>
+            <div id="boot-diagnostic" class="boot-diagnostic">[SEITE_WIRD_GELADEN]</div>
             <div id="error-display" class="boot-error"></div>
         </div>
     </div>
     <noscript>
         <div class="noscript-shell">
             <h1>Maximilian Unverricht</h1>
-            <p>Modern Workflow & Web Specialist</p>
+            <p>Frontend Developer &amp; Web Delivery</p>
             <p>
                 <a href="mailto:info@graphiks.de" class="boot-link">info@graphiks.de</a> |
                 <a href="https://github.com/maexftw" class="boot-link">GitHub</a>
             </p>
-            <p>Please enable JavaScript to view the full interactive experience.</p>
+            <p>Please enable JavaScript to view the full site.</p>
         </div>
     </noscript>
     <script>
@@ -413,7 +413,7 @@
             var errDisplay = document.getElementById('error-display');
 
             window.onerror = function (msg, url, line, col, error) {
-                if (diag) diag.innerText = '[LAUFZEITFEHLER]';
+                if (diag) diag.innerText = '[FEHLER_BEIM_LADEN]';
                 if (errDisplay) {
                     errDisplay.style.display = 'block';
                     errDisplay.innerText = "Ein Laufzeitfehler ist aufgetreten. Bitte lade die Seite neu.";
@@ -422,7 +422,7 @@
             };
 
             window.addEventListener('unhandledrejection', function (event) {
-                if (diag) diag.innerText = '[PROMISE_REJECTION]';
+                if (diag) diag.innerText = '[FEHLER_BEIM_LADEN]';
                 if (errDisplay) {
                     errDisplay.style.display = 'block';
                     errDisplay.innerText = "Ein Laufzeitfehler ist aufgetreten. Bitte lade die Seite neu.";
@@ -431,9 +431,9 @@
 
             setTimeout(function () {
                 var loader = document.getElementById('initial-loader');
-                if (loader && diag && diag.innerText === '[LADE_ASSETS...]') {
+                if (loader && diag && diag.innerText === '[SEITE_WIRD_GELADEN]') {
                     // Only show stalled message if we are still strictly in the initial state
-                    diag.innerText = '[LADEVORGANG_VERZOEGERT]';
+                    diag.innerText = '[LADEN_DAUERT_LAENGER]';
                 }
             }, 8000);
         })();

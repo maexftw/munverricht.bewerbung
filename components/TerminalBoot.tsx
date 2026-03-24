@@ -11,16 +11,13 @@ interface LogEntry {
 }
 
 const bootMessages = [
-  "[INFO] Initializing System Core...",
-  "[INFO] Loading Legacy Experience (12 Years)... Complete.",
-  "[INFO] Re-indexing Expertise: Cloudflare (3Y), Webflow (2Y)... Done.",
-  "[INFO] Checking Certificates: Google Ads, Analytics... Verified.",
-  "[WARN] Legacy Logic detected. Triggering REFACTORE_CAREER.exe...",
-  "[INFO] Connecting to Advanced IDE... Connected via Local SSH.",
-  "[INFO] Initializing Modern Workflow: Advanced Pipelines...",
-  "[INFO] Syncing Local Systems (High-Performance Core)... Ready.",
-  "[OK] System Optimization Level: MAXIMAL.",
-  "[SYSTEM] Advanced Mode: ACTIVE."
+  "[INFO] Loading portfolio...",
+  "[INFO] Preparing recruiter view...",
+  "[INFO] Checking links: resume, email, phone... done.",
+  "[INFO] Loading project summaries...",
+  "[INFO] Loading current tools and workflow notes...",
+  "[INFO] Starting interface...",
+  "[OK] Portfolio ready."
 ];
 
 const CURSOR_ANIMATION = { opacity: [0, 1, 0] };
@@ -74,7 +71,7 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
       exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.5 } }}
       className="fixed bottom-4 right-4 z-[1000] flex flex-col items-end pointer-events-none"
       role="status"
-      aria-label="System-Boot-Vorgang"
+      aria-label="Portfolio loading status"
     >
       <div className="w-80 bg-[#111111]/90 backdrop-blur-sm border border-neutral-800 rounded p-4 shadow-2xl relative pointer-events-auto">
         <div className="absolute top-2 right-4 flex space-x-2" aria-hidden="true">

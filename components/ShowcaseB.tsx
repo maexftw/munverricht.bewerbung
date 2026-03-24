@@ -13,40 +13,40 @@ const phaseContent = {
   de: [
     {
       id: 'PHASE_01',
-      title: 'Rapid Prototyping (Boilerplate)',
-      text: 'Nutzung moderner Pipelines, um in Sekunden 90% des Boilerplate-Codes für Layouts und Komponenten zu generieren.',
+      title: 'Entwurf & erster Code',
+      text: 'Aus Briefing, Referenzen und Seitenstruktur entsteht ein erster umsetzbarer Stand für Layouts, Komponenten und Content-Blöcke.',
       tone: 'blue' as const,
     },
     {
       id: 'PHASE_02',
-      title: 'Human Refinement (Logic)',
-      text: 'Manuelle Verfeinerung der Logik, Sicherheit und UI-Nuancen in der IDE. Der Mensch steuert Architektur und Qualität.',
+      title: 'Review & Verfeinerung',
+      text: 'Danach folgen manuelle Überarbeitung in der IDE, inhaltliche Schärfung, technische Korrekturen und saubere Übergänge für den Live-Betrieb.',
       tone: 'blue' as const,
     },
     {
       id: 'PHASE_03',
-      title: 'Client Access (Visual Edit)',
-      text: 'Deployment via Cloudflare. Integration von TinaCMS erlaubt dem Kunden visuelle Inhaltskontrolle, ohne den Kerncode zu beschädigen.',
+      title: 'Deployment & Kundenpflege',
+      text: 'Nach dem Deployment über Cloudflare können passende Editierstrecken wie TinaCMS eingebunden werden, wenn Inhalte später ohne Code gepflegt werden sollen.',
       tone: 'green' as const,
     },
   ],
   en: [
     {
       id: 'PHASE_01',
-      title: 'Rapid Prototyping (Boilerplate)',
-      text: 'Using modern pipelines to generate 90% of boilerplate code for layouts and components within seconds.',
+      title: 'Draft & first code pass',
+      text: 'A first workable version for layouts, components, and content blocks is built from the brief, references, and page structure.',
       tone: 'blue' as const,
     },
     {
       id: 'PHASE_02',
-      title: 'Human Refinement (Logic)',
-      text: 'Manual refinement of logic, security, and UI details in the IDE. Humans control architecture and quality.',
+      title: 'Review & refinement',
+      text: 'Then comes manual work in the IDE: content sharpening, technical fixes, and cleaner handoff quality for live use.',
       tone: 'blue' as const,
     },
     {
       id: 'PHASE_03',
-      title: 'Client Access (Visual Edit)',
-      text: 'Deployment via Cloudflare. TinaCMS integration gives clients visual content control without breaking core code.',
+      title: 'Deployment & client editing',
+      text: 'After deployment through Cloudflare, an editing layer like TinaCMS can be added when ongoing content updates should happen without code changes.',
       tone: 'green' as const,
     },
   ],
@@ -56,12 +56,12 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
   return (
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-end text-right space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// ECOMMERCE_USE_CASE_02" /></h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Modern Accelerated Agency Workflow" /></h2>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// WORKFLOW_USE_CASE_02" /></h3>
+        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Agency workflow: draft, refine, deploy" /></h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Modernes Coding trifft auf Client-Control. Ein Workflow, der Agenturen die Geschwindigkeit effizienter Generierung gibt, ohne Wartbarkeit oder Kundenfreiheit zu opfern.'
-            : 'Modern coding meets client control. A workflow that gives agencies generation speed without sacrificing maintainability or client freedom.'}
+            ? 'Kein Buzzword-Case, sondern ein konkreter Ablauf: schnell einen ersten Stand erzeugen, danach manuell verbessern und am Ende sauber für Kunden oder Redakteure übergeben.'
+            : 'Not a buzzword case but a practical sequence: get to a first version quickly, refine it manually, then hand it over cleanly for clients or editors.'}
         </p>
       </div>
 
@@ -92,10 +92,10 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
                 {index === 0 && (
                   <>
                     <div className="absolute top-2 right-2 flex items-center gap-1 text-blue-500">
-                      <span className="animate-pulse">●</span> MODERN_MODE
+                      <span className="animate-pulse">●</span> DRAFT_MODE
                     </div>
                     <div className="space-y-0.5">
-                      <div className="text-neutral-500">// Modern Gen</div>
+                      <div className="text-neutral-500">// First pass</div>
                       <div>
                         <span className="text-blue-400">const</span> <span className="text-green-400">Layout</span> = compose({`{`}
                       </div>
@@ -109,8 +109,8 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
                 {index === 1 && (
                   <div className="h-full flex items-center justify-center border-2 border-dashed border-neutral-800 rounded">
                     <div className="flex flex-col items-center gap-2">
-                      <Settings className="w-6 h-6 text-neutral-700 animate-spin-slow" />
-                      <span className="mono text-[8px] text-neutral-600">ADVANCED IDE_ACTIVE</span>
+                       <Settings className="w-6 h-6 text-neutral-700 animate-spin-slow" />
+                       <span className="mono text-[8px] text-neutral-600">MANUAL_REVIEW</span>
                     </div>
                   </div>
                 )}
@@ -120,7 +120,7 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
                     <div className="w-1/2 h-2 bg-neutral-200 rounded" />
                     <div className="w-3/4 h-4 bg-blue-500/20 rounded" />
                     <div className="flex items-center gap-1 text-blue-500 mono text-[7px] font-bold">
-                      <MousePointer2 className="w-2 h-2" /> TINACMS_LAYER
+                       <MousePointer2 className="w-2 h-2" /> EDITING_LAYER
                     </div>
                   </div>
                 )}
@@ -156,8 +156,8 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
           </div>
           <p className="text-neutral-200 text-sm leading-relaxed max-w-[72ch]">
             {language === 'de'
-              ? 'Für den Shop entstand eine eigene maßgeschneiderte Commerce-Logik mit individueller Produkt-, Cart- und Checkout-Orchestrierung. Für Zahlungen ist Stripe sauber integriert.'
-              : 'A custom commerce logic was built for the shop with individual product, cart, and checkout orchestration. Stripe is integrated cleanly for payments.'}
+              ? 'Für den Shop wurde keine Standardvorlage übernommen, sondern eine eigene Commerce-Strecke aufgebaut. Produkte, Warenkorb und Checkout folgen den realen Anforderungen des Projekts; Stripe übernimmt die Zahlungsabwicklung.'
+              : 'The shop does not rely on a standard template. A custom commerce flow was built around the actual project requirements, with Stripe handling payments.'}
           </p>
         </div>
 
@@ -165,36 +165,36 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
           <div className="border border-neutral-800 bg-neutral-950/70 rounded-lg p-4 space-y-2">
             <div className="flex items-center gap-2 text-blue-400 mono text-[10px] uppercase tracking-widest">
               <Workflow className="w-3.5 h-3.5" aria-hidden="true" />
-              Custom Flow
+              {language === 'de' ? 'Eigene Shop-Logik' : 'Custom shop flow'}
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
               {language === 'de'
-                ? 'Eigene Shop-Logik statt Baukasten: volle Kontrolle über Produktdarstellung, Zustände und Conversion-Strecke.'
-                : 'Own shop logic instead of a template builder: full control over product presentation, states, and conversion path.'}
+                ? 'Eigene Logik statt starrem Baukasten. So lassen sich Produktdarstellung, Zustände und Checkout-Verhalten passender umsetzen.'
+                : 'Custom logic instead of a rigid builder. That makes product presentation, state handling, and checkout behaviour easier to shape.'}
             </p>
           </div>
 
           <div className="border border-neutral-800 bg-neutral-950/70 rounded-lg p-4 space-y-2">
             <div className="flex items-center gap-2 text-blue-400 mono text-[10px] uppercase tracking-widest">
               <CreditCard className="w-3.5 h-3.5" aria-hidden="true" />
-              Stripe Layer
+              {language === 'de' ? 'Stripe-Anbindung' : 'Stripe integration'}
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
               {language === 'de'
-                ? 'Zahlungsabwicklung über Stripe als robuster Finishing-Layer über dem eigenen Shop-Core.'
-                : 'Payment processing via Stripe as a robust finishing layer on top of the custom shop core.'}
+                ? 'Stripe ist als Zahlungsstrecke angebunden, ohne die restliche Shop-Logik an ein komplettes Standardsystem zu binden.'
+                : 'Stripe handles payments without forcing the rest of the shop flow into a full off-the-shelf system.'}
             </p>
           </div>
 
           <div className="border border-neutral-800 bg-neutral-950/70 rounded-lg p-4 space-y-2">
             <div className="flex items-center gap-2 text-blue-400 mono text-[10px] uppercase tracking-widest">
               <Monitor className="w-3.5 h-3.5" aria-hidden="true" />
-              Agency Advantage
+              {language === 'de' ? 'Operativer Nutzen' : 'Operational value'}
             </div>
             <p className="text-xs text-neutral-300 leading-relaxed">
               {language === 'de'
-                ? 'Schnell erweiterbar, keine SaaS-Abhängigkeit, keine Limitierung durch vorgegebene Shop-Themes.'
-                : 'Quickly extendable, no SaaS dependency, and no limitation from predefined shop themes.'}
+                ? 'Hilfreich, wenn ein Projekt mehr Kontrolle braucht als ein vorgegebenes Theme oder ein Standardshop liefern kann.'
+                : 'Useful when a project needs more control than a preset theme or standard shop setup can provide.'}
             </p>
           </div>
         </div>
