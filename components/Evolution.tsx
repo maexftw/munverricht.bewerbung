@@ -28,12 +28,12 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-blue-500">2024 - {language === 'de' ? 'HEUTE' : 'TODAY'} // FRONTEND DELIVERY & WORKFLOWS</span>
-              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">Frontend Delivery, Prototyping & lokale Workflows</h4>
+              <span className="mono text-[10px] text-blue-500">2024 - {language === 'de' ? 'HEUTE' : 'TODAY'} // LOCAL MODELS, VS CODE & DELIVERY</span>
+              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">Lokale LLM-Workflows, VS Code & umsetzbare Ergebnisse</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Arbeit an React/Vite-basierten Websites, Prototypen und lokalen Dokument-Workflows. Fokus: schneller vom Konzept zur testbaren Oberfläche kommen, Deployments sauber halten und wiederkehrende Schritte sinnvoll beschleunigen.'
-                  : 'Working on React/Vite-based websites, prototypes, and local document workflows. Focus: getting from concept to testable interface quickly, keeping deployments clean, and speeding up repeatable steps where it helps.'}
+                  ? 'Arbeit an React/Vite-basierten Websites, Prototypen und lokalen LLM-Workflows direkt in VS Code. Der Schwerpunkt liegt darauf, lokale Modelle sinnvoll für Coding, strukturierte Generierung, Überarbeitung und Implementierung einzusetzen, sodass aus Ideen belastbare Oberflächen, Dokumente und produktionsnahe Ergebnisse werden.'
+                  : 'Working on React/Vite-based websites, prototypes, and local LLM workflows directly inside VS Code. The focus is on using local models in a practical way for coding, structured generation, refinement, and implementation so ideas become reliable interfaces, documents, and production-adjacent outcomes.'}
               </p>
             </div>
           </motion.li>
@@ -44,11 +44,11 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
             </div>
             <div className="space-y-2">
               <span className="mono text-[10px] text-neutral-600">2023 - 2024 // TRANSITION INTO NEW TOOLS</span>
-              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Übergang in neue Tools und schnellere Prototypen</h4>
+              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Übergang zu lokalen Modellen und editorbasierten Workflows</h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Vertiefung in neue Entwicklungswerkzeuge, Automatisierung und prototypische Interfaces. In dieser Phase habe ich ausprobiert, welche Tools echte Arbeit beschleunigen und welche nur gut klingen.'
-                  : 'Deeper work with newer development tools, automation, and prototype interfaces. This phase was about finding out which tools actually speed up delivery and which ones only sound impressive.'}
+                  ? 'Vertiefung in neue Entwicklungswerkzeuge, Automatisierung und erste lokale Modell-Setups. In dieser Phase habe ich sehr praktisch herausgearbeitet, welche agentischen Abläufe in VS Code echte Arbeit beschleunigen und welche nur gut klingen.'
+                  : 'Deeper work with newer development tools, automation, and early local model setups. This phase was a very practical process of identifying which agentic workflows in VS Code genuinely speed up delivery and which ones only sound impressive.'}
               </p>
             </div>
           </motion.li>

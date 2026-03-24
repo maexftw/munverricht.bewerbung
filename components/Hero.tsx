@@ -109,8 +109,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
         {language === 'de'
-          ? 'Ich bin Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Mein Schwerpunkt liegt auf Websites, Prototypen und klaren digitalen Strecken, die verständlich aufgebaut sind, sauber live gehen und im Alltag nutzbar bleiben.'
-          : 'I am a frontend developer with 12+ years of hands-on experience in web design and marketing. My focus is on websites, prototypes, and clear digital journeys that are easy to understand, go live cleanly, and stay practical in day-to-day use.'}
+          ? 'Ich bin Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Meine besondere Stärke liegt heute in lokalen LLM-Workflows in Visual Studio Code: Modelle lokal aufsetzen, agentisch fürs Coden nutzen und daraus Prototypen, strukturierte Inhalte und real nutzbare Deliverables bauen.'
+          : 'I am a frontend developer with 12+ years of hands-on experience in web design and marketing. My distinctive strength today is local LLM workflows inside Visual Studio Code: setting up local models, using them for agentic coding, and turning that into prototypes, structured output, and real deliverables.'}
       </p>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
@@ -209,8 +209,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           </div>
           <p className="text-sm text-neutral-200 leading-relaxed">
             {language === 'de'
-              ? 'Aktuell arbeite ich vor allem mit React, Vite, TypeScript und Cloudflare. Ich bin besonders stark in Frontend-Umsetzung, Prototyping, Content-Struktur und schnellen Iterationen bis zur live nutzbaren Seite.'
-              : 'I currently work mainly with React, Vite, TypeScript, and Cloudflare. I am strongest in frontend delivery, prototyping, content structure, and fast iterations through to a usable live site.'}
+              ? 'Aktuell arbeite ich vor allem in VS Code mit React, Vite, TypeScript und lokalen LLM-Setups. Cloud-Erfahrung mit Google Cloud, AWS und Azure ist vorhanden, mein eigentlicher Schwerpunkt liegt aber klar auf lokaler Modellnutzung für agentisches Coden, Prototyping, strukturierte Generierung, Überarbeitung und Umsetzung.'
+              : 'I currently work mainly in VS Code with React, Vite, TypeScript, and local LLM setups. I do have exposure to Google Cloud, AWS, and Azure, but my real specialization is clearly local model usage for agentic coding, prototyping, structured generation, refinement, and implementation.'}
           </p>
         </div>
         <div className="space-y-3">
@@ -219,8 +219,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           </div>
           <p className="text-sm text-neutral-200 leading-relaxed">
             {language === 'de'
-              ? 'Ich bringe technische Umsetzung und Marketing-Praxis zusammen. Das hilft bei klarer Nutzerführung, verständlicher Kommunikation und Seiten, die nicht nur gebaut, sondern auch eingesetzt werden können.'
-              : 'I combine technical execution with marketing practice. That helps with clear user guidance, understandable messaging, and sites that are not just built but actually usable in a business context.'}
+              ? 'Ich verbinde technische Umsetzung, Editor-Workflows und Marketing-Praxis. Dadurch entstehen keine abstrakten AI-Demos, sondern nachvollziehbare Arbeitsstrecken in VS Code, die zu testbaren Interfaces, belastbaren Inhalten und einsatzfähigen Ergebnissen führen.'
+              : 'I combine technical execution, editor-based workflows, and marketing practice. The result is not abstract AI demo work, but practical VS Code workflows that lead to testable interfaces, reliable content, and usable outcomes.'}
           </p>
         </div>
       </div>

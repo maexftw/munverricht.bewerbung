@@ -25,8 +25,8 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Lokaler Workflow zur Analyse, Übersetzung und Prüfung technischer Dokumente. Entwickelt für sensible Inhalte, bei denen Verarbeitung und Kontrolle bewusst lokal bleiben sollen.'
-            : 'Local workflow for analysing, translating, and checking technical documents. Built for sensitive material where processing and control are meant to stay local.'}
+            ? 'Konkretes Beispiel für die Art von lokaler LLM-Arbeit, auf die ich mich spezialisiert habe: Analyse, Übersetzung und Prüfung technischer Dokumente in einem bewusst lokalen Workflow. Entwickelt für sensible Inhalte, bei denen Verarbeitung, Kontrolle und Iteration nah an der eigentlichen Arbeitsumgebung bleiben sollen.'
+            : 'A concrete example of the kind of local LLM work I specialize in: analysing, translating, and checking technical documents inside a deliberately local workflow. Built for sensitive material where processing, control, and iteration are meant to stay close to the actual working environment.'}
         </p>
       </div>
 

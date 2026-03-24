@@ -11,7 +11,7 @@ type SkillMonitorProps = {
 
 const skills = [
   {
-    category: { de: 'Aktueller Frontend-Stack', en: 'Current frontend stack' },
+    category: { de: 'VS Code & Frontend-Umsetzung', en: 'VS Code & frontend delivery' },
     items: [
       'Visual Studio Code',
       'React',
@@ -22,25 +22,25 @@ const skills = [
       'HTML5',
     ],
     icon: Globe,
-    level: 92,
+    level: 94,
     accent: 'blue',
-    status: { de: 'täglich im Einsatz', en: 'used regularly' },
+    status: { de: 'tägliche Arbeitsumgebung', en: 'primary day-to-day environment' },
   },
   {
     category: { de: 'Delivery & Plattformen', en: 'Delivery & platforms' },
-    items: ['GitHub', 'Cloudflare Pages', 'Wrangler', 'Webflow', 'Stripe'],
+    items: ['GitHub', 'Cloudflare Pages', 'Wrangler', 'Google Cloud', 'AWS', 'Azure'],
     icon: Workflow,
-    level: 86,
+    level: 74,
     accent: 'violet',
-    status: { de: 'für Launch, Betrieb und Übergabe', en: 'for launch, operations, and handoff' },
+    status: { de: 'vorhandene Plattform-Erfahrung, nicht Kernprofil', en: 'platform exposure, not the core specialization' },
   },
   {
-    category: { de: 'Workflow & Automation', en: 'Workflow & automation' },
-    items: ['Roo Code', 'Cline', 'Cursor', 'Local document workflows', 'Python validation scripts'],
+    category: { de: 'Lokale LLM-Workflows', en: 'Local LLM workflows' },
+    items: ['Local models', 'VS Code agents', 'Roo Code', 'Cline', 'Structured generation', 'Python validation scripts'],
     icon: Cpu,
-    level: 78,
+    level: 91,
     accent: 'cyan',
-    status: { de: 'für Prototypen und Beschleunigung, nicht als Selbstzweck', en: 'for prototypes and acceleration, not as a goal in itself' },
+    status: { de: 'Kernfokus für Coding, Prototyping und Verfeinerung', en: 'core focus for coding, prototyping, and refinement' },
   },
   {
     category: { de: 'Praxis-Fundament', en: 'Practical foundation' },
@@ -101,8 +101,8 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Keine Buzzword-Matrix, sondern die Tools und Arbeitsbereiche, mit denen ich aktuell wirklich arbeite. Der Schwerpunkt liegt klar auf Frontend-Umsetzung, Delivery und workflowgestützter Beschleunigung.'
-            : 'This is not a buzzword matrix. It shows the tools and work areas I actually use right now. The clear center of gravity is frontend delivery, launch work, and workflow-based acceleration.'}
+            ? 'Keine Buzzword-Matrix, sondern die Tools und Arbeitsbereiche, mit denen ich aktuell wirklich arbeite. Der Schwerpunkt liegt klar auf VS Code als Arbeitsumgebung, lokalen LLM-Modellen für agentische Coding-Workflows und der Umsetzung bis zum nutzbaren Ergebnis; Plattformen sind vorhanden, aber nicht der Kern der Positionierung.'
+            : 'This is not a buzzword matrix. It shows the tools and work areas I actually use right now. The center of gravity is clearly VS Code as the working environment, local LLM models for agentic coding workflows, and implementation through to usable output; platform exposure exists, but it is not the core positioning.'}
         </p>
       </div>
 
