@@ -10,7 +10,7 @@ type ShowcaseAProps = {
 };
 
 const BACKGROUND_TEXT = Array(50)
-  .fill('DATA_INGESTION_MODULE_SECURE_BY_DESIGN_LOCAL_ONLY_ADVANCED_SYSTEM_RTX5090 ')
+  .fill('LOCAL_DOCUMENT_WORKFLOW_PDF_INPUT_VALIDATION_TRANSLATION_JSON_OUTPUT ')
   .join(' ');
 
 const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
@@ -21,12 +21,12 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
           <ASCIIText text="// ENGINEERING_USE_CASE_01" />
         </h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text="ZBN Offline Semantic Data System" />
+          <ASCIIText text="ZBN Offline Document Workflow" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Lokale Semantic Data-Lösung zur automatisierten semantischen Evaluierung und Übersetzung komplexer technischer Dokumentationen. Vollständige Datensouveränität durch "Zero-Cloud" Inferenz.'
-            : 'Local semantic data solution for automated semantic evaluation and translation of complex technical documentation. Full data sovereignty through "zero-cloud" inference.'}
+            ? 'Konkretes Beispiel für die Art von lokaler LLM-Arbeit, auf die ich mich spezialisiert habe: Analyse, Übersetzung und Prüfung technischer Dokumente in einem bewusst lokalen Workflow. Entwickelt für sensible Inhalte, bei denen Verarbeitung, Kontrolle und Iteration nah an der eigentlichen Arbeitsumgebung bleiben sollen.'
+            : 'A concrete example of the kind of local LLM work I specialize in: analysing, translating, and checking technical documents inside a deliberately local workflow. Built for sensitive material where processing, control, and iteration are meant to stay close to the actual working environment.'}
         </p>
       </div>
 
@@ -52,7 +52,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
                 </div>
                 <div className="flex-1 bg-blue-500/10 border border-blue-500/20 rounded p-3 mono text-[9px] text-blue-400">
                   <div className="flex justify-between mb-1">
-                    <span>LOCAL_INFERENCE_ADVANCED_SYSTEM</span>
+                    <span>LOCAL_DOCUMENT_PROCESSING</span>
                     <span>ACTIVE</span>
                   </div>
                   <div className="w-full bg-neutral-900 h-1 rounded-full">
@@ -92,28 +92,28 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Nutzung von Docling und PyMuPDF für die präzise Extraktion von Tabellen und statischen Werten aus komplexen technischen Dokumentationen.'
-                  : 'Using Docling and PyMuPDF for precise extraction of tables and static values from complex technical documentation.'}
+                  ? 'Docling und PyMuPDF lesen Tabellen, Textblöcke und Werte aus komplexen PDFs aus und bereiten sie für die weitere Verarbeitung vor.'
+                  : 'Docling and PyMuPDF extract tables, text blocks, and values from complex PDFs and prepare them for the next processing step.'}
               </p>
             </div>
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                <ASCIIText text=">> Context-Aware Translation" />
+                <ASCIIText text=">> Context-aware translation" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Keine Standard-Translation. Lokale Hochleistungs-System-Modelle interpretieren den Kontext der Statik, um Fachbegriffe verlustfrei zu transformieren.'
-                  : 'No standard translation. Local high-performance system models interpret structural context to transform technical terminology without loss.'}
+                  ? 'Die Übersetzung läuft nicht blind Wort für Wort, sondern mit Dokumentkontext, damit Fachbegriffe und technische Zusammenhänge verständlich bleiben.'
+                  : 'The translation does not run word by word in isolation. It uses document context so technical terms and relationships stay understandable.'}
               </p>
             </div>
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                <ASCIIText text=">> Hallucination Check" />
+                <ASCIIText text=">> Validation layer" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Eine integrierte Python-Validierungsebene prüft via Regex und mathematischen Checks, ob alle Zahlenwerte im Output mit dem Original übereinstimmen.'
-                  : 'An integrated Python validation layer verifies via regex and mathematical checks that all numeric values in the output match the original.'}
+                  ? 'Eine Python-Validierung prüft Zahlenwerte und formale Muster gegen das Ausgangsdokument. Das reduziert Fehler und macht Abweichungen sichtbar.'
+                  : 'A Python validation layer checks numeric values and formal patterns against the source document. That helps reduce errors and makes mismatches visible.'}
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
           <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 px-4 py-3 rounded">
             <ShieldCheck className="w-5 h-5 text-green-500" aria-hidden="true" />
             <div className="mono text-[10px] text-neutral-500">
-              STATUS: <span className="text-green-500">100% SECURE / ZERO_CLOUD</span>
+              STATUS: <span className="text-green-500">LOCAL PROCESSING / VALIDATION INCLUDED</span>
             </div>
           </div>
         </div>

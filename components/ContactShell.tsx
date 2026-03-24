@@ -11,7 +11,7 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
   return (
     <section id="contact-shell" className="space-y-12 pb-20 scroll-mt-28">
       <div className="flex flex-col items-center text-center">
-        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// OPEN_FREQUENCY</h3>
+        <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true">// DIRECT_CONTACT</h3>
         <h2 className="text-4xl font-bold uppercase">{language === 'de' ? 'Direkter Kontakt' : 'Direct Contact'}</h2>
       </div>
 
@@ -19,7 +19,7 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
         <div className="bg-neutral-900 px-4 py-2 flex justify-between items-center border-b border-neutral-800" aria-hidden="true">
           <div className="flex items-center gap-2">
             <Terminal className="w-4 h-4 text-blue-500" />
-            <span className="mono text-[10px] text-neutral-400">DIRECT_CONTACT_v1.0</span>
+            <span className="mono text-[10px] text-neutral-400">CONTACT</span>
           </div>
           <div className="flex gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
@@ -30,8 +30,8 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
 
         <div className="p-6 space-y-6 mono text-sm">
           <div className="text-neutral-300 leading-relaxed">
-            {language === 'de' ? '[SYS] Kontaktkanal aktiv.' : '[SYS] Contact channel active.'}<br />
-            {language === 'de' ? '[SYS] Schreib mir direkt per E-Mail oder ruf mich an.' : '[SYS] Write me directly via email or call me.'}
+            {language === 'de' ? 'Am einfachsten erreichst du mich direkt per E-Mail oder Telefon.' : 'The easiest way to reach me is directly by email or phone.'}<br />
+            {language === 'de' ? 'Keine Formulare, keine Umwege.' : 'No forms, no detours.'}
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -46,7 +46,7 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
             <a href="tel:+491633229892" className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors">
               <span className="flex items-center gap-2 text-blue-400 mb-2">
                 <Phone className="w-4 h-4" aria-hidden="true" />
-                <span className="mono text-[10px] uppercase tracking-widest">{language === 'de' ? 'Handynummer' : 'Phone number'}</span>
+              <span className="mono text-[10px] uppercase tracking-widest">{language === 'de' ? 'Telefon' : 'Phone'}</span>
               </span>
               <span className="text-neutral-100 text-sm">+49 163 3229892</span>
             </a>
@@ -54,10 +54,10 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
 
           <div className="mt-4 flex justify-between items-center mono text-[9px] text-neutral-600 uppercase tracking-tighter" aria-hidden="true">
             <div className="flex gap-4">
-              <span>DIRECT CHANNEL</span>
-              <span>STATUS: ACTIVE</span>
+              <span>{language === 'de' ? 'DIREKTER KONTAKT' : 'DIRECT CONTACT'}</span>
+              <span>{language === 'de' ? 'ANTWORTWEG: DIREKT' : 'REPLY PATH: DIRECT'}</span>
             </div>
-            <div className="text-blue-500/50">MAXIMILIAN_UNVERRICHT // DIRECT_LINK</div>
+            <div className="text-blue-500/50">MAXIMILIAN_UNVERRICHT // CONTACT</div>
           </div>
         </div>
       </div>

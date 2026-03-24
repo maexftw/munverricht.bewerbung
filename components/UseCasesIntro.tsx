@@ -8,10 +8,10 @@ const UseCasesIntro: React.FC = () => {
         <ASCIIText text="// USE_CASE_BRIEFING" />
       </h3>
       <h2 className="mono text-2xl md:text-4xl font-bold uppercase tracking-[0.06em] text-blue-100">
-        <ASCIIText text="Hier ist, wie ich arbeite" />
+        <ASCIIText text="So setze ich Projekte um" />
       </h2>
       <p className="mono text-xs md:text-sm text-neutral-400 uppercase tracking-[0.12em]">
-        Erfahrung trifft auf radikale neue Effizienz
+        Klare Abläufe statt große Versprechen
       </p>
     </section>
   );
