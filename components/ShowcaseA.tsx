@@ -20,7 +20,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// ENGINEERING_USE_CASE_01" />
         </h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.05em] mono">
           <ASCIIText text="ZBN Offline Document Workflow" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">

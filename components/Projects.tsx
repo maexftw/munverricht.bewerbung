@@ -139,22 +139,22 @@ const projects: Record<Language, ProjectItem[]> = {
 
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
-    <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
-      <div className="flex flex-col items-center text-center space-y-4">
+    <section id="projects" className="space-y-8 sm:space-y-10 lg:space-y-12 py-8 sm:py-10 lg:py-12 border-t border-neutral-900 scroll-mt-28">
+      <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// SELECTED_WORK" />
         </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-[0.05em] mono">
           <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} />
         </h2>
-        <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
+        <p className="max-w-[65ch] text-neutral-400 text-sm sm:text-base leading-relaxed">
           {language === 'de'
             ? 'Auswahl realer Projekte im Format Problem → Lösung → Ergebnis, damit Recruiter Umfang und Arbeitsweise schnell einordnen können.'
             : 'Selection of real projects in a Problem → Solution → Result format so recruiters can quickly assess scope and working style.'}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
         {projects[language].map((p, i) => (
           <motion.a
             key={i}

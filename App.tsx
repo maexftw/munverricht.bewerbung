@@ -56,8 +56,8 @@ const App: React.FC = () => {
 
         <CodeAmbientBackground />
 
-      <div className="flex flex-col items-center w-full px-4 sm:px-5 lg:px-0">
-        <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-24 sm:space-y-28 lg:space-y-32 py-10 sm:py-12 pb-28 sm:pb-24 outline-none" tabIndex={-1}>
+      <div className="flex flex-col items-center w-full px-3 sm:px-4 lg:px-0">
+        <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-16 sm:space-y-20 lg:space-y-24 py-8 sm:py-10 lg:py-12 pb-20 sm:pb-24 lg:pb-28 outline-none" tabIndex={-1}>
           <Hero language={language} />
           <Evolution language={language} />
           <ShowcaseA language={language} />
@@ -66,7 +66,7 @@ const App: React.FC = () => {
           <SkillMonitor language={language} />
           <ContactShell language={language} />
           <LegalInfo language={language} />
-          <footer className={`pt-16 sm:pt-20 pb-8 text-center mono text-[10px] sm:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
+          <footer className={`pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 text-center mono text-[9px] sm:text-[10px] lg:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
             <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // FRONTEND & WEB DELIVERY</p>
           </footer>
         </main>

@@ -98,7 +98,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
           {language === 'de' ? 'RECRUITER PROFIL // FRONTEND DEVELOPER & WEB DELIVERY' : 'RECRUITER PROFILE // FRONTEND DEVELOPER & WEB DELIVERY'}
         </h2>
-        <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
         </h1>
       </div>
@@ -117,7 +117,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// HIRING_SNAPSHOT" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-3">
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Standort' : 'Location'}
@@ -149,7 +149,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// TOOLING_STACK" />
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-5 md:gap-6">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-7">
           {toolLogos.map((tool) => (
             <div key={tool.name} className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors">
               {tool.Icon ? (
@@ -175,7 +175,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
           {recruiterQuickActions.map((action) => (
             <a
               key={action.label}
@@ -192,7 +192,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full mt-20 sm:mt-24 lg:mt-28 text-left border-t border-neutral-900 pt-8 sm:pt-12 lg:pt-16">
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
             <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '01 / 12+ JAHRE PRAXIS' : '01 / 12+ YEARS EXPERIENCE'}

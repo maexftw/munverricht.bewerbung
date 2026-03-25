@@ -55,10 +55,10 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-3' : 'bg-transparent py-6'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-2 sm:py-3' : 'bg-transparent py-4 sm:py-6'
                     } hidden md:block`}
             >
-                <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
+                <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 flex justify-between items-center">
                     <div
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
@@ -67,7 +67,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         <span className="text-blue-500">.org</span>
                     </div>
 
-                    <ul className="flex space-x-8">
+                    <ul className="flex space-x-6 sm:space-x-8">
                         {navItems[language].map((item) => (
                             <li key={item.name}>
                                 <button
@@ -85,14 +85,14 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
 
                     <button
                         onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
-                        className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                        className="px-2.5 sm:px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                     >
                         {language === 'de' ? 'EN' : 'DE'}
                     </button>
 
                     <a
                         href="Maximilian_Unverricht_Resume.html"
-                        className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                        className="px-3 sm:px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                     >
                         {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
                     </a>
@@ -100,7 +100,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             </motion.nav>
 
             {/* Mobile Menu Button */}
-            <div className="fixed top-4 right-4 z-50 md:hidden">
+            <div className="fixed top-3 sm:top-4 right-3 sm:right-4 z-50 md:hidden">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
@@ -111,7 +111,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             </div>
 
             {/* Mobile Theme Toggle */}
-            <div className="fixed top-4 left-4 z-50 md:hidden">
+            <div className="fixed top-3 sm:top-4 left-3 sm:left-4 z-50 md:hidden">
                 <button
                     onClick={toggleTheme}
                     className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
@@ -129,7 +129,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 z-40 bg-[#050505] md:hidden flex flex-col justify-center items-center space-y-8"
+                        className="fixed inset-0 z-40 bg-[#050505] md:hidden flex flex-col justify-center items-center space-y-6 sm:space-y-8"
                     >
                         <button
                             onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
@@ -142,15 +142,15 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                             <button
                                 key={item.name}
                                 onClick={() => scrollToSection(item.href)}
-                                className="text-2xl font-bold uppercase tracking-widest text-white hover:text-blue-500 transition-colors flex items-center gap-4"
+                                className="text-xl sm:text-2xl font-bold uppercase tracking-widest text-white hover:text-blue-500 transition-colors flex items-center gap-3 sm:gap-4"
                             >
-                                <item.icon className="w-6 h-6 text-blue-500" />
+                                <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500" />
                                 {item.name}
                             </button>
                         ))}
                         <a
                             href="Maximilian_Unverricht_Resume.html"
-                            className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                            className="mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                         >
                             {language === 'de' ? 'Lebenslauf herunterladen' : 'Download resume'}
                         </a>
