@@ -10,8 +10,15 @@ type SideRow = {
   mutateT: number;
 };
 
+type WaveCell = {
+  x: number;
+  z: number;
+  seed: number;
+};
+
 const TOKENS = ['[ 200 OK ]', '[ .JSON ]', '[ SCRAPE ]', '[ .MD ]', '[ MAP ]', '[ AGENT ]', '[ CRAWL ]', '[ SEARCH ]'];
 const GLYPHS = '.:+-=*#[]{}()/\\|';
+const COMPILER_HINTS = ['0x1F', 'AST', 'L12', '>>', 'IR', 'OK', 'fn', '{}', '::', '[]'];
 
 const randomBetween = (min: number, max: number) => Math.random() * (max - min) + min;
 
@@ -42,17 +49,17 @@ const CodeAmbientBackground: React.FC = () => {
     let time = 0;
     let leftRows: SideRow[] = [];
     let rightRows: SideRow[] = [];
+    let waveCells: WaveCell[] = [];
 
-    // Optimization: Cache offscreen canvas for dot matrix base
     const dotCache = document.createElement('canvas');
     const dotCacheCtx = dotCache.getContext('2d');
     let dotPattern: CanvasPattern | null = null;
 
-    // Optimization: Cache gradients and measurements
     let leftVignette: CanvasGradient | null = null;
     let rightVignette: CanvasGradient | null = null;
     let pulseGradient: CanvasGradient | null = null;
-    let mainGlow: CanvasRadialGradient | null = null;
+    let mainGlow: CanvasGradient | null = null;
+    let horizonGlow: CanvasGradient | null = null;
     let cachedRailWidth = 0;
     const railText = TOKENS.join('   ');
 
@@ -62,11 +69,29 @@ const CodeAmbientBackground: React.FC = () => {
         y: i * (height / rows) + randomBetween(-12, 12),
         speed: randomBetween(8, 24),
         drift: randomBetween(8, 22),
-        alpha: randomBetween(0.066, 0.187),
+        alpha: randomBetween(0.045, 0.11),
         text: createAsciiLine(90),
         mutateEvery: randomBetween(0.18, 0.55),
         mutateT: randomBetween(0, 0.55)
       }));
+    };
+
+    const createWaveCells = (): WaveCell[] => {
+      const cols = width < 900 ? 28 : 40;
+      const rows = width < 900 ? 20 : 26;
+      const cells: WaveCell[] = [];
+
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          cells.push({
+            x: col - (cols - 1) / 2,
+            z: row - rows / 2,
+            seed: randomBetween(0, Math.PI * 2)
+          });
+        }
+      }
+
+      return cells;
     };
 
     const resize = () => {
@@ -81,12 +106,13 @@ const CodeAmbientBackground: React.FC = () => {
 
       leftRows = createRows();
       rightRows = createRows();
+      waveCells = createWaveCells();
 
-      // Reset cached elements on resize
       leftVignette = null;
       rightVignette = null;
       pulseGradient = null;
       mainGlow = null;
+      horizonGlow = null;
       cachedRailWidth = 0;
       dotPattern = null;
     };
@@ -98,23 +124,20 @@ const CodeAmbientBackground: React.FC = () => {
       if (!dotPattern && dotCacheCtx) {
         dotCache.width = gap;
         dotCache.height = gap;
-        dotCacheCtx.fillStyle = 'rgba(59,130,246,0.019)';
+        dotCacheCtx.fillStyle = 'rgba(59,130,246,0.018)';
         dotCacheCtx.fillRect(0, 0, 1.2, 1.2);
         dotPattern = ctx.createPattern(dotCache, 'repeat');
       }
 
       if (dotPattern) {
         ctx.save();
-        // Translate to match the original 6, 6 starting position and handle scroll
         ctx.translate(6, 6 - offsetY);
         ctx.fillStyle = dotPattern;
-        // Draw a larger area to cover the scroll
         ctx.fillRect(-6, -6, width + gap, height + gap);
         ctx.restore();
       }
 
-      // Only draw the "pulse" dots on top
-      ctx.fillStyle = 'rgba(59,130,246,0.061)';
+      ctx.fillStyle = 'rgba(59,130,246,0.052)';
       const time90 = Math.floor(time * 90);
       for (let y = 6 - offsetY; y < height + gap; y += gap) {
         for (let x = 6; x < width; x += gap) {
@@ -140,7 +163,7 @@ const CodeAmbientBackground: React.FC = () => {
     const drawSideRows = (rows: SideRow[], rightSide: boolean, dt: number) => {
       ctx.font = '500 9px "JetBrains Mono", monospace';
       ctx.textBaseline = 'top';
-      const edgeWidth = Math.max(230, width * 0.28);
+      const edgeWidth = Math.max(220, width * 0.24);
 
       ctx.save();
       ctx.beginPath();
@@ -165,9 +188,7 @@ const CodeAmbientBackground: React.FC = () => {
         }
 
         const xDrift = Math.sin(time * 0.9 + i) * row.drift;
-        const x = rightSide
-          ? width - edgeWidth + 8 + xDrift
-          : -220 + xDrift;
+        const x = rightSide ? width - edgeWidth + 12 + xDrift : -220 + xDrift;
 
         ctx.fillStyle = `rgba(56,189,248,${row.alpha.toFixed(3)})`;
         ctx.fillText(row.text, x, row.y);
@@ -199,7 +220,7 @@ const CodeAmbientBackground: React.FC = () => {
       if (!pulseGradient) {
         pulseGradient = ctx.createLinearGradient(0, 0, width, 0);
         pulseGradient.addColorStop(0, 'rgba(56,189,248,0)');
-        pulseGradient.addColorStop(0.5, 'rgba(56,189,248,0.121)');
+        pulseGradient.addColorStop(0.5, 'rgba(56,189,248,0.105)');
         pulseGradient.addColorStop(1, 'rgba(56,189,248,0)');
       }
 
@@ -211,14 +232,133 @@ const CodeAmbientBackground: React.FC = () => {
       ctx.stroke();
     };
 
+    const drawWaveField = () => {
+      const centerX = width * 0.5;
+      const horizonY = height * 0.23;
+      const fieldHeight = height * 0.58;
+      const colStep = width < 900 ? 9.5 : 12;
+      const rowStep = height < 800 ? 14 : 16;
+      const amplitude = media.matches ? 6 : 12;
+
+      ctx.font = width < 900 ? '500 8px "JetBrains Mono", monospace' : '500 9px "JetBrains Mono", monospace';
+      ctx.textBaseline = 'middle';
+
+      waveCells.forEach((cell) => {
+        const normalizedZ = (cell.z + 13) / 26;
+        const depth = Math.max(0, Math.min(1, normalizedZ));
+        const perspective = 0.24 + depth * 1.22;
+        const sx = centerX + cell.x * colStep * perspective;
+        const sy = horizonY + (cell.z + 12) * rowStep * (0.4 + depth * 0.94);
+
+        if (sx < -60 || sx > width + 60 || sy > horizonY + fieldHeight) {
+          return;
+        }
+
+        const ripple = Math.sin(cell.x * 0.42 + time * 1.25 + cell.seed) * 0.8;
+        const swell = Math.sin(cell.z * 0.58 - time * 1.1 + cell.seed * 0.6) * 0.75;
+        const ring = Math.sin(Math.sqrt(cell.x * cell.x + cell.z * cell.z) * 0.45 - time * 1.65 + cell.seed) * 0.55;
+        const wave = (ripple + swell + ring) / 3;
+
+        const lift = wave * amplitude * perspective;
+        const heroWeight = Math.max(0.28, 1 - Math.max(0, sy - horizonY) / (fieldHeight * 1.08));
+        const compileWeight = 0.55 + heroWeight * 0.85;
+        const barWidth = Math.max(0.9, 0.65 + perspective * 1.15);
+        const barHeight = Math.max(6, perspective * (13 + Math.abs(wave) * 18) * compileWeight);
+        const topY = sy - lift - barHeight;
+        const alpha = (0.035 + perspective * 0.095 + Math.max(0, wave) * 0.08) * compileWeight;
+
+        const glow = ctx.createLinearGradient(0, topY, 0, sy + 2);
+        glow.addColorStop(0, `rgba(191,219,254,${Math.min(0.28, alpha + 0.06).toFixed(3)})`);
+        glow.addColorStop(0.32, `rgba(125,211,252,${Math.min(0.19, alpha * 1.05).toFixed(3)})`);
+        glow.addColorStop(0.6, `rgba(96,165,250,${Math.min(0.15, alpha * 0.82).toFixed(3)})`);
+        glow.addColorStop(1, 'rgba(37,99,235,0)');
+
+        ctx.fillStyle = glow;
+        ctx.fillRect(sx - barWidth * 1.5, topY - 2, barWidth * 3, sy - topY + 5);
+
+        ctx.strokeStyle = `rgba(125,211,252,${alpha.toFixed(3)})`;
+        ctx.lineWidth = barWidth;
+        ctx.beginPath();
+        ctx.moveTo(sx, sy - lift);
+        ctx.lineTo(sx, sy);
+        ctx.stroke();
+
+        if (!media.matches && Math.abs(cell.x % 4) < 0.5 && depth > 0.18) {
+          ctx.strokeStyle = `rgba(191,219,254,${(alpha * 0.46).toFixed(3)})`;
+          ctx.lineWidth = Math.max(0.6, barWidth * 0.45);
+          ctx.beginPath();
+          ctx.moveTo(sx + barWidth * 1.8, sy - lift * 0.75);
+          ctx.lineTo(sx + barWidth * 1.8, sy + Math.max(6, perspective * 4));
+          ctx.stroke();
+        }
+
+        if (depth > 0.3 && Math.abs(cell.x) < 12) {
+          ctx.fillStyle = `rgba(219,234,254,${(alpha * 0.7).toFixed(3)})`;
+          ctx.beginPath();
+          ctx.arc(sx, sy - lift, Math.max(0.7, barWidth * 0.55), 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        const flashGate = Math.sin(cell.seed * 4 + time * 2.4 + cell.x * 0.8 - cell.z * 0.3);
+        if (!media.matches && flashGate > 0.965 && depth > 0.22 && heroWeight > 0.34) {
+          const label = COMPILER_HINTS[(Math.abs(Math.floor(cell.seed * 10 + cell.x + cell.z)) % COMPILER_HINTS.length)];
+          ctx.fillStyle = `rgba(191,219,254,${Math.min(0.32, alpha * 1.3 + 0.08).toFixed(3)})`;
+          ctx.fillText(label, sx + 6, topY - 4);
+          ctx.fillRect(sx - 1, topY - 2, Math.max(8, label.length * 4.3), 1);
+        }
+      });
+
+      ctx.save();
+      ctx.globalCompositeOperation = 'screen';
+      const contourRows = media.matches ? 4 : 7;
+      for (let row = 0; row < contourRows; row++) {
+        const y = horizonY + fieldHeight * (0.12 + row * 0.11);
+        const contour = ctx.createLinearGradient(0, y, width, y);
+        contour.addColorStop(0, 'rgba(56,189,248,0)');
+        contour.addColorStop(0.3, 'rgba(56,189,248,0.02)');
+        contour.addColorStop(0.5, 'rgba(148,163,184,0.05)');
+        contour.addColorStop(0.7, 'rgba(56,189,248,0.02)');
+        contour.addColorStop(1, 'rgba(56,189,248,0)');
+        ctx.strokeStyle = contour;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(width * 0.18, y + Math.sin(time * 0.8 + row) * 4);
+        ctx.quadraticCurveTo(width * 0.5, y - 10 + Math.sin(time * 0.6 + row * 0.5) * 6, width * 0.82, y + Math.cos(time * 0.7 + row) * 4);
+        ctx.stroke();
+      }
+
+      if (!media.matches) {
+        const sweepCount = 2;
+        for (let index = 0; index < sweepCount; index++) {
+          const sweepProgress = (time * (0.055 + index * 0.018) + index * 0.37) % 1;
+          const sweepY = horizonY + fieldHeight * (0.1 + sweepProgress * 0.72);
+          const sweepAlpha = 0.02 + (1 - sweepProgress) * 0.035;
+          const sweep = ctx.createLinearGradient(0, sweepY, width, sweepY);
+          sweep.addColorStop(0, 'rgba(125,211,252,0)');
+          sweep.addColorStop(0.18, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
+          sweep.addColorStop(0.5, `rgba(191,219,254,${sweepAlpha.toFixed(3)})`);
+          sweep.addColorStop(0.82, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
+          sweep.addColorStop(1, 'rgba(125,211,252,0)');
+          ctx.strokeStyle = sweep;
+          ctx.lineWidth = 1.15;
+          ctx.beginPath();
+          ctx.moveTo(width * 0.22, sweepY);
+          ctx.lineTo(width * 0.8, sweepY - 8);
+          ctx.stroke();
+        }
+      }
+
+      ctx.restore();
+    };
+
     const drawSideVignette = () => {
       if (!leftVignette || !rightVignette) {
         leftVignette = ctx.createLinearGradient(0, 0, width * 0.24, 0);
-        leftVignette.addColorStop(0, 'rgba(2,6,23,0.396)');
+        leftVignette.addColorStop(0, 'rgba(2,6,23,0.42)');
         leftVignette.addColorStop(1, 'rgba(2,6,23,0)');
 
         rightVignette = ctx.createLinearGradient(width, 0, width * 0.76, 0);
-        rightVignette.addColorStop(0, 'rgba(2,6,23,0.396)');
+        rightVignette.addColorStop(0, 'rgba(2,6,23,0.42)');
         rightVignette.addColorStop(1, 'rgba(2,6,23,0)');
       }
 
@@ -234,25 +374,35 @@ const CodeAmbientBackground: React.FC = () => {
       ctx.clearRect(0, 0, width, height);
 
       if (!mainGlow) {
-        mainGlow = ctx.createRadialGradient(width * 0.5, height * 0.27, 30, width * 0.5, height * 0.27, Math.max(width, height) * 0.75);
-        mainGlow.addColorStop(0, 'rgba(37,99,235,0.127)');
-        mainGlow.addColorStop(0.48, 'rgba(37,99,235,0.033)');
+        mainGlow = ctx.createRadialGradient(width * 0.5, height * 0.3, 20, width * 0.5, height * 0.3, Math.max(width, height) * 0.78);
+        mainGlow.addColorStop(0, 'rgba(37,99,235,0.11)');
+        mainGlow.addColorStop(0.48, 'rgba(37,99,235,0.03)');
         mainGlow.addColorStop(1, 'rgba(2,6,23,0)');
+      }
+
+      if (!horizonGlow) {
+        horizonGlow = ctx.createRadialGradient(width * 0.5, height * 0.28, 0, width * 0.5, height * 0.28, width * 0.42);
+        horizonGlow.addColorStop(0, 'rgba(191,219,254,0.12)');
+        horizonGlow.addColorStop(0.18, 'rgba(96,165,250,0.08)');
+        horizonGlow.addColorStop(0.58, 'rgba(37,99,235,0.015)');
+        horizonGlow.addColorStop(1, 'rgba(2,6,23,0)');
       }
 
       ctx.fillStyle = mainGlow;
       ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = horizonGlow;
+      ctx.fillRect(0, 0, width, height);
 
       drawDotMatrix();
+      drawWaveField();
       drawSideRows(leftRows, false, dt);
       drawSideRows(rightRows, true, dt);
-      drawTokenRail(Math.max(90, height * 0.16), 29, 0.396);
-      drawTokenRail(Math.max(132, height * 0.21), -22, 0.248);
+      drawTokenRail(Math.max(90, height * 0.16), 26, 0.28);
+      drawTokenRail(Math.max(132, height * 0.21), -18, 0.16);
       drawPulseLine();
       drawSideVignette();
 
       time += dt;
-
       rafRef.current = window.requestAnimationFrame(draw);
     };
 
