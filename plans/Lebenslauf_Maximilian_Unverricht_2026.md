@@ -34,7 +34,7 @@ Pragmatischer Web- und Workflow-Spezialist mit **12 Jahren Berufserfahrung** und
 ## Berufserfahrung
 
 ### AI Workflow & Web Specialist / Creative Technologist (selbstständig)
-**Dortmund · seit 08/2025**
+**Dortmund · seit 10/2025**
 
 - Aufbau und Dokumentation lokaler **Offline-RAG-Workflows** zur Dokumentanalyse (Zero-Cloud, Validierung, Datenkontrolle).
 - Umsetzung moderner Web-Projekte mit **React/TypeScript/Vite** inkl. Deployment über Cloudflare Pages/Wrangler.
@@ -67,9 +67,9 @@ Pragmatischer Web- und Workflow-Spezialist mit **12 Jahren Berufserfahrung** und
 
 ---
 
-## Bildungsweg
+## Bildung
 
-- Fachhochschulreife
+- Schulabschluss kurz auf Anfrage spezifizierbar
 
 ---
 
