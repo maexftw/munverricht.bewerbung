@@ -362,8 +362,7 @@
         (function () {
             try {
                 var savedTheme = localStorage.getItem('theme');
-                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (prefersDark ? 'dark' : 'light');
+                var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
                 if (theme === 'dark') {
                     document.documentElement.classList.add('dark');
