@@ -8,6 +8,7 @@ import SkillMonitor from './components/SkillMonitor';
 import ContactShell from './components/ContactShell';
 import CodeAmbientBackground from './components/CodeAmbientBackground';
 import FirecrawlAnimationDemo from './components/FirecrawlAnimationDemo';
+import FirstDebitApplicationPage from './components/FirstDebitApplicationPage';
 import { AnimatePresence } from 'framer-motion';
 
 import Navigation from './components/Navigation';
@@ -19,6 +20,8 @@ import CookieConsent from './components/CookieConsent';
 import ScrollToTop from './components/ScrollToTop';
 import { themeClasses } from './components/themeClasses';
 
+const FIRST_DEBIT_PRIVATE_PATH = '/fd-2026-casefile-7k2q';
+
 const App: React.FC = () => {
   const [booting, setBooting] = useState(true);
   const [language, setLanguage] = useState<'de' | 'en'>(() => {
@@ -27,6 +30,7 @@ const App: React.FC = () => {
     return saved === 'en' ? 'en' : 'de';
   });
   const isFirecrawlAnimationDemo = typeof window !== 'undefined' && window.location.pathname === '/firecrawl-animation';
+  const isFirstDebitApplication = typeof window !== 'undefined' && window.location.pathname === FIRST_DEBIT_PRIVATE_PATH;
 
   if (isFirecrawlAnimationDemo) {
     return <FirecrawlAnimationDemo />;
@@ -40,8 +44,8 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <div className={`relative min-h-screen overflow-hidden ${themeClasses.pageShell}`}>
-        <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_top,_color-mix(in_srgb,var(--accent-color)_8%,transparent)_0%,transparent_48%)]" />
-        <div className="fixed bottom-0 left-0 right-0 h-[34vh] pointer-events-none z-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--accent-color)_7%,transparent),transparent_72%)]" />
+        {!isFirstDebitApplication && <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_top,_color-mix(in_srgb,var(--accent-color)_8%,transparent)_0%,transparent_48%)]" />}
+        {!isFirstDebitApplication && <div className="fixed bottom-0 left-0 right-0 h-[34vh] pointer-events-none z-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--accent-color)_7%,transparent),transparent_72%)]" />}
         <div className="scanline" />
         <div className="crt-overlay" />
 
@@ -52,32 +56,43 @@ const App: React.FC = () => {
         {language === 'de' ? 'Zum Hauptinhalt springen' : 'Skip to main content'}
       </a>
 
-      <Navigation language={language} onLanguageChange={handleLanguageChange} />
+      {!isFirstDebitApplication && <Navigation language={language} onLanguageChange={handleLanguageChange} />}
 
-        <CodeAmbientBackground />
+        {!isFirstDebitApplication && <CodeAmbientBackground />}
 
       <div className="flex flex-col items-center w-full px-3 sm:px-4 lg:px-0">
         <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-16 sm:space-y-20 lg:space-y-24 py-8 sm:py-10 lg:py-12 pb-20 sm:pb-24 lg:pb-28 outline-none" tabIndex={-1}>
-          <Hero language={language} />
-          <Evolution language={language} />
-          <ShowcaseA language={language} />
-          <ShowcaseB language={language} />
-          <Projects language={language} />
-          <SkillMonitor language={language} />
-          <ContactShell language={language} />
-          <LegalInfo language={language} />
-          <footer className={`pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 text-center mono text-[9px] sm:text-[10px] lg:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
-            <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // FRONTEND & WEB DELIVERY</p>
-          </footer>
+          {isFirstDebitApplication ? (
+            <>
+              <FirstDebitApplicationPage privatePath={FIRST_DEBIT_PRIVATE_PATH} />
+              <footer className={`pt-6 sm:pt-8 pb-6 sm:pb-8 text-center mono text-[9px] sm:text-[10px] lg:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
+                <p className="break-words">FIRST DEBIT APPLICATION // MAXIMILIAN UNVERRICHT // 2026</p>
+              </footer>
+            </>
+          ) : (
+            <>
+              <Hero language={language} />
+              <Evolution language={language} />
+              <ShowcaseA language={language} />
+              <ShowcaseB language={language} />
+              <Projects language={language} />
+              <SkillMonitor language={language} />
+              <ContactShell language={language} />
+              <LegalInfo language={language} />
+              <footer className={`pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 text-center mono text-[9px] sm:text-[10px] lg:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
+                <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // FRONTEND & WEB DELIVERY</p>
+              </footer>
+            </>
+          )}
         </main>
       </div>
 
-      <ScrollToTop language={language} />
-      <CookieConsent language={language} />
+      {!isFirstDebitApplication && <ScrollToTop language={language} />}
+      {!isFirstDebitApplication && <CookieConsent language={language} />}
 
         {/* Non-blocking System Boot Overlay */}
         <AnimatePresence>
-          {booting && (
+          {!isFirstDebitApplication && booting && (
             <TerminalBoot onComplete={() => setBooting(false)} />
           )}
         </AnimatePresence>
