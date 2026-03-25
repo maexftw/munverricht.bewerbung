@@ -246,10 +246,10 @@ const CodeAmbientBackground: React.FC = () => {
     const drawWaveField = () => {
       const centerX = width * 0.5;
       const horizonY = height * 0.23;
-      const fieldHeight = height * 0.58;
+      const fieldHeight = height * 0.6;
       const colStep = width < 900 ? 9.5 : 12;
       const rowStep = height < 800 ? 14 : 16;
-      const amplitude = media.matches ? 6 : 12;
+      const amplitude = media.matches ? 9 : 20;
 
       ctx.font = width < 900 ? '500 8px "JetBrains Mono", monospace' : '500 9px "JetBrains Mono", monospace';
       ctx.textBaseline = 'middle';
@@ -265,18 +265,19 @@ const CodeAmbientBackground: React.FC = () => {
           return;
         }
 
-        const ripple = Math.sin(cell.x * 0.42 + time * 1.25 + cell.seed) * 0.8;
-        const swell = Math.sin(cell.z * 0.58 - time * 1.1 + cell.seed * 0.6) * 0.75;
-        const ring = Math.sin(Math.sqrt(cell.x * cell.x + cell.z * cell.z) * 0.45 - time * 1.65 + cell.seed) * 0.55;
-        const wave = (ripple + swell + ring) / 3;
+        const ripple = Math.sin(cell.x * 0.46 + time * 2.2 + cell.seed) * 0.95;
+        const swell = Math.sin(cell.z * 0.62 - time * 1.85 + cell.seed * 0.6) * 0.9;
+        const ring = Math.sin(Math.sqrt(cell.x * cell.x + cell.z * cell.z) * 0.52 - time * 2.45 + cell.seed) * 0.65;
+        const travel = Math.sin((cell.x + cell.z * 0.55) * 0.34 - time * 2.8) * 0.85;
+        const wave = (ripple + swell + ring + travel) / 4;
 
         const lift = wave * amplitude * perspective;
-        const heroWeight = Math.max(0.28, 1 - Math.max(0, sy - horizonY) / (fieldHeight * 1.08));
-        const compileWeight = 0.55 + heroWeight * 0.85;
+        const heroWeight = Math.max(0.68, 1 - Math.max(0, sy - horizonY) / (fieldHeight * 1.32));
+        const compileWeight = 0.92 + heroWeight * 0.52;
         const barWidth = Math.max(0.9, 0.65 + perspective * 1.15);
-        const barHeight = Math.max(6, perspective * (13 + Math.abs(wave) * 18) * compileWeight);
+        const barHeight = Math.max(9, perspective * (16 + Math.abs(wave) * 24) * compileWeight);
         const topY = sy - lift - barHeight;
-        const alpha = (0.035 + perspective * 0.095 + Math.max(0, wave) * 0.08) * compileWeight;
+        const alpha = Math.min(0.34, (0.05 + perspective * 0.11 + Math.max(0, wave) * 0.1) * compileWeight);
 
         const glow = ctx.createLinearGradient(0, topY, 0, sy + 2);
         glow.addColorStop(0, `rgba(191,219,254,${Math.min(0.28, alpha + 0.06).toFixed(3)})`);
@@ -298,8 +299,8 @@ const CodeAmbientBackground: React.FC = () => {
           ctx.strokeStyle = `rgba(191,219,254,${(alpha * 0.46).toFixed(3)})`;
           ctx.lineWidth = Math.max(0.6, barWidth * 0.45);
           ctx.beginPath();
-          ctx.moveTo(sx + barWidth * 1.8, sy - lift * 0.75);
-          ctx.lineTo(sx + barWidth * 1.8, sy + Math.max(6, perspective * 4));
+          ctx.moveTo(sx + barWidth * 1.8, sy - lift * 0.88);
+          ctx.lineTo(sx + barWidth * 1.8, sy + Math.max(10, perspective * 7));
           ctx.stroke();
         }
 
@@ -321,29 +322,29 @@ const CodeAmbientBackground: React.FC = () => {
 
       ctx.save();
       ctx.globalCompositeOperation = 'screen';
-      const contourRows = media.matches ? 4 : 7;
+      const contourRows = media.matches ? 5 : 8;
       for (let row = 0; row < contourRows; row++) {
         const y = horizonY + fieldHeight * (0.12 + row * 0.11);
         const contour = ctx.createLinearGradient(0, y, width, y);
         contour.addColorStop(0, 'rgba(56,189,248,0)');
-        contour.addColorStop(0.3, 'rgba(56,189,248,0.02)');
-        contour.addColorStop(0.5, 'rgba(148,163,184,0.05)');
-        contour.addColorStop(0.7, 'rgba(56,189,248,0.02)');
+        contour.addColorStop(0.3, 'rgba(56,189,248,0.03)');
+        contour.addColorStop(0.5, 'rgba(148,163,184,0.07)');
+        contour.addColorStop(0.7, 'rgba(56,189,248,0.03)');
         contour.addColorStop(1, 'rgba(56,189,248,0)');
         ctx.strokeStyle = contour;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 1.2;
         ctx.beginPath();
-        ctx.moveTo(width * 0.18, y + Math.sin(time * 0.8 + row) * 4);
-        ctx.quadraticCurveTo(width * 0.5, y - 10 + Math.sin(time * 0.6 + row * 0.5) * 6, width * 0.82, y + Math.cos(time * 0.7 + row) * 4);
+        ctx.moveTo(width * 0.16, y + Math.sin(time * 1.3 + row * 0.7) * 7);
+        ctx.quadraticCurveTo(width * 0.5, y - 16 + Math.sin(time * 1.05 + row * 0.65) * 11, width * 0.84, y + Math.cos(time * 1.18 + row * 0.6) * 7);
         ctx.stroke();
       }
 
       if (!media.matches) {
-        const sweepCount = 2;
+        const sweepCount = 3;
         for (let index = 0; index < sweepCount; index++) {
-          const sweepProgress = (time * (0.055 + index * 0.018) + index * 0.37) % 1;
+          const sweepProgress = (time * (0.12 + index * 0.03) + index * 0.31) % 1;
           const sweepY = horizonY + fieldHeight * (0.1 + sweepProgress * 0.72);
-          const sweepAlpha = 0.02 + (1 - sweepProgress) * 0.035;
+          const sweepAlpha = 0.04 + (1 - sweepProgress) * 0.06;
           const sweep = ctx.createLinearGradient(0, sweepY, width, sweepY);
           sweep.addColorStop(0, 'rgba(125,211,252,0)');
           sweep.addColorStop(0.18, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
@@ -351,10 +352,10 @@ const CodeAmbientBackground: React.FC = () => {
           sweep.addColorStop(0.82, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
           sweep.addColorStop(1, 'rgba(125,211,252,0)');
           ctx.strokeStyle = sweep;
-          ctx.lineWidth = 1.15;
+          ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.moveTo(width * 0.22, sweepY);
-          ctx.lineTo(width * 0.8, sweepY - 8);
+          ctx.moveTo(width * 0.18, sweepY + 4);
+          ctx.lineTo(width * 0.82, sweepY - 12);
           ctx.stroke();
         }
       }
