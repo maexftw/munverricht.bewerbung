@@ -2,9 +2,12 @@ import React, { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight, Brain, BriefcaseBusiness, Download, FileText, Mail, Phone, ShieldCheck, Workflow, Wrench } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
-const quickLinks = [
-  { label: 'Anschreiben', href: '/first-debit-anschreiben.md', icon: FileText },
+const documentLinks = [
+  { label: 'Anschreiben', href: '/first-debit-anschreiben.html', icon: FileText, hint: 'sauber formatiert' },
   { label: 'Lebenslauf', href: '/Maximilian_Unverricht_Resume_2026.html', icon: Download },
+];
+
+const contactLinks = [
   { label: 'E-Mail', href: 'mailto:info@graphiks.de', icon: Mail },
   { label: 'Telefon', href: 'tel:+491633229892', icon: Phone },
 ];
@@ -88,7 +91,11 @@ const timeline = [
   },
 ];
 
-const FirstDebitApplicationPage: React.FC = () => {
+type FirstDebitApplicationPageProps = {
+  privatePath: string;
+};
+
+const FirstDebitApplicationPage: React.FC<FirstDebitApplicationPageProps> = ({ privatePath }) => {
   useEffect(() => {
     const previousTitle = document.title;
     const previousRobots = document.querySelector('meta[name="robots"]')?.getAttribute('content') ?? null;
@@ -114,7 +121,7 @@ const FirstDebitApplicationPage: React.FC = () => {
   }, []);
 
   return (
-    <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-3 py-8 sm:px-4 sm:py-10 lg:gap-14 lg:px-0 lg:py-12">
+    <section className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-3 py-8 sm:px-4 sm:py-10 lg:gap-14 lg:px-0 lg:py-12" aria-label="First Debit Bewerbung">
       <section className="relative overflow-hidden rounded-[2rem] border border-[color:color-mix(in_srgb,var(--accent-color)_22%,transparent)] bg-[linear-gradient(160deg,color-mix(in_srgb,var(--surface-2)_90%,transparent),color-mix(in_srgb,var(--surface-1)_96%,transparent))] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-7 sm:py-8 lg:px-10 lg:py-12">
         <div className="absolute inset-y-0 right-0 hidden w-[32%] bg-[radial-gradient(circle_at_top_right,color-mix(in_srgb,var(--accent-color)_13%,transparent),transparent_63%)] lg:block" aria-hidden="true" />
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-10">
@@ -133,20 +140,35 @@ const FirstDebitApplicationPage: React.FC = () => {
               <p className="max-w-[65ch] text-sm leading-7 text-[color:var(--text-muted)] sm:text-base">
                 Ich bewerbe mich initiativ bei First Debit, weil ich genau an der Schnittstelle arbeite, die für ein datensensibles Unternehmen interessant ist: lokale LLMs, strukturierte AI-Workflows und schnelle Web-Umsetzung für reale Arbeitsprozesse.
               </p>
+              <p className="max-w-[60ch] text-xs uppercase tracking-[0.22em] text-[color:var(--muted)] sm:text-[13px]">
+                Privater Bewerbungslink · nicht verlinkt · noindex gesetzt · Pfad: <span className="break-all text-[color:var(--accent-color)]">{privatePath}</span>
+              </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              {quickLinks.map(({ label, href, icon: Icon }) => (
+            <div className="grid gap-3 sm:grid-cols-2">
+              {documentLinks.map(({ label, href, icon: Icon, hint }) => (
                 <a
                   key={label}
                   href={href}
-                  className="group inline-flex items-center justify-between rounded-2xl border border-[color:color-mix(in_srgb,var(--accent-color)_18%,var(--border-color))] bg-[color:color-mix(in_srgb,var(--surface-2)_80%,transparent)] px-4 py-3 text-sm text-[color:var(--text-strong)] transition-all hover:border-[color:var(--accent-color)] hover:bg-[color:color-mix(in_srgb,var(--surface-2)_94%,transparent)]"
+                  className="group inline-flex min-w-0 items-center justify-between rounded-2xl border border-[color:color-mix(in_srgb,var(--accent-color)_18%,var(--border-color))] bg-[color:color-mix(in_srgb,var(--surface-2)_80%,transparent)] px-4 py-3.5 text-sm text-[color:var(--text-strong)] transition-all hover:border-[color:var(--accent-color)] hover:bg-[color:color-mix(in_srgb,var(--surface-2)_94%,transparent)]"
                 >
-                  <span className="inline-flex items-center gap-2">
+                  <span className="inline-flex min-w-0 items-center gap-3">
                     <Icon className="h-4 w-4 text-[color:var(--accent-color)]" aria-hidden="true" />
-                    <span className="uppercase tracking-[0.16em] text-[11px]">{label}</span>
+                    <span className="min-w-0">
+                      <span className="block truncate uppercase tracking-[0.16em] text-[11px]">{label}</span>
+                      {hint ? <span className="block text-xs text-[color:var(--muted)]">{hint}</span> : null}
+                    </span>
                   </span>
                   <ArrowUpRight className="h-4 w-4 text-[color:var(--muted)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[color:var(--accent-color)]" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-[color:var(--text-muted)]">
+              {contactLinks.map(({ label, href, icon: Icon }) => (
+                <a key={label} href={href} className="inline-flex items-center gap-2 transition-colors hover:text-[color:var(--text-strong)]">
+                  <Icon className="h-4 w-4 text-[color:var(--accent-color)]" aria-hidden="true" />
+                  <span className="uppercase tracking-[0.14em] text-[11px]">{label}</span>
                 </a>
               ))}
             </div>
@@ -184,7 +206,7 @@ const FirstDebitApplicationPage: React.FC = () => {
           const Icon = icons[index];
 
           return (
-            <article key={title} className="rounded-[1.6rem] border border-[color:var(--border-color)] bg-[color:color-mix(in_srgb,var(--surface-2)_82%,transparent)] p-5 sm:p-6">
+            <article key={title} className="rounded-[1.6rem] border border-[color:color-mix(in_srgb,var(--border-color)_78%,transparent)] bg-[color:color-mix(in_srgb,var(--surface-2)_76%,transparent)] p-5 sm:p-6">
               <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:color-mix(in_srgb,var(--accent-color)_28%,transparent)] bg-[color:color-mix(in_srgb,var(--accent-color)_10%,transparent)] text-[color:var(--accent-color)]">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
@@ -240,9 +262,9 @@ const FirstDebitApplicationPage: React.FC = () => {
 
         <div className="grid gap-4 xl:grid-cols-3">
           {proofCases.map((item) => (
-            <article key={item.name} className="rounded-[1.6rem] border border-[color:var(--border-color)] bg-[color:color-mix(in_srgb,var(--surface-2)_80%,transparent)] p-5 sm:p-6">
+            <article key={item.name} className="rounded-[1.6rem] border border-[color:var(--border-color)] bg-[color:color-mix(in_srgb,var(--surface-2)_72%,transparent)] p-5 sm:p-6">
               <div className="mb-4 flex items-center justify-between gap-3">
-                <h3 className="text-lg font-semibold text-[color:var(--text-strong)]">{item.name}</h3>
+                <h3 className="min-w-0 text-lg font-semibold text-[color:var(--text-strong)] break-words">{item.name}</h3>
                 <span className="rounded-full border border-[color:color-mix(in_srgb,var(--accent-color)_24%,transparent)] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[color:var(--accent-color)]">
                   {item.accent}
                 </span>
@@ -301,7 +323,7 @@ const FirstDebitApplicationPage: React.FC = () => {
           </div>
         </article>
       </section>
-    </main>
+    </section>
   );
 };
 
