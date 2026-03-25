@@ -47,6 +47,7 @@ const CodeAmbientBackground: React.FC = () => {
     let height = 0;
     let dpr = 1;
     let time = 0;
+    let debugFrames = 0;
     let leftRows: SideRow[] = [];
     let rightRows: SideRow[] = [];
     let waveCells: WaveCell[] = [];
@@ -115,6 +116,16 @@ const CodeAmbientBackground: React.FC = () => {
       horizonGlow = null;
       cachedRailWidth = 0;
       dotPattern = null;
+
+      console.info('[CodeAmbientBackground] resize', {
+        width,
+        height,
+        dpr,
+        reducedMotion: media.matches,
+        theme: document.documentElement.getAttribute('data-theme'),
+        bgColor: getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim(),
+        ambientOpacity: getComputedStyle(canvas).opacity
+      });
     };
 
     const drawDotMatrix = () => {
@@ -401,6 +412,29 @@ const CodeAmbientBackground: React.FC = () => {
       drawTokenRail(Math.max(132, height * 0.21), -18, 0.16);
       drawPulseLine();
       drawSideVignette();
+
+      if (debugFrames < 6) {
+        const probeCell = waveCells[Math.floor(waveCells.length * 0.58)];
+        const probeWave = probeCell
+          ? (
+              Math.sin(probeCell.x * 0.42 + time * 1.25 + probeCell.seed) * 0.8 +
+              Math.sin(probeCell.z * 0.58 - time * 1.1 + probeCell.seed * 0.6) * 0.75 +
+              Math.sin(Math.sqrt(probeCell.x * probeCell.x + probeCell.z * probeCell.z) * 0.45 - time * 1.65 + probeCell.seed) * 0.55
+            ) / 3
+          : null;
+
+        console.info('[CodeAmbientBackground] frame', {
+          frame: debugFrames,
+          time: Number(time.toFixed(3)),
+          dt,
+          reducedMotion: media.matches,
+          waveCells: waveCells.length,
+          probeWave: probeWave === null ? null : Number(probeWave.toFixed(4)),
+          theme: document.documentElement.getAttribute('data-theme'),
+          ambientOpacity: getComputedStyle(canvas).opacity
+        });
+        debugFrames += 1;
+      }
 
       time += dt;
       rafRef.current = window.requestAnimationFrame(draw);
