@@ -57,7 +57,10 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
   useEffect(() => {
     const runningAnimations = [];
 
-    if (headingBlockRef.current) {
+    // Check if reduced motion is preferred
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (headingBlockRef.current && !prefersReducedMotion) {
       runningAnimations.push(
         animate(headingBlockRef.current, {
           scale: [0.95, 1],
@@ -68,7 +71,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       );
     }
 
-    if (introTextRef.current) {
+    if (introTextRef.current && !prefersReducedMotion) {
       runningAnimations.push(
         animate(introTextRef.current, {
           translateY: [10, 0],
@@ -89,13 +92,39 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
 
   return (
     <section id="hero" className="relative scroll-mt-28 flex flex-col items-center justify-center text-center space-y-8 pt-20">
+      {/* Mobile-first reordering: Start with the most important content for recruiters */}
+      <div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4">
+        <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
+          <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
+          {recruiterQuickActions.map((action, index) => (
+            <a
+              key={action.label}
+              href={action.href}
+              target={action.external ? '_blank' : undefined}
+              rel={action.external ? 'noopener noreferrer' : undefined}
+              className={`flex items-center justify-center gap-2 rounded-lg border px-3 py-3 text-sm text-neutral-200 transition-colors ${
+                index === 0
+                  ? 'border-blue-500/70 bg-blue-500/10 hover:border-blue-400 hover:bg-blue-500/20'
+                  : 'border-neutral-800 bg-neutral-950/70 hover:border-blue-500/70 hover:text-white'
+              }`}
+              aria-label={`${action.label} ${quickActionLabels[language].open}`}
+            >
+              <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
+              <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
       <div
         ref={headingBlockRef}
         className="relative"
         style={{ transform: 'scale(0.95)', opacity: 0 }}
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
-        <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
+        <h2 className="mono text-blue-500 text-xs tracking-tight md:tracking-[0.4em] uppercase mb-4">
           {language === 'de' ? 'RECRUITER PROFIL // FRONTEND DEVELOPER & WEB DELIVERY' : 'RECRUITER PROFILE // FRONTEND DEVELOPER & WEB DELIVERY'}
         </h2>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
@@ -149,7 +178,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// TOOLING_STACK" />
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-6 lg:gap-7">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {toolLogos.map((tool) => (
             <div key={tool.name} className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors">
               {tool.Icon ? (
@@ -167,27 +196,6 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
               )}
               <span className="mono text-[10px] md:text-[11px] text-neutral-300 group-hover:text-blue-300 transition-colors">{tool.name}</span>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4">
-        <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
-          <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3">
-          {recruiterQuickActions.map((action) => (
-            <a
-              key={action.label}
-              href={action.href}
-              target={action.external ? '_blank' : undefined}
-              rel={action.external ? 'noopener noreferrer' : undefined}
-              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-950/70 px-3 py-3 text-sm text-neutral-200 hover:border-blue-500/70 hover:text-white transition-colors"
-              aria-label={`${action.label} ${quickActionLabels[language].open}`}
-            >
-              <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
-              <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
-            </a>
           ))}
         </div>
       </div>

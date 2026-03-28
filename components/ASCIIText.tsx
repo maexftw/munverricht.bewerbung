@@ -189,7 +189,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   return (
     <Component
       ref={containerRef as any}
-      className={`${className} inline-block cursor-default select-none whitespace-nowrap`}
+      className={`${className} inline-block cursor-default select-none ${width && width > 100 ? 'whitespace-nowrap' : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
