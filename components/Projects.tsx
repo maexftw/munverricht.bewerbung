@@ -155,6 +155,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        {/* Add responsive spacing adjustments for better mobile readability */}
         {projects[language].map((p, i) => (
           <motion.a
             key={i}
@@ -164,37 +165,37 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
+            className="group block bg-[#111111] p-4 sm:p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
-              <ExternalLink className="w-5 h-5" />
+            <div className="absolute top-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
+              <ExternalLink className="w-4 h-4" />
             </div>
 
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
-                <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
+            <div className="space-y-3 relative z-10">
+              <div className="flex items-center gap-2 mb-1">
+                <Layout className="w-3 h-3 text-neutral-600 group-hover:text-blue-500 transition-colors" />
+                <h3 className="font-semibold text-white uppercase tracking-[0.04em] text-base sm:text-lg">{p.title}</h3>
               </div>
 
-              <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <section>
-                  <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                </section>
-                <section>
-                  <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                </section>
-                <section>
-                  <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
-                </section>
+              {/* Mobile-first approach: Show only the result first */}
+              <div className="text-xs sm:text-sm leading-relaxed text-neutral-300">
+                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
               </div>
 
-              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
-                {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
-                    <Layers className="w-3 h-3" />
+              {/* On mobile, only show the most important information first */}
+              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-1.5">
+                {p.stack.slice(0, 2).map((item) => (
+                  <span key={item} className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-1.5 py-0.5">
+                    <Layers className="w-2 h-2" />
                     {item}
                   </span>
                 ))}
+                {/* Show more if there are more than 2 items */}
+                {p.stack.length > 2 && (
+                  <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] uppercase tracking-wider text-neutral-500 border border-neutral-700 rounded px-1.5 py-0.5">
+                    +{p.stack.length - 2}
+                  </span>
+                )}
               </div>
             </div>
           </motion.a>

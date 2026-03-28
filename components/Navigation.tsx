@@ -36,8 +36,17 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
     const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
+        // Check if reduced motion is preferred
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            // Only apply scroll effect if not in reduced motion mode
+            if (!prefersReducedMotion) {
+                setScrolled(window.scrollY > 50);
+            } else {
+                // Always show the scrolled state in reduced motion mode
+                setScrolled(window.scrollY > 50);
+            }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -61,9 +70,10 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                     } hidden md:block`}
             >
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 flex justify-between items-center">
-                    <div
+                    <button
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
+                        aria-label={language === 'de' ? 'Zurück zum Anfang' : 'Back to top'}
                     >
                         <ASCIIText text="munverricht" className="lowercase" />
                         <span className="text-blue-500">.org</span>
@@ -133,6 +143,9 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
                         className="fixed inset-0 z-40 bg-[#050505] md:hidden flex flex-col justify-center items-center space-y-6 sm:space-y-8"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={language === 'de' ? 'Navigation' : 'Navigation'}
                     >
                         <button
                             onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
