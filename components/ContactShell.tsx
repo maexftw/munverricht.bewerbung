@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, Terminal } from 'lucide-react';
+import { Mail, Phone, Terminal, FileText } from 'lucide-react';
 
 type Language = 'de' | 'en';
 
@@ -58,6 +58,44 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
               <span>{language === 'de' ? 'ANTWORTWEG: DIREKT' : 'REPLY PATH: DIRECT'}</span>
             </div>
             <div className="text-blue-500/50">MAXIMILIAN_UNVERRICHT // CONTACT</div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="max-w-3xl mx-auto bg-[#111111] border border-blue-500/30 rounded-lg overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+        <div className="bg-neutral-900 px-4 py-2 flex justify-between items-center border-b border-neutral-800" aria-hidden="true">
+          <div className="flex items-center gap-2">
+            <FileText className="w-4 h-4 text-blue-500" />
+            <span className="mono text-[10px] text-neutral-400">APPLICATION</span>
+          </div>
+          <div className="flex gap-1.5">
+            <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
+            <div className="w-2.5 h-2.5 rounded-full bg-neutral-700" />
+            <div className="w-2.5 h-2.5 rounded-full bg-blue-500/50" />
+          </div>
+        </div>
+
+        <div className="p-5 sm:p-6 space-y-5 sm:space-y-6 mono text-sm">
+          <div className="text-neutral-300 leading-relaxed">
+            {language === 'de' ? 'Hier finden Sie meine Bewerbung für First Debit.' : 'Here you can find my application for First Debit.'}
+          </div>
+
+          <div className="grid gap-3 sm:gap-4 sm:grid-cols-2">
+            <a href="/bewerbung" className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors">
+              <span className="flex items-center gap-2 text-blue-400 mb-2">
+                <FileText className="w-4 h-4" aria-hidden="true" />
+                <span className="mono text-[10px] uppercase tracking-widest">{language === 'de' ? 'Bewerbung' : 'Application'}</span>
+              </span>
+              <span className="text-neutral-100 text-sm break-all">/bewerbung</span>
+            </a>
+          </div>
+
+          <div className="mt-4 flex justify-between items-center mono text-[9px] sm:text-[10px] text-neutral-600 uppercase tracking-tighter" aria-hidden="true">
+            <div className="flex gap-4">
+              <span>{language === 'de' ? 'BEWERBUNG' : 'APPLICATION'}</span>
+              <span>{language === 'de' ? 'ERREICHBAR UNTER: /bewerbung' : 'AVAILABLE AT: /bewerbung'}</span>
+            </div>
+            <div className="text-blue-500/50">MAXIMILIAN_UNVERRICHT // APPLICATION</div>
           </div>
         </div>
       </div>

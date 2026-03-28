@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon, FileText } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { useTheme } from './ThemeContext';
 
@@ -17,6 +17,7 @@ const navItems = {
         { name: 'Über mich', href: '#evolution', icon: User },
         { name: 'Projekte', href: '#projects', icon: Briefcase },
         { name: 'Skills', href: '#skill-monitor', icon: Code },
+        { name: 'Bewerbung', href: '/bewerbung', icon: FileText },
         { name: 'Kontakt', href: '#contact-shell', icon: Mail },
     ],
     en: [
@@ -24,6 +25,7 @@ const navItems = {
         { name: 'About', href: '#evolution', icon: User },
         { name: 'Projects', href: '#projects', icon: Briefcase },
         { name: 'Skills', href: '#skill-monitor', icon: Code },
+        { name: 'Application', href: '/bewerbung', icon: FileText },
         { name: 'Contact', href: '#contact-shell', icon: Mail },
     ],
 };
