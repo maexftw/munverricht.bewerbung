@@ -1,5 +1,2 @@
-/fd-2026-casefile-7k2q
-  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
-
-/first-debit-anschreiben.html
-  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+# Redirects for application page
+/bewerbung/* /bewerbung.html 200

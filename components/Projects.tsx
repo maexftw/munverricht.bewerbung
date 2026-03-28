@@ -177,9 +177,15 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
               </div>
 
               <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
+                <section>
+                  <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
+                </section>
+                <section>
+                  <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
+                </section>
+                <section>
+                  <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
+                </section>
               </div>
 
               <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
