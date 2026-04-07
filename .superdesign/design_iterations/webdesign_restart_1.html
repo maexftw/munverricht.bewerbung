@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webdesign Restart 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body { background:#050816; }
+      .signal-grid {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .signal-beam {
+        background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02));
+        box-shadow: 0 0 80px rgba(96,165,250,0.18);
+      }
+      .signal-wave {
+        background: radial-gradient(circle at center, rgba(96,165,250,0.20), rgba(96,165,250,0) 68%);
+        filter: blur(22px);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-white antialiased">
+    <main class="relative overflow-hidden">
+      <section class="relative min-h-screen border-b border-white/10">
+        <div class="absolute inset-0 signal-grid opacity-50"></div>
+        <div class="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-blue-400/10 to-transparent"></div>
+        <div class="absolute right-[-8rem] top-24 h-80 w-80 rounded-full signal-wave"></div>
+        <div class="absolute left-[8%] top-[18%] hidden h-[28rem] w-px bg-white/12 lg:block"></div>
+        <div class="absolute left-[12%] top-[18%] hidden h-24 w-24 rounded-full border border-white/12 lg:block"></div>
+
+        <div class="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-24 lg:px-10">
+          <div class="grid gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <p class="text-[12px] font-medium uppercase tracking-[0.36em] text-white/60">Webdesign fuer kleine Unternehmen</p>
+                <h1 class="max-w-[11ch] text-5xl font-semibold leading-none tracking-[-0.08em] sm:text-7xl lg:text-[7.5rem]">
+                  Klar im Blick. Schnell in Kontakt.
+                </h1>
+                <p class="max-w-xl text-base leading-8 text-white/72 sm:text-lg">
+                  Websites mit seriöser Präsenz, sauberer SEO-Basis und klaren Abläufen. Kein Baukasten-Gefühl, kein KI-Marketing-Sound, sondern ein Auftritt, der lesbar wirkt und Anfragen führt.
+                </p>
+              </div>
+
+              <div class="flex flex-col gap-4 sm:flex-row">
+                <a href="#kontakt" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition hover:-translate-y-0.5">Projekt anfragen</a>
+                <a href="#leistungen" class="inline-flex items-center justify-center rounded-full border border-white/14 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/5">Leistungsbild ansehen</a>
+              </div>
+            </div>
+
+            <div class="relative rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+              <div class="absolute inset-6 rounded-[24px] border border-white/8"></div>
+              <div class="relative grid gap-4">
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                  <p class="text-[12px] uppercase tracking-[0.32em] text-white/56">Signal surface</p>
+                  <p class="text-[12px] uppercase tracking-[0.24em] text-white/40">SEO / Performance / Ablauf</p>
+                </div>
+                <div class="relative h-[26rem] overflow-hidden rounded-[24px] border border-white/10 bg-[#07101f]">
+                  <div class="absolute inset-0 signal-grid opacity-35"></div>
+                  <div class="absolute left-1/2 top-10 h-[18rem] w-[1px] -translate-x-1/2 signal-beam"></div>
+                  <div class="absolute left-1/2 top-16 h-32 w-32 -translate-x-1/2 rounded-full border border-white/14"></div>
+                  <div class="absolute bottom-10 left-10 right-10 grid gap-3">
+                    <div class="h-14 rounded-full border border-white/10 bg-white/5"></div>
+                    <div class="grid grid-cols-3 gap-3">
+                      <div class="h-28 rounded-[20px] border border-white/10 bg-white/5"></div>
+                      <div class="h-28 rounded-[20px] border border-white/10 bg-white/5"></div>
+                      <div class="h-28 rounded-[20px] border border-white/10 bg-white/5"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-[24px] border border-white/10 bg-white/4 p-5">
+                    <p class="text-[12px] uppercase tracking-[0.24em] text-white/45">Geeignet fuer</p>
+                    <p class="mt-3 text-sm leading-7 text-white/74">Kanzleien, Praxen, Studios, lokale Dienstleister und kleinere Unternehmen.</p>
+                  </div>
+                  <div class="rounded-[24px] border border-white/10 bg-white/4 p-5">
+                    <p class="text-[12px] uppercase tracking-[0.24em] text-white/45">Nicht dabei</p>
+                    <p class="mt-3 text-sm leading-7 text-white/74">Keine SaaS-Kachelwand, keine Deko-Dashboards, kein aufgesetzter Tech-Look.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-3">
+            <div>
+              <p class="text-[12px] uppercase tracking-[0.28em] text-white/50">SEO-Basis</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Klare Struktur, sinnvolle Seitenhierarchie und lokale Lesbarkeit.</p>
+            </div>
+            <div>
+              <p class="text-[12px] uppercase tracking-[0.28em] text-white/50">Performance</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Reduzierte Oberflächen, weniger Reibung und schnellerer Erstkontakt.</p>
+            </div>
+            <div id="kontakt">
+              <p class="text-[12px] uppercase tracking-[0.28em] text-white/50">Ablauf</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Kurze Abstimmung, ruhige Umsetzung, direkte Auslieferung.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

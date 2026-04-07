@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webdesign Restart 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body { background:#0e0b08; }
+      .panel-line { background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0)); }
+      .soft-orb { background: radial-gradient(circle at center, rgba(255,255,255,0.14), rgba(255,255,255,0) 68%); filter: blur(24px); }
+      .grain {
+        background-image: radial-gradient(rgba(255,255,255,0.09) 0.8px, transparent 0.8px);
+        background-size: 18px 18px;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-white antialiased">
+    <main class="relative overflow-hidden">
+      <section class="relative min-h-screen border-b border-white/10">
+        <div class="absolute inset-0 grain opacity-20"></div>
+        <div class="absolute left-[12%] top-24 h-56 w-56 rounded-full soft-orb"></div>
+        <div class="absolute right-[10%] bottom-24 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl"></div>
+
+        <div class="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-20 lg:px-10">
+          <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="space-y-8">
+              <p class="text-[12px] uppercase tracking-[0.32em] text-white/50">Webdesign / Local business / klare Anfragen</p>
+              <div class="space-y-6">
+                <h1 class="max-w-[11ch] text-5xl font-semibold leading-none tracking-[-0.08em] sm:text-7xl lg:text-[7rem]">
+                  Mehr Vertrauen. Weniger Website-Lärm.
+                </h1>
+                <p class="max-w-lg text-base leading-8 text-white/70 sm:text-lg">
+                  Eine ruhige, hochwertige Webdesign-Richtung fuer Unternehmen, die online glaubwuerdig, schnell erfassbar und technisch sauber auftreten wollen.
+                </p>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <a href="#kontakt" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-black">Anfrage starten</a>
+                <a href="#referenzen" class="inline-flex items-center justify-center rounded-full border border-white/14 px-6 py-4 text-sm font-semibold text-white">Referenzen ansehen</a>
+              </div>
+            </div>
+
+            <div class="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+              <div class="rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl lg:row-span-2">
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                  <p class="text-[12px] uppercase tracking-[0.28em] text-white/50">Leistungsbild</p>
+                  <div class="h-px w-20 panel-line"></div>
+                </div>
+                <div class="mt-8 space-y-8">
+                  <div>
+                    <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">01 Klarer Erstkontakt</p>
+                    <p class="mt-3 text-2xl font-semibold tracking-[-0.04em]">Lesbar statt überinszeniert.</p>
+                    <p class="mt-3 text-sm leading-7 text-white/72">Eine Startseite, die das Angebot sofort verständlich macht und nicht erst entschlüsselt werden muss.</p>
+                  </div>
+                  <div>
+                    <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">02 Sichtbarkeit</p>
+                    <p class="mt-3 text-2xl font-semibold tracking-[-0.04em]">SEO als Basis, nicht als Gerede.</p>
+                    <p class="mt-3 text-sm leading-7 text-white/72">Saubere Seitenstruktur, klare Überschriften und lokale Relevanz statt bloßer Optimierungs-Rhetorik.</p>
+                  </div>
+                  <div>
+                    <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">03 Technik</p>
+                    <p class="mt-3 text-2xl font-semibold tracking-[-0.04em]">Schnell online, wartbar im Alltag.</p>
+                    <p class="mt-3 text-sm leading-7 text-white/72">Performance und einfache Abläufe, damit die Seite nicht nur gut aussieht, sondern auch sauber funktioniert.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-[28px] border border-white/10 bg-[#111111] p-6">
+                <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Referenzen</p>
+                <div id="referenzen" class="mt-6 space-y-5">
+                  <div class="border-b border-white/10 pb-5">
+                    <p class="text-xl font-semibold tracking-[-0.04em]">Kost Sicherheitstechnik</p>
+                    <p class="mt-2 text-sm leading-7 text-white/70">Serioeserer Auftritt, ruhigere Führung, bessere Lesbarkeit.</p>
+                  </div>
+                  <div class="border-b border-white/10 pb-5">
+                    <p class="text-xl font-semibold tracking-[-0.04em]">Bockel-Bartscher</p>
+                    <p class="mt-2 text-sm leading-7 text-white/70">Vertrauen durch Struktur und bessere Orientierung beim Erstbesuch.</p>
+                  </div>
+                  <div>
+                    <p class="text-xl font-semibold tracking-[-0.04em]">Fitness Drensteinfurt</p>
+                    <p class="mt-2 text-sm leading-7 text-white/70">Klarerer Weg zur Anfrage und ein fokussierteres erstes Lesen.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div id="kontakt" class="rounded-[28px] border border-white/10 bg-white text-black p-6">
+                <p class="text-[11px] uppercase tracking-[0.24em] text-black/50">Kontakt</p>
+                <p class="mt-4 text-3xl font-semibold tracking-[-0.05em]">Kurzer Austausch. Klare Richtung.</p>
+                <p class="mt-3 text-sm leading-7 text-black/70">Ideal fuer kleinere Relaunches oder neue Seiten, die schnell einen hochwertigen ersten Eindruck brauchen.</p>
+                <a href="mailto:info@graphiks.de" class="mt-6 inline-flex items-center justify-center rounded-full bg-black px-5 py-3 text-sm font-semibold text-white">info@graphiks.de</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
+            <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+              <p class="text-[12px] uppercase tracking-[0.24em] text-white/45">Geeignet fuer</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Dienstleister, Kanzleien, Praxen, Studios und lokal arbeitende Unternehmen.</p>
+            </div>
+            <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+              <p class="text-[12px] uppercase tracking-[0.24em] text-white/45">Ton</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Ruhig, serioes, lesbar. Keine generische AI-Landingpage.</p>
+            </div>
+            <div class="rounded-[24px] border border-white/10 bg-white/5 p-5">
+              <p class="text-[12px] uppercase tracking-[0.24em] text-white/45">Workflow</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Schnelle Abstimmung, klare Struktur, umsetzbare Auslieferung.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

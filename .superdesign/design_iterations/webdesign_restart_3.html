@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webdesign Restart 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body { background:#030712; }
+      .rail { background-image: linear-gradient(90deg, rgba(255,255,255,0.08), transparent); }
+      .frame-grid {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+      .depth-core {
+        background:
+          radial-gradient(circle at center, rgba(96,165,250,0.20), rgba(96,165,250,0) 58%),
+          radial-gradient(circle at center, rgba(255,255,255,0.10), rgba(255,255,255,0) 72%);
+        filter: blur(26px);
+      }
+    </style>
+  </head>
+  <body class="min-h-screen text-white antialiased">
+    <main class="relative overflow-hidden">
+      <section class="relative min-h-screen border-b border-white/10 frame-grid">
+        <div class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white/8 to-transparent"></div>
+        <div class="absolute left-1/2 top-24 h-64 w-64 -translate-x-1/2 rounded-full depth-core"></div>
+        <div class="absolute inset-y-0 left-[12%] hidden w-px bg-white/10 lg:block"></div>
+        <div class="absolute inset-y-0 right-[12%] hidden w-px bg-white/10 lg:block"></div>
+
+        <div class="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-between px-6 py-24 lg:px-10">
+          <div class="space-y-10">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div class="space-y-5">
+                <p class="text-[12px] uppercase tracking-[0.34em] text-white/50">Webdesign / SEO / Performance / einfache Ablaeufe</p>
+                <h1 class="max-w-[12ch] text-5xl font-semibold leading-none tracking-[-0.08em] sm:text-7xl lg:text-[7rem]">
+                  Websites mit ruhiger Autoritaet.
+                </h1>
+              </div>
+              <p class="max-w-md text-base leading-8 text-white/70">
+                Fuer kleine Unternehmen und Selbststaendige, die online nicht lauter, sondern klarer und glaubwuerdiger auftreten wollen.
+              </p>
+            </div>
+
+            <div class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+              <div class="rounded-[36px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+                  <div class="space-y-6">
+                    <div>
+                      <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Versprechen</p>
+                      <p class="mt-3 text-3xl font-semibold tracking-[-0.05em]">Lesbarkeit, Struktur und Kontaktfuehrung.</p>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2">
+                      <a href="#kontakt" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-4 text-sm font-semibold text-black">Projekt anfragen</a>
+                      <a href="#prozess" class="inline-flex items-center justify-center rounded-full border border-white/14 px-5 py-4 text-sm font-semibold text-white">Prozess</a>
+                    </div>
+                  </div>
+                  <div class="rounded-[28px] border border-white/10 bg-[#08111f] p-5">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                      <p class="text-[11px] uppercase tracking-[0.22em] text-white/45">Raumlogik</p>
+                      <div class="h-px w-16 rail"></div>
+                    </div>
+                    <div class="relative mt-6 h-64 overflow-hidden rounded-[24px] border border-white/10 bg-[#040b16]">
+                      <div class="absolute inset-0 frame-grid opacity-40"></div>
+                      <div class="absolute left-8 right-8 top-10 h-px rail"></div>
+                      <div class="absolute left-12 right-12 top-24 h-px rail"></div>
+                      <div class="absolute left-16 right-16 top-40 h-px rail"></div>
+                      <div class="absolute left-1/2 top-8 h-44 w-px -translate-x-1/2 bg-white/12"></div>
+                      <div class="absolute left-1/2 top-16 h-24 w-24 -translate-x-1/2 rounded-full border border-white/14"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid gap-4">
+                <div class="rounded-[28px] border border-white/10 bg-white/5 p-5">
+                  <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Leistungen</p>
+                  <ul class="mt-4 space-y-4 text-sm leading-7 text-white/74">
+                    <li>Klare Seitenstruktur fuer schnelle Orientierung</li>
+                    <li>SEO-Basis fuer lokale Sichtbarkeit</li>
+                    <li>Performance und wartbare Umsetzung</li>
+                  </ul>
+                </div>
+                <div id="prozess" class="rounded-[28px] border border-white/10 bg-white/5 p-5">
+                  <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Prozess</p>
+                  <ol class="mt-4 space-y-4 text-sm leading-7 text-white/74">
+                    <li>01 Ziel und Angebot ordnen</li>
+                    <li>02 Struktur und Tonalitaet festziehen</li>
+                    <li>03 Schnell und sauber ausliefern</li>
+                  </ol>
+                </div>
+                <div id="kontakt" class="rounded-[28px] border border-white/10 bg-white text-black p-5">
+                  <p class="text-[11px] uppercase tracking-[0.24em] text-black/50">Kontakt</p>
+                  <p class="mt-3 text-2xl font-semibold tracking-[-0.05em]">Kurzer Austausch statt langer Vorlauf.</p>
+                  <p class="mt-3 text-sm leading-7 text-black/70">Ideal fuer kleine Relaunches und neue Websites mit klarer kommerzieller Aufgabe.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 grid gap-4 border-t border-white/10 pt-8 md:grid-cols-3">
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Referenztyp</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Kanzleien, Praxen, Studios, Sicherheitstechnik, lokale Dienstleister.</p>
+            </div>
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Wirkung</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Serioeser, klarer, schneller lesbar und naeher an echter Kontaktaufnahme.</p>
+            </div>
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.24em] text-white/45">Technik</p>
+              <p class="mt-3 text-sm leading-7 text-white/72">Als Designvorlage spaeter ueberfuehrbar in Vite, React, GitHub und Cloudflare.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
