@@ -192,6 +192,41 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         </div>
       </div>
 
+      <div className="w-full max-w-4xl rounded-[1.75rem] border border-blue-500/20 bg-[linear-gradient(135deg,rgba(15,17,24,0.96),rgba(11,16,27,0.86))] px-5 py-6 text-left">
+        <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="space-y-3">
+            <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-400/90">
+              {language === 'de' ? '// WEBDESIGN_FUER_KLEINE_UNTERNEHMEN' : '// WEB_DESIGN_FOR_SMALL_BUSINESSES'}
+            </p>
+            <h3 className="text-2xl font-semibold leading-tight text-white">
+              {language === 'de'
+                ? 'Neue Unterseite für Webdesign-Dienstleistungen mit Fokus auf SEO, Performance und einfache Abläufe.'
+                : 'New service page for web design focused on SEO, performance, and straightforward delivery.'}
+            </h3>
+            <p className="max-w-[60ch] text-sm leading-6 text-neutral-300">
+              {language === 'de'
+                ? 'Wenn du sehen willst, wie ich Websites für kleine Unternehmen und Selbstständige aufbaue, findest du dort die genaue Angebotsrichtung und den passenden Kontaktweg.'
+                : 'If you want to see how I approach websites for small businesses and solo professionals, the new service page shows the offer and the clearest path to contact.'}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-stretch">
+            <a
+              href="/webdesign"
+              className="inline-flex items-center justify-center rounded-full bg-blue-500 px-5 py-3 mono text-[11px] uppercase tracking-[0.2em] text-white transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              {language === 'de' ? 'Webdesign ansehen' : 'View web design page'}
+            </a>
+            <a
+              href="mailto:info@graphiks.de?subject=Anfrage%20Webdesign"
+              className="inline-flex items-center justify-center rounded-full border border-neutral-700 px-5 py-3 mono text-[11px] uppercase tracking-[0.2em] text-neutral-200 transition-colors hover:border-blue-500 hover:text-white"
+            >
+              {language === 'de' ? 'Direkt anfragen' : 'Request directly'}
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">

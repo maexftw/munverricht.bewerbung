@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon, Sparkles, ListChecks } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { useTheme } from './ThemeContext';
 
@@ -9,9 +9,10 @@ type Language = 'de' | 'en';
 type NavigationProps = {
     language: Language;
     onLanguageChange: (language: Language) => void;
+    currentPath: string;
 };
 
-const navItems = {
+const portfolioNavItems = {
     de: [
         { name: 'Start', href: '#hero', icon: Terminal },
         { name: 'Über mich', href: '#evolution', icon: User },
@@ -28,10 +29,27 @@ const navItems = {
     ],
 };
 
-const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
+const serviceNavItems = {
+    de: [
+        { name: 'Leistungen', href: '#webdesign-services', icon: Sparkles },
+        { name: 'Ablauf', href: '#webdesign-process', icon: ListChecks },
+        { name: 'Referenzen', href: '#webdesign-proof', icon: Briefcase },
+        { name: 'Kontakt', href: '#webdesign-contact', icon: Mail },
+    ],
+    en: [
+        { name: 'Services', href: '#webdesign-services', icon: Sparkles },
+        { name: 'Process', href: '#webdesign-process', icon: ListChecks },
+        { name: 'Proof', href: '#webdesign-proof', icon: Briefcase },
+        { name: 'Contact', href: '#webdesign-contact', icon: Mail },
+    ],
+};
+
+const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange, currentPath }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { theme, toggleTheme } = useTheme();
+    const isWebdesignPage = currentPath === '/webdesign';
+    const navItems = isWebdesignPage ? serviceNavItems[language] : portfolioNavItems[language];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,14 +79,20 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                 <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
                     <div
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
-                        onClick={() => scrollToSection('#hero')}
+                        onClick={() => {
+                            if (isWebdesignPage) {
+                                window.location.href = '/';
+                                return;
+                            }
+                            scrollToSection('#hero');
+                        }}
                     >
                         <ASCIIText text="munverricht" className="lowercase" />
                         <span className="text-blue-500">.org</span>
                     </div>
 
                     <ul className="flex space-x-8">
-                        {navItems[language].map((item) => (
+                        {navItems.map((item) => (
                             <li key={item.name}>
                                 <button
                                     onClick={() => scrollToSection(item.href)}
@@ -89,6 +113,13 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                     >
                         {language === 'de' ? 'EN' : 'DE'}
                     </button>
+
+                    <a
+                        href="/webdesign"
+                        className={`px-4 py-2 rounded text-xs font-bold uppercase tracking-wider transition-all ${isWebdesignPage ? 'bg-blue-500/12 border border-blue-500/60 text-white' : 'bg-neutral-900 border border-neutral-700 hover:border-blue-500 hover:text-white text-neutral-200'}`}
+                    >
+                        {language === 'de' ? 'Webdesign' : 'Web Design'}
+                    </a>
 
                     <a
                         href="Maximilian_Unverricht_Resume.html"
@@ -138,7 +169,14 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                             {language === 'de' ? 'Switch to EN' : 'Wechsel zu DE'}
                         </button>
 
-                        {navItems[language].map((item) => (
+                        <a
+                            href="/webdesign"
+                            className="text-sm font-bold uppercase tracking-widest text-neutral-300 hover:text-blue-500 transition-colors"
+                        >
+                            {language === 'de' ? 'Webdesign' : 'Web Design'}
+                        </a>
+
+                        {navItems.map((item) => (
                             <button
                                 key={item.name}
                                 onClick={() => scrollToSection(item.href)}
