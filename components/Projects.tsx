@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Layers, Layout } from 'lucide-react';
+import { ArrowUpRight, Layers } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 
 type Language = 'de' | 'en';
@@ -139,56 +139,67 @@ const projects: Record<Language, ProjectItem[]> = {
 
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
-    <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
-          <ASCIIText text="// SELECTED_WORK" />
-        </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} />
-        </h2>
-        <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
+    <section id="projects" className="space-y-12 py-12 border-t border-[color:var(--border-subtle)] scroll-mt-28">
+      <div className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+        <div className="space-y-4">
+          <h3 className="mono text-[11px] tracking-[0.3em] uppercase text-[color:var(--accent-soft)]" aria-hidden="true">
+            <ASCIIText text="// SELECTED_WORK" />
+          </h3>
+          <h2 className="max-w-[12ch] text-3xl font-semibold tracking-[-0.05em] text-[color:var(--text-primary)] sm:text-4xl md:text-[3rem]">
+            {language === 'de' ? 'Reale Projekte, lesbar statt laut.' : 'Real projects, readable instead of loud.'}
+          </h2>
+        </div>
+        <p className="max-w-[40rem] text-sm leading-7 text-[color:var(--text-secondary)]">
           {language === 'de'
-            ? 'Auswahl realer Projekte im Format Problem → Lösung → Ergebnis, damit Recruiter Umfang und Arbeitsweise schnell einordnen können.'
-            : 'Selection of real projects in a Problem → Solution → Result format so recruiters can quickly assess scope and working style.'}
+            ? 'Keine Projektkarten-Galerie, sondern eine Auswahl echter Fälle im Format Problem → Lösung → Ergebnis. So ist Umfang schnell erfassbar und die Wirkung jedes Projekts klarer.'
+            : 'Not a project-card gallery, but a selection of real cases in a Problem → Solution → Result format so scope and value are easy to scan.'}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects[language].map((p, i) => (
+      <div className="divide-y divide-[color:var(--border-subtle)] border-y border-[color:var(--border-subtle)]">
+        {projects[language].map((project, index) => (
           <motion.a
-            key={i}
-            href={p.url}
+            key={project.title}
+            href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.55, delay: index * 0.04 }}
+            className="group grid gap-6 py-8 transition-colors hover:bg-[color:var(--surface-1)]/32 md:grid-cols-[minmax(170px,0.26fr)_minmax(0,0.34fr)_minmax(0,0.4fr)] md:px-3"
           >
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
-              <ExternalLink className="w-5 h-5" />
-            </div>
-
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
-                <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
+            <div className="space-y-3">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="mono text-[10px] uppercase tracking-[0.26em] text-[color:var(--text-subtle)]">Project {String(index + 1).padStart(2, '0')}</p>
+                  <h3 className="mt-3 text-xl font-semibold text-[color:var(--text-primary)]">{project.title}</h3>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-[color:var(--accent-color)] opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </div>
-
-              <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
-              </div>
-
-              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
-                {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
-                    <Layers className="w-3 h-3" />
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.stack.map((item) => (
+                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-[color:var(--text-secondary)] border border-[color:var(--border-subtle)] rounded-full px-2.5 py-1">
+                    <Layers className="w-3 h-3" aria-hidden="true" />
                     {item}
                   </span>
                 ))}
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <p className="mono text-[10px] uppercase tracking-[0.24em] text-[color:var(--accent-soft)]">{language === 'de' ? 'Problem' : 'Problem'}</p>
+              <p className="text-sm leading-7 text-[color:var(--text-secondary)]">{project.problem}</p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-3">
+                <p className="mono text-[10px] uppercase tracking-[0.24em] text-[color:var(--accent-soft)]">{language === 'de' ? 'Lösung' : 'Solution'}</p>
+                <p className="text-sm leading-7 text-[color:var(--text-secondary)]">{project.solution}</p>
+              </div>
+              <div className="space-y-3">
+                <p className="mono text-[10px] uppercase tracking-[0.24em] text-[color:var(--accent-soft)]">{language === 'de' ? 'Ergebnis' : 'Result'}</p>
+                <p className="text-sm leading-7 text-[color:var(--text-secondary)]">{project.result}</p>
               </div>
             </div>
           </motion.a>
