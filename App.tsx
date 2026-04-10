@@ -9,6 +9,7 @@ import ContactShell from './components/ContactShell';
 import CodeAmbientBackground from './components/CodeAmbientBackground';
 import FirecrawlAnimationDemo from './components/FirecrawlAnimationDemo';
 import { AnimatePresence } from 'framer-motion';
+import WebdesignLandingPage from './components/WebdesignLandingPage';
 
 import Navigation from './components/Navigation';
 import { ThemeProvider } from './components/ThemeContext';
@@ -26,10 +27,20 @@ const App: React.FC = () => {
     const saved = window.localStorage.getItem('mu_language');
     return saved === 'en' ? 'en' : 'de';
   });
-  const isFirecrawlAnimationDemo = typeof window !== 'undefined' && window.location.pathname === '/firecrawl-animation';
+  const pathname = typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') || '/' : '/';
+  const isFirecrawlAnimationDemo = pathname === '/firecrawl-animation';
+  const isWebdesignLandingPage = pathname === '/webdesign';
 
   if (isFirecrawlAnimationDemo) {
     return <FirecrawlAnimationDemo />;
+  }
+
+  if (isWebdesignLandingPage) {
+    return (
+      <ThemeProvider forcedTheme="light">
+        <WebdesignLandingPage />
+      </ThemeProvider>
+    );
   }
 
   const handleLanguageChange = (nextLanguage: 'de' | 'en') => {

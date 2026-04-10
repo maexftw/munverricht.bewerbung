@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import PixelCanvas from './PixelCanvas';
 
 type Language = 'de' | 'en';
 
@@ -166,6 +167,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
             transition={{ delay: i * 0.05 }}
             className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
           >
+            <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
             <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
               <ExternalLink className="w-5 h-5" />
             </div>

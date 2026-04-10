@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Activity, Wrench, Workflow, Globe, Cpu } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import PixelCanvas from './PixelCanvas';
 
 type Language = 'de' | 'en';
 
@@ -116,6 +117,13 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
             whileHover={{ y: -6, scale: 1.02 }}
             className={`group relative overflow-hidden rounded-xl border border-neutral-900 bg-[#111111] p-6 hover:shadow-[0_0_30px_rgba(59,130,246,0.22)] transition-all duration-300 ${accentStyles[skill.accent].border}`}
           >
+            <PixelCanvas colors={[
+              skill.accent === 'blue' ? '#3b82f6' : 
+              skill.accent === 'violet' ? '#8b5cf6' : 
+              skill.accent === 'cyan' ? '#06b6d4' : 
+              skill.accent === 'amber' ? '#f59e0b' : 
+              skill.accent === 'emerald' ? '#10b981' : '#ffffff'
+            ]} density={0.12} gap={12} />
             <div className={`absolute -top-14 -right-14 h-28 w-28 rounded-full bg-gradient-to-br ${accentStyles[skill.accent].glow} blur-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500`} aria-hidden="true" />
 
             <div className="flex items-start justify-between gap-4 relative z-10">

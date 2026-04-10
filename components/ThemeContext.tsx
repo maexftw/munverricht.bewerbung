@@ -17,10 +17,14 @@ export const useTheme = () => {
   return context;
 };
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode; forcedTheme?: Theme }> = ({ children, forcedTheme }) => {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
+    if (forcedTheme) {
+      return;
+    }
+
     // Check for saved theme and default to dark for strongest visual presentation
     const savedTheme = localStorage.getItem('theme') as Theme | null;
     
@@ -29,13 +33,15 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     } else {
       setTheme('dark');
     }
-  }, []);
+  }, [forcedTheme]);
 
   useEffect(() => {
-    // Apply theme to document
-    document.documentElement.setAttribute('data-theme', theme);
+    const activeTheme = forcedTheme ?? theme;
 
-    if (theme === 'dark') {
+    // Apply theme to document
+    document.documentElement.setAttribute('data-theme', activeTheme);
+
+    if (activeTheme === 'dark') {
       document.documentElement.classList.add('dark');
       document.documentElement.style.setProperty('--bg-color', '#050505');
       document.documentElement.style.setProperty('--text-color', '#e5e5e5');
@@ -46,10 +52,16 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
     
     // Save theme preference
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    if (!forcedTheme) {
+      localStorage.setItem('theme', activeTheme);
+    }
+  }, [forcedTheme, theme]);
 
   const toggleTheme = () => {
+    if (forcedTheme) {
+      return;
+    }
+
     setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
   };
 

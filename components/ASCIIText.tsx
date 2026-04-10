@@ -16,8 +16,10 @@ interface ASCIITextProps {
   text: string;
   className?: string;
   duration?: number;
-  spread?: number;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'div' | 'p';
+  revealOnMount?: boolean;
+  noWrap?: boolean;
+  enableHover?: boolean;
 }
 
 /**
@@ -30,7 +32,10 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   className = '',
   duration = 1000,
   spread = 1,
-  as: Component = 'span'
+  as: Component = 'span',
+  revealOnMount = true,
+  noWrap = true,
+  enableHover = true
 }) => {
   const [displayText, setDisplayText] = useState(text);
   const wavesRef = useRef<Wave[]>([]);
@@ -186,15 +191,38 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
     setDisplayText(text);
   }, [text]);
 
+  // Initial mount highlight animation
+  useEffect(() => {
+    if (revealOnMount) {
+      if (typeof document !== 'undefined' && 'fonts' in (document as any)) {
+        (document as any).fonts.ready.then(() => {
+          setTimeout(() => {
+            startWave(0);
+            if (!requestRef.current) {
+              requestRef.current = requestAnimationFrame(animate);
+            }
+          }, 150);
+        });
+      } else {
+        setTimeout(() => {
+          startWave(0);
+          if (!requestRef.current) {
+            requestRef.current = requestAnimationFrame(animate);
+          }
+        }, 150);
+      }
+    }
+  }, [revealOnMount, startWave, animate]);
+
   return (
     <Component
       ref={containerRef as any}
-      className={`${className} inline-block cursor-default select-none whitespace-nowrap`}
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      className={`${className} cursor-default select-none ${noWrap ? 'inline-block whitespace-nowrap' : 'inline'}`}
+      onMouseEnter={enableHover ? handleMouseEnter : undefined}
+      onMouseMove={enableHover ? handleMouseMove : undefined}
+      onMouseLeave={enableHover ? handleMouseLeave : undefined}
       style={{
-        width: width ? `${width}px` : 'auto',
+        width: (!noWrap || !width) ? 'auto' : `${width}px`,
         minWidth: 'fit-content'
       }}
       aria-label={text}
