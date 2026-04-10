@@ -77,11 +77,11 @@ const WebdesignLandingPage: React.FC = () => {
                 </motion.div>
 
                 <motion.p initial={{ translateY: 10, opacity: 0 }} animate={{ translateY: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative z-10 mb-7 max-w-[34ch] text-[1.02rem] font-medium leading-7 text-slate-600 sm:mb-10 sm:max-w-[60ch] sm:text-lg sm:leading-8">
-                  <ASCIIText 
-                    as="span" 
-                    noWrap={false} 
+                  <ASCIIText
+                    as="span"
+                    noWrap={false}
                     enableHover={false}
-                    text="Klare Firmenwebsite statt Agentur-Gerede. Einmal zahlen, online gehen und erreichbar sein. Ich baue Ihre Seite, hoste sie kostenlos und halte sie technisch sauber – schnell, modern und DSGVO-konform." 
+                    text="Klare Firmenwebsite statt Agentur-Gerede. Einmal zahlen, online gehen und erreichbar sein. Ich baue Ihre Seite, hoste sie kostenlos und halte sie technisch sauber – schnell, modern und DSGVO-konform."
                   />
                 </motion.p>
 
