@@ -96,27 +96,11 @@ const projects: WebdesignProject[] = [
 const showcaseVariants: ShowcaseVariant[] = [
   {
     id: 'A',
-    label: 'Variante A',
-    title: 'Editorial / galeriehaft / art-directed',
+    label: 'Portfolio',
+    title: 'Vom Entwurf zum Live-Start',
     description:
-      'Mehr Magazin als Standard-Grid: ruhige Typografie, kuratierte Bildinszenierung und viel bewusst gesetzter Weißraum.',
-    chip: 'Editorial concept',
-  },
-  {
-    id: 'B',
-    label: 'Variante B',
-    title: 'Bold portfolio / high-contrast / assertive',
-    description:
-      'Markanter, kontrastreicher und direkter. Die Cases wirken mehr wie Statements als wie neutrale Karten.',
-    chip: 'Portfolio concept',
-  },
-  {
-    id: 'C',
-    label: 'Variante C',
-    title: 'Expressive / framing first / conversion-aware',
-    description:
-      'Memorable, aber klar geführt: stärkere Rahmung, bessere Einordnung und lesbare Projektargumente auf einen Blick.',
-    chip: 'Framing concept',
+      'Handfeste Resultate statt leerer Layouts. Jedes dieser Projekte wurde mit dem Fokus auf maximale Ladegeschwindigkeit, perfekte mobile Darstellung und rechtliche Sicherheit umgesetzt – bereit für den echten Einsatz.',
+    chip: 'Ausgewählte Projekte',
   },
 ];
 
@@ -155,7 +139,8 @@ const WebdesignProjectCard: React.FC<{
   const badgeY = useTransform(driftY, (value) => value * -0.18);
   const shadowX = useTransform(tiltY, [-14, 14], [8, -8]);
   const shadowY = useTransform(tiltX, [-14, 14], [20, 30]);
-  const shadowBlur = useTransform(lift, [0, 1], [42, 60]);
+  const shadowBlur = useTransform(lift, [0, 1], [42, 65]);
+  const liftZ = useTransform(lift, [0, 1], [0, 50]);
   const cardShadow =
     variant === 'B'
       ? useMotionTemplate`${shadowX}px ${shadowY}px ${shadowBlur}px rgba(180,83,9,0.18), 0 28px 70px rgba(15,23,42,0.18), inset 0 1px 0 rgba(255,250,240,0.62)`
@@ -297,7 +282,12 @@ const WebdesignProjectCard: React.FC<{
         style={{ outlineOffset: '3px' }}
       >
         <motion.div
-          style={shouldReduceMotion ? undefined : { rotateX: tiltX, rotateY: tiltY, boxShadow: cardShadow }}
+          style={shouldReduceMotion ? undefined : { 
+            rotateX: tiltX, 
+            rotateY: tiltY, 
+            z: liftZ,
+            boxShadow: cardShadow 
+          }}
           className={`relative h-full overflow-hidden [transform-style:preserve-3d] ${variant === 'B' ? 'rounded-[0.85rem]' : 'rounded-[1.5rem]'} ${cardSurfaceClassName}`}
         >
           <div className={`absolute inset-0 ${accentTintClassName}`} aria-hidden="true" />
@@ -315,7 +305,12 @@ const WebdesignProjectCard: React.FC<{
 
           <div className="relative z-10 px-4 pb-4 pt-16 sm:px-5 sm:pb-5">
             <motion.div
-              style={shouldReduceMotion ? undefined : { x: screenshotX, y: screenshotY, scale: screenshotScale }}
+              style={shouldReduceMotion ? undefined : { 
+                x: screenshotX, 
+                y: screenshotY, 
+                z: 40, 
+                scale: screenshotScale 
+              }}
               className={imageFrameClassName}
             >
               <div className={browserBarClassName} aria-hidden="true">
@@ -463,14 +458,9 @@ const ShowcaseVariantSection: React.FC<{
             <div className={introShellClassName}>
               <div className="pointer-events-none absolute inset-x-[14%] top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(148,163,184,0.36),transparent)]" aria-hidden="true" />
               <div className="relative z-10 space-y-5 sm:space-y-6">
-                <div className="flex flex-wrap items-center justify-center gap-3">
                   <p className={themeClasses.webEyebrow}>
                     <ASCIIText text={`// ${variant.chip.toUpperCase().replace(/ /g, '_')}`} noWrap={false} enableHover={false} />
                   </p>
-                  <span className={pillClassName}>
-                    <span className="mono text-[11px] uppercase tracking-[0.22em] text-slate-500">{variant.label}</span>
-                  </span>
-                </div>
 
                 <div className="mx-auto max-w-3xl space-y-4">
                   <h2 id={`showcase-variant-${variant.id}`} className={`${headingClassName} mx-auto max-w-[15ch] text-center`}>
@@ -483,15 +473,15 @@ const ShowcaseVariantSection: React.FC<{
 
                 <div className="grid gap-3 text-left sm:grid-cols-2">
                   <div className={introMetaCardClassName}>
-                    <p className={themeClasses.webEyebrow}>Vier reale Projekte</p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      Inhalt und Projektlinks bleiben identisch, damit nur die Inszenierung verglichen wird.
+                    <p className={themeClasses.webEyebrow}>Reale Performance</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                      Keine Demo-Daten: Alle Cases sind optimiert für den produktiven Einsatz und echtes Ranking.
                     </p>
                   </div>
                   <div className={introMetaCardClassName}>
-                    <p className={themeClasses.webEyebrow}>Kuratiertes Lesen</p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                      Intro und Cases teilen dieselbe Glaslogik, sodass der obere Einstieg wie der Auftakt zur Galerie wirkt.
+                    <p className={themeClasses.webEyebrow}>Direkte Umsetzung</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                      Von der ersten Struktur bis zum kostenlosen Hosting übernehme ich den kompletten Prozess.
                     </p>
                   </div>
                 </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Activity, Clock3, Terminal, Zap, Shield, Globe, Cpu, ArrowRight, Mail, Phone } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
-import PricingAsciiBox from './PricingAsciiBox';
+import ArchitectureExhibition from './ArchitectureExhibition';
 import WebdesignProjectShowcase from './WebdesignProjectShowcase';
 import { themeClasses } from './themeClasses';
 
@@ -42,7 +42,6 @@ const WebdesignLandingPage: React.FC = () => {
     <div className="relative min-h-screen overflow-x-hidden bg-[linear-gradient(180deg,#eef3fb_0%,#edf4fb_52%,#f4f7fc_100%)] pt-16 font-sans text-[#0f172a] selection:bg-blue-100 selection:text-blue-900 sm:pt-18">
       
       {/* Ambient Fullscreen Background */}
-      <PixelCanvas colors={['#2563eb', '#3b82f6', '#38bdf8', '#6366f1', '#93c5fd']} density={0.2} gap={10} speed={26} ambient={true} noFocus={true} fixed={true} />
 
       {/* Navigation matching original style */}
       <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b border-white/50 bg-[linear-gradient(180deg,rgba(248,251,255,0.74),rgba(239,244,252,0.56))] px-5 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-[14px] sm:px-6">
@@ -107,11 +106,10 @@ const WebdesignLandingPage: React.FC = () => {
 
             {/* "HIRING SNAPSHOT" EQUIVALENT: OFFER SNAPSHOT */}
             <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }} className={`relative z-10 mt-6 w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-10 sm:rounded-[1.4rem] sm:px-6 sm:py-7 ${themeClasses.webPanel}`}>
-              <PixelCanvas colors={['#dbeafe', '#93c5fd', '#60a5fa']} density={0.16} gap={8} speed={22} />
-              
+              <PixelCanvas colors={['#dbeafe', '#93c5fd', '#3b82f6']} gap={4} speed={34} className="opacity-[0.54]" />
               <div className="relative z-10">
                 <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                  <ASCIIText text="// KONDITIONEN_SNAPSHOT" />
+                  <ASCIIText text="// LEISTUNGS_PAKET" />
                 </div>
                 <div className="grid grid-cols-1 items-start gap-4 text-left sm:gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
                   <div className={`space-y-4 rounded-[1rem] px-4 py-4 sm:rounded-[1.15rem] sm:px-6 sm:py-6 ${themeClasses.webPanelSoft}`}>
@@ -159,13 +157,13 @@ const WebdesignLandingPage: React.FC = () => {
                 </div>
               </div>
             </motion.div>
-
+            
             {/* "TOOLING STACK" EQUIVALENT: TECHNICAL SPECS */}
             <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className={`relative z-10 mt-6 w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-10 sm:rounded-[1.4rem] sm:px-6 sm:py-7 ${themeClasses.webPanel}`}>
-              <PixelCanvas colors={['#dbeafe', '#bfdbfe', '#a5f3fc', '#c7d2fe']} density={0.14} gap={8} speed={18} />
+              <PixelCanvas colors={['#e0f2fe', '#7dd3fc', '#0ea5e9']} gap={5} speed={34} className="opacity-[0.54]" />
               <div className="relative z-10">
                 <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                  <ASCIIText text="// TECHNICAL_SPECS" />
+                  <ASCIIText text="// TECHNIK_CHECK" />
                 </div>
                 <ul className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-x-4 sm:gap-y-3 md:gap-x-5" aria-label="Technische Merkmale der angebotenen Webdesign-Leistung">
                   {technicalSpecs.map((tech) => (
@@ -179,10 +177,12 @@ const WebdesignLandingPage: React.FC = () => {
             </motion.div>
             
             {/* "QUICK RECRUITER ACCESS" EQUIVALENT: CTA ROW */}
-            <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }} className={`relative z-10 mt-6 w-full max-w-4xl rounded-[1.25rem] px-4 py-5 sm:mt-10 sm:rounded-[1.4rem] sm:px-6 sm:py-7 ${themeClasses.webPanel}`}>
-              <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                  <ASCIIText text="// DIREKT_ANFRAGEN" />
-              </div>
+            <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }} className={`relative z-10 mt-6 w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-10 sm:rounded-[1.4rem] sm:px-6 sm:py-7 ${themeClasses.webPanel}`}>
+              <PixelCanvas colors={['#dcfce7', '#86efac', '#10b981']} gap={4} speed={34} className="opacity-[0.54]" />
+              <div className="relative z-10">
+                <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
+                    <ASCIIText text="// JETZT_ANFRAGEN" />
+                </div>
               <div className="grid grid-cols-1 gap-3 text-left sm:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] sm:gap-4">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} rounded-[1rem] px-4 py-4`}>
                       <Mail className="w-4 h-4 text-white" />
@@ -193,41 +193,59 @@ const WebdesignLandingPage: React.FC = () => {
                      <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>+49 163 3229892</span>
                   </a>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* THE VALIDATOR 3000 BOX & TEXT BLOCKS */}
+            {/* THE PROCESS & VARIANT BOX */}
             <div className="relative z-10 mt-14 grid w-full grid-cols-1 gap-6 border-t border-blue-200/80 pt-8 text-left sm:mt-16 sm:gap-8 sm:pt-10 lg:grid-cols-3">
-              <div className="space-y-8 sm:space-y-10 lg:col-span-2">
-                <div className="space-y-3">
-                  <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
-                    <Clock3 aria-hidden="true" className="h-3.5 w-3.5" /> <ASCIIText text="01 / EIN KURZES GESPRÄCH" noWrap={false} />
+              <div className={`relative overflow-hidden rounded-[1.25rem] px-5 py-6 sm:rounded-[1.4rem] sm:px-7 sm:py-8 lg:col-span-2 ${themeClasses.webPanel}`}>
+                <PixelCanvas colors={['#e0e7ff', '#a5b4fc', '#4f46e5']} gap={4} speed={34} noFocus className="opacity-[0.54]" />
+                
+                <div className="relative z-10">
+                  <div className="mb-8 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
+                    <ASCIIText text="// DER_ABLAUF" />
                   </div>
-                  <p className="max-w-[60ch] text-base font-medium leading-7 text-slate-700 sm:text-lg sm:leading-8">
-                    Sie sagen kurz, was Ihr Unternehmen braucht. Ich übersetze das in eine klare Seitenstruktur – ohne Fachbegriffe und ohne komplizierte Fragebögen.
-                  </p>
-                </div>
-                <div className="space-y-3">
-                  <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
-                    <Activity aria-hidden="true" className="h-3.5 w-3.5" /> <ASCIIText text="02 / ICH BAUE DIE SEITE" noWrap={false} />
+                  
+                  <div className="grid grid-cols-1 gap-4 sm:gap-6">
+                    <div className={`group relative overflow-hidden flex flex-col justify-between space-y-3 rounded-[1.1rem] p-5 transition-all duration-300 ${themeClasses.webCard}`}>
+                      <div className="relative z-10 space-y-3">
+                        <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
+                          <Clock3 aria-hidden="true" className="h-4 w-4" /> <ASCIIText text="01 / DIALOG" />
+                        </div>
+                        <p className="text-base leading-7 text-slate-700 sm:text-[17px] sm:leading-8">
+                          Sie sagen kurz, was Ihr Unternehmen braucht. Ich übersetze das in eine klare Seitenstruktur – ohne Fachbegriffe und ohne komplizierte Fragebögen.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className={`group relative overflow-hidden flex flex-col justify-between space-y-3 rounded-[1.1rem] p-5 transition-all duration-300 ${themeClasses.webCard}`}>
+                      <div className="relative z-10 space-y-3">
+                        <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
+                          <Activity aria-hidden="true" className="h-4 w-4" /> <ASCIIText text="02 / KONZEPT" />
+                        </div>
+                        <p className="text-base leading-7 text-slate-700 sm:text-[17px] sm:leading-8">
+                          Ein interaktiver Entwurf macht die Vision greifbar. Wir klären Texte und Design, bevor eine einzige Zeile Code für die finale Seite geschrieben wird.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className={`group relative overflow-hidden flex flex-col justify-between space-y-3 rounded-[1.1rem] p-5 transition-all duration-300 border-blue-200 bg-blue-50/20 ${themeClasses.webCard}`}>
+                      <div className="relative z-10 space-y-3">
+                        <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
+                          <Zap aria-hidden="true" className="h-4 w-4" /> <ASCIIText text="03 / UMSETZUNG" />
+                        </div>
+                        <p className="text-base leading-7 text-slate-700 sm:text-[17px] sm:leading-8">
+                          Sauberer Code, optimiert für Google & Mobile. Pünktliche Übergabe inklusive Dokumentation – keine Folgekosten, kein Vendor-Lock-in.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="max-w-[60ch] text-base font-medium leading-7 text-slate-700 sm:text-lg sm:leading-8">
-                    Ich baue Texte, Struktur, Design und mobile Ansicht so, dass Ihre Seite seriös wirkt, schnell lädt und für Kunden sofort verständlich ist.
-                  </p>
-                </div>
-                <div className="space-y-3">
-                  <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
-                    <Zap aria-hidden="true" className="h-3.5 w-3.5" /> <ASCIIText text="03 / LIVE GEHEN & FERTIG" noWrap={false} />
-                  </div>
-                  <p className="max-w-[60ch] text-base font-medium leading-7 text-slate-700 sm:text-lg sm:leading-8">
-                    Nach der Freigabe geht Ihre Seite live. Sie zahlen einmalig und haben keine laufenden Servicekosten oder versteckten Vertragsmodelle.
-                  </p>
                 </div>
               </div>
 
-              {/* Eye-Catcher integration into the standard grid */}
-              <div className={`relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[1.15rem] sm:min-h-[340px] sm:rounded-[1.3rem] lg:col-span-1 ${themeClasses.webPanelSoft}`}>
-                <PixelCanvas colors={['#93c5fd', '#60a5fa']} density={0.1} gap={8} />
-                <PricingAsciiBox />
+              {/* Architecture Exhibition Area */}
+              <div className="lg:col-span-1 h-full min-h-[400px]">
+                <ArchitectureExhibition />
               </div>
             </div>
 
