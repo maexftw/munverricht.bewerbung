@@ -38,11 +38,10 @@ const App: React.FC = () => {
   if (isWebdesignLandingPage) {
     return (
       <ThemeProvider forcedTheme="light">
-        <div className="relative min-h-screen overflow-hidden bg-[linear-gradient(180deg,#eef3fb_0%,#edf4fb_52%,#f4f7fc_100%)]">
-          <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.14)_0%,rgba(125,211,252,0.08)_22%,transparent_54%)]" />
-          <div className="fixed inset-x-0 top-[16vh] h-[44vh] pointer-events-none z-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.14)_0%,rgba(96,165,250,0.07)_28%,transparent_72%)]" />
-          <div className="fixed bottom-0 left-0 right-0 h-[38vh] pointer-events-none z-0 bg-[linear-gradient(to_top,rgba(14,165,233,0.12),rgba(59,130,246,0.05),transparent_74%)]" />
-          <CodeAmbientBackground canvasOpacity={0.3} />
+        <div className={`relative min-h-screen overflow-hidden ${themeClasses.webPageShell}`} data-route-theme="light">
+          <div className={`fixed inset-0 z-0 pointer-events-none ${themeClasses.webAmbientTop}`} />
+          <div className={`fixed inset-x-0 top-[16vh] z-0 h-[44vh] pointer-events-none ${themeClasses.webAmbientCenter}`} />
+          <div className={`fixed bottom-0 left-0 right-0 z-0 h-[38vh] pointer-events-none ${themeClasses.webAmbientBottom}`} />
           <WebdesignLandingPage />
         </div>
       </ThemeProvider>

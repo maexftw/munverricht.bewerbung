@@ -43,12 +43,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode; forcedTheme?: 
 
     if (activeTheme === 'dark') {
       document.documentElement.classList.add('dark');
-      document.documentElement.style.setProperty('--bg-color', '#050505');
-      document.documentElement.style.setProperty('--text-color', '#e5e5e5');
     } else {
       document.documentElement.classList.remove('dark');
-      document.documentElement.style.setProperty('--bg-color', '#ffffff');
-      document.documentElement.style.setProperty('--text-color', '#000000');
     }
     
     // Save theme preference

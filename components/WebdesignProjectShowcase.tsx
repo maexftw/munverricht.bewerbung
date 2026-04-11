@@ -537,8 +537,8 @@ const ShowcaseVariantSection: React.FC<{
 const WebdesignProjectShowcase: React.FC = () => {
   return (
     <section id="webdesign-project-showcase" className="relative scroll-mt-28 py-12 sm:py-16 lg:py-20">
-      <div className="absolute left-[4%] top-12 hidden h-32 w-32 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
-      <div className="absolute right-[3%] top-20 hidden h-44 w-44 rounded-full bg-cyan-100/65 blur-3xl lg:block" aria-hidden="true" />
+      <div className="absolute left-[5%] top-14 hidden h-24 w-24 rounded-full bg-blue-100/28 blur-[84px] lg:block" aria-hidden="true" />
+      <div className="absolute right-[4%] top-20 hidden h-32 w-32 rounded-full bg-sky-100/22 blur-[96px] lg:block" aria-hidden="true" />
 
       <div className="relative z-10 space-y-8 lg:space-y-10">
         {showcaseVariants.map((variant, index) => (
