@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 
+interface CodeAmbientBackgroundProps {
+  canvasOpacity?: number;
+}
+
 type SideRow = {
   y: number;
   speed: number;
@@ -31,7 +35,7 @@ const createAsciiLine = (length: number) => {
   return out;
 };
 
-const CodeAmbientBackground: React.FC = () => {
+const CodeAmbientBackground: React.FC<CodeAmbientBackgroundProps> = ({ canvasOpacity }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
 
@@ -453,7 +457,7 @@ const CodeAmbientBackground: React.FC = () => {
 
   return (
     <div id="code-ambient-canvas-container" aria-hidden="true">
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} style={canvasOpacity !== undefined ? { opacity: canvasOpacity } : undefined} />
     </div>
   );
 };
