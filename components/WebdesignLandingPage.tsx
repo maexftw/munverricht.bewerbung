@@ -46,7 +46,7 @@ const processSteps = [
     iconClassName: 'text-blue-600',
     accentClassName: 'from-blue-500/18 via-blue-200/12 to-transparent',
     description:
-      'Sie sagen kurz, was Ihr Unternehmen braucht. Ich übersetze das in eine klare Seitenstruktur - ohne Fachbegriffe und ohne komplizierte Fragebögen.'
+      'Sie sagen mir kurz, was Sie anbieten und wen Sie erreichen wollen. Ich erstelle daraus ein klares Konzept, ganz ohne Fachbegriffe.'
   },
   {
     id: '02',
@@ -55,7 +55,7 @@ const processSteps = [
     iconClassName: 'text-sky-500',
     accentClassName: 'from-sky-500/16 via-sky-200/10 to-transparent',
     description:
-      'Ein interaktiver Entwurf macht die Vision greifbar. Wir klären Texte und Design, bevor eine einzige Zeile Code für die finale Seite geschrieben wird.'
+      'Sie erhalten einen klickbaren, unverbindlichen Entwurf. Wir klaeren Aufbau, Texte und Design, bevor die eigentliche Website gebaut wird.'
   },
   {
     id: '03',
@@ -64,7 +64,7 @@ const processSteps = [
     iconClassName: 'text-white',
     accentClassName: 'from-blue-500/18 via-emerald-200/10 to-transparent',
     description:
-      'Sauberer Code, optimiert für Google und Mobile. Pünktliche Übergabe inklusive Dokumentation - keine Folgekosten, kein Vendor-Lock-in.',
+      'Wenn alles passt, setze ich die Seite sauber im Code um und veroeffentliche sie. Sind alle Inhalte da, sind Sie oft schon in 2 bis 14 Tagen online.',
     isFinal: true
   }
 ];
@@ -85,7 +85,7 @@ const WebdesignLandingPage: React.FC = () => {
 
       <nav className={`fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-5 py-4 sm:px-6 ${themeClasses.webNavShell}`}>
         <a href="/" aria-label="Zur Startseite von munverricht.org" className="group inline-flex min-h-11 items-center gap-2 rounded-full px-2 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#eef3fb] sm:px-2.5">
-          <ASCIIText text="munverricht" className="mono text-sm font-semibold lowercase tracking-tight text-slate-800" />
+          <ASCIIText text="munverricht" className="mono text-sm font-semibold lowercase tracking-tight text-slate-800" revealOnMount={false} />
           <span className="mono text-sm font-semibold text-blue-600">.org</span>
         </a>
         <div className="flex items-center gap-4 sm:gap-6">
@@ -109,11 +109,11 @@ const WebdesignLandingPage: React.FC = () => {
                 transition={shouldReduceMotion ? undefined : { duration: 0.8, ease: 'easeOut' }}
                 className="relative flex w-full flex-col items-center"
               >
-                <ASCIIText as="h2" text="WEBDESIGN & DELIVERY // FÜR HANDWERKER, PRAXEN & KMU" className="mb-4 text-center mono text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.3em]" noWrap={false} enableHover={false} />
+                <ASCIIText as="h2" text="WEBDESIGN FÜR HANDWERKER, PRAXEN & KMU" className="mb-4 text-center mono text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.3em]" noWrap={false} enableHover={false} revealOnMount={false} />
                 <h1 className="mb-6 max-w-[11ch] text-balance text-[2.65rem] font-bold uppercase leading-[0.96] tracking-[0.028em] text-slate-900 sm:mb-8 sm:max-w-[12ch] sm:text-5xl md:text-7xl lg:text-[5.35rem]">
-                  <ASCIIText as="span" text="PROFI-WEBSEITE" className="text-slate-900" noWrap={false} enableHover={false} />
+                  <ASCIIText as="span" text="PROFI-WEBSEITE" className="text-slate-900" noWrap={false} enableHover={false} revealOnMount={false} />
                   {' '}
-                  <ASCIIText as="span" text="AB 300 €" className="text-blue-600" noWrap={false} enableHover={false} />
+                  <ASCIIText as="span" text="AB 300 €" className="text-blue-600" noWrap={false} enableHover={false} revealOnMount={false} />
                 </h1>
               </motion.div>
 
@@ -127,7 +127,8 @@ const WebdesignLandingPage: React.FC = () => {
                   as="span"
                   noWrap={false}
                   enableHover={false}
-                  text="Klare Firmenwebsite statt Agentur-Gerede. Einmal zahlen, online gehen und erreichbar sein. Ich baue Ihre Seite, hoste sie kostenlos und halte sie technisch sauber - schnell, modern und DSGVO-konform."
+                  revealOnMount={false}
+                  text="Sie brauchen eine serioese Unternehmensseite, haben aber keine Zeit fuer lange Frageboegen und wollen nicht in teuren Agentur-Abos feststecken? Ich baue Ihre Seite, veroeffentliche sie und halte sie technisch sauber. Einmal zahlen, online gehen und fuer Ihre Kunden erreichbar sein."
                 />
               </motion.p>
 
@@ -141,7 +142,7 @@ const WebdesignLandingPage: React.FC = () => {
                 <span className="h-1 w-1 rounded-full bg-blue-300" />
                 <span className={`${themeClasses.webMeta} text-slate-500`}>Kein Abo</span>
                 <span className="h-1 w-1 rounded-full bg-blue-300" />
-                <span className={`${themeClasses.webMeta} text-slate-500`}>Hosting inklusive</span>
+                <span className={`${themeClasses.webMeta} text-slate-500`}>Keine Folgekosten</span>
               </motion.div>
 
               <motion.div
@@ -152,7 +153,7 @@ const WebdesignLandingPage: React.FC = () => {
               >
                 <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} flex-1`}>
                   <Mail aria-hidden="true" className="h-4 w-4 text-white" />
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlose Ersteinschätzung anfragen</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Jetzt unverbindlich per Mail anfragen</span>
                 </a>
                 <a href="tel:+491633229892" className={themeClasses.webButtonSecondary}>
                   <Phone aria-hidden="true" className="h-4 w-4 text-blue-600" />
@@ -170,18 +171,18 @@ const WebdesignLandingPage: React.FC = () => {
               <PixelCanvas colors={['#e9f1fb', '#c7dcf6', '#7ca7dc']} gap={5} speed={28} className="opacity-[0.26]" />
               <div className="relative z-10">
                 <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                  <ASCIIText text="// LEISTUNGS_PAKET" />
+                  <ASCIIText text="// IHRE_VORTEILE" enableHover={false} revealOnMount={false} />
                 </div>
                 <div className="grid grid-cols-1 items-start gap-4 text-left sm:gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
                   <div className="space-y-4 border-l border-blue-200/80 pl-4 sm:pl-6">
                     <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
                       <Terminal aria-hidden="true" className="h-3.5 w-3.5" />
-                      Ihr Angebot auf einen Blick
+                      Ihre Vorteile auf einen Blick
                     </div>
                     <div className="space-y-2">
-                      <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">300-400 € einmalig</p>
+                      <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">Ab 300 € einmalig</p>
                       <p className="max-w-[34ch] text-sm leading-relaxed text-slate-600 sm:text-base">
-                        Sie bekommen eine seriöse Unternehmensseite ohne Abo, ohne langfristige Bindung und ohne laufende Technik-Kosten.
+                        Sie bekommen eine serioese Unternehmensseite ohne Abo, ohne langfristige Bindung und ohne laufende Technik-Kosten.
                       </p>
                     </div>
                   </div>
@@ -201,7 +202,7 @@ const WebdesignLandingPage: React.FC = () => {
                         <Activity aria-hidden="true" className="mt-0.5 h-4 w-4 text-sky-500" />
                         <div>
                           <p className={`${technicalSpecMetaClassName} text-blue-600`}>Wartung</p>
-                          <p className="text-sm font-semibold text-slate-900">ohne monatliche Zusatzkosten</p>
+                          <p className="text-sm font-semibold text-slate-900">keine monatlichen Wartungsvertraege</p>
                         </div>
                       </div>
                     </div>
@@ -210,7 +211,7 @@ const WebdesignLandingPage: React.FC = () => {
                         <Zap aria-hidden="true" className="mt-0.5 h-4 w-4 text-indigo-500" />
                         <div>
                           <p className={`${technicalSpecMetaClassName} text-blue-600`}>Entwurf</p>
-                          <p className="text-sm font-semibold text-slate-900">vorab unverbindlich</p>
+                          <p className="text-sm font-semibold text-slate-900">klickbar und unverbindlich</p>
                         </div>
                       </div>
                     </div>
@@ -228,10 +229,10 @@ const WebdesignLandingPage: React.FC = () => {
               <div className="grid grid-cols-1 items-start gap-4 text-left sm:gap-5 lg:grid-cols-[minmax(0,13rem)_minmax(0,1fr)]">
                 <div className="space-y-2">
                   <div className="text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                    <ASCIIText text="// TECHNIK_CHECK" />
+                    <ASCIIText text="// TECHNIK_CHECK" enableHover={false} revealOnMount={false} />
                   </div>
                   <p className="max-w-[22ch] text-sm leading-relaxed text-slate-600 sm:text-[15px] sm:leading-7">
-                    Wichtige Standards auf einen Blick: schnell, gut auffindbar und für den Alltag Ihres Unternehmens gebaut.
+                    Sofort einsatzbereit: schnell geladen, DSGVO-konform und mobil optimiert.
                   </p>
                 </div>
                 <ul className="flex flex-wrap items-center gap-2.5 sm:gap-x-4 sm:gap-y-3 md:gap-x-5" aria-label="Technische Merkmale der angebotenen Webdesign-Leistung">
@@ -249,20 +250,20 @@ const WebdesignLandingPage: React.FC = () => {
               initial={shouldReduceMotion ? false : { y: 20, opacity: 0 }}
               animate={shouldReduceMotion ? undefined : { y: 0, opacity: 1 }}
               transition={shouldReduceMotion ? undefined : { duration: 0.5, delay: 0.5 }}
-              className="relative z-10 mt-6 w-full max-w-4xl overflow-hidden rounded-[1.35rem] border border-emerald-100/80 bg-[linear-gradient(135deg,rgba(245,251,247,0.94),rgba(255,255,255,0.92))] px-4 py-5 shadow-[0_14px_30px_rgba(16,185,129,0.05),inset_0_1px_0_rgba(255,255,255,0.9)] sm:mt-10 sm:px-6 sm:py-6"
+              className={`relative z-10 mt-6 w-full max-w-4xl overflow-hidden rounded-[1.35rem] px-4 py-5 sm:mt-10 sm:px-6 sm:py-6 ${themeClasses.webPanelSoft}`}
             >
-              <div className="absolute inset-y-0 left-0 w-1 rounded-full bg-[linear-gradient(180deg,rgba(16,185,129,0.6),rgba(59,130,246,0.34))]" aria-hidden="true" />
+              <div className="absolute inset-y-0 left-0 w-1 rounded-full bg-[linear-gradient(180deg,rgba(59,130,246,0.5),rgba(16,185,129,0.28))]" aria-hidden="true" />
               <div className="relative z-10 pl-2 sm:pl-3">
                 <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-700">
-                  <ASCIIText text="// UNKOMPLIZIERT_STARTEN" />
+                  <ASCIIText text="// UNKOMPLIZIERT_STARTEN" enableHover={false} revealOnMount={false} />
                 </div>
                 <div className="grid grid-cols-1 gap-3 text-left sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-center sm:gap-4">
                   <p className="max-w-[32ch] text-sm leading-relaxed text-slate-700 sm:text-[15px] sm:leading-7">
-                    Wenn Sie noch unsicher sind, reicht eine kurze Nachricht. Sie bekommen eine ehrliche Einschätzung, einen realistischen Preisrahmen und keinen Verkaufsdruck.
+                    Sie erhalten von mir kein draengendes Verkaufsgespraech, sondern eine ehrliche Einschaetzung und einen realistischen Rahmen fuer Ihr Projekt.
                   </p>
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} rounded-[1rem] px-4 py-4`}>
                     <Mail aria-hidden="true" className="h-4 w-4 text-white" />
-                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Unverbindlich per Mail anfragen</span>
+                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlosen Entwurf per Mail anfragen</span>
                   </a>
                   <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} rounded-[1rem] px-4 py-4`}>
                     <Phone aria-hidden="true" className="h-4 w-4 text-blue-600" />
@@ -278,7 +279,7 @@ const WebdesignLandingPage: React.FC = () => {
 
                 <div className="relative z-10">
                   <div className="mb-8 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                    <ASCIIText text="// DER_ABLAUF" />
+                    <ASCIIText text="// DER_ABLAUF" enableHover={false} revealOnMount={false} />
                   </div>
 
                   <div className="relative grid grid-cols-1 gap-3.5 sm:gap-4.5">
@@ -310,7 +311,7 @@ const WebdesignLandingPage: React.FC = () => {
                             <div className="space-y-3">
                               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
                                 <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
-                                  <ASCIIText text={`${step.id} / ${step.label}`} />
+                                  <ASCIIText text={`${step.id} / ${step.label}`} enableHover={false} revealOnMount={false} />
                                 </div>
                                 <span className="inline-flex rounded-full border border-blue-100/80 bg-white/68 px-2.5 py-1 mono text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.82)]">
                                   {step.isFinal ? 'Launch-ready' : 'Nächster Schritt'}

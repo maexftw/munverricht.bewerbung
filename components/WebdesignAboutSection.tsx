@@ -32,9 +32,9 @@ const trustFacts = [
 ];
 
 const workingPoints = [
-  'Direkter Kontakt statt Projektmanager-Kette.',
-  'Klares Design, saubere Technik und reale Launch-Erfahrung.',
-  'Ich denke nicht nur in Layouts, sondern auch in Anfrage, Sichtbarkeit und Pflege im Alltag.',
+  'Direkter Kontakt mit der Person, die alles umsetzt.',
+  'Keine Platzhalter und keine Design-Dummys, sondern echte Websites fuer den Unternehmensalltag.',
+  'Das macht den Prozess schneller, klarer und meist guenstiger als eine klassische Agenturstrecke.',
 ];
 
 const WebdesignAboutSection: React.FC = () => {
@@ -47,7 +47,7 @@ const WebdesignAboutSection: React.FC = () => {
         <div className="space-y-6">
           <div className="space-y-4">
             <p className={themeClasses.webEyebrow}>
-              <ASCIIText text="// PERSON_HINTER_DER_SEITE" noWrap={false} enableHover={false} />
+              <ASCIIText text="// PERSON_HINTER_DER_SEITE" noWrap={false} enableHover={false} revealOnMount={false} />
             </p>
             <h2 className="max-w-[11ch] text-balance text-[2.4rem] font-bold uppercase leading-[0.94] tracking-[0.03em] text-slate-900 sm:text-5xl lg:text-[4.15rem]">
               Die Person,
@@ -55,17 +55,17 @@ const WebdesignAboutSection: React.FC = () => {
               die Ihre Website baut.
             </h2>
             <p className="max-w-[35ch] text-base leading-7 text-slate-600 sm:text-[1.04rem] sm:leading-8">
-              Ich bin Maximilian Unverricht. Seit ueber 12 Jahren arbeite ich praktisch an Webdesign, Marketing und digitalen
-              Auftritten fuer Unternehmen. Heute baue ich Seiten direkt im Code, schnell genug fuer kleine Betriebe und sauber
-              genug fuer den echten Live-Betrieb.
+              Ich bin Maximilian Unverricht. Seit ueber 12 Jahren arbeite ich an digitalen Auftritten fuer Unternehmen. Heute
+              baue ich Websites direkt im Code: schnell genug fuer kleine Betriebe und sauber genug fuer den echten
+              Live-Betrieb.
             </p>
           </div>
 
           <div className={`rounded-[1.35rem] p-5 sm:p-6 ${themeClasses.webPanelSoft}`}>
             <p className={`${themeClasses.webMeta} text-blue-600`}>Warum das fuer Sie relevant ist</p>
             <p className="mt-3 max-w-[42ch] text-[1.02rem] leading-7 text-slate-700">
-              Sie kaufen hier keine anonyme Agenturstrecke. Sie sprechen direkt mit der Person, die Konzept, Design, Umsetzung
-              und Veroeffentlichung wirklich macht. Dadurch bleibt der Prozess einfacher, ehrlicher und guenstiger.
+              Sie sprechen direkt mit der Person, die Konzept, Design, Umsetzung und Veroeffentlichung uebernimmt. Dadurch
+              bleibt der Prozess klar, schnell und ohne unnötige Schleifen.
             </p>
           </div>
 
@@ -102,11 +102,10 @@ const WebdesignAboutSection: React.FC = () => {
             alt="Portrait von Maximilian Unverricht"
             className="aspect-[4/5] min-h-[420px] sm:min-h-[520px]"
           />
-          <div className="absolute inset-x-5 bottom-5 z-30 rounded-[1.15rem] border border-white/72 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(239,246,255,0.76))] px-4 py-4 shadow-[0_16px_36px_rgba(15,23,42,0.08)] backdrop-blur-[12px] sm:inset-x-6 sm:bottom-6 sm:px-5">
+          <div className={`absolute inset-x-5 bottom-5 z-30 rounded-[1.15rem] px-4 py-4 sm:inset-x-6 sm:bottom-6 sm:px-5 ${themeClasses.webCard}`}>
             <p className={`${themeClasses.webMeta} text-blue-600`}>Direkt, erreichbar, ohne Agenturfilter</p>
             <p className="mt-2 max-w-[28ch] text-sm leading-relaxed text-slate-700 sm:text-[0.96rem]">
-              Die Partikel sammeln sich zu einem Bild und reagieren auf Ihre Bewegung. Genau das ist die Idee fuer diese Seite:
-              technisch praesent, aber nicht beliebig.
+              Die Animation bleibt bewusst dezent. Sie bringt Bewegung in die Seite, ohne die eigentlichen Inhalte zu stoeren.
             </p>
           </div>
         </div>

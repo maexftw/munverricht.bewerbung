@@ -12,14 +12,14 @@ const WebdesignClosingSection: React.FC = () => {
         <div className="relative z-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div className="space-y-5">
             <p className={themeClasses.webEyebrow}>
-              <ASCIIText text="// LETZTER_SCHRITT" noWrap={false} enableHover={false} />
+              <ASCIIText text="// LETZTER_SCHRITT" noWrap={false} enableHover={false} revealOnMount={false} />
             </p>
             <h2 className="max-w-[12ch] text-balance text-[2.45rem] font-bold uppercase leading-[0.95] tracking-[0.03em] text-slate-900 sm:text-5xl lg:text-[4rem]">
-              Eine kurze Nachricht reicht.
+              Lassen Sie uns starten.
             </h2>
             <p className="max-w-[40ch] text-base leading-7 text-slate-600 sm:text-[1.04rem] sm:leading-8">
-              Wenn Sie wissen wollen, ob die Website fuer Ihr Unternehmen sinnvoll ist, schreiben Sie einfach kurz. Sie bekommen
-              eine ehrliche Einschaetzung, einen realistischen Rahmen und keinen Agenturtrichter.
+              Sie erhalten von mir kein draengendes Verkaufsgespraech, sondern eine ehrliche Einschaetzung und einen
+              realistischen Rahmen fuer Ihr Projekt.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2.5">
@@ -34,7 +34,7 @@ const WebdesignClosingSection: React.FC = () => {
           <div className="grid gap-3 sm:min-w-[19rem]">
             <a href="mailto:info@graphiks.de" className={themeClasses.webButtonPrimary}>
               <Mail aria-hidden="true" className="h-4 w-4 text-white" />
-              <span className={`${themeClasses.webMeta} font-bold text-white`}>info@graphiks.de</span>
+              <span className={`${themeClasses.webMeta} font-bold text-white`}>Jetzt unverbindlich per Mail anfragen</span>
             </a>
             <a href="tel:+491633229892" className={themeClasses.webButtonSecondary}>
               <Phone aria-hidden="true" className="h-4 w-4 text-blue-600" />
@@ -44,7 +44,7 @@ const WebdesignClosingSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 rounded-[1.35rem] border border-white/70 bg-white/62 px-5 py-5 shadow-[0_14px_36px_rgba(15,23,42,0.05),inset_0_1px_0_rgba(255,255,255,0.84)] backdrop-blur-[16px] sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+      <div className={`mt-6 grid gap-4 rounded-[1.35rem] px-5 py-5 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center ${themeClasses.webPanelSoft}`}>
         <div className="space-y-2">
           <p className={`${themeClasses.webMeta} text-blue-600`}>Impressum & Datenschutz</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm leading-relaxed text-slate-600">
