@@ -1,34 +1,29 @@
 import React, { useEffect, useRef } from 'react';
 
-type Cluster = {
-  x: number;
-  y: number;
-  chars: string[];
-  opacity: number;
-  speed: number;
-  life: number;
-  maxLife: number;
-};
-
-type CodeParticle = {
+type StreamItem = {
   x: number;
   y: number;
   text: string;
   speed: number;
   alpha: number;
+  lane: 'left' | 'right';
 };
 
-const GLYPHS = '.:+-=*#[]{}()/\\|_';
-const CODE_SNIPPETS = [
+const STREAM_SNIPPETS = [
   'const site = create()',
-  'optimize(assets)',
   'deploy(production)',
-  'SEO_STATUS: OK',
-  'MOBILE_READY',
-  '200_SUCCESS',
-  'grid-layout: active',
-  'interface.render()',
-  'system.init()'
+  'render(layout)',
+  'cta.visible = true',
+  'seo.status = "ok"',
+  'grid-template-columns',
+  'requestAnimationFrame(loop)',
+  'content.visibility = true',
+  'launch.ready = true',
+  '<section id="about">',
+  'direct.contact()',
+  'transition: opacity 460ms',
+  'performance.stable = true',
+  'design -> code -> launch',
 ];
 
 const WebAmbientBackground: React.FC = () => {
@@ -45,12 +40,30 @@ const WebAmbientBackground: React.FC = () => {
     let width = 0;
     let height = 0;
     let dpr = 1;
-    let clusters: Cluster[] = [];
-    let particles: CodeParticle[] = [];
-    let frame = 0;
+    let streams: StreamItem[] = [];
+
+    const createStream = (lane: 'left' | 'right', y?: number): StreamItem => {
+      const baseX = lane === 'left' ? width * 0.05 : width * 0.77;
+      const spread = width * 0.15;
+
+      return {
+        x: baseX + Math.random() * spread,
+        y: y ?? Math.random() * height,
+        text: STREAM_SNIPPETS[Math.floor(Math.random() * STREAM_SNIPPETS.length)],
+        speed: Math.random() * 0.22 + 0.08,
+        alpha: Math.random() * 0.16 + 0.16,
+        lane,
+      };
+    };
+
+    const populateStreams = () => {
+      streams = [];
+      for (let i = 0; i < 22; i++) streams.push(createStream('left'));
+      for (let i = 0; i < 22; i++) streams.push(createStream('right'));
+    };
 
     const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = Math.floor(width * dpr);
@@ -58,95 +71,46 @@ const WebAmbientBackground: React.FC = () => {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      populateStreams();
     };
 
-    const createCluster = (x?: number, y?: number): Cluster => {
-      const maxLife = Math.random() * 100 + 50;
-      return {
-        x: x ?? Math.random() * width,
-        y: y ?? Math.random() * height,
-        chars: Array.from({ length: 4 }, () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]),
-        opacity: Math.random() * 0.4 + 0.1,
-        speed: Math.random() * 0.5 + 0.1,
-        life: maxLife,
-        maxLife: maxLife
-      };
-    };
+    const drawLanes = () => {
+      const left = ctx.createLinearGradient(0, 0, width * 0.34, 0);
+      left.addColorStop(0, 'rgba(37,99,235,0.11)');
+      left.addColorStop(0.35, 'rgba(37,99,235,0.045)');
+      left.addColorStop(1, 'rgba(37,99,235,0)');
+      ctx.fillStyle = left;
+      ctx.fillRect(0, 0, width * 0.36, height);
 
-    const createParticle = (): CodeParticle => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      text: CODE_SNIPPETS[Math.floor(Math.random() * CODE_SNIPPETS.length)],
-      speed: Math.random() * 0.3 + 0.05,
-      alpha: Math.random() * 0.15 + 0.05
-    });
-
-    // Initial population
-    for (let i = 0; i < 25; i++) clusters.push(createCluster());
-    for (let i = 0; i < 15; i++) particles.push(createParticle());
-
-    const drawGrid = () => {
-      const gridSize = 40;
-      ctx.beginPath();
-      ctx.strokeStyle = 'rgba(37, 99, 235, 0.03)';
-      ctx.lineWidth = 1;
-
-      for (let x = 0; x <= width; x += gridSize) {
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-      }
-      for (let y = 0; y <= height; y += gridSize) {
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-      }
-      ctx.stroke();
+      const right = ctx.createLinearGradient(width, 0, width * 0.66, 0);
+      right.addColorStop(0, 'rgba(14,165,233,0.1)');
+      right.addColorStop(0.35, 'rgba(14,165,233,0.04)');
+      right.addColorStop(1, 'rgba(14,165,233,0)');
+      ctx.fillStyle = right;
+      ctx.fillRect(width * 0.64, 0, width * 0.36, height);
     };
 
     const draw = () => {
-      frame++;
       ctx.clearRect(0, 0, width, height);
-      
-      drawGrid();
+      drawLanes();
 
-      ctx.font = '500 10px "JetBrains Mono", monospace';
-      
-      // Update and draw Clusters
-      clusters = clusters.map(c => {
-        c.y -= c.speed;
-        c.life -= 1;
-        
-        if (frame % 10 === 0) {
-          c.chars = c.chars.map(() => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]);
+      ctx.font = '500 12.5px "JetBrains Mono", monospace';
+
+      streams = streams.map((stream) => {
+        stream.y -= stream.speed;
+
+        if (stream.y < -30) {
+          return createStream(stream.lane, height + Math.random() * 120);
         }
 
-        const alpha = (c.life / c.maxLife) * c.opacity;
-        ctx.fillStyle = `rgba(37, 99, 235, ${alpha})`;
-        ctx.fillText(c.chars.join(' '), c.x, c.y);
-
-        return c.life <= 0 ? createCluster(undefined, height + 20) : c;
+        const shimmer = 0.88 + Math.sin((stream.y + stream.x) * 0.01) * 0.12;
+        const color = stream.lane === 'left' ? '37, 99, 235' : '14, 165, 233';
+        ctx.fillStyle = `rgba(${color}, ${stream.alpha * shimmer})`;
+        ctx.fillText(stream.text, stream.x, stream.y);
+        return stream;
       });
 
-      // Update and draw Particles
-      particles = particles.map(p => {
-        p.y -= p.speed;
-        if (p.y < -20) p.y = height + 20;
-
-        ctx.fillStyle = `rgba(37, 99, 235, ${p.alpha})`;
-        ctx.fillText(p.text, p.x, p.y);
-        return p;
-      });
-
-      // Subtle pulse lines
-      if (frame % 200 < 50) {
-        const pulseY = (height * (frame % 200)) / 50;
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(249, 115, 22, ${0.05 * (1 - (frame % 200) / 50)})`;
-        ctx.moveTo(0, pulseY);
-        ctx.lineTo(width, pulseY);
-        ctx.stroke();
-      }
-
-      rafRef.current = requestAnimationFrame(draw);
+      rafRef.current = window.requestAnimationFrame(draw);
     };
 
     resize();
@@ -161,7 +125,7 @@ const WebAmbientBackground: React.FC = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-      <canvas ref={canvasRef} className="w-full h-full opacity-60" />
+      <canvas ref={canvasRef} className="h-full w-full opacity-[0.78]" />
     </div>
   );
 };
