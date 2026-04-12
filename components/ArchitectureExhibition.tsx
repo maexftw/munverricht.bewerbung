@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from 'framer-motion';
 
 const GLYPHS_QUIET = ' .:-';
 const GLYPHS_ACTIVE = '.,·-─~+:;=*π""┐┌┘┴┬╗╔╝╚╬╠╣╩╦║░▒▓█▄▀▌▐■!?&#$@0123456789*';
@@ -12,7 +11,6 @@ interface Wave {
 }
 
 const ArchitectureExhibition: React.FC = () => {
-  const shouldReduceMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [waves] = useState<Wave[]>([]);
@@ -24,8 +22,6 @@ const ArchitectureExhibition: React.FC = () => {
   const gridRef = useRef<{ char: string; targetChar: string; noisePos: number }[][]>([]);
 
   useEffect(() => {
-    if (shouldReduceMotion) return;
-
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -132,7 +128,7 @@ const ArchitectureExhibition: React.FC = () => {
       window.removeEventListener('resize', resize);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [shouldReduceMotion, waves]);
+  }, [waves]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!containerRef.current) return;
@@ -152,21 +148,6 @@ const ArchitectureExhibition: React.FC = () => {
       y: containerRef.current.clientHeight * 0.5
     };
   };
-
-  if (shouldReduceMotion) {
-    return (
-      <div className="flex h-full min-h-[320px] w-full items-end overflow-hidden rounded-2xl border border-blue-100 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(244,248,253,0.92))] p-6 shadow-sm">
-        <div className="space-y-3">
-          <p className="mono text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600">
-            // TECHNIK_IM_HINTERGRUND
-          </p>
-          <p className="max-w-[24ch] text-sm leading-relaxed text-slate-600">
-            Sauber umgesetzt, ruhig im Auftritt. Bei reduzierter Bewegung bleibt diese Fläche bewusst statisch.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div
