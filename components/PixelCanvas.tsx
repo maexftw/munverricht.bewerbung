@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 interface PixelCanvasProps {
   colors?: string[];
@@ -113,6 +114,7 @@ const PixelCanvas: React.FC<PixelCanvasProps> = ({
   noFocus = false,
   className = ''
 }) => {
+  const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pixelsRef = useRef<Pixel[]>([]);
@@ -122,6 +124,8 @@ const PixelCanvas: React.FC<PixelCanvasProps> = ({
   const speedVal = speed * 0.001;
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const container = containerRef.current?.parentElement;
     if (!container) return;
 
@@ -148,9 +152,11 @@ const PixelCanvas: React.FC<PixelCanvasProps> = ({
         container.removeEventListener('focusout', handleLeave);
       }
     };
-  }, [noFocus]);
+  }, [noFocus, shouldReduceMotion]);
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -214,7 +220,11 @@ const PixelCanvas: React.FC<PixelCanvasProps> = ({
       resizeObserver.disconnect();
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [colors, gap, speedVal, animationType]);
+  }, [animationType, colors, gap, shouldReduceMotion, speedVal]);
+
+  if (shouldReduceMotion) {
+    return null;
+  }
 
   return (
     <div ref={containerRef} className={`absolute inset-0 z-0 pointer-events-none overflow-hidden ${className}`.trim()}>

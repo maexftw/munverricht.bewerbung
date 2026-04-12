@@ -10,6 +10,7 @@ import CodeAmbientBackground from './components/CodeAmbientBackground';
 import FirecrawlAnimationDemo from './components/FirecrawlAnimationDemo';
 import { AnimatePresence } from 'framer-motion';
 import WebdesignLandingPage from './components/WebdesignLandingPage';
+import WebAmbientBackground from './components/WebAmbientBackground';
 
 import Navigation from './components/Navigation';
 import { ThemeProvider } from './components/ThemeContext';
@@ -39,6 +40,7 @@ const App: React.FC = () => {
     return (
       <ThemeProvider forcedTheme="light">
         <div className={`relative min-h-screen overflow-hidden ${themeClasses.webPageShell}`} data-route-theme="light">
+          <WebAmbientBackground />
           <div className={`fixed inset-0 z-0 pointer-events-none ${themeClasses.webAmbientTop}`} />
           <div className={`fixed inset-x-0 top-[16vh] z-0 h-[44vh] pointer-events-none ${themeClasses.webAmbientCenter}`} />
           <div className={`fixed bottom-0 left-0 right-0 z-0 h-[38vh] pointer-events-none ${themeClasses.webAmbientBottom}`} />
