@@ -1,6 +1,7 @@
 import React, { useId, useState } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 import { themeClasses } from './themeClasses';
 
 type WebdesignProject = {
@@ -23,10 +24,10 @@ const projects: WebdesignProject[] = [
     id: '01',
     title: 'Bockel & Bartscher',
     href: 'https://www.bockel-bartscher.de/',
-    image: '/screenshots/bockel-bartscher.png',
+    image: '/screenshots/bockel-bartscher.webp',
     eyebrow: 'Kanzlei & Vertrauen',
-    strapline: 'Serioes im ersten Blick, klar im naechsten Schritt.',
-    note: 'Die Seite setzt auf Ruhe, Weissraum und eine direkte Ansprache, damit Vertrauen entsteht, bevor Details erklaert werden muessen.',
+    strapline: 'Seriös im ersten Blick, klar im nächsten Schritt.',
+    note: 'Die Seite setzt auf Ruhe, Weißraum und eine direkte Ansprache, damit Vertrauen entsteht, bevor Details erklärt werden müssen.',
     accent: {
       glow: 'bg-blue-200/65',
       tint: 'from-blue-300/70 via-sky-200/24 to-transparent',
@@ -37,7 +38,7 @@ const projects: WebdesignProject[] = [
     id: '02',
     title: 'Fitnesscenter Drensteinfurt',
     href: 'https://fitnesscenter-drensteinfurt.de/',
-    image: '/screenshots/fitnesscenter-drensteinfurt.png',
+    image: '/screenshots/fitnesscenter-drensteinfurt.webp',
     eyebrow: 'Lokal & direkt',
     strapline: 'Mehr Energie, weniger Umwege bis zum Probetraining.',
     note: 'Angebote, Einstieg und Kontakt liegen sofort offen, damit die Seite wie ein klarer Besuchsaufruf funktioniert statt wie ein Flyer im Web.',
@@ -49,12 +50,12 @@ const projects: WebdesignProject[] = [
   },
   {
     id: '03',
-    title: 'Kaffee Faensen',
+    title: 'Kaffee Fänsen',
     href: 'https://www.kaffee-faensen.de/shop/homepage',
-    image: '/screenshots/kaffee-faensen.png',
-    eyebrow: 'Marke & Shopgefuehl',
-    strapline: 'Waerme, Herkunft und Produktnaehe in einem ruhigen Shopbild.',
-    note: 'Das Erscheinungsbild traegt die Marke, ohne den Weg zum Produkt zu verdecken. Atmosphaere und Kaufimpuls bleiben gleichzeitig sichtbar.',
+    image: '/screenshots/kaffee-faensen.webp',
+    eyebrow: 'Marke & Shopgefühl',
+    strapline: 'Wärme, Herkunft und Produktnähe in einem ruhigen Shopbild.',
+    note: 'Das Erscheinungsbild trägt die Marke, ohne den Weg zum Produkt zu verdecken. Atmosphäre und Kaufimpuls bleiben gleichzeitig sichtbar.',
     accent: {
       glow: 'bg-amber-100/80',
       tint: 'from-amber-200/85 via-orange-100/30 to-transparent',
@@ -65,10 +66,10 @@ const projects: WebdesignProject[] = [
     id: '04',
     title: 'KOST Sicherheitstechnik',
     href: 'https://kost-sicherheitstechnik.de/',
-    image: '/screenshots/kost-sicherheitstechnik.png',
+    image: '/screenshots/kost-sicherheitstechnik.webp',
     eyebrow: 'Technik & Klarheit',
-    strapline: 'Kompetenz sichtbar machen, ohne technisch kuehl zu wirken.',
-    note: 'Die Oberflaeche ordnet Leistungen sauber, wirkt belastbar und laesst technische Inhalte verstaendlich erscheinen statt schwer zugaenglich.',
+    strapline: 'Kompetenz sichtbar machen, ohne technisch kühl zu wirken.',
+    note: 'Die Oberfläche ordnet Leistungen sauber, wirkt belastbar und lässt technische Inhalte verständlich erscheinen statt schwer zugänglich.',
     accent: {
       glow: 'bg-emerald-100/80',
       tint: 'from-emerald-200/80 via-teal-100/30 to-transparent',
@@ -78,6 +79,9 @@ const projects: WebdesignProject[] = [
 ];
 
 const cardSpring = { stiffness: 170, damping: 20, mass: 0.55 };
+const showcasePoints = ['4 reale Live-Projekte', 'Branchen von Kanzlei bis Fitness', 'Klarheit vor Showeffekten'];
+const showcasePointClassName =
+  'flex min-h-11 items-center justify-center rounded-full border border-slate-200/80 bg-white/78 px-4 py-2.5 text-center text-slate-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_20px_rgba(15,23,42,0.05)]';
 
 const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number }> = ({ project, index }) => {
   const [isHovering, setIsHovering] = useState(false);
@@ -157,7 +161,7 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
         rel="noopener noreferrer"
         aria-labelledby={cardTitleId}
         aria-describedby={cardNoteId}
-        aria-label={`${project.title} im neuen Tab oeffnen`}
+        aria-label={`${project.title} im neuen Tab öffnen`}
         onPointerMove={handlePointerMove}
         onPointerEnter={() => setIsHovering(true)}
         onPointerLeave={resetCard}
@@ -242,11 +246,35 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
 
 const WebdesignProjectShowcase: React.FC = () => {
   return (
-    <section id="webdesign-project-showcase" className="relative scroll-mt-28 py-4 sm:py-8 lg:py-10">
+    <section id="webdesign-project-showcase" className="relative scroll-mt-36 py-10 sm:py-12 lg:py-14">
       <div className="absolute left-[4%] top-12 hidden h-32 w-32 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[3%] top-20 hidden h-44 w-44 rounded-full bg-cyan-100/65 blur-3xl lg:block" aria-hidden="true" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 space-y-7 sm:space-y-8">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(20rem,1.05fr)] lg:items-end lg:gap-8">
+          <div className="space-y-3 text-left">
+            <p className={themeClasses.webEyebrow}>
+              <ASCIIText text="// AUSGEWÄHLTE_PROJEKTE" noWrap={false} enableHover={false} revealOnMount={false} />
+            </p>
+            <h2 className="max-w-[15ch] text-balance text-[1.9rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:max-w-[16ch] sm:text-[2.25rem] sm:leading-[0.96] lg:max-w-[17ch] lg:text-[2.45rem]">
+              So kann eine klare Firmenwebsite aussehen.
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-left">
+            <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
+              Keine Mockups, sondern echte Seiten aus unterschiedlichen Branchen. Entscheidend ist nicht der Stil allein, sondern wie schnell das Angebot, der Nutzen und der nächste Schritt verständlich werden.
+            </p>
+            <ul className="grid gap-2.5 sm:grid-cols-3" aria-label="Einordnung der Projektbeispiele">
+              {showcasePoints.map((point) => (
+                <li key={point} className={showcasePointClassName}>
+                  <span className="mono text-[10px] uppercase tracking-[0.2em] sm:text-[11px]">{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
           {projects.map((project, index) => (
             <WebdesignProjectCard key={project.id} project={project} index={index} />

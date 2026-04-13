@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useLayoutEffect } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 const WAVE_THRESH = 3;
 const CHAR_MULT = 3;
@@ -37,6 +38,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   noWrap = true,
   enableHover = true
 }) => {
+  const shouldReduceMotion = useReducedMotion();
   const [displayText, setDisplayText] = useState(text);
   const wavesRef = useRef<Wave[]>([]);
   const requestRef = useRef<number | null>(null);
@@ -155,6 +157,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   }, [text, duration, spread]);
 
   const handleMouseEnter = (e: React.MouseEvent) => {
+    if (shouldReduceMotion) return;
     isHoveringRef.current = true;
     const pos = getCursorPos(e);
     lastCursorPosRef.current = pos;
@@ -165,6 +168,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
+    if (shouldReduceMotion) return;
     if (!isHoveringRef.current) return;
     const pos = getCursorPos(e);
     if (pos !== lastCursorPosRef.current) {
@@ -174,6 +178,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   };
 
   const handleMouseLeave = () => {
+    if (shouldReduceMotion) return;
     isHoveringRef.current = false;
     lastCursorPosRef.current = -1;
   };
@@ -193,7 +198,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
 
   // Initial mount highlight animation
   useEffect(() => {
-    if (revealOnMount) {
+    if (revealOnMount && !shouldReduceMotion) {
       if (typeof document !== 'undefined' && 'fonts' in (document as any)) {
         (document as any).fonts.ready.then(() => {
           setTimeout(() => {
@@ -212,7 +217,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
         }, 150);
       }
     }
-  }, [revealOnMount, startWave, animate]);
+  }, [revealOnMount, shouldReduceMotion, startWave, animate]);
 
   return (
     <Component
