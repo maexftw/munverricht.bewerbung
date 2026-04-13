@@ -1,0 +1,387 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e4]
+    - generic [ref=e5]: X X X X X X X X X X
+    - generic [ref=e6]: X
+    - text: X
+  - generic [ref=e10]:
+    - banner [ref=e14]:
+      - heading "Portal" [level=1] [ref=e15]
+      - generic [ref=e16]:
+        - link "Zum Hauptinhalt wechseln" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - button "Standard-App öffnen" [ref=e19] [cursor=pointer]:
+          - img [ref=e21]
+        - toolbar [ref=e33]:
+          - button "Navigieren zu:" [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]:
+              - img
+        - toolbar [ref=e36]:
+          - button "Portal" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]:
+              - img
+          - button "Mail (2 ungelesen)" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]:
+              - img [ref=e41]
+              - img
+          - button "Kalender" [ref=e43] [cursor=pointer]:
+            - generic [ref=e44]:
+              - img:
+                - generic: "13"
+          - button "Adressbuch" [ref=e45] [cursor=pointer]:
+            - generic [ref=e46]:
+              - img
+          - button "Aufgaben" [ref=e47] [cursor=pointer]:
+            - generic [ref=e48]:
+              - img
+          - button "Drive" [ref=e49] [cursor=pointer]:
+            - generic [ref=e50]:
+              - img
+          - button "Chat" [ref=e51] [cursor=pointer]:
+            - generic [ref=e52]:
+              - img
+          - button "Meet" [ref=e53] [cursor=pointer]:
+            - generic [ref=e54]:
+              - img
+      - toolbar [ref=e57]:
+        - button "Es gibt keine Benachrichtigungen" [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]:
+            - img
+        - button "Aktualisieren" [ref=e60] [cursor=pointer]:
+          - generic [ref=e61]:
+            - img
+        - button "Hilfe" [ref=e62] [cursor=pointer]:
+          - generic [ref=e63]:
+            - img
+        - button "Einstellungen" [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]:
+            - img
+        - button "Abmelden" [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]:
+            - img
+        - button "Mein Konto" [ref=e68] [cursor=pointer]:
+          - img [ref=e70]:
+            - generic [ref=e71]: MU
+    - document [ref=e74]:
+      - main [ref=e76]:
+        - generic "Portal-Widgets" [ref=e77]:
+          - generic [ref=e78]:
+            - heading "Hallo Maximilian Angemeldet als munverricht@mailbox.org" [level=1] [ref=e79]:
+              - generic [ref=e80]: Hallo Maximilian
+              - generic [ref=e81]: Angemeldet als munverricht@mailbox.org
+            - button "Widget hinzufügen" [ref=e84] [cursor=pointer]:
+              - generic [ref=e85]: Widget hinzufügen
+              - img
+          - list [ref=e86]:
+            - listitem "Posteingang" [ref=e87]:
+              - heading "Posteingang Posteingang, Widget deaktivieren" [level=2] [ref=e89]:
+                - generic [ref=e90]: Posteingang
+                - button "Posteingang, Widget deaktivieren" [ref=e91] [cursor=pointer]:
+                  - generic [ref=e92]:
+                    - img
+              - list [ref=e93]:
+                - listitem [ref=e94] [cursor=pointer]:
+                  - generic [ref=e95]:
+                    - img
+                    - generic "noreply@mailbox.org" [ref=e96]:
+                      - generic [ref=e97]: mailbox
+                    - generic [ref=e98]: 13.4.2026
+                  - generic [ref=e100]: Bestätigung des Nutzungsvertrags und wichtige Inf…
+                - listitem [ref=e101] [cursor=pointer]:
+                  - generic [ref=e102]:
+                    - img
+                    - generic "noreply@mailbox.org" [ref=e103]:
+                      - generic [ref=e104]: mailbox
+                    - generic [ref=e105]: 13.4.2026
+                  - generic [ref=e107]: Herzlich Willkommen bei mailbox
+            - listitem "Speicherplatz" [ref=e108]:
+              - heading "Speicherplatz Speicherplatz, Widget deaktivieren" [level=2] [ref=e110]:
+                - generic [ref=e111]: Speicherplatz
+                - button "Speicherplatz, Widget deaktivieren" [ref=e112] [cursor=pointer]:
+                  - generic [ref=e113]:
+                    - img
+              - list [ref=e114]:
+                - listitem [ref=e115]:
+                  - img
+                - listitem [ref=e116]:
+                  - generic [ref=e118]:
+                    - generic [ref=e119]:
+                      - generic [ref=e120]: Dateispeicher
+                      - generic [ref=e121]:
+                        - generic [ref=e122]: 0 B /
+                        - text: 10 MB
+                    - generic [ref=e123]:
+                      - progressbar "Verwendung in Prozent"
+                - listitem [ref=e124]:
+                  - generic [ref=e126]:
+                    - generic [ref=e127]:
+                      - generic [ref=e128]: E-Mail-Speicherplatz
+                      - generic [ref=e129]:
+                        - generic [ref=e130]: 173 kB /
+                        - text: 100 MB
+                    - progressbar "Verwendung in Prozent" [ref=e132]
+            - listitem "Termine" [ref=e133]:
+              - heading "Termine Termine, Widget deaktivieren" [level=2] [ref=e135]:
+                - generic [ref=e136]: Termine
+                - button "Termine, Widget deaktivieren" [ref=e137] [cursor=pointer]:
+                  - generic [ref=e138]:
+                    - img
+              - list [ref=e139]:
+                - listitem [ref=e140]: Sie haben keine Termine in naher Zukunft.
+            - listitem "Meine Aufgaben" [ref=e141]:
+              - heading "Meine Aufgaben Meine Aufgaben, Widget deaktivieren" [level=2] [ref=e143]:
+                - generic [ref=e144]: Meine Aufgaben
+                - button "Meine Aufgaben, Widget deaktivieren" [ref=e145] [cursor=pointer]:
+                  - generic [ref=e146]:
+                    - img
+              - list [ref=e147]:
+                - listitem [ref=e148]: Sie haben keine in Kürze fälligen oder überfälligen Aufgaben.
+            - listitem "News-Blog - mailbox" [ref=e149]:
+              - heading "News-Blog - mailbox News-Blog - mailbox, Widget deaktivieren" [level=2] [ref=e151]:
+                - generic [ref=e152]: News-Blog - mailbox
+                - button "News-Blog - mailbox, Widget deaktivieren" [ref=e153] [cursor=pointer]:
+                  - generic [ref=e154]:
+                    - img
+              - button "Durch Drücken der Eingabetaste öffnen Sie den RSS-Stream." [ref=e155] [cursor=pointer]:
+                - listitem [ref=e156]: mailbox erhält Label „Cybersecurity Made in Europe“
+                - listitem [ref=e157]: "Transparenzbericht 2025 von mailbox: Ein Viertel aller Behördenanfragen abgelehnt"
+                - listitem [ref=e158]: "Transparenzbericht 2025: Ein Viertel aller Behördenanfragen abgelehnt"
+                - listitem [ref=e159]: "mailbox präsentiert EVAC: Business Continuity auf Knopfdruck"
+                - listitem [ref=e160]: "Business Continuity auf Knopfdruck: mailbox präsentiert EVAC"
+                - listitem [ref=e161]: BSI C5-Testat und ISO 27001-Zertifikat für mailbox
+                - listitem [ref=e162]: BSI C5-Testat und ISO 27001-Zertifikat für mailbox
+                - listitem [ref=e163]: "mailbox Jahresrückblick 2025: Sichere Kommunikation braucht Haltung"
+                - listitem [ref=e164]: "Das Angebot des Jahres: 50 % Rabatt beim Black Week Deal"
+                - listitem [ref=e165]: "Offener Brief: mailbox gegen Chatkontrolle"
+            - listitem "Geburtstage" [ref=e166]:
+              - heading "Geburtstage Geburtstage, Widget deaktivieren" [level=2] [ref=e168]:
+                - generic [ref=e169]: Geburtstage
+                - button "Geburtstage, Widget deaktivieren" [ref=e170] [cursor=pointer]:
+                  - generic [ref=e171]:
+                    - img
+              - list [ref=e172]:
+                - listitem [ref=e173]:
+                  - img
+                - listitem [ref=e174]: Keine Geburtstage in den nächsten 12 Wochen
+            - listitem "Kürzlich geänderte Dateien" [ref=e175]:
+              - heading "Kürzlich geänderte Dateien Kürzlich geänderte Dateien, Widget deaktivieren" [level=2] [ref=e177]:
+                - generic [ref=e178]: Kürzlich geänderte Dateien
+                - button "Kürzlich geänderte Dateien, Widget deaktivieren" [ref=e179] [cursor=pointer]:
+                  - generic [ref=e180]:
+                    - img
+              - list [ref=e181]:
+                - listitem [ref=e182]: Es wurden kürzlich keine Dateien geändert
+            - listitem "Benutzerdaten" [ref=e183]:
+              - heading "Benutzerdaten Benutzerdaten, Widget deaktivieren" [level=2] [ref=e185]:
+                - generic [ref=e186]: Benutzerdaten
+                - button "Benutzerdaten, Widget deaktivieren" [ref=e187] [cursor=pointer]:
+                  - generic [ref=e188]:
+                    - img
+              - generic [ref=e189]:
+                - generic [ref=e190]:
+                  - img
+                - button "Meine Kontaktdaten" [ref=e192] [cursor=pointer]
+            - listitem "Ihr Gerät verbinden" [ref=e193]:
+              - heading "Ihr Gerät verbinden Ihr Gerät verbinden, Widget deaktivieren" [level=2] [ref=e195]:
+                - generic [ref=e196]: Ihr Gerät verbinden
+                - button "Ihr Gerät verbinden, Widget deaktivieren" [ref=e197] [cursor=pointer]:
+                  - generic [ref=e198]:
+                    - img
+              - generic [ref=e199] [cursor=pointer]:
+                - generic [ref=e200]:
+                  - img
+                  - img
+                  - img
+                - heading "Nehmen Sie mailbox Suite mit!" [level=3] [ref=e201]
+                - generic [ref=e202]: Bleiben Sie auf Ihren bevorzugten Geräten auf dem Laufenden.
+                - button "Verbinden" [ref=e204]
+  - complementary:
+    - alert [ref=e13]
+  - alert [ref=e208]:
+    - img
+    - generic [ref=e210]:
+      - button "Erlauben Sie Benachrichtigungen" [ref=e211] [cursor=pointer]
+      - text: in Ihren Browsereinstellungen, um Push-Nachrichten in Echtzeit zu erhalten.
+    - button "Schließen" [ref=e213] [cursor=pointer]:
+      - generic [ref=e214]:
+        - img
+  - dialog "Einstellungen" [ref=e299]:
+    - document [ref=e300]:
+      - generic [ref=e302]:
+        - navigation "Ordnereinstellungen" [ref=e303]:
+          - heading "Einstellungen" [level=1] [ref=e304]
+          - generic [ref=e305]:
+            - button "Suchen" [ref=e306] [cursor=pointer]:
+              - generic [ref=e307]:
+                - img
+            - generic [ref=e308]: Suchen
+            - searchbox "Suchen" [ref=e310]
+          - tree [ref=e311]:
+            - treeitem [ref=e312] [cursor=pointer]:
+              - group [ref=e313]:
+                - treeitem "Allgemein" [ref=e314]:
+                  - generic [ref=e315]:
+                    - generic [ref=e317]:
+                      - img
+                    - generic [ref=e319]: Allgemein
+                - treeitem "Benachrichtigungen" [ref=e320]:
+                  - generic [ref=e321]:
+                    - generic [ref=e323]:
+                      - img
+                    - generic [ref=e325]: Benachrichtigungen
+                - treeitem "Vertrag und Zahlung" [ref=e326]:
+                  - generic [ref=e327]:
+                    - generic [ref=e329]:
+                      - img
+                    - generic [ref=e331]: Vertrag und Zahlung
+                - treeitem "Sicherheit" [ref=e332]:
+                  - generic [ref=e333]:
+                    - generic [ref=e335]:
+                      - img
+                    - generic [ref=e337]: Sicherheit
+                - treeitem "Konten" [ref=e338]:
+                  - generic [ref=e339]:
+                    - generic [ref=e341]:
+                      - img
+                    - generic [ref=e343]: Konten
+                - treeitem "Datenschutz" [ref=e344]:
+                  - generic [ref=e345]:
+                    - generic [ref=e347]:
+                      - img
+                    - generic [ref=e349]: Datenschutz
+                - treeitem "Familien-Account" [ref=e350]:
+                  - generic [ref=e351]:
+                    - generic [ref=e353]:
+                      - img
+                    - generic [ref=e355]: Familien-Account
+            - treeitem [ref=e356] [cursor=pointer]:
+              - group [ref=e357]:
+                - treeitem "E-Mail-Adressen" [active] [selected] [ref=e358]:
+                  - generic [ref=e359]:
+                    - generic [ref=e361]:
+                      - img
+                    - generic [ref=e363]: E-Mail-Adressen
+                - treeitem "E-Mail lesen und schreiben" [ref=e364]:
+                  - generic [ref=e365]:
+                    - generic [ref=e367]:
+                      - img
+                    - generic [ref=e369]: E-Mail lesen und schreiben
+                - treeitem "E-Mail-Verschlüsselung" [ref=e370]:
+                  - generic [ref=e371]:
+                    - generic [ref=e373]:
+                      - img
+                    - generic [ref=e375]: E-Mail-Verschlüsselung
+                - treeitem "Externe POP3-Konten" [ref=e376]:
+                  - generic [ref=e377]:
+                    - generic [ref=e379]:
+                      - img
+                    - generic [ref=e381]: Externe POP3-Konten
+                - treeitem "Spam und Papierkorb" [ref=e382]:
+                  - generic [ref=e383]:
+                    - generic [ref=e385]:
+                      - img
+                    - generic [ref=e387]: Spam und Papierkorb
+                - treeitem "Backup" [ref=e388]:
+                  - generic [ref=e389]:
+                    - generic [ref=e391]:
+                      - img
+                    - generic [ref=e393]: Backup
+                - treeitem "Kalender" [ref=e394]:
+                  - generic [ref=e395]:
+                    - generic [ref=e397]:
+                      - img:
+                        - generic: "13"
+                    - generic [ref=e399]: Kalender
+                - treeitem "Adressbuch" [ref=e400]:
+                  - generic [ref=e401]:
+                    - generic [ref=e403]:
+                      - img
+                    - generic [ref=e405]: Adressbuch
+                - treeitem "Drive" [ref=e406]:
+                  - generic [ref=e407]:
+                    - generic [ref=e409]:
+                      - img
+                    - generic [ref=e411]: Drive
+                - treeitem "Portal" [ref=e412]:
+                  - generic [ref=e413]:
+                    - generic [ref=e415]:
+                      - img
+                    - generic [ref=e417]: Portal
+                - treeitem "Dokumente" [ref=e418]:
+                  - generic [ref=e419]:
+                    - generic [ref=e421]:
+                      - img
+                    - generic [ref=e423]: Dokumente
+                - treeitem "mailbox Guard" [ref=e424]:
+                  - generic [ref=e425]:
+                    - generic [ref=e427]:
+                      - img
+                    - generic [ref=e429]: mailbox Guard
+            - treeitem [ref=e430] [cursor=pointer]:
+              - group [ref=e431]:
+                - treeitem "Ressourcen" [ref=e432]:
+                  - generic [ref=e433]:
+                    - generic [ref=e435]:
+                      - img
+                    - generic [ref=e437]: Ressourcen
+                - treeitem "Gruppen" [ref=e438]:
+                  - generic [ref=e439]:
+                    - generic [ref=e441]:
+                      - img
+                    - generic [ref=e443]: Gruppen
+                - treeitem "Newsletter" [ref=e444]:
+                  - generic [ref=e445]:
+                    - generic [ref=e447]:
+                      - img
+                    - generic [ref=e449]: Newsletter
+                - treeitem "Freunde werben Freunde" [ref=e450]:
+                  - generic [ref=e451]:
+                    - generic [ref=e453]:
+                      - img
+                    - generic [ref=e455]: Freunde werben Freunde
+                - treeitem "mailbox.org Beta" [ref=e456]:
+                  - generic [ref=e457]:
+                    - generic [ref=e459]:
+                      - img
+                    - generic [ref=e461]: mailbox.org Beta
+                - treeitem "Migrationsassistent" [ref=e462]:
+                  - generic [ref=e463]:
+                    - generic [ref=e465]:
+                      - img
+                    - generic [ref=e467]: Migrationsassistent
+            - treeitem [ref=e468] [cursor=pointer]:
+              - group [ref=e469]:
+                - treeitem "Ihre Daten" [ref=e470]:
+                  - generic [ref=e471]:
+                    - generic [ref=e473]:
+                      - img
+                    - generic [ref=e475]: Ihre Daten
+        - generic [ref=e476]:
+          - generic [ref=e574]:
+            - heading "E-Mail-Adressen" [level=1] [ref=e575]
+            - button "Einstellungen schließen" [ref=e576] [cursor=pointer]:
+              - generic [ref=e577]:
+                - img
+          - iframe [ref=e578]:
+            - generic [ref=f16e2]:
+              - group [ref=f16e3]:
+                - generic "E-Mail-Aliasse Aliasse verwalten und Hauptadresse wechseln" [ref=f16e4] [cursor=pointer]:
+                  - generic [ref=f16e5]:
+                    - generic [ref=f16e6]:
+                      - heading "E-Mail-Aliasse" [level=2] [ref=f16e7]
+                      - paragraph [ref=f16e8]: Aliasse verwalten und Hauptadresse wechseln
+                    - img [ref=f16e10]
+              - group [ref=f16e13]:
+                - generic "Alternative Absender E-Mails von externen Adressen versenden" [ref=f16e14] [cursor=pointer]:
+                  - generic [ref=f16e15]:
+                    - generic [ref=f16e16]:
+                      - heading "Alternative Absender" [level=2] [ref=f16e17]
+                      - paragraph [ref=f16e18]: E-Mails von externen Adressen versenden
+                    - img [ref=f16e20]
+              - group [ref=f16e22]:
+                - generic "Wegwerfadressen Adressen zur vorübergehenden Nutzung erstellen" [ref=f16e23] [cursor=pointer]:
+                  - generic [ref=f16e24]:
+                    - generic [ref=f16e25]:
+                      - heading "Wegwerfadressen" [level=2] [ref=f16e26]
+                      - paragraph [ref=f16e27]: Adressen zur vorübergehenden Nutzung erstellen
+                    - img [ref=f16e29]

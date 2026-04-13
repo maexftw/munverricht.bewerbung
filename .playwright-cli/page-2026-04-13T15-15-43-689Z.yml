@@ -1,0 +1,288 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e4]
+    - generic [ref=e5]: X X X X X X X X X X
+    - generic [ref=e6]: X
+    - text: X
+  - generic [ref=e10]:
+    - banner [ref=e14]:
+      - heading "Neue E-Mail" [level=1] [ref=e707]
+      - generic [ref=e16]:
+        - link "Zum Hauptinhalt wechseln" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - button "Standard-App öffnen" [ref=e19] [cursor=pointer]:
+          - img [ref=e21]
+        - toolbar [ref=e33]:
+          - button "Navigieren zu:" [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]:
+              - img
+        - toolbar [ref=e36]:
+          - button "Portal" [ref=e708] [cursor=pointer]:
+            - generic [ref=e709]:
+              - img
+          - button "Mail (5 ungelesen)" [ref=e944] [cursor=pointer]:
+            - generic [ref=e711]:
+              - img [ref=e712]
+              - img
+          - button "Kalender" [ref=e714] [cursor=pointer]:
+            - generic [ref=e715]:
+              - img:
+                - generic: "13"
+          - button "Adressbuch" [ref=e716] [cursor=pointer]:
+            - generic [ref=e717]:
+              - img
+          - button "Aufgaben" [ref=e718] [cursor=pointer]:
+            - generic [ref=e719]:
+              - img
+          - button "Drive" [ref=e720] [cursor=pointer]:
+            - generic [ref=e721]:
+              - img
+          - button "Chat" [ref=e722] [cursor=pointer]:
+            - generic [ref=e723]:
+              - img
+          - button "Meet" [ref=e724] [cursor=pointer]:
+            - generic [ref=e725]:
+              - img
+      - generic [ref=e580]:
+        - button "Suchen" [ref=e581] [cursor=pointer]:
+          - generic [ref=e582]:
+            - img
+        - generic [ref=e583]: In E-Mail suchen
+        - searchbox "In E-Mail suchen" [ref=e585]
+        - button "Weitere Suchoptionen" [ref=e586] [cursor=pointer]:
+          - generic [ref=e587]:
+            - img
+      - toolbar [ref=e57]:
+        - button "Es gibt keine Benachrichtigungen" [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]:
+            - img
+        - button "Aktualisieren" [ref=e990] [cursor=pointer]:
+          - generic [ref=e61]:
+            - img
+        - button "Hilfe" [ref=e62] [cursor=pointer]:
+          - generic [ref=e63]:
+            - img
+        - button "Einstellungen" [expanded] [active] [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]:
+            - img
+        - button "Abmelden" [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]:
+            - img
+        - button "Mein Konto" [ref=e68] [cursor=pointer]:
+          - img [ref=e70]:
+            - generic [ref=e71]: MU
+    - document [ref=e588]:
+      - generic [ref=e589]:
+        - generic [ref=e590]:
+          - region "Neue E-Mail" [ref=e592]:
+            - toolbar [ref=e593]:
+              - button "Neue E-Mail" [ref=e594] [cursor=pointer]:
+                - generic [ref=e595]: Neue E-Mail
+              - button "Weitere Aktionen" [ref=e596] [cursor=pointer]:
+                - generic [ref=e597]:
+                  - img
+          - navigation "Ordner" [ref=e598]:
+            - tree "Ordner" [ref=e599]:
+              - treeitem "mailbox.org" [expanded] [ref=e600] [cursor=pointer]:
+                - generic [ref=e601]:
+                  - generic [ref=e602]:
+                    - img
+                  - generic [ref=e603]: mailbox.org
+                - group [ref=e604]:
+                  - treeitem "Posteingang, 5 ungelesen, 5 gesamt." [selected] [ref=e946]:
+                    - generic [ref=e606]:
+                      - generic [ref=e607]:
+                        - img
+                      - generic [ref=e608]: Posteingang
+                      - generic [ref=e609]: "5"
+                      - button [ref=e610]:
+                        - generic [ref=e611]:
+                          - img
+                  - treeitem "Ungelesen, 5 gesamt." [ref=e947]:
+                    - generic [ref=e613]:
+                      - generic [ref=e614]:
+                        - img
+                      - generic [ref=e615]: Ungelesen
+                      - generic [ref=e616]: "5"
+                  - treeitem "Entwürfe" [ref=e991]:
+                    - generic [ref=e618]:
+                      - generic [ref=e619]:
+                        - img
+                      - generic [ref=e620]: Entwürfe
+                  - treeitem "Gesendet, 1 gesamt." [ref=e992]:
+                    - generic [ref=e622]:
+                      - generic [ref=e623]:
+                        - img
+                      - generic [ref=e624]: Gesendet
+                  - treeitem "Spam" [ref=e625]:
+                    - generic [ref=e626]:
+                      - generic [ref=e627]:
+                        - img
+                      - generic [ref=e628]: Spam
+                  - treeitem "Papierkorb" [ref=e629]:
+                    - generic [ref=e630]:
+                      - generic [ref=e631]:
+                        - img
+                      - generic [ref=e632]: Papierkorb
+              - treeitem "Meine Ordner" [ref=e633] [cursor=pointer]:
+                - generic [ref=e634]:
+                  - generic [ref=e635]:
+                    - img
+                  - generic [ref=e636]: Meine Ordner
+                  - button [ref=e637]:
+                    - generic [ref=e638]:
+                      - img
+            - generic [ref=e641]:
+              - generic [ref=e642]:
+                - generic [ref=e643]: E-Mail-Speicherplatz
+                - generic [ref=e644]:
+                  - generic [ref=e645]: 430 kB /
+                  - text: 10 GB
+              - progressbar "Verwendung in Prozent" [ref=e647]
+              - generic [ref=e648]: 1% belegt, 10 GB verbleibend.
+          - region "Ordneransicht schließen" [ref=e649]:
+            - button "Ordneransicht schließen" [ref=e650] [cursor=pointer]:
+              - generic [ref=e651]:
+                - img
+            - button "Online-Hilfe" [ref=e652] [cursor=pointer]:
+              - generic [ref=e653]:
+                - img
+        - main [ref=e654]:
+          - generic [ref=e655]:
+            - navigation "Nachrichten" [ref=e657]:
+              - toolbar "Nachrichten-Optionen" [ref=e658]:
+                - heading "Posteingang" [level=2] [ref=e659]
+                - generic [ref=e660]: 5 Nachrichten
+                - button "Weitere Optionen für Nachrichten" [ref=e661] [cursor=pointer]:
+                  - generic [ref=e662]:
+                    - img
+              - listbox "Listenansicht" [ref=e663]:
+                - option "Ungelesen, mailbox, Ihre Einzahlung per PayPal war erfolgreich, 17:11." [ref=e948] [cursor=pointer]:
+                  - generic [ref=e949]:
+                    - img [ref=e951]:
+                      - generic [ref=e952]: M
+                    - img [ref=e953]
+                    - generic [ref=e955]:
+                      - generic [ref=e956]: mailbox
+                      - time [ref=e957]: 17:11
+                    - generic [ref=e958]:
+                      - text: Ihre Einzahlung per PayPal war erfolgreich
+                      - img
+                    - generic [ref=e960]: Hallo Maximilian Unverricht, Ihre Einzahlung per PayPal war erfolgreich. Ihr Guthaben wurde soeben um diesen Betrag erhöht. Die zugehörige Rechnung erhalten Sie in den nächsten Tagen automatisch als P
+                - option "Ungelesen, mailbox, Ihr mailbox-Account wurde erfolgreich freigeschaltet!, 17:11." [ref=e962] [cursor=pointer]:
+                  - generic [ref=e963]:
+                    - img [ref=e965]:
+                      - generic [ref=e966]: M
+                    - img [ref=e967]
+                    - generic [ref=e969]:
+                      - generic [ref=e970]: mailbox
+                      - time [ref=e971]: 17:11
+                    - generic [ref=e972]:
+                      - text: Ihr mailbox-Account wurde erfolgreich freigeschaltet!
+                      - img
+                    - generic [ref=e974]: Hallo Maximilian Unverricht, wir freuen uns, Ihnen mitteilen zu können, dass Ihr Account nun vollständig freigeschaltet und nutzbar ist! Um den aktualisierten Status in der Verwaltung zu sehen, melden
+                - option "Ungelesen, noreply@mailbox.org, Auftragsbestätigung für mailbox, 17:10, enthält Anhänge." [ref=e976] [cursor=pointer]:
+                  - generic [ref=e977]:
+                    - img [ref=e979]:
+                      - generic [ref=e980]: "N"
+                    - img [ref=e981]
+                    - generic [ref=e983]:
+                      - generic [ref=e984]: noreply@mailbox.org
+                      - time [ref=e985]: 17:10
+                    - generic [ref=e986]:
+                      - text: Auftragsbestätigung für mailbox
+                      - img
+                      - img
+                    - generic [ref=e988]: "Hallo Maximilian Unverricht, vielen Dank für Ihre Bestellung. Hiermit bestätigen wir Ihren Auftrag vom 13.04.2026. Ihr Tarif: STANDARD Enthaltener Mail-Speicher: 10 GB Enthaltener Cloud-Speicher: 5 GB"
+                - option "Ungelesen, mailbox, Bestätigung des Nutzungsvertrags und wichtige Informationen zu Ihrem Account bei mailbox, 16:27." [ref=e664] [cursor=pointer]:
+                  - generic [ref=e665]:
+                    - img [ref=e893]:
+                      - generic [ref=e894]: M
+                    - img [ref=e895]
+                    - generic [ref=e897]:
+                      - generic [ref=e898]: mailbox
+                      - time [ref=e899]: 16:27
+                    - generic [ref=e900]:
+                      - text: Bestätigung des Nutzungsvertrags und wichtige Informationen zu Ihrem Account bei mailbox
+                      - img
+                    - generic [ref=e902]: Hallo Maximilian Unverricht, wir freuen uns, dass Sie sich für mailbox entschieden haben. Aktuell befinden Sie sich in der 30-tägigen Testphase, in der Sie all unsere Features in Ruhe ausprobieren kön
+                - option "Ungelesen, mailbox, Herzlich Willkommen bei mailbox, 16:27, enthält Anhänge." [ref=e678] [cursor=pointer]:
+                  - generic [ref=e679]:
+                    - img [ref=e905]:
+                      - generic [ref=e906]: M
+                    - img [ref=e907]
+                    - generic [ref=e909]:
+                      - generic [ref=e910]: mailbox
+                      - time [ref=e911]: 16:27
+                    - generic [ref=e912]:
+                      - text: Herzlich Willkommen bei mailbox
+                      - img
+                      - img
+                    - generic [ref=e914]: Herzlich Willkommen bei mailbox! Wir freuen uns, dass Sie sich für uns entschieden haben. Jeder Anfang ist etwas ungewohnt und wir möchten, dass Sie sich gut zurechtfinden. mailbox unterstützt Sie in
+              - toolbar "Nachrichten-Optionen" [ref=e692]: Aktualisiert vor 3 Minuten
+            - generic [ref=e694]:
+              - toolbar "Mail-Werkzeugleiste. Verwenden Sie die Pfeiltasten zum Navigieren." [ref=e696]:
+                - button "Löschen" [disabled] [ref=e697]:
+                  - img
+                - button "Antwort an Absender" [disabled] [ref=e698]:
+                  - img
+                - button "Antwort an alle Empfänger" [disabled] [ref=e699]:
+                  - img
+                - button "Weiterleiten" [disabled] [ref=e700]:
+                  - img
+              - generic [ref=e702]:
+                - img [ref=e703]
+                - generic [ref=e706]: Keine Nachricht markiert
+  - complementary:
+    - alert [ref=e13]
+  - alert [ref=e208]:
+    - img
+    - generic [ref=e210]:
+      - button "Erlauben Sie Benachrichtigungen" [ref=e211] [cursor=pointer]
+      - text: in Ihren Browsereinstellungen, um Push-Nachrichten in Echtzeit zu erhalten.
+    - button "Schließen" [ref=e213] [cursor=pointer]:
+      - generic [ref=e214]:
+        - img
+  - navigation [ref=e993]:
+    - menu [ref=e280]:
+      - menuitem "Alle Einstellungen …" [ref=e995] [cursor=pointer]
+      - separator [ref=e996]
+      - separator [ref=e997]: Themes
+      - grid "Themes" [ref=e998]:
+        - menuitem "White" [ref=e999] [cursor=pointer]
+        - menuitem "Blue" [ref=e1000] [cursor=pointer]
+        - menuitem "Steel gray" [ref=e1001] [cursor=pointer]
+        - menuitem "Dark" [ref=e1002] [cursor=pointer]
+        - menuitem "Mountains" [ref=e1003] [cursor=pointer]
+        - menuitem "Beach" [ref=e1004] [cursor=pointer]
+        - menuitem "City" [ref=e1005] [cursor=pointer]
+        - menuitem "Blue Sunset" [ref=e1006] [cursor=pointer]
+      - menuitem "Weitere anzeigen …" [ref=e1007] [cursor=pointer]
+      - separator [ref=e1008]
+      - separator [ref=e1009]: Layout
+      - group "Layout" [ref=e1010]:
+        - menuitemradio "Vertikal" [checked] [ref=e1011] [cursor=pointer]:
+          - text: Vertikal
+          - img [ref=e1013]
+        - menuitemradio "Horizontal" [ref=e1033] [cursor=pointer]:
+          - text: Horizontal
+          - img [ref=e1035]
+        - menuitemradio "Liste" [ref=e1054] [cursor=pointer]:
+          - text: Liste
+          - img [ref=e1056]
+      - separator [ref=e1091]
+      - separator [ref=e1092]: Optionen für Liste
+      - group "Optionen für Liste" [ref=e1093]:
+        - menuitemradio "Kontaktbilder" [checked] [ref=e1094] [cursor=pointer]: Kontaktbilder
+        - menuitemradio "Kontrollfelder" [ref=e1096] [cursor=pointer]: Kontrollfelder
+        - menuitemradio "Einfach" [ref=e1098] [cursor=pointer]: Einfach
+      - separator [ref=e1100]
+      - menuitem "Kategorien durchsuchen …" [ref=e1101] [cursor=pointer]
+      - separator [ref=e1102]
+      - menuitem "E-Mail-Konto hinzufügen …" [ref=e1103] [cursor=pointer]
+      - menuitem "Ihr Gerät verbinden …" [ref=e1104] [cursor=pointer]
+      - menuitem "Installieren Sie mailbox Suite wie eine App …" [ref=e1105] [cursor=pointer]
+      - separator [ref=e1106]
+      - menuitem "Posteingangskategorien …" [ref=e1107] [cursor=pointer]
+      - menuitem "Abwesenheitsbenachrichtigung …" [ref=e1108] [cursor=pointer]
+      - menuitem "Statistiken …" [ref=e1109] [cursor=pointer]

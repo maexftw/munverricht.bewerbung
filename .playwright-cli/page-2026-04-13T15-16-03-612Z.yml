@@ -1,0 +1,502 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e4]
+    - generic [ref=e5]: X X X X X X X X X X
+    - generic [ref=e6]: X
+    - text: X
+  - generic [ref=e10]:
+    - banner [ref=e14]:
+      - heading "Neue E-Mail" [level=1] [ref=e707]
+      - generic [ref=e16]:
+        - link "Zum Hauptinhalt wechseln" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - button "Standard-App öffnen" [ref=e19] [cursor=pointer]:
+          - img [ref=e21]
+        - toolbar [ref=e33]:
+          - button "Navigieren zu:" [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]:
+              - img
+        - toolbar [ref=e36]:
+          - button "Portal" [ref=e708] [cursor=pointer]:
+            - generic [ref=e709]:
+              - img
+          - button "Mail (5 ungelesen)" [ref=e944] [cursor=pointer]:
+            - generic [ref=e711]:
+              - img [ref=e712]
+              - img
+          - button "Kalender" [ref=e714] [cursor=pointer]:
+            - generic [ref=e715]:
+              - img:
+                - generic: "13"
+          - button "Adressbuch" [ref=e716] [cursor=pointer]:
+            - generic [ref=e717]:
+              - img
+          - button "Aufgaben" [ref=e718] [cursor=pointer]:
+            - generic [ref=e719]:
+              - img
+          - button "Drive" [ref=e720] [cursor=pointer]:
+            - generic [ref=e721]:
+              - img
+          - button "Chat" [ref=e722] [cursor=pointer]:
+            - generic [ref=e723]:
+              - img
+          - button "Meet" [ref=e724] [cursor=pointer]:
+            - generic [ref=e725]:
+              - img
+      - generic [ref=e580]:
+        - button "Suchen" [ref=e581] [cursor=pointer]:
+          - generic [ref=e582]:
+            - img
+        - generic [ref=e583]: In E-Mail suchen
+        - searchbox "In E-Mail suchen" [ref=e585]
+        - button "Weitere Suchoptionen" [ref=e586] [cursor=pointer]:
+          - generic [ref=e587]:
+            - img
+      - toolbar [ref=e57]:
+        - button "Es gibt keine Benachrichtigungen" [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]:
+            - img
+        - button "Aktualisieren" [ref=e990] [cursor=pointer]:
+          - generic [ref=e61]:
+            - img
+        - button "Hilfe" [ref=e62] [cursor=pointer]:
+          - generic [ref=e63]:
+            - img
+        - button "Einstellungen" [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]:
+            - img
+        - button "Abmelden" [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]:
+            - img
+        - button "Mein Konto" [ref=e68] [cursor=pointer]:
+          - img [ref=e70]:
+            - generic [ref=e71]: MU
+    - document [ref=e588]:
+      - generic [ref=e589]:
+        - generic [ref=e590]:
+          - region "Neue E-Mail" [ref=e592]:
+            - toolbar [ref=e593]:
+              - button "Neue E-Mail" [ref=e594] [cursor=pointer]:
+                - generic [ref=e595]: Neue E-Mail
+              - button "Weitere Aktionen" [ref=e596] [cursor=pointer]:
+                - generic [ref=e597]:
+                  - img
+          - navigation "Ordner" [ref=e598]:
+            - tree "Ordner" [ref=e599]:
+              - treeitem "mailbox.org" [expanded] [ref=e600] [cursor=pointer]:
+                - generic [ref=e601]:
+                  - generic [ref=e602]:
+                    - img
+                  - generic [ref=e603]: mailbox.org
+                - group [ref=e604]:
+                  - treeitem "Posteingang, 5 ungelesen, 5 gesamt." [selected] [ref=e946]:
+                    - generic [ref=e606]:
+                      - generic [ref=e607]:
+                        - img
+                      - generic [ref=e608]: Posteingang
+                      - generic [ref=e609]: "5"
+                      - button [ref=e610]:
+                        - generic [ref=e611]:
+                          - img
+                  - treeitem "Ungelesen, 5 gesamt." [ref=e947]:
+                    - generic [ref=e613]:
+                      - generic [ref=e614]:
+                        - img
+                      - generic [ref=e615]: Ungelesen
+                      - generic [ref=e616]: "5"
+                  - treeitem "Entwürfe" [ref=e991]:
+                    - generic [ref=e618]:
+                      - generic [ref=e619]:
+                        - img
+                      - generic [ref=e620]: Entwürfe
+                  - treeitem "Gesendet, 1 gesamt." [ref=e992]:
+                    - generic [ref=e622]:
+                      - generic [ref=e623]:
+                        - img
+                      - generic [ref=e624]: Gesendet
+                  - treeitem "Spam" [ref=e625]:
+                    - generic [ref=e626]:
+                      - generic [ref=e627]:
+                        - img
+                      - generic [ref=e628]: Spam
+                  - treeitem "Papierkorb" [ref=e629]:
+                    - generic [ref=e630]:
+                      - generic [ref=e631]:
+                        - img
+                      - generic [ref=e632]: Papierkorb
+              - treeitem "Meine Ordner" [ref=e633] [cursor=pointer]:
+                - generic [ref=e634]:
+                  - generic [ref=e635]:
+                    - img
+                  - generic [ref=e636]: Meine Ordner
+                  - button [ref=e637]:
+                    - generic [ref=e638]:
+                      - img
+            - generic [ref=e641]:
+              - generic [ref=e642]:
+                - generic [ref=e643]: E-Mail-Speicherplatz
+                - generic [ref=e644]:
+                  - generic [ref=e645]: 430 kB /
+                  - text: 10 GB
+              - progressbar "Verwendung in Prozent" [ref=e647]
+              - generic [ref=e648]: 1% belegt, 10 GB verbleibend.
+          - region "Ordneransicht schließen" [ref=e649]:
+            - button "Ordneransicht schließen" [ref=e650] [cursor=pointer]:
+              - generic [ref=e651]:
+                - img
+            - button "Online-Hilfe" [ref=e652] [cursor=pointer]:
+              - generic [ref=e653]:
+                - img
+        - main [ref=e654]:
+          - generic [ref=e655]:
+            - navigation "Nachrichten" [ref=e657]:
+              - toolbar "Nachrichten-Optionen" [ref=e658]:
+                - heading "Posteingang" [level=2] [ref=e659]
+                - generic [ref=e660]: 5 Nachrichten
+                - button "Weitere Optionen für Nachrichten" [ref=e661] [cursor=pointer]:
+                  - generic [ref=e662]:
+                    - img
+              - listbox "Listenansicht" [ref=e663]:
+                - option "Ungelesen, mailbox, Ihre Einzahlung per PayPal war erfolgreich, 17:11." [ref=e948] [cursor=pointer]:
+                  - generic [ref=e949]:
+                    - img [ref=e951]:
+                      - generic [ref=e952]: M
+                    - img [ref=e953]
+                    - generic [ref=e955]:
+                      - generic [ref=e956]: mailbox
+                      - time [ref=e957]: 17:11
+                    - generic [ref=e958]:
+                      - text: Ihre Einzahlung per PayPal war erfolgreich
+                      - img
+                    - generic [ref=e960]: Hallo Maximilian Unverricht, Ihre Einzahlung per PayPal war erfolgreich. Ihr Guthaben wurde soeben um diesen Betrag erhöht. Die zugehörige Rechnung erhalten Sie in den nächsten Tagen automatisch als P
+                - option "Ungelesen, mailbox, Ihr mailbox-Account wurde erfolgreich freigeschaltet!, 17:11." [ref=e962] [cursor=pointer]:
+                  - generic [ref=e963]:
+                    - img [ref=e965]:
+                      - generic [ref=e966]: M
+                    - img [ref=e967]
+                    - generic [ref=e969]:
+                      - generic [ref=e970]: mailbox
+                      - time [ref=e971]: 17:11
+                    - generic [ref=e972]:
+                      - text: Ihr mailbox-Account wurde erfolgreich freigeschaltet!
+                      - img
+                    - generic [ref=e974]: Hallo Maximilian Unverricht, wir freuen uns, Ihnen mitteilen zu können, dass Ihr Account nun vollständig freigeschaltet und nutzbar ist! Um den aktualisierten Status in der Verwaltung zu sehen, melden
+                - option "Ungelesen, noreply@mailbox.org, Auftragsbestätigung für mailbox, 17:10, enthält Anhänge." [ref=e976] [cursor=pointer]:
+                  - generic [ref=e977]:
+                    - img [ref=e979]:
+                      - generic [ref=e980]: "N"
+                    - img [ref=e981]
+                    - generic [ref=e983]:
+                      - generic [ref=e984]: noreply@mailbox.org
+                      - time [ref=e985]: 17:10
+                    - generic [ref=e986]:
+                      - text: Auftragsbestätigung für mailbox
+                      - img
+                      - img
+                    - generic [ref=e988]: "Hallo Maximilian Unverricht, vielen Dank für Ihre Bestellung. Hiermit bestätigen wir Ihren Auftrag vom 13.04.2026. Ihr Tarif: STANDARD Enthaltener Mail-Speicher: 10 GB Enthaltener Cloud-Speicher: 5 GB"
+                - option "Ungelesen, mailbox, Bestätigung des Nutzungsvertrags und wichtige Informationen zu Ihrem Account bei mailbox, 16:27." [ref=e664] [cursor=pointer]:
+                  - generic [ref=e665]:
+                    - img [ref=e893]:
+                      - generic [ref=e894]: M
+                    - img [ref=e895]
+                    - generic [ref=e897]:
+                      - generic [ref=e898]: mailbox
+                      - time [ref=e899]: 16:27
+                    - generic [ref=e900]:
+                      - text: Bestätigung des Nutzungsvertrags und wichtige Informationen zu Ihrem Account bei mailbox
+                      - img
+                    - generic [ref=e902]: Hallo Maximilian Unverricht, wir freuen uns, dass Sie sich für mailbox entschieden haben. Aktuell befinden Sie sich in der 30-tägigen Testphase, in der Sie all unsere Features in Ruhe ausprobieren kön
+                - option "Ungelesen, mailbox, Herzlich Willkommen bei mailbox, 16:27, enthält Anhänge." [ref=e678] [cursor=pointer]:
+                  - generic [ref=e679]:
+                    - img [ref=e905]:
+                      - generic [ref=e906]: M
+                    - img [ref=e907]
+                    - generic [ref=e909]:
+                      - generic [ref=e910]: mailbox
+                      - time [ref=e911]: 16:27
+                    - generic [ref=e912]:
+                      - text: Herzlich Willkommen bei mailbox
+                      - img
+                      - img
+                    - generic [ref=e914]: Herzlich Willkommen bei mailbox! Wir freuen uns, dass Sie sich für uns entschieden haben. Jeder Anfang ist etwas ungewohnt und wir möchten, dass Sie sich gut zurechtfinden. mailbox unterstützt Sie in
+              - toolbar "Nachrichten-Optionen" [ref=e692]: Aktualisiert vor 4 Minuten
+            - generic [ref=e694]:
+              - toolbar "Mail-Werkzeugleiste. Verwenden Sie die Pfeiltasten zum Navigieren." [ref=e696]:
+                - button "Löschen" [disabled] [ref=e697]:
+                  - img
+                - button "Antwort an Absender" [disabled] [ref=e698]:
+                  - img
+                - button "Antwort an alle Empfänger" [disabled] [ref=e699]:
+                  - img
+                - button "Weiterleiten" [disabled] [ref=e700]:
+                  - img
+              - generic [ref=e702]:
+                - img [ref=e703]
+                - generic [ref=e706]: Keine Nachricht markiert
+  - complementary:
+    - alert [ref=e13]
+  - alert [ref=e208]:
+    - img
+    - generic [ref=e210]:
+      - button "Erlauben Sie Benachrichtigungen" [ref=e211] [cursor=pointer]
+      - text: in Ihren Browsereinstellungen, um Push-Nachrichten in Echtzeit zu erhalten.
+    - button "Schließen" [ref=e213] [cursor=pointer]:
+      - generic [ref=e214]:
+        - img
+  - dialog "Einstellungen" [ref=e1110]:
+    - document [ref=e1111]:
+      - generic [ref=e1113]:
+        - navigation "Ordnereinstellungen" [ref=e303]:
+          - heading "Einstellungen" [level=1] [ref=e304]
+          - generic [ref=e305]:
+            - button "Suchen" [ref=e306] [cursor=pointer]:
+              - generic [ref=e307]:
+                - img
+            - generic [ref=e308]: Suchen
+            - searchbox "Suchen" [ref=e310]
+          - tree [ref=e311]:
+            - treeitem [ref=e312] [cursor=pointer]:
+              - group [ref=e313]:
+                - treeitem "Allgemein" [ref=e314]:
+                  - generic [ref=e315]:
+                    - generic [ref=e1114]:
+                      - img
+                    - generic [ref=e319]: Allgemein
+                - treeitem "Benachrichtigungen" [ref=e320]:
+                  - generic [ref=e321]:
+                    - generic [ref=e1116]:
+                      - img
+                    - generic [ref=e325]: Benachrichtigungen
+                - treeitem "Vertrag und Zahlung" [ref=e326]:
+                  - generic [ref=e327]:
+                    - generic [ref=e1118]:
+                      - img
+                    - generic [ref=e331]: Vertrag und Zahlung
+                - treeitem "Sicherheit" [ref=e332]:
+                  - generic [ref=e333]:
+                    - generic [ref=e1120]:
+                      - img
+                    - generic [ref=e337]: Sicherheit
+                - treeitem "Konten" [ref=e338]:
+                  - generic [ref=e339]:
+                    - generic [ref=e1122]:
+                      - img
+                    - generic [ref=e343]: Konten
+                - treeitem "Datenschutz" [ref=e344]:
+                  - generic [ref=e345]:
+                    - generic [ref=e1124]:
+                      - img
+                    - generic [ref=e349]: Datenschutz
+                - treeitem "Familien-Account" [ref=e350]:
+                  - generic [ref=e351]:
+                    - generic [ref=e1126]:
+                      - img
+                    - generic [ref=e355]: Familien-Account
+            - treeitem [ref=e356] [cursor=pointer]:
+              - group [ref=e357]:
+                - treeitem "E-Mail-Adressen" [ref=e358]:
+                  - generic [ref=e359]:
+                    - generic [ref=e1128]:
+                      - img
+                    - generic [ref=e363]: E-Mail-Adressen
+                - treeitem "E-Mail lesen und schreiben" [selected] [ref=e364]:
+                  - generic [ref=e365]:
+                    - generic [ref=e1130]:
+                      - img
+                    - generic [ref=e369]: E-Mail lesen und schreiben
+                - treeitem "E-Mail-Verschlüsselung" [ref=e370]:
+                  - generic [ref=e371]:
+                    - generic [ref=e1132]:
+                      - img
+                    - generic [ref=e375]: E-Mail-Verschlüsselung
+                - treeitem "Externe POP3-Konten" [ref=e376]:
+                  - generic [ref=e377]:
+                    - generic [ref=e1134]:
+                      - img
+                    - generic [ref=e381]: Externe POP3-Konten
+                - treeitem "Spam und Papierkorb" [ref=e382]:
+                  - generic [ref=e383]:
+                    - generic [ref=e1136]:
+                      - img
+                    - generic [ref=e387]: Spam und Papierkorb
+                - treeitem "Backup" [ref=e388]:
+                  - generic [ref=e389]:
+                    - generic [ref=e1138]:
+                      - img
+                    - generic [ref=e393]: Backup
+                - treeitem "Kalender" [ref=e394]:
+                  - generic [ref=e395]:
+                    - generic [ref=e1140]:
+                      - img:
+                        - generic: "13"
+                    - generic [ref=e399]: Kalender
+                - treeitem "Adressbuch" [ref=e400]:
+                  - generic [ref=e401]:
+                    - generic [ref=e1142]:
+                      - img
+                    - generic [ref=e405]: Adressbuch
+                - treeitem "Drive" [ref=e406]:
+                  - generic [ref=e407]:
+                    - generic [ref=e1144]:
+                      - img
+                    - generic [ref=e411]: Drive
+                - treeitem "Portal" [ref=e412]:
+                  - generic [ref=e413]:
+                    - generic [ref=e1146]:
+                      - img
+                    - generic [ref=e417]: Portal
+                - treeitem "Dokumente" [ref=e418]:
+                  - generic [ref=e419]:
+                    - generic [ref=e1148]:
+                      - img
+                    - generic [ref=e423]: Dokumente
+                - treeitem "mailbox Guard" [ref=e424]:
+                  - generic [ref=e425]:
+                    - generic [ref=e1150]:
+                      - img
+                    - generic [ref=e429]: mailbox Guard
+            - treeitem [ref=e430] [cursor=pointer]:
+              - group [ref=e431]:
+                - treeitem "Ressourcen" [ref=e432]:
+                  - generic [ref=e433]:
+                    - generic [ref=e1152]:
+                      - img
+                    - generic [ref=e437]: Ressourcen
+                - treeitem "Gruppen" [ref=e438]:
+                  - generic [ref=e439]:
+                    - generic [ref=e1154]:
+                      - img
+                    - generic [ref=e443]: Gruppen
+                - treeitem "Newsletter" [ref=e444]:
+                  - generic [ref=e445]:
+                    - generic [ref=e1156]:
+                      - img
+                    - generic [ref=e449]: Newsletter
+                - treeitem "Freunde werben Freunde" [ref=e450]:
+                  - generic [ref=e451]:
+                    - generic [ref=e1158]:
+                      - img
+                    - generic [ref=e455]: Freunde werben Freunde
+                - treeitem "mailbox.org Beta" [ref=e456]:
+                  - generic [ref=e457]:
+                    - generic [ref=e1160]:
+                      - img
+                    - generic [ref=e461]: mailbox.org Beta
+                - treeitem "Migrationsassistent" [ref=e462]:
+                  - generic [ref=e463]:
+                    - generic [ref=e1162]:
+                      - img
+                    - generic [ref=e467]: Migrationsassistent
+            - treeitem [ref=e468] [cursor=pointer]:
+              - group [ref=e469]:
+                - treeitem "Ihre Daten" [ref=e470]:
+                  - generic [ref=e471]:
+                    - generic [ref=e1164]:
+                      - img
+                    - generic [ref=e475]: Ihre Daten
+        - generic [ref=e476]:
+          - generic [ref=e1166]:
+            - heading "Mail" [level=1] [ref=e1167]
+            - button "Online-Hilfe öffnen" [ref=e1168] [cursor=pointer]:
+              - generic [ref=e1169]:
+                - img
+            - button "Einstellungen schließen" [ref=e1170] [cursor=pointer]:
+              - generic [ref=e1171]:
+                - img
+          - generic [ref=e1172]:
+            - group [ref=e1173]:
+              - generic "Layout. Anordnung der E-Mail-Liste und des Lesebereichs" [ref=e1174] [cursor=pointer]:
+                - generic [ref=e1175]:
+                  - heading "Layout." [level=2] [ref=e1176]
+                  - paragraph [ref=e1177]: Anordnung der E-Mail-Liste und des Lesebereichs
+                - img
+              - list [ref=e1180]:
+                - listitem [ref=e1181]:
+                  - radio "Vertikal" [checked] [ref=e1182]
+                  - generic [ref=e1183]:
+                    - img [ref=e1184]
+                    - generic [ref=e1204]: Vertikal
+                - listitem [ref=e1205]:
+                  - radio "Horizontal" [ref=e1206]
+                  - generic [ref=e1207]:
+                    - img [ref=e1208]
+                    - generic [ref=e1227]: Horizontal
+                - listitem [ref=e1228]:
+                  - radio "Liste" [ref=e1229]
+                  - generic [ref=e1230]:
+                    - img [ref=e1231]
+                    - generic [ref=e1266]: Liste
+            - group [ref=e1267]:
+              - generic "Lesen. Passen Sie die Art und Weise an, wie Sie Ihre E-Mails lesen" [ref=e1268] [cursor=pointer]:
+                - generic [ref=e1269]:
+                  - heading "Lesen." [level=2] [ref=e1270]
+                  - paragraph [ref=e1271]: Passen Sie die Art und Weise an, wie Sie Ihre E-Mails lesen
+                - img
+              - option "Sehr klein" [selected]
+              - option "Klein"
+              - option "Mittel"
+              - option "Groß"
+              - option "Sehr groß"
+            - group [ref=e1272]:
+              - generic "Posteingangskategorien. Sie können Posteingangskategorien verwenden, um Ihre eingehenden E-Mails in verschiedenen Tabs zu organisieren" [ref=e1273] [cursor=pointer]:
+                - generic [ref=e1274]:
+                  - heading "Posteingangskategorien." [level=2] [ref=e1275]
+                  - paragraph [ref=e1276]: Sie können Posteingangskategorien verwenden, um Ihre eingehenden E-Mails in verschiedenen Tabs zu organisieren
+                - img
+            - group [ref=e1277]:
+              - generic "Signaturen. Ihre Kontaktdaten und wichtige Informationen automatisch hinzufügen" [ref=e1278] [cursor=pointer]:
+                - generic [ref=e1279]:
+                  - heading "Signaturen." [level=2] [ref=e1280]
+                  - paragraph [ref=e1281]: Ihre Kontaktdaten und wichtige Informationen automatisch hinzufügen
+                - img
+            - group [ref=e1282]:
+              - generic "Verfassen & Antworten. Definieren Sie das Nachrichtenformat und den Standardtextstil sowie die Funktion \"Senden zurücknehmen\"" [ref=e1283] [cursor=pointer]:
+                - generic [ref=e1284]:
+                  - heading "Verfassen & Antworten." [level=2] [ref=e1285]
+                  - paragraph [ref=e1286]: Definieren Sie das Nachrichtenformat und den Standardtextstil sowie die Funktion "Senden zurücknehmen"
+                - img
+              - option "HTML"
+              - option "Nur Text"
+              - option "HTML und Text" [selected]
+            - group [ref=e1287]:
+              - generic "E-Mail-Aliase. Wählen Sie Ihre Standard-Absenderadresse" [ref=e1288] [cursor=pointer]:
+                - generic [ref=e1289]:
+                  - heading "E-Mail-Aliase." [level=2] [ref=e1290]
+                  - paragraph [ref=e1291]: Wählen Sie Ihre Standard-Absenderadresse
+                - img
+              - option "info@munverricht.org"
+              - option "munverricht@mailbox.org" [selected]
+            - group [ref=e1292]:
+              - generic "Regeln. Definieren Sie Regeln für den Umgang mit eingehenden E-Mails" [active] [ref=e1293] [cursor=pointer]:
+                - generic [ref=e1294]:
+                  - heading "Regeln." [level=2] [ref=e1295]
+                  - paragraph [ref=e1296]: Definieren Sie Regeln für den Umgang mit eingehenden E-Mails
+                - img
+              - generic [ref=e1312]:
+                - generic [ref=e1313]:
+                  - generic [ref=e1314]: Mit Regeln können Sie Ihren E-Mail-Posteingang mühelos organisieren und optimieren, indem Sie beispielsweise E-Mails von bestimmten Absendern automatisch in bestimmte Ordner verschieben, löschen, als gelesen markieren oder an eine andere E-Mail-Adresse weiterleiten.
+                  - button "Online-Hilfe öffnen" [ref=e1315] [cursor=pointer]:
+                    - generic [ref=e1316]:
+                      - img
+                - generic [ref=e1317]:
+                  - button "Neue Regel hinzufügen" [ref=e1318] [cursor=pointer]
+                  - button "Abwesenheitsbenachrichtigung …" [ref=e1319] [cursor=pointer]
+                  - button "Automatische Weiterleitung …" [ref=e1320] [cursor=pointer]
+                - log [ref=e1321]
+                - generic [ref=e1322]: Es wurde keine Regel definiert
+            - group [ref=e1297]:
+              - generic "Ordner. Legen sie fest, welche Ordner angezeigt werden" [ref=e1298] [cursor=pointer]:
+                - generic [ref=e1299]:
+                  - heading "Ordner." [level=2] [ref=e1300]
+                  - paragraph [ref=e1301]: Legen sie fest, welche Ordner angezeigt werden
+                - img
+            - group [ref=e1302]:
+              - generic "Posteingangsverschlüsselung. PGP-Verschlüsselung für eingehende E-Mails" [ref=e1303] [cursor=pointer]:
+                - generic [ref=e1304]:
+                  - heading "Posteingangsverschlüsselung." [level=2] [ref=e1305]
+                  - paragraph [ref=e1306]: PGP-Verschlüsselung für eingehende E-Mails
+                - img
+            - group [ref=e1307]:
+              - generic "Erweiterte Einstellungen." [ref=e1308] [cursor=pointer]:
+                - heading "Erweiterte Einstellungen." [level=2] [ref=e1310]
+                - img

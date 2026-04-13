@@ -1,0 +1,57 @@
+- generic [ref=e2]:
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - link "mailbox-org-logo" [ref=e11] [cursor=pointer]:
+        - /url: https://mailbox.org/en
+        - img "mailbox-org-logo" [ref=e12]
+      - heading "Login" [level=3] [ref=e15]
+    - generic [ref=e17]:
+      - heading "News" [level=2] [ref=e18]
+      - paragraph [ref=e19]: Do you want to stay up to date? Discover all the updates and news about mailbox.
+      - link "See more" [ref=e20] [cursor=pointer]:
+        - /url: https://mailbox.org/en/news/
+  - contentinfo [ref=e21]:
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - link "Link to LinkedIn" [ref=e27] [cursor=pointer]:
+              - /url: https://de.linkedin.com/company/mailbox.org
+              - img "Link to LinkedIn" [ref=e28]
+          - listitem [ref=e29]:
+            - link "Link to Mastodon" [ref=e30] [cursor=pointer]:
+              - /url: https://social.mailbox.org/@mailbox_org
+              - img "Link to Mastodon" [ref=e31]
+          - listitem [ref=e32]:
+            - link "Link to Bluesky" [ref=e33] [cursor=pointer]:
+              - /url: https://bsky.app/profile/mailbox.org
+              - img "Link to Bluesky" [ref=e34]
+          - listitem [ref=e35]:
+            - link "Link to RSS-Feed" [ref=e36] [cursor=pointer]:
+              - /url: https://mailbox.org/en/news/rss.xml
+              - img "Link to RSS-Feed" [ref=e37]
+        - list [ref=e39]:
+          - listitem [ref=e40]:
+            - link "Legal notice" [ref=e41] [cursor=pointer]:
+              - /url: https://mailbox.org/en/legal-information
+          - listitem [ref=e42]:
+            - link "Terms and conditions" [ref=e43] [cursor=pointer]:
+              - /url: https://mailbox.org/en/t-cs-cancellation-policy
+          - listitem [ref=e44]:
+            - link "Data protection" [ref=e45] [cursor=pointer]:
+              - /url: https://mailbox.org/en/data-protection
+          - listitem [ref=e46]:
+            - link "Cancellation" [ref=e47] [cursor=pointer]:
+              - /url: https://register.mailbox.org/en/cancellation
+          - listitem [ref=e48]:
+            - paragraph [ref=e49]: © 2026 mailbox
+      - generic [ref=e50]:
+        - list [ref=e52]:
+          - listitem [ref=e53]: Language
+          - listitem [ref=e54]:
+            - link "German" [ref=e55] [cursor=pointer]:
+              - /url: https://login.mailbox.org/de
+          - listitem [ref=e56]:
+            - link "English":
+              - /url: https://login.mailbox.org/en
+        - paragraph [ref=e58]: Heinlein Gruppe
