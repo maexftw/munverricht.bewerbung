@@ -3,7 +3,6 @@ import {
   motion,
   useMotionTemplate,
   useMotionValue,
-  useReducedMotion,
   useSpring,
   useTransform,
 } from 'framer-motion';
@@ -68,7 +67,6 @@ const showcaseProjects: ShowcaseProject[] = [
 const spring = { stiffness: 140, damping: 18, mass: 0.5 };
 
 const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number }> = ({ project, index }) => {
-  const shouldReduceMotion = useReducedMotion();
   const cardId = useId();
   const cardRef = useRef<HTMLAnchorElement>(null);
   const [isActive, setIsActive] = useState(false);
@@ -109,8 +107,6 @@ const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number 
   };
 
   const handlePointerMove = (event: React.PointerEvent<HTMLAnchorElement>) => {
-    if (shouldReduceMotion) return;
-
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = event.clientX - bounds.left;
     const y = event.clientY - bounds.top;
@@ -134,8 +130,8 @@ const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number 
 
   return (
     <motion.article
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
-      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.7, delay: 0.08 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className="group relative"
@@ -155,14 +151,14 @@ const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number 
         className="relative block aspect-[11/14] rounded-[1.55rem] outline-none transition-transform duration-200 ease-out hover:-translate-y-0.5 [perspective:1200px] focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#eef3fb]"
       >
         <motion.div
-          style={shouldReduceMotion ? undefined : { rotateX, rotateY, boxShadow: frameShadow }}
+          style={{ rotateX, rotateY, boxShadow: frameShadow }}
           transition={{ type: 'spring', stiffness: 160, damping: 18 }}
           className={`relative h-full overflow-hidden rounded-[1.55rem] [transform-style:preserve-3d] ${themeClasses.webPanelSoft}`}
         >
           <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-60`} aria-hidden="true" />
 
           <motion.div
-            style={shouldReduceMotion ? undefined : { x: driftX, y: imageY, scale: imageScale, z: 0 }}
+            style={{ x: driftX, y: imageY, scale: imageScale, z: 0 }}
             className="absolute inset-[0.65rem] overflow-hidden rounded-[1.15rem] border border-white/60 bg-white [transform:translateZ(0)]"
           >
             <img
@@ -176,14 +172,14 @@ const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number 
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(248,250,252,0.02)_0%,rgba(248,250,252,0)_18%,rgba(15,23,42,0.05)_60%,rgba(15,23,42,0.56)_100%)]" aria-hidden="true" />
             <motion.div
-              style={shouldReduceMotion ? undefined : { backgroundImage: glare }}
-              className={`absolute inset-0 transition-opacity duration-300 ${isActive && !shouldReduceMotion ? 'opacity-80' : 'opacity-40'}`}
+              style={{ backgroundImage: glare }}
+              className={`absolute inset-0 transition-opacity duration-300 ${isActive ? 'opacity-80' : 'opacity-40'}`}
               aria-hidden="true"
             />
           </motion.div>
 
           <motion.div
-            style={shouldReduceMotion ? undefined : { x: useTransform(driftX, (value) => value * -0.45), y: headerY, z: 50 }}
+            style={{ x: useTransform(driftX, (value) => value * -0.45), y: headerY, z: 50 }}
             className={`absolute inset-x-4 top-4 z-10 flex items-center justify-between gap-3 ${themeClasses.webPill}`}
           >
             <span className="mono text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-500">Case {project.id}</span>
@@ -194,7 +190,7 @@ const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number 
           </motion.div>
 
           <motion.div
-            style={shouldReduceMotion ? undefined : { x: useTransform(driftX, (value) => value * -0.72), y: captionY, z: 72 }}
+            style={{ x: useTransform(driftX, (value) => value * -0.72), y: captionY, z: 72 }}
             className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5"
           >
             <div className={`rounded-[1.1rem] p-4 sm:p-5 ${themeClasses.webCard}`}>
@@ -214,16 +210,14 @@ const WebdesignShowcaseCard: React.FC<{ project: ShowcaseProject; index: number 
 };
 
 const WebdesignShowcase: React.FC = () => {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
     <section id="webdesign-showcase" className="relative scroll-mt-28 py-10 sm:py-16 lg:py-18">
       <div className="absolute left-[6%] top-10 hidden h-32 w-32 rounded-full bg-blue-200/40 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[4%] top-24 hidden h-40 w-40 rounded-full bg-cyan-100/60 blur-3xl lg:block" aria-hidden="true" />
 
       <motion.div
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-        whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className={`relative overflow-hidden rounded-[1.4rem] px-5 py-6 sm:px-7 sm:py-8 md:px-9 ${themeClasses.webPanel}`}
@@ -252,9 +246,9 @@ const WebdesignShowcase: React.FC = () => {
                 </p>
               </div>
               <div className={`rounded-[1rem] px-4 py-4 sm:px-5 ${themeClasses.webCard}`}>
-                <p className={themeClasses.webEyebrow}>Reduzierte Bewegung</p>
+                <p className={themeClasses.webEyebrow}>Lebendige Interaktion</p>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  Wenn Bewegung reduziert werden soll, bleiben die Karten stabil, klar lesbar und vollständig bedienbar.
+                  Tiefenwirkung, Lichtreflexe und subtile Bewegung unterstützen den Eindruck, statt das Layout zu überladen.
                 </p>
               </div>
             </div>

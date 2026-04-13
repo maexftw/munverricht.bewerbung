@@ -339,25 +339,6 @@
             min-height: 100vh;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .scanline {
-                animation: none;
-                opacity: calc(var(--scanline-opacity) * 0.4);
-            }
-
-            .crt-overlay {
-                opacity: calc(var(--crt-opacity) * 0.55);
-            }
-
-            #background-canvas-container canvas,
-            #code-ambient-canvas-container canvas {
-                opacity: calc(var(--ambient-canvas-opacity) * 0.7);
-            }
-
-            html:focus-within {
-                scroll-behavior: auto;
-            }
-        }
     </style>
     <script>
         (function () {

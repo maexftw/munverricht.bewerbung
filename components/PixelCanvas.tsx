@@ -221,8 +221,6 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     let timePrevious = performance.now();
     const timeInterval = 1000 / 60;
 
@@ -283,7 +281,7 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
         let allIdle = true;
         for (const pixel of pixelsRef.current) {
           if (ambient) {
-            const motionFactor = prefersReducedMotion ? 0.08 : 1;
+            const motionFactor = 1;
             const largeWave = (Math.sin(timeNow * 0.00105 + pixel.x * 0.003) + 1) * 0.5;
             const detailWave = (Math.sin(timeNow * 0.0018 - pixel.y * 0.012 + pixel.x * 0.006) + 1) * 0.5;
             const focusBoost = fixed ? pixel.ambientBias * 0.007 : pixel.ambientBias * 0.004;

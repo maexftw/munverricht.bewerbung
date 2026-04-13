@@ -42,7 +42,6 @@ const CodeAmbientBackground: React.FC = () => {
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     let width = 0;
     let height = 0;
     let dpr = 1;
@@ -121,7 +120,6 @@ const CodeAmbientBackground: React.FC = () => {
         width,
         height,
         dpr,
-        reducedMotion: media.matches,
         theme: document.documentElement.getAttribute('data-theme'),
         bgColor: getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim(),
         ambientOpacity: getComputedStyle(canvas).opacity
@@ -249,7 +247,7 @@ const CodeAmbientBackground: React.FC = () => {
       const fieldHeight = height * 0.6;
       const colStep = width < 900 ? 9.5 : 12;
       const rowStep = height < 800 ? 14 : 16;
-      const amplitude = media.matches ? 9 : 20;
+      const amplitude = 20;
 
       ctx.font = width < 900 ? '500 8px "JetBrains Mono", monospace' : '500 9px "JetBrains Mono", monospace';
       ctx.textBaseline = 'middle';
@@ -295,7 +293,7 @@ const CodeAmbientBackground: React.FC = () => {
         ctx.lineTo(sx, sy);
         ctx.stroke();
 
-        if (!media.matches && Math.abs(cell.x % 4) < 0.5 && depth > 0.18) {
+        if (Math.abs(cell.x % 4) < 0.5 && depth > 0.18) {
           ctx.strokeStyle = `rgba(191,219,254,${(alpha * 0.46).toFixed(3)})`;
           ctx.lineWidth = Math.max(0.6, barWidth * 0.45);
           ctx.beginPath();
@@ -312,7 +310,7 @@ const CodeAmbientBackground: React.FC = () => {
         }
 
         const flashGate = Math.sin(cell.seed * 4 + time * 2.4 + cell.x * 0.8 - cell.z * 0.3);
-        if (!media.matches && flashGate > 0.965 && depth > 0.22 && heroWeight > 0.34) {
+        if (flashGate > 0.965 && depth > 0.22 && heroWeight > 0.34) {
           const label = COMPILER_HINTS[(Math.abs(Math.floor(cell.seed * 10 + cell.x + cell.z)) % COMPILER_HINTS.length)];
           ctx.fillStyle = `rgba(191,219,254,${Math.min(0.32, alpha * 1.3 + 0.08).toFixed(3)})`;
           ctx.fillText(label, sx + 6, topY - 4);
@@ -322,7 +320,7 @@ const CodeAmbientBackground: React.FC = () => {
 
       ctx.save();
       ctx.globalCompositeOperation = 'screen';
-      const contourRows = media.matches ? 5 : 8;
+      const contourRows = 8;
       for (let row = 0; row < contourRows; row++) {
         const y = horizonY + fieldHeight * (0.12 + row * 0.11);
         const contour = ctx.createLinearGradient(0, y, width, y);
@@ -339,25 +337,23 @@ const CodeAmbientBackground: React.FC = () => {
         ctx.stroke();
       }
 
-      if (!media.matches) {
-        const sweepCount = 3;
-        for (let index = 0; index < sweepCount; index++) {
-          const sweepProgress = (time * (0.12 + index * 0.03) + index * 0.31) % 1;
-          const sweepY = horizonY + fieldHeight * (0.1 + sweepProgress * 0.72);
-          const sweepAlpha = 0.04 + (1 - sweepProgress) * 0.06;
-          const sweep = ctx.createLinearGradient(0, sweepY, width, sweepY);
-          sweep.addColorStop(0, 'rgba(125,211,252,0)');
-          sweep.addColorStop(0.18, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
-          sweep.addColorStop(0.5, `rgba(191,219,254,${sweepAlpha.toFixed(3)})`);
-          sweep.addColorStop(0.82, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
-          sweep.addColorStop(1, 'rgba(125,211,252,0)');
-          ctx.strokeStyle = sweep;
-          ctx.lineWidth = 1.5;
-          ctx.beginPath();
-          ctx.moveTo(width * 0.18, sweepY + 4);
-          ctx.lineTo(width * 0.82, sweepY - 12);
-          ctx.stroke();
-        }
+      const sweepCount = 3;
+      for (let index = 0; index < sweepCount; index++) {
+        const sweepProgress = (time * (0.12 + index * 0.03) + index * 0.31) % 1;
+        const sweepY = horizonY + fieldHeight * (0.1 + sweepProgress * 0.72);
+        const sweepAlpha = 0.04 + (1 - sweepProgress) * 0.06;
+        const sweep = ctx.createLinearGradient(0, sweepY, width, sweepY);
+        sweep.addColorStop(0, 'rgba(125,211,252,0)');
+        sweep.addColorStop(0.18, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
+        sweep.addColorStop(0.5, `rgba(191,219,254,${sweepAlpha.toFixed(3)})`);
+        sweep.addColorStop(0.82, `rgba(125,211,252,${(sweepAlpha * 0.5).toFixed(3)})`);
+        sweep.addColorStop(1, 'rgba(125,211,252,0)');
+        ctx.strokeStyle = sweep;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(width * 0.18, sweepY + 4);
+        ctx.lineTo(width * 0.82, sweepY - 12);
+        ctx.stroke();
       }
 
       ctx.restore();
@@ -382,7 +378,7 @@ const CodeAmbientBackground: React.FC = () => {
     };
 
     const draw = () => {
-      const dt = media.matches ? 0.006 : 0.016;
+      const dt = 0.016;
       ctx.clearRect(0, 0, width, height);
 
       if (!mainGlow) {
@@ -428,7 +424,6 @@ const CodeAmbientBackground: React.FC = () => {
           frame: debugFrames,
           time: Number(time.toFixed(3)),
           dt,
-          reducedMotion: media.matches,
           waveCells: waveCells.length,
           probeWave: probeWave === null ? null : Number(probeWave.toFixed(4)),
           theme: document.documentElement.getAttribute('data-theme'),
