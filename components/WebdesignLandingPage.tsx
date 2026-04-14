@@ -187,9 +187,9 @@ const WebdesignLandingPage: React.FC = () => {
         <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/50 bg-[linear-gradient(180deg,rgba(248,251,255,0.82),rgba(239,244,252,0.68))] px-4 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-[16px] sm:px-6">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-3">
             <div className="flex items-center justify-between gap-3">
-              <a href="/" aria-label="Zur Startseite von munverricht.org" className="group flex min-h-[44px] items-center gap-0.5 rounded-full px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#eef3fb]">
-                <ASCIIText text="munverricht" className="mono text-sm font-semibold lowercase tracking-tight text-slate-800" revealOnMount={false} />
-                <span className="mono text-sm font-semibold text-blue-600">.org</span>
+              <a href="/" aria-label="Zur Startseite von graphiks.de" className="group flex min-h-[44px] items-center gap-0.5 rounded-full px-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#eef3fb]">
+                <ASCIIText text="graphiks" className="mono text-sm font-semibold lowercase tracking-tight text-slate-800" revealOnMount={false} />
+                <span className="mono text-sm font-semibold text-blue-600">.de</span>
               </a>
 
               <div className="hidden lg:flex items-center rounded-full border border-white/70 bg-white/60 p-1 shadow-[0_10px_24px_rgba(15,23,42,0.05),inset_0_1px_0_rgba(255,255,255,0.86)]">
