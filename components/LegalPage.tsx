@@ -32,11 +32,11 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
     const descriptionMeta = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
     const previousDescription = descriptionMeta?.getAttribute('content') ?? '';
 
-    document.title = `${title} | Maximilian Unverricht`;
+    document.title = `${title} | graphiks.de`;
     upsertMetaTag('meta[name="description"]', { name: 'description' }, `${title} | ${summary}`);
 
     return () => {
-      document.title = previousTitle || 'Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht';
+      document.title = previousTitle || 'Webdesign für Handwerker, Praxen & KMU | graphiks.de';
       if (previousDescription) {
         upsertMetaTag('meta[name="description"]', { name: 'description' }, previousDescription);
       }

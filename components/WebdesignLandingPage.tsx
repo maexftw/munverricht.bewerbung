@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MotionConfig, motion, useReducedMotion } from 'framer-motion';
 import { Activity, Clock3, Terminal, Zap, Shield, Globe, Cpu, ArrowRight, Mail, Phone } from 'lucide-react';
 import ASCIIText from './ASCIIText';
@@ -103,11 +103,11 @@ const webdesignNavItems = [
 
 const technicalSpecMetaClassName = 'mono text-[11px] uppercase tracking-[0.18em]';
 const defaultMeta = {
-  title: 'Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht',
+  title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
   description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU ab 300 EUR: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
 };
 const webdesignMeta = {
-  title: 'Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht',
+  title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
   description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU ab 300 EUR: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
 };
 
