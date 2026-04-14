@@ -15,7 +15,8 @@ const App: React.FC = () => {
   const pathname = typeof window !== 'undefined' ? window.location.pathname.replace(/\/+$/, '') || '/' : '/';
   const isFirecrawlAnimationDemo = pathname === '/firecrawl-animation';
   const isLegalPage = pathname === '/impressum' || pathname === '/datenschutz';
-  const isWebdesignLandingPage = pathname === '/webdesign';
+  const isWebdesignLandingPage = pathname === '/' || pathname === '/webdesign';
+  const isPortfolioPage = pathname === '/bewerbung' || pathname === '/portfolio';
   const legalPage = pathname === '/impressum' ? 'impressum' : 'datenschutz';
 
   const handleLanguageChange = (nextLanguage: 'de' | 'en') => {
@@ -49,10 +50,20 @@ const App: React.FC = () => {
     );
   }
 
+  if (isPortfolioPage) {
+    return (
+      <Suspense fallback={null}>
+        <MainPortfolioPage language={language} onLanguageChange={handleLanguageChange} />
+      </Suspense>
+    );
+  }
+
   return (
-    <Suspense fallback={null}>
-      <MainPortfolioPage language={language} onLanguageChange={handleLanguageChange} />
-    </Suspense>
+    <ThemeProvider forcedTheme="light">
+      <Suspense fallback={null}>
+        <WebdesignLandingPage />
+      </Suspense>
+    </ThemeProvider>
   );
 };
 

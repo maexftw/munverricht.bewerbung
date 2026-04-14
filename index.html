@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maximilian Unverricht | Frontend Developer & Web Delivery</title>
+    <title>Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht</title>
     <meta name="description"
-        content="Frontend Developer for websites, prototypes, and web delivery workflows | React, TypeScript, Vite, Cloudflare - Portfolio von Maximilian Unverricht">
+        content="Klare Firmenwebsite für Handwerker, Praxen und KMU: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.">
     <link rel="icon" type="image/png" href="/maximilian-unverricht.pages.dev_.png">
     <meta property="og:image" content="maximilian-unverricht.pages.dev_.png">
     <!-- v3.0.5-CACHE-BUST -->
@@ -349,8 +349,12 @@
     <script>
         (function () {
             try {
+                var pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+                var prefersLightShell = pathname === '/' || pathname === '/webdesign' || pathname === '/impressum' || pathname === '/datenschutz';
                 var savedTheme = localStorage.getItem('theme');
-                var theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
+                var theme = savedTheme === 'light' || savedTheme === 'dark'
+                    ? savedTheme
+                    : (prefersLightShell ? 'light' : 'dark');
                 document.documentElement.setAttribute('data-theme', theme);
                 if (theme === 'dark') {
                     document.documentElement.classList.add('dark');
@@ -358,8 +362,8 @@
                     document.documentElement.classList.remove('dark');
                 }
             } catch (error) {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.documentElement.classList.add('dark');
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.documentElement.classList.remove('dark');
             }
         })();
     </script>
@@ -371,7 +375,7 @@
             <h1 class="boot-title">Maximilian
                 Unverricht</h1>
             <p class="boot-subtitle">
-                Frontend Developer &amp; Web Delivery</p>
+                Webdesign für Handwerker, Praxen &amp; KMU</p>
 
             <div class="boot-links">
                 <a href="mailto:info@graphiks.de" class="boot-link">Kontakt</a>
@@ -388,7 +392,7 @@
     <noscript>
         <div class="noscript-shell">
             <h1>Maximilian Unverricht</h1>
-            <p>Frontend Developer &amp; Web Delivery</p>
+            <p>Webdesign für Handwerker, Praxen &amp; KMU</p>
             <p>
                 <a href="mailto:info@graphiks.de" class="boot-link">info@graphiks.de</a> |
                 <a href="https://github.com/maexftw" class="boot-link">GitHub</a> |

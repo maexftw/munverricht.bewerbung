@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { MotionConfig, motion, useReducedMotion } from 'framer-motion';
 import { Activity, Clock3, Terminal, Zap, Shield, Globe, Cpu, ArrowRight, Mail, Phone } from 'lucide-react';
 import ASCIIText from './ASCIIText';
@@ -41,29 +41,29 @@ const technicalSpecs = [
 const offerHighlights = [
   {
     label: 'Hosting',
-    title: 'im Angebot enthalten',
-    body: 'Keine Extra-Stufe nur fürs Onlinegehen.',
+    title: 'inklusive',
+    body: 'Onlinegang ohne Zusatzpaket.',
     icon: Globe,
     iconClassName: 'text-blue-500',
   },
   {
     label: 'Abstimmung',
     title: 'direkt mit mir',
-    body: 'Kurze Wege statt Agenturprozess.',
+    body: 'Kurze Wege, klare Absprachen.',
     icon: Activity,
     iconClassName: 'text-sky-500',
   },
   {
     label: 'Ziel',
-    title: 'klar wirken und Anfragen erleichtern',
-    body: 'Verständlich statt überladen.',
+    title: 'klar und vertrauenswürdig',
+    body: 'Damit Besucher schneller anfragen.',
     icon: Zap,
     iconClassName: 'text-indigo-500',
   },
   {
     label: 'Freigabe',
-    title: 'ohne Paketlogik',
-    body: 'Einmal sauber abstimmen, dann live.',
+    title: 'einmal abstimmen',
+    body: 'Danach geht die Seite live.',
     icon: Shield,
     iconClassName: 'text-teal-600',
   },
@@ -77,13 +77,13 @@ const workflowSteps = [
   {
     id: '01',
     title: 'Kurz abstimmen',
-    body: 'Sie sagen kurz, was Ihr Unternehmen anbietet und was die Website leisten soll. Ich übersetze das in eine klare Struktur, ohne Fachsprache und ohne endlose Abstimmung.',
+    body: 'Sie sagen kurz, was Ihr Unternehmen anbietet und was die Website leisten soll. Ich Ã¼bersetze das in eine klare Struktur, ohne Fachsprache und ohne endlose Abstimmung.',
     icon: Clock3,
   },
   {
     id: '02',
     title: 'Ich baue die Website',
-    body: 'Ich erstelle Text, Aufbau, Design und mobile Darstellung so, dass Besucher schnell verstehen, worum es geht und wie sie Kontakt aufnehmen können.',
+    body: 'Ich erstelle Text, Aufbau, Design und mobile Darstellung so, dass Besucher schnell verstehen, worum es geht und wie sie Kontakt aufnehmen kÃ¶nnen.',
     icon: Activity,
   },
   {
@@ -97,18 +97,18 @@ const workflowSteps = [
 const webdesignNavItems = [
   { id: 'hero', label: 'Start' },
   { id: 'webdesign-project-showcase', label: 'Projekte' },
-  { id: 'about-me', label: 'Über mich' },
+  { id: 'about-me', label: 'Ãœber mich' },
   { id: 'project-intake', label: 'Anfrage' },
 ] as const;
 
 const technicalSpecMetaClassName = 'mono text-[11px] uppercase tracking-[0.18em]';
 const defaultMeta = {
-  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
-  description: 'Frontend Developer for websites, prototypes, and web delivery workflows | React, TypeScript, Vite, Cloudflare - Portfolio von Maximilian Unverricht',
+  title: 'Webdesign fÃƒÂ¼r Handwerker, Praxen & KMU | Maximilian Unverricht',
+  description: 'Klare Firmenwebsite fÃƒÂ¼r Handwerker, Praxen und KMU: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
 };
 const webdesignMeta = {
-  title: 'Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht',
-  description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
+  title: 'Webdesign fÃ¼r Handwerker, Praxen & KMU | Maximilian Unverricht',
+  description: 'Klare Firmenwebsite fÃ¼r Handwerker, Praxen und KMU: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -249,7 +249,7 @@ const WebdesignLandingPage: React.FC = () => {
               <div className="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">
                 <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut' }} className="relative flex w-full flex-col items-center">
                   <p className="mb-4 text-center mono text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.3em]">
-                    <ASCIIText as="span" text="WEBDESIGN // FÜR HANDWERKER, PRAXEN & KLEINE UNTERNEHMEN" noWrap={false} enableHover={false} revealOnMount={false} />
+                    <ASCIIText as="span" text="WEBDESIGN // FÃœR HANDWERKER, PRAXEN & KLEINE UNTERNEHMEN" noWrap={false} enableHover={false} revealOnMount={false} />
                   </p>
                   <h1 className="mb-5 text-[clamp(2.85rem,14vw,5.35rem)] font-bold uppercase leading-[0.88] tracking-[0.02em] text-slate-900 sm:mb-8 sm:text-5xl md:text-7xl lg:text-[5.35rem]">
                     <span className="block">
@@ -267,7 +267,7 @@ const WebdesignLandingPage: React.FC = () => {
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="mb-4 flex w-full max-w-sm sm:hidden">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full`}>
                     <Mail className="h-4 w-4 text-white" />
-                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Ersteinschätzung anfragen</span>
+                    <span className={`${themeClasses.webMeta} font-bold text-white`}>ErsteinschÃ¤tzung anfragen</span>
                   </a>
                 </motion.div>
 
@@ -277,14 +277,14 @@ const WebdesignLandingPage: React.FC = () => {
                     noWrap={false}
                     enableHover={false}
                     revealOnMount={false}
-                    text="Eine einfache Website zum Festpreis. Ohne Abo, ohne Agenturprozess und ohne Umwege. Ich baue Ihre Seite so, dass sie seriös wirkt, Vertrauen schafft und Anfragen leichter macht."
+                    text="Eine einfache Website zum Festpreis. Ohne Abo, ohne Agenturprozess und ohne Umwege. Ich baue Ihre Seite so, dass sie seriÃ¶s wirkt, Vertrauen schafft und Anfragen leichter macht."
                   />
                 </motion.p>
 
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.28 }} className="mb-4 hidden w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mb-7 sm:flex sm:flex-row sm:items-center sm:gap-4 sm:pt-1">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} flex-1`}>
                     <Mail className="h-4 w-4 text-white" />
-                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlose Ersteinschätzung anfragen</span>
+                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlose ErsteinschÃ¤tzung anfragen</span>
                   </a>
                   <a href="tel:+491633229892" className={themeClasses.webButtonSecondary}>
                     <Phone className="h-4 w-4 text-blue-600" />
@@ -298,7 +298,7 @@ const WebdesignLandingPage: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.25 }}
                   className="mb-8 hidden flex-wrap items-center justify-center gap-x-4 gap-y-2.5 px-3 text-center min-[480px]:flex sm:mb-12 sm:gap-x-5 sm:px-0"
                 >
-                  <span className={`${themeClasses.webMeta} text-blue-600`}>Ab 300 EUR einmalig</span>
+                  <span className={`${themeClasses.webMeta} text-blue-600`}>Klare Firmenwebsite ab 300 EUR</span>
                   <span className="h-1 w-1 rounded-full bg-blue-300" />
                   <span className={`${themeClasses.webMeta} text-slate-500`}>Kein Abo</span>
                   <span className="h-1 w-1 rounded-full bg-blue-300" />
@@ -316,12 +316,12 @@ const WebdesignLandingPage: React.FC = () => {
                     <div className={`flex h-full flex-col justify-between space-y-4 rounded-[1rem] px-4 py-4 sm:rounded-[1.15rem] sm:px-6 sm:py-6 ${themeClasses.webPanelSoft}`}>
                       <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
                         <Terminal className="h-3.5 w-3.5" />
-                        Festpreis statt Agenturpaket
+                        Klare Firmenwebsite
                       </div>
                       <div className="space-y-2">
-                        <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">300-400 EUR einmalig</p>
+                        <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">ab 300 EUR</p>
                         <p className="max-w-[34ch] text-sm leading-relaxed text-slate-600 sm:text-base">
-                          Sie bekommen eine klare Firmenwebsite ohne Abo und ohne lange Vertragskette. Ziel ist ein verständlicher, seriöser Auftritt für Ihr Unternehmen.
+                          Festpreis statt Agenturpaket. Ohne Abo, ohne Umwege und mit direktem Ansprechpartner.
                         </p>
                       </div>
                     </div>
@@ -350,7 +350,7 @@ const WebdesignLandingPage: React.FC = () => {
                 )}
                 <div className="relative z-10">
                   <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
-                    <ASCIIText text="// WICHTIG_FÜR_IHRE_WEBSITE" revealOnMount={false} />
+                    <ASCIIText text="// WICHTIG_FÃœR_IHRE_WEBSITE" revealOnMount={false} />
                   </div>
                   <ul className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-x-4 sm:gap-y-3 md:gap-x-5" aria-label="Technische Merkmale der angebotenen Webdesign-Leistung">
                     {technicalSpecs.map((tech) => (
@@ -367,7 +367,7 @@ const WebdesignLandingPage: React.FC = () => {
                 <div className="space-y-4 lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,0.88fr)_minmax(20rem,1.12fr)] lg:items-end lg:gap-8 lg:space-y-0">
                   <div className="space-y-3">
                     <p className={themeClasses.webEyebrow}>
-                      <ASCIIText text="// SO_LÄUFT_DAS_PROJEKT" noWrap={false} enableHover={false} revealOnMount={false} />
+                      <ASCIIText text="// SO_LÃ„UFT_DAS_PROJEKT" noWrap={false} enableHover={false} revealOnMount={false} />
                     </p>
                     <h2 className="max-w-[15ch] text-balance text-[1.85rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.2rem] sm:leading-[0.96]">
                       Von der Anfrage bis online in drei klaren Schritten.
@@ -376,7 +376,7 @@ const WebdesignLandingPage: React.FC = () => {
 
                   <div className="space-y-4">
                     <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
-                      Kein langer Agenturablauf, sondern ein kurzer, nachvollziehbarer Prozess. Sie wissen früh, was gebaut wird, was es kostet und wann die Seite live gehen kann.
+                      Kein langer Agenturablauf, sondern ein kurzer, nachvollziehbarer Prozess. Sie wissen frÃ¼h, was gebaut wird, was es kostet und wann die Seite live gehen kann.
                     </p>
                     <ul className="flex flex-wrap gap-2.5" aria-label="Projektvorteile im Ablauf">
                       {workflowIntroPoints.map((point) => (

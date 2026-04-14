@@ -36,7 +36,7 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
     upsertMetaTag('meta[name="description"]', { name: 'description' }, `${title} | ${summary}`);
 
     return () => {
-      document.title = previousTitle || 'Maximilian Unverricht | Frontend Developer & Web Delivery';
+      document.title = previousTitle || 'Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht';
       if (previousDescription) {
         upsertMetaTag('meta[name="description"]', { name: 'description' }, previousDescription);
       }

@@ -15,14 +15,14 @@ export const legalRouteLabels = {
     webdesign: 'Webdesign',
     legalNotice: 'Impressum',
     privacy: 'Datenschutz',
-    backHome: 'Zur Portfolio-Startseite',
+    backHome: 'Zur Startseite',
   },
   en: {
     home: 'Home',
     webdesign: 'Webdesign',
     legalNotice: 'Legal notice',
     privacy: 'Privacy',
-    backHome: 'Back to portfolio home',
+    backHome: 'Back to home',
   },
 } as const;
 
