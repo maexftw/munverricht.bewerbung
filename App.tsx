@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useState } from 'react';
 import { ThemeProvider } from './components/ThemeContext';
+import CookieBanner from './components/CookieBanner';
 
 const FirecrawlAnimationDemo = lazy(() => import('./components/FirecrawlAnimationDemo'));
 const WebdesignLandingPage = lazy(() => import('./components/WebdesignLandingPage'));
@@ -26,43 +27,58 @@ const App: React.FC = () => {
 
   if (isFirecrawlAnimationDemo) {
     return (
-      <Suspense fallback={null}>
-        <FirecrawlAnimationDemo />
-      </Suspense>
+      <>
+        <Suspense fallback={null}>
+          <FirecrawlAnimationDemo />
+        </Suspense>
+        <CookieBanner language={language} />
+      </>
     );
   }
 
   if (isWebdesignLandingPage) {
     return (
       <ThemeProvider forcedTheme="light">
-        <Suspense fallback={null}>
-          <WebdesignLandingPage />
-        </Suspense>
+        <>
+          <Suspense fallback={null}>
+            <WebdesignLandingPage />
+          </Suspense>
+          <CookieBanner language="de" />
+        </>
       </ThemeProvider>
     );
   }
 
   if (isLegalPage) {
     return (
-      <Suspense fallback={null}>
-        <LegalPage page={legalPage} language={language} onLanguageChange={handleLanguageChange} />
-      </Suspense>
+      <>
+        <Suspense fallback={null}>
+          <LegalPage page={legalPage} language={language} onLanguageChange={handleLanguageChange} />
+        </Suspense>
+        <CookieBanner language={language} />
+      </>
     );
   }
 
   if (isPortfolioPage) {
     return (
-      <Suspense fallback={null}>
-        <MainPortfolioPage language={language} onLanguageChange={handleLanguageChange} />
-      </Suspense>
+      <>
+        <Suspense fallback={null}>
+          <MainPortfolioPage language={language} onLanguageChange={handleLanguageChange} />
+        </Suspense>
+        <CookieBanner language={language} />
+      </>
     );
   }
 
   return (
     <ThemeProvider forcedTheme="light">
-      <Suspense fallback={null}>
-        <WebdesignLandingPage />
-      </Suspense>
+      <>
+        <Suspense fallback={null}>
+          <WebdesignLandingPage />
+        </Suspense>
+        <CookieBanner language="de" />
+      </>
     </ThemeProvider>
   );
 };

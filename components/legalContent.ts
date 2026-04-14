@@ -1,4 +1,4 @@
-export type LegalLanguage = 'de' | 'en';
+﻿export type LegalLanguage = 'de' | 'en';
 export type LegalPageKind = 'impressum' | 'datenschutz';
 
 export const legalContact = {
@@ -29,21 +29,21 @@ export const legalRouteLabels = {
 export const legalPreviewCopy = {
   de: {
     eyebrow: '// RECHTLICHES',
-    title: 'Vollständige Rechtstexte auf eigenen Seiten.',
+    title: 'VollstÃ¤ndige Rechtstexte auf eigenen Seiten.',
     intro:
-      'Impressum und Datenschutz stehen bewusst nicht mehr nur als Kurzblock im Footer. Die vollständigen Angaben sind separat, direkt erreichbar und dauerhaft verlinkt.',
+      'Impressum und Datenschutz stehen bewusst nicht mehr nur als Kurzblock im Footer. Die vollstÃ¤ndigen Angaben sind separat, direkt erreichbar und dauerhaft verlinkt.',
     cards: [
       {
         kind: 'impressum' as LegalPageKind,
         title: 'Impressum',
         body: 'Anbieterkennzeichnung, Kontaktangaben und verantwortliche Stelle.',
-        cta: 'Impressum öffnen',
+        cta: 'Impressum Ã¶ffnen',
       },
       {
         kind: 'datenschutz' as LegalPageKind,
         title: 'Datenschutz',
         body: 'Hosting, lokale Speicherungen, Kontaktaufnahme und Ihre Rechte.',
-        cta: 'Datenschutz öffnen',
+        cta: 'Datenschutz Ã¶ffnen',
       },
     ],
   },
@@ -77,13 +77,13 @@ export const legalPageCopy = {
     },
     intro: {
       impressum:
-        'Diese Seite stellt die Anbieterkennzeichnung für das Portfolio und die Webdesign-Unterseite bereit.',
+        'Diese Seite stellt die Anbieterkennzeichnung fÃ¼r das Portfolio und die Webdesign-Unterseite bereit.',
       datenschutz:
         'Diese Hinweise beschreiben, welche personenbezogenen Daten beim Besuch dieser Website verarbeitet werden und zu welchen Zwecken das geschieht.',
     },
     summary: {
-      impressum: 'Anbieterkennzeichnung gemäß § 5 DDG',
-      datenschutz: 'Informationen gemäß Art. 13 DSGVO',
+      impressum: 'Anbieterkennzeichnung gemÃ¤ÃŸ Â§ 5 DDG',
+      datenschutz: 'Informationen gemÃ¤ÃŸ Art. 13 DSGVO',
     },
     imprintSections: [
       {
@@ -101,10 +101,10 @@ export const legalPageCopy = {
         ],
       },
       {
-        heading: 'Verantwortlich für Inhalte',
+        heading: 'Verantwortlich fÃ¼r Inhalte',
         paragraphs: [
-          `Verantwortlich für die Inhalte dieses Onlineangebots ist ${legalContact.name}, ${legalContact.street}, ${legalContact.postalCode}.`,
-          'Soweit journalistisch-redaktionelle Inhalte angeboten werden, gilt diese Angabe zugleich als Benennung der verantwortlichen Person im Sinne des § 18 Abs. 2 MStV.',
+          `Verantwortlich fÃ¼r die Inhalte dieses Onlineangebots ist ${legalContact.name}, ${legalContact.street}, ${legalContact.postalCode}.`,
+          'Soweit journalistisch-redaktionelle Inhalte angeboten werden, gilt diese Angabe zugleich als Benennung der verantwortlichen Person im Sinne des Â§ 18 Abs. 2 MStV.',
         ],
       },
     ],
@@ -119,59 +119,59 @@ export const legalPageCopy = {
       {
         heading: 'Hosting und Auslieferung',
         paragraphs: [
-          'Diese Website wird über Cloudflare ausgeliefert. Dabei können technisch erforderliche Verbindungsdaten wie IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene URL, Referrer, User-Agent und ähnliche Protokolldaten verarbeitet werden.',
-          'Die Verarbeitung erfolgt zur sicheren Bereitstellung der Website, zur Stabilität des Betriebs und zur Abwehr von Missbrauch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Soweit Informationen auf Ihrem Endgerät ausschließlich zur Bereitstellung des ausdrücklich gewünschten digitalen Dienstes benötigt werden, stützt sich dies ergänzend auf § 25 Abs. 2 Nr. 2 TDDDG.',
+          'Diese Website wird Ã¼ber Cloudflare ausgeliefert. Dabei kÃ¶nnen technisch erforderliche Verbindungsdaten wie IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene URL, Referrer, User-Agent und Ã¤hnliche Protokolldaten verarbeitet werden.',
+          'Die Verarbeitung erfolgt zur sicheren Bereitstellung der Website, zur StabilitÃ¤t des Betriebs und zur Abwehr von Missbrauch. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Soweit Informationen auf Ihrem EndgerÃ¤t ausschlieÃŸlich zur Bereitstellung des ausdrÃ¼cklich gewÃ¼nschten digitalen Dienstes benÃ¶tigt werden, stÃ¼tzt sich dies ergÃ¤nzend auf Â§ 25 Abs. 2 Nr. 2 TDDDG.',
         ],
       },
       {
         heading: 'Lokale Speicherungen im Browser',
         paragraphs: [
-          'Die Website speichert derzeit nur lokal im Browser, welche Spracheinstellung und welches Theme zuletzt gewählt wurden. Diese Einträge dienen ausschließlich der Darstellung und Bedienung der Website und werden nicht serverseitig an mich übermittelt.',
-          'Sie können diese lokalen Einträge jederzeit in den Einstellungen Ihres Browsers löschen. Es werden aktuell keine Analyse-, Marketing- oder Profiling-Cookies bzw. vergleichbare nicht notwendige Tracking-Technologien eingesetzt.',
+          'Die Website speichert derzeit nur lokal im Browser, welche Spracheinstellung und welches Theme zuletzt gewählt wurden. Außerdem wird lokal hinterlegt, ob der Hinweis zu Cookies und lokalen Speicherungen bereits geschlossen wurde. Diese Einträge dienen ausschließlich der Darstellung, Bedienung und dem Ausblenden des Hinweises und werden nicht serverseitig an mich übermittelt.',
+          'Sie kÃ¶nnen diese lokalen EintrÃ¤ge jederzeit in den Einstellungen Ihres Browsers lÃ¶schen. Es werden aktuell keine Analyse-, Marketing- oder Profiling-Cookies bzw. vergleichbare nicht notwendige Tracking-Technologien eingesetzt.',
         ],
       },
       {
         heading: 'Schriftarten und eingebundene Assets',
         paragraphs: [
-          'Schriftarten, Icons und UI-Elemente dieser Website werden ohne automatisch nachgeladene Analyse- oder Werbedienste dargestellt. Es werden derzeit keine externen Font-CDNs oder Icon-CDNs allein zur Darstellung der Oberfläche geladen.',
+          'Schriftarten, Icons und UI-Elemente dieser Website werden ohne automatisch nachgeladene Analyse- oder Werbedienste dargestellt. Es werden derzeit keine externen Font-CDNs oder Icon-CDNs allein zur Darstellung der OberflÃ¤che geladen.',
         ],
       },
       {
         heading: 'Kontaktaufnahme',
         paragraphs: [
-          'Wenn Sie mir eine E-Mail schreiben oder über einen mailto-Link Kontakt aufnehmen, verarbeite ich die von Ihnen übermittelten Angaben zur Bearbeitung Ihres Anliegens und zur weiteren Kommunikation.',
-          'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um vorvertragliche Maßnahmen oder die Anbahnung eines Auftrags geht, ansonsten Art. 6 Abs. 1 lit. f DSGVO.',
+          'Wenn Sie mir eine E-Mail schreiben oder Ã¼ber einen mailto-Link Kontakt aufnehmen, verarbeite ich die von Ihnen Ã¼bermittelten Angaben zur Bearbeitung Ihres Anliegens und zur weiteren Kommunikation.',
+          'Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit es um vorvertragliche MaÃŸnahmen oder die Anbahnung eines Auftrags geht, ansonsten Art. 6 Abs. 1 lit. f DSGVO.',
         ],
       },
       {
         heading: 'Externe Links',
         paragraphs: [
-          'Diese Website enthält externe Links, etwa zu GitHub, LinkedIn oder Referenzprojekten. Beim Anklicken verlassen Sie diese Website. Für die Datenverarbeitung durch die jeweilige Zielseite sind ausschließlich deren Betreiber verantwortlich.',
+          'Diese Website enthÃ¤lt externe Links, etwa zu GitHub, LinkedIn oder Referenzprojekten. Beim Anklicken verlassen Sie diese Website. FÃ¼r die Datenverarbeitung durch die jeweilige Zielseite sind ausschlieÃŸlich deren Betreiber verantwortlich.',
         ],
       },
       {
-        heading: 'Empfänger und Drittlandbezug',
+        heading: 'EmpfÃ¤nger und Drittlandbezug',
         paragraphs: [
-          'Empfänger von Daten können technische Dienstleister sein, die für Hosting und Auslieferung eingesetzt werden, insbesondere Cloudflare. Dabei kann eine Verarbeitung auch außerhalb der Europäischen Union beziehungsweise des Europäischen Wirtschaftsraums nicht ausgeschlossen werden.',
+          'EmpfÃ¤nger von Daten kÃ¶nnen technische Dienstleister sein, die fÃ¼r Hosting und Auslieferung eingesetzt werden, insbesondere Cloudflare. Dabei kann eine Verarbeitung auch auÃŸerhalb der EuropÃ¤ischen Union beziehungsweise des EuropÃ¤ischen Wirtschaftsraums nicht ausgeschlossen werden.',
           'Weitere externe Dienste werden auf dieser Website derzeit nicht automatisch zur Analyse oder zu Werbezwecken eingebunden.',
         ],
       },
       {
         heading: 'Speicherdauer',
         paragraphs: [
-          'Serverseitige Protokolldaten werden nur so lange gespeichert, wie dies für den sicheren Betrieb, die Fehlersuche und die Missbrauchserkennung erforderlich ist. Inhalte aus Kontaktanfragen speichere ich nur so lange, wie dies zur Bearbeitung Ihres Anliegens, für Anschlussfragen oder zur Erfüllung gesetzlicher Aufbewahrungspflichten nötig ist.',
+          'Serverseitige Protokolldaten werden nur so lange gespeichert, wie dies fÃ¼r den sicheren Betrieb, die Fehlersuche und die Missbrauchserkennung erforderlich ist. Inhalte aus Kontaktanfragen speichere ich nur so lange, wie dies zur Bearbeitung Ihres Anliegens, fÃ¼r Anschlussfragen oder zur ErfÃ¼llung gesetzlicher Aufbewahrungspflichten nÃ¶tig ist.',
         ],
       },
       {
         heading: 'Ihre Rechte',
         paragraphs: [
-          'Sie haben nach Maßgabe der DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen.',
-          'Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.',
+          'Sie haben nach MaÃŸgabe der DSGVO das Recht auf Auskunft, Berichtigung, LÃ¶schung, EinschrÃ¤nkung der Verarbeitung, DatenÃ¼bertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen.',
+          'AuÃŸerdem haben Sie das Recht, sich bei einer Datenschutz-AufsichtsbehÃ¶rde zu beschweren.',
         ],
       },
     ],
     note:
-      'Hinweis: Angaben wie Registereintrag, USt-IdNr. oder berufsrechtliche Pflichtangaben werden an dieser Stelle ergänzt, sofern sie für dieses Angebot einschlägig sind.',
+      'Hinweis: Angaben wie Registereintrag, USt-IdNr. oder berufsrechtliche Pflichtangaben werden an dieser Stelle ergÃ¤nzt, sofern sie fÃ¼r dieses Angebot einschlÃ¤gig sind.',
   },
   en: {
     title: {
@@ -229,7 +229,7 @@ export const legalPageCopy = {
       {
         heading: 'Local browser storage',
         paragraphs: [
-          'The website currently stores only your chosen language and theme locally in your browser. These values are used only for presentation and usability and are not transmitted to me server-side.',
+          'The website currently stores only your chosen language and theme locally in your browser. It also stores whether you already dismissed the notice about cookies and local storage. These values are used only for presentation, usability, and hiding that notice and are not transmitted to me server-side.',
           'You can delete these local entries at any time in your browser settings. No analytics, marketing, or profiling cookies or comparable non-essential tracking technologies are currently used on this website.',
         ],
       },
