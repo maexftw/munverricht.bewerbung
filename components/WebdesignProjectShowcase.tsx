@@ -246,7 +246,6 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
 
 const WebdesignProjectShowcase: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const visibleProjects = isExpanded ? projects : projects.slice(0, 2);
 
   return (
     <section id="webdesign-project-showcase" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-14">
@@ -279,8 +278,10 @@ const WebdesignProjectShowcase: React.FC = () => {
         </div>
 
         <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-          {visibleProjects.map((project, index) => (
-            <WebdesignProjectCard key={project.id} project={project} index={index} />
+          {projects.map((project, index) => (
+            <div key={project.id} className={index >= 2 && !isExpanded ? 'hidden sm:block' : ''}>
+              <WebdesignProjectCard project={project} index={index} />
+            </div>
           ))}
         </div>
 
