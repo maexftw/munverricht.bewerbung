@@ -248,12 +248,12 @@ const WebdesignProjectShowcase: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="webdesign-project-showcase" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-14">
+    <section id="webdesign-project-showcase" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-10">
       <div className="absolute left-[4%] top-12 hidden h-32 w-32 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[3%] top-20 hidden h-44 w-44 rounded-full bg-cyan-100/65 blur-3xl lg:block" aria-hidden="true" />
 
-      <div className="relative z-10 space-y-7 sm:space-y-8">
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(20rem,1.05fr)] lg:items-end lg:gap-8">
+      <div className="relative z-10 space-y-7 sm:space-y-8 lg:space-y-6">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,0.95fr)_minmax(20rem,1.05fr)] lg:items-end lg:gap-6">
           <div className="space-y-3 text-left">
             <p className={themeClasses.webEyebrow}>
               <ASCIIText text="// AUSGEWÄHLTE_PROJEKTE" noWrap={false} enableHover={false} revealOnMount={false} />
