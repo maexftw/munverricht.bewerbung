@@ -293,13 +293,23 @@ const WebdesignLandingPage: React.FC = () => {
                     );
                   })}
                 </div>
+                <div className="mt-3 grid gap-2 border-t border-blue-100/80 pt-3">
+                  <a href="mailto:info@graphiks.de" onClick={handleAnchorClick} className={`${themeClasses.webButtonPrimary} w-full`}>
+                    <Mail className="h-4 w-4 text-white" />
+                    <span className={`${themeClasses.webMeta} font-bold text-white`}>E-Mail schreiben</span>
+                  </a>
+                  <a href="tel:+491633229892" onClick={handleAnchorClick} className={`${themeClasses.webButtonSecondary} w-full`}>
+                    <Phone className="h-4 w-4 text-blue-600" />
+                    <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>Anrufen</span>
+                  </a>
+                </div>
               </div>
             )}
           </div>
         </nav>
 
         <div className="flex w-full flex-col items-center px-4 sm:px-5 lg:px-0">
-          <main className="relative z-10 mx-auto w-full max-w-6xl space-y-10 py-4 pb-18 sm:space-y-18 sm:py-8 sm:pb-22 lg:space-y-20">
+          <main className="relative z-10 mx-auto w-full max-w-6xl space-y-10 py-4 pb-18 sm:space-y-18 sm:py-8 sm:pb-22 lg:space-y-16">
             <section id="hero" className="relative scroll-mt-24 flex flex-col items-center justify-center pt-2 text-center sm:scroll-mt-36 sm:pt-6">
               <div className="absolute left-1/2 top-6 hidden h-40 w-40 -translate-x-[25rem] rounded-full bg-blue-200/40 blur-3xl lg:block" />
               <div className="absolute right-1/2 top-24 hidden h-56 w-56 translate-x-[27rem] rounded-full bg-cyan-200/30 blur-3xl lg:block" />
@@ -325,14 +335,18 @@ const WebdesignLandingPage: React.FC = () => {
                   </h1>
                 </motion.div>
 
-                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="mb-3 flex w-full max-w-sm sm:hidden">
+                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="mb-3 flex w-full max-w-sm flex-col gap-2.5 sm:hidden">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full`}>
                     <Mail className="h-4 w-4 text-white" />
                     <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
                   </a>
+                  <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} w-full`}>
+                    <Phone className="h-4 w-4 text-blue-600" />
+                    <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>+49 163 3229892</span>
+                  </a>
                 </motion.div>
 
-                <motion.p initial={{ translateY: 10, opacity: 0 }} animate={{ translateY: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative z-10 mb-4 max-w-[30ch] text-[0.98rem] font-medium leading-7 text-slate-600 sm:mb-10 sm:max-w-[60ch] sm:text-lg sm:leading-8">
+                <motion.p initial={{ translateY: 10, opacity: 0 }} animate={{ translateY: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative z-10 mb-4 max-w-[30ch] text-[0.98rem] font-medium leading-7 text-slate-600 sm:mb-8 sm:max-w-[60ch] sm:text-lg sm:leading-8 lg:mb-7">
                   <ASCIIText
                     as="span"
                     noWrap={false}
@@ -359,7 +373,7 @@ const WebdesignLandingPage: React.FC = () => {
                   </li>
                 </motion.ul>
 
-                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.28 }} className="mb-4 hidden w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mb-7 sm:flex sm:flex-row sm:items-center sm:gap-4 sm:pt-1">
+                <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.28 }} className="mb-4 hidden w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mb-6 sm:flex sm:flex-row sm:items-center sm:gap-4 sm:pt-1 lg:mb-5">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} flex-1`}>
                     <Mail className="h-4 w-4 text-white" />
                     <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
@@ -374,7 +388,7 @@ const WebdesignLandingPage: React.FC = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.25 }}
-                  className="mb-8 hidden flex-wrap items-center justify-center gap-x-4 gap-y-2.5 px-3 text-center min-[480px]:flex sm:mb-12 sm:gap-x-5 sm:px-0"
+                  className="mb-8 hidden flex-wrap items-center justify-center gap-x-4 gap-y-2.5 px-3 text-center min-[480px]:flex sm:mb-9 sm:gap-x-5 sm:px-0 lg:mb-8"
                 >
                   <span className={`${themeClasses.webMeta} text-blue-600`}>Telefon & E-Mail direkt</span>
                   <span className="h-1 w-1 rounded-full bg-blue-300" />
@@ -384,19 +398,19 @@ const WebdesignLandingPage: React.FC = () => {
                 </motion.div>
               </div>
 
-              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }} className={`relative z-10 mt-5 hidden w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-10 sm:block sm:rounded-[1.4rem] sm:px-6 sm:py-7 ${themeClasses.webPanel}`}>
+              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }} className={`relative z-10 mt-5 hidden w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-8 sm:block sm:rounded-[1.4rem] sm:px-6 sm:py-6 lg:mt-7 ${themeClasses.webPanel}`}>
                 {!shouldReduceMotion && (
                   <PixelCanvas colors={['#dbeafe', '#93c5fd', '#60a5fa']} density={0.16} gap={8} speed={22} />
                 )}
 
                 <div className="relative z-10">
-                  <div className="grid grid-cols-1 items-start gap-4 text-left sm:gap-5 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)]">
-                    <div className={`flex h-full flex-col justify-between space-y-4 rounded-[1rem] px-4 py-4 sm:rounded-[1.15rem] sm:px-6 sm:py-6 ${themeClasses.webPanelSoft}`}>
+                  <div className="grid grid-cols-1 items-start gap-4 text-left sm:gap-5 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)]">
+                    <div className={`flex h-full flex-col items-start justify-start gap-6 rounded-[1rem] px-4 py-4 sm:rounded-[1.15rem] sm:px-6 sm:py-6 sm:gap-7 ${themeClasses.webPanelSoft}`}>
                       <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
                         <Terminal className="h-3.5 w-3.5" />
                         Klare Firmenwebsite
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">ab 300 EUR</p>
                         <p className="max-w-[34ch] text-sm leading-relaxed text-slate-600 sm:text-base">
                           Der Preis ist eine Orientierung für kompakte Seiten. Wichtiger ist, dass Sie wissen, wer zuständig ist, was online geht und wie Inhalte später weitergeführt werden können.
@@ -412,7 +426,7 @@ const WebdesignLandingPage: React.FC = () => {
                             <div className="space-y-1.5">
                               <p className={`${technicalSpecMetaClassName} text-blue-600`}>{highlight.label}</p>
                               <p className="text-sm font-semibold leading-5 text-slate-900">{highlight.title}</p>
-                              <p className="max-w-[24ch] text-[0.88rem] leading-5 text-slate-600">{highlight.body}</p>
+                              <p className="text-[0.9rem] leading-6 text-slate-600">{highlight.body}</p>
                             </div>
                           </div>
                         </div>
@@ -422,7 +436,7 @@ const WebdesignLandingPage: React.FC = () => {
                 </div>
               </motion.div>
 
-              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className={`relative z-10 mt-5 hidden w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-10 sm:block sm:rounded-[1.4rem] sm:px-6 sm:py-7 ${themeClasses.webPanel}`}>
+              <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className={`relative z-10 mt-5 hidden w-full max-w-4xl overflow-hidden rounded-[1.25rem] px-4 py-5 sm:mt-8 sm:block sm:rounded-[1.4rem] sm:px-6 sm:py-6 lg:mt-7 ${themeClasses.webPanel}`}>
                 {!shouldReduceMotion && (
                   <PixelCanvas colors={['#dbeafe', '#bfdbfe', '#a5f3fc', '#c7d2fe']} density={0.14} gap={8} speed={18} />
                 )}
@@ -441,8 +455,8 @@ const WebdesignLandingPage: React.FC = () => {
                 </div>
               </motion.div>
 
-              <div className="relative z-10 mt-12 hidden w-full grid-cols-1 gap-6 border-t border-blue-200/80 pt-8 text-left sm:mt-16 sm:grid sm:gap-8 sm:pt-10 lg:grid-cols-[minmax(0,1.12fr)_minmax(20rem,0.88fr)] lg:items-start">
-                <div className="space-y-4 lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,0.88fr)_minmax(20rem,1.12fr)] lg:items-end lg:gap-8 lg:space-y-0">
+              <div className="relative z-10 mt-10 hidden w-full grid-cols-1 gap-5 border-t border-blue-200/80 pt-6 text-left sm:mt-12 sm:grid sm:gap-6 sm:pt-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(20rem,0.88fr)] lg:items-start">
+                <div className="space-y-4 lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,0.88fr)_minmax(20rem,1.12fr)] lg:items-end lg:gap-6 lg:space-y-0">
                   <div className="space-y-3">
                     <p className={themeClasses.webEyebrow}>
                       <span>// SO LÄUFT DAS PROJEKT</span>
@@ -452,7 +466,7 @@ const WebdesignLandingPage: React.FC = () => {
                     </h2>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
                       Kein Agenturprozess zum Selbstzweck. Entscheidend ist, dass früh klar wird, was verbessert werden muss, wer es umsetzt und was später eigenständig weitergeführt werden kann.
                     </p>
@@ -466,14 +480,14 @@ const WebdesignLandingPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="space-y-4 sm:space-y-5">
+                <div className="space-y-3 sm:space-y-4">
                   {workflowSteps.map((step) => (
-                    <div key={step.id} className={`rounded-[1.15rem] px-4 py-4 sm:px-5 sm:py-5 ${themeClasses.webCard}`}>
+                    <div key={step.id} className={`rounded-[1.15rem] px-4 py-4 sm:px-5 sm:py-4 ${themeClasses.webCard}`}>
                       <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
                         <step.icon aria-hidden="true" className="h-3.5 w-3.5" />
                         <ASCIIText text={`${step.id} / ${step.title.toUpperCase()}`} noWrap={false} revealOnMount={false} />
                       </div>
-                      <p className="mt-3 max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
+                      <p className="mt-2.5 max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-7">
                         {step.body}
                       </p>
                     </div>

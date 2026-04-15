@@ -4,7 +4,7 @@ import { themeClasses } from './themeClasses';
 
 const WebdesignLegalFooter: React.FC = () => {
   return (
-    <section className="space-y-8 border-t border-blue-100/80 pt-12" aria-label="Rechtliche Informationen">
+    <section className="space-y-6 border-t border-blue-100/80 pt-10" aria-label="Rechtliche Informationen">
       <div className="space-y-3 text-left">
         <p className={themeClasses.webEyebrow}>
           <ASCIIText text="// LEGAL" noWrap={false} enableHover={false} />
@@ -17,7 +17,7 @@ const WebdesignLegalFooter: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid items-start gap-5 lg:grid-cols-2">
         {[
           {
             kind: 'impressum',

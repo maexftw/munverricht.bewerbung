@@ -69,7 +69,7 @@ const steps = [
 const inputBaseClassName =
   'w-full rounded-[1rem] border border-slate-300/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,253,0.96))] px-4 py-3 text-[1rem] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.94),0_1px_0_rgba(15,23,42,0.02)] outline-none transition-all duration-200 placeholder:text-slate-500 caret-slate-900 focus:border-blue-400 focus:ring-2 focus:ring-blue-200/75 focus:ring-offset-1 focus:ring-offset-[#eef3fb]';
 
-const textareaClassName = `${inputBaseClassName} min-h-[8.5rem] resize-y leading-7`;
+const textareaClassName = `${inputBaseClassName} min-h-[8rem] resize-y leading-7 lg:min-h-[7rem]`;
 const optionCardBaseClassName =
   'relative block cursor-pointer overflow-hidden rounded-[1rem] border px-4 py-4 transition-all duration-200 focus-within:border-blue-300 focus-within:ring-2 focus-within:ring-blue-200 focus-within:ring-offset-2 focus-within:ring-offset-[#eef3fb]';
 const optionInputClassName = 'absolute inset-0 h-full w-full cursor-pointer opacity-0';
@@ -212,11 +212,11 @@ const WebdesignIntakeForm: React.FC = () => {
   };
 
   return (
-    <section id="project-intake" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-16">
+    <section id="project-intake" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-12">
       <div className="absolute left-[4%] top-12 hidden h-36 w-36 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[6%] bottom-10 hidden h-44 w-44 rounded-full bg-cyan-100/70 blur-3xl lg:block" aria-hidden="true" />
 
-      <div className="relative z-10 grid gap-8 xl:grid-cols-[minmax(18rem,0.72fr)_minmax(0,1.28fr)] xl:gap-8">
+      <div className="relative z-10 grid gap-8 xl:grid-cols-[minmax(18rem,0.72fr)_minmax(0,1.28fr)] xl:gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -244,7 +244,7 @@ const WebdesignIntakeForm: React.FC = () => {
             </div>
           </div>
 
-          <div className={`space-y-4 rounded-[1.2rem] p-5 sm:p-6 ${themeClasses.webCard}`}>
+          <div className={`space-y-4 rounded-[1.2rem] p-5 sm:p-6 lg:p-5 ${themeClasses.webCard}`}>
             <div className="flex items-start gap-3">
               <ShieldCheck className="mt-0.5 h-5 w-5 text-blue-600" aria-hidden="true" />
               <div>
@@ -273,12 +273,12 @@ const WebdesignIntakeForm: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18 }}
           transition={{ duration: 0.72, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative order-1 overflow-hidden rounded-[1.35rem] p-4 sm:p-5 xl:order-2 ${themeClasses.webPanel}`}
+          className={`relative order-1 overflow-hidden rounded-[1.35rem] p-4 sm:p-5 lg:p-4 xl:order-2 ${themeClasses.webPanel}`}
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_40%)]" aria-hidden="true" />
 
-          <div className="relative z-10 space-y-5">
-            <div className="space-y-4">
+          <div className="relative z-10 space-y-4">
+            <div className="space-y-3">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className={themeClasses.webEyebrow}>
