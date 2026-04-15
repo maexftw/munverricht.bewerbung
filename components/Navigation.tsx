@@ -63,8 +63,8 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
                     >
-                        <ASCIIText text="munverricht" className="lowercase" />
-                        <span className="text-blue-500">.org</span>
+                        <ASCIIText text="graphiks" className="lowercase" />
+                        <span className="text-blue-500">.de</span>
                     </div>
 
                     <ul className="flex space-x-8">

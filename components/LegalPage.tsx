@@ -32,11 +32,11 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
     const descriptionMeta = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
     const previousDescription = descriptionMeta?.getAttribute('content') ?? '';
 
-    document.title = `${title} | Maximilian Unverricht`;
+    document.title = `${title} | graphiks.de`;
     upsertMetaTag('meta[name="description"]', { name: 'description' }, `${title} | ${summary}`);
 
     return () => {
-      document.title = previousTitle || 'Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht';
+      document.title = previousTitle || 'Webdesign für Handwerker, Praxen & KMU | graphiks.de';
       if (previousDescription) {
         upsertMetaTag('meta[name="description"]', { name: 'description' }, previousDescription);
       }
@@ -48,7 +48,7 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
       <header className="sticky top-0 z-20 border-b border-blue-100/80 bg-white/78 backdrop-blur-[18px]">
         <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <a href="/" className="mono text-sm font-semibold uppercase tracking-[0.2em] text-slate-800">
-            munverricht.org
+            graphiks.de
           </a>
 
           <div className="flex flex-wrap items-center justify-end gap-2">

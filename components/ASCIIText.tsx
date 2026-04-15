@@ -228,7 +228,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
       onMouseLeave={enableHover ? handleMouseLeave : undefined}
       style={{
         width: (!noWrap || !width) ? 'auto' : `${width}px`,
-        minWidth: 'fit-content'
+        minWidth: noWrap ? 'fit-content' : undefined
       }}
       aria-label={text}
     >

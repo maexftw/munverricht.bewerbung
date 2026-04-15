@@ -178,7 +178,7 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
 
           <motion.div
             style={{ x: badgeX, y: badgeY }}
-            className={`absolute inset-x-4 top-4 z-10 flex items-center justify-between gap-3 ${themeClasses.webPill}`}
+            className={`absolute inset-x-3 top-3 z-10 flex items-center justify-between gap-2 px-3 py-1.5 sm:inset-x-4 sm:top-4 ${themeClasses.webPill}`}
           >
             <span className="mono text-[10px] uppercase tracking-[0.26em] text-slate-500">Case {project.id}</span>
             <span className={`inline-flex items-center gap-1.5 mono text-[10px] font-semibold uppercase tracking-[0.22em] ${project.accent.badge}`}>
@@ -187,23 +187,23 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
             </span>
           </motion.div>
 
-          <div className="relative z-10 px-4 pb-4 pt-16 sm:px-5 sm:pb-5">
+          <div className="relative z-10 px-3 pb-3 pt-14 sm:px-5 sm:pb-5 sm:pt-16">
             <motion.div
               style={{ x: screenshotX, y: screenshotY, scale: screenshotScale }}
               className={`relative overflow-hidden rounded-[1.15rem] ${themeClasses.webCard}`}
             >
-              <div className="flex items-center justify-between gap-3 border-b border-slate-200/80 bg-white/80 px-4 py-2.5" aria-hidden="true">
+              <div className="flex items-center justify-between gap-3 border-b border-slate-200/80 bg-white/80 px-3 py-2 sm:px-4 sm:py-2.5" aria-hidden="true">
                 <div className="flex items-center gap-1.5">
                   <span className="h-2.5 w-2.5 rounded-full bg-rose-300/90" />
                   <span className="h-2.5 w-2.5 rounded-full bg-amber-300/90" />
                   <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/90" />
                 </div>
-                <div className="rounded-full border border-slate-200/80 bg-white px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-slate-400">
+                <div className="hidden rounded-full border border-slate-200/80 bg-white px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-slate-400 sm:block">
                   Desktop Preview
                 </div>
               </div>
 
-              <div className="relative aspect-[16/10] overflow-hidden bg-white">
+              <div className="relative aspect-[16/9] overflow-hidden bg-white sm:aspect-[16/10]">
                 <img
                   src={project.image}
                   alt={`${project.title} Screenshot der Website`}
@@ -224,16 +224,16 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
 
             <motion.div
               style={{ x: infoX, y: infoY }}
-              className={`mt-4 rounded-[1.1rem] p-4 sm:p-5 ${themeClasses.webCard}`}
+              className={`mt-3 rounded-[1.1rem] p-3.5 sm:mt-4 sm:p-5 ${themeClasses.webCard}`}
             >
               <p className={`${themeClasses.webEyebrow} ${project.accent.badge}`}>{project.eyebrow}</p>
               <h3 id={cardTitleId} className="mt-2 text-balance text-[1.16rem] font-semibold leading-tight text-slate-900 sm:text-[1.3rem]">
                 {project.title}
               </h3>
-              <p className="mt-2 max-w-[31ch] text-[0.96rem] leading-6 text-slate-700">
+              <p className="mt-2 max-w-[31ch] text-[0.94rem] leading-6 text-slate-700 sm:text-[0.96rem]">
                 {project.strapline}
               </p>
-              <p id={cardNoteId} className="mt-3 max-w-[35ch] text-sm leading-relaxed text-slate-600">
+              <p id={cardNoteId} className="mt-3 hidden max-w-[35ch] text-sm leading-relaxed text-slate-600 sm:block">
                 {project.note}
               </p>
             </motion.div>
@@ -245,8 +245,11 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
 };
 
 const WebdesignProjectShowcase: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const visibleProjects = isExpanded ? projects : projects.slice(0, 2);
+
   return (
-    <section id="webdesign-project-showcase" className="relative scroll-mt-36 py-10 sm:py-12 lg:py-14">
+    <section id="webdesign-project-showcase" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-14">
       <div className="absolute left-[4%] top-12 hidden h-32 w-32 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[3%] top-20 hidden h-44 w-44 rounded-full bg-cyan-100/65 blur-3xl lg:block" aria-hidden="true" />
 
@@ -265,9 +268,9 @@ const WebdesignProjectShowcase: React.FC = () => {
             <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
               Keine Mockups, sondern echte Seiten aus unterschiedlichen Branchen. Entscheidend ist nicht der Stil allein, sondern wie schnell das Angebot, der Nutzen und der nächste Schritt verständlich werden.
             </p>
-            <ul className="grid gap-2.5 sm:grid-cols-3" aria-label="Einordnung der Projektbeispiele">
+            <ul className="grid gap-2 sm:grid-cols-3 sm:gap-2.5" aria-label="Einordnung der Projektbeispiele">
               {showcasePoints.map((point) => (
-                <li key={point} className={showcasePointClassName}>
+                <li key={point} className={`${showcasePointClassName} min-h-[40px] px-3 py-2 sm:min-h-11 sm:px-4 sm:py-2.5`}>
                   <span className="mono text-[10px] uppercase tracking-[0.2em] sm:text-[11px]">{point}</span>
                 </li>
               ))}
@@ -276,10 +279,20 @@ const WebdesignProjectShowcase: React.FC = () => {
         </div>
 
         <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <WebdesignProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
+        {projects.length > 2 && (
+          <div className="sm:hidden">
+            <button type="button" onClick={() => setIsExpanded((current) => !current)} className={`${themeClasses.webButtonSecondary} w-full`}>
+              <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>
+                {isExpanded ? 'Weniger Projekte anzeigen' : 'Weitere Projekte anzeigen'}
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

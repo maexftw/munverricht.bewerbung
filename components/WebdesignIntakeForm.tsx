@@ -212,7 +212,7 @@ const WebdesignIntakeForm: React.FC = () => {
   };
 
   return (
-    <section id="project-intake" className="relative scroll-mt-36 py-10 sm:py-12 lg:py-16">
+    <section id="project-intake" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-16">
       <div className="absolute left-[4%] top-12 hidden h-36 w-36 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[6%] bottom-10 hidden h-44 w-44 rounded-full bg-cyan-100/70 blur-3xl lg:block" aria-hidden="true" />
 
@@ -222,7 +222,7 @@ const WebdesignIntakeForm: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-5 text-left"
+          className="order-2 space-y-5 text-left xl:order-1"
         >
           <div className="space-y-4">
             <p className={themeClasses.webEyebrow}>
@@ -270,7 +270,7 @@ const WebdesignIntakeForm: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18 }}
           transition={{ duration: 0.72, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative overflow-hidden rounded-[1.35rem] p-4 sm:p-5 ${themeClasses.webPanel}`}
+          className={`relative order-1 overflow-hidden rounded-[1.35rem] p-4 sm:p-5 xl:order-2 ${themeClasses.webPanel}`}
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_40%)]" aria-hidden="true" />
 
@@ -300,7 +300,9 @@ const WebdesignIntakeForm: React.FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              <p className="text-sm font-medium text-slate-600 sm:hidden">Schritt {currentStep + 1} von {steps.length}</p>
+
+              <div className="hidden sm:grid sm:grid-cols-4 sm:gap-2">
                 {steps.map((step, index) => {
                   const isActive = index === currentStep;
                   const isComplete = index < currentStep;
@@ -629,24 +631,24 @@ const WebdesignIntakeForm: React.FC = () => {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex flex-col gap-3 border-t border-blue-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col-reverse gap-3 border-t border-blue-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="button"
                 onClick={goBack}
                 disabled={currentStep === 0}
-                className={`${themeClasses.webButtonSecondary} ${currentStep === 0 ? 'pointer-events-none opacity-45' : ''}`}
+                className={`${themeClasses.webButtonSecondary} w-full sm:w-auto ${currentStep === 0 ? 'pointer-events-none opacity-45' : ''}`}
               >
                 <ArrowLeft className="h-4 w-4 text-blue-600" />
                   <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>Zurück</span>
               </button>
 
               {currentStep < steps.length - 1 ? (
-                <button type="button" onClick={goNext} className={themeClasses.webButtonPrimary}>
+                <button type="button" onClick={goNext} className={`${themeClasses.webButtonPrimary} w-full sm:w-auto`}>
                   <span className={`${themeClasses.webMeta} font-bold text-white`}>Weiter</span>
                   <ArrowRight className="h-4 w-4 text-white" />
                 </button>
               ) : (
-                <button type="button" onClick={prepareMail} className={themeClasses.webButtonPrimary}>
+                <button type="button" onClick={prepareMail} className={`${themeClasses.webButtonPrimary} w-full sm:w-auto`}>
                   <span className={`${themeClasses.webMeta} font-bold text-white`}>Anfrage jetzt per E-Mail vorbereiten</span>
                   <ArrowRight className="h-4 w-4 text-white" />
                 </button>
