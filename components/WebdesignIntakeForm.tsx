@@ -29,7 +29,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 const projectOptions: Array<{ value: ProjectTypeValue; title: string; body: string }> = [
   { value: 'landing', title: 'Landingpage', body: 'Eine kompakte Seite für ein Angebot oder eine klare Anfrage.' },
   { value: 'multipage', title: 'Mehrseitige Website', body: 'Mehrere Unterseiten für Leistungen, Über-uns, Kontakt oder Referenzen.' },
-  { value: 'shop', title: 'Shop oder Buchung', body: 'Produkte verkaufen, Termine buchen oder andere feste Abläufe abbilden.' },
+  { value: 'shop', title: 'Shop oder Buchung', body: 'Produkte verkaufen, Termine buchen oder andere feste Ablaufe abbilden.' },
   { value: 'relaunch', title: 'Relaunch', body: 'Eine bestehende Website soll sauber neu aufgebaut werden.' },
   { value: 'unsure', title: 'Noch offen', body: 'Das Ziel ist klar, aber die passende Struktur noch nicht.' },
 ];
@@ -53,7 +53,7 @@ const featureOptions = [
 ];
 
 const timelineOptions: Array<{ value: TimelineValue; label: string; body: string }> = [
-  { value: 'soon', label: 'Möglichst bald', body: 'Das Thema ist akut.' },
+  { value: 'soon', label: 'Moeglichst bald', body: 'Das Thema ist akut.' },
   { value: 'month', label: 'In 1-2 Monaten', body: 'Es gibt Bedarf, aber etwas Spielraum.' },
   { value: 'quarter', label: 'In den nächsten 3 Monaten', body: 'Das Projekt soll geplant gestartet werden.' },
   { value: 'open', label: 'Zeitlich offen', body: 'Wichtig ist erstmal die Richtung.' },
@@ -154,12 +154,12 @@ const WebdesignIntakeForm: React.FC = () => {
     }
 
     if (stepIndex === 1) {
-      if (!formData.projectType) nextErrors.projectType = 'Bitte wählen, welche Art Website gebraucht wird.';
-      if (!formData.primaryGoal) nextErrors.primaryGoal = 'Bitte das wichtigste Ziel auswählen.';
+      if (!formData.projectType) nextErrors.projectType = 'Bitte waehlen, welche Art Website gebraucht wird.';
+      if (!formData.primaryGoal) nextErrors.primaryGoal = 'Bitte das wichtigste Ziel auswaehlen.';
     }
 
     if (stepIndex === 2) {
-      if (!formData.timeline) nextErrors.timeline = 'Bitte ein ungefähres Zeitfenster angeben.';
+      if (!formData.timeline) nextErrors.timeline = 'Bitte ein ungefaehres Zeitfenster angeben.';
     }
 
     if (stepIndex === 3) {
@@ -167,7 +167,7 @@ const WebdesignIntakeForm: React.FC = () => {
       if (!formData.email.trim()) {
         nextErrors.email = 'Bitte eine E-Mail-Adresse angeben, damit ich antworten kann.';
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-        nextErrors.email = 'Bitte eine gültige E-Mail-Adresse angeben.';
+        nextErrors.email = 'Bitte eine gueltige E-Mail-Adresse angeben.';
       }
     }
 
@@ -190,7 +190,7 @@ const WebdesignIntakeForm: React.FC = () => {
     const body = [
       'Hallo Maximilian,',
       '',
-      'ich möchte eine Ersteinschätzung für eine Website-Anfrage.',
+      'ich möchte mein Website-Vorhaben kurz einordnen lassen.',
       '',
       ...summaryLines,
       `Beschreibung: ${formData.companySummary || 'Nicht angegeben'}`,
@@ -200,7 +200,7 @@ const WebdesignIntakeForm: React.FC = () => {
       `E-Mail: ${formData.email}`,
       `Telefon: ${formData.phone || 'Nicht angegeben'}`,
       '',
-      'Viele Grüße',
+      'Viele Gruesse',
       formData.contactName,
     ].join('\n');
 
@@ -228,15 +228,18 @@ const WebdesignIntakeForm: React.FC = () => {
             <p className={themeClasses.webEyebrow}>
               <ASCIIText text="// PROJEKT_ANFRAGE" noWrap={false} enableHover={false} />
             </p>
-            <h2 className="max-w-[16ch] text-balance text-[1.95rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.15rem] sm:leading-[0.96] lg:text-[2.35rem]">
-              In 4 Schritten zur ersten Einschätzung.
+            <h2 className="max-w-[18ch] text-balance text-[1.95rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.15rem] sm:leading-[0.96] lg:text-[2.35rem]">
+              In 4 Schritten zur klaren Einordnung Ihres Vorhabens.
             </h2>
             <div className="max-w-[52ch] space-y-3 text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
               <p>
-                Ich frage nur das ab, was ich für eine erste Rückmeldung und einen realistischen Preisrahmen wirklich brauche.
+                Bevor über Seiten, Umfang oder Preis gesprochen wird, muss klar sein, wo heute Unklarheit, Distanz oder Vertrauensverlust entsteht.
               </p>
               <p>
-                Je klarer Ihre Angaben, desto schneller kann ich Aufwand, Struktur und passende Richtung einschätzen.
+                Mit Ihren Antworten kann ich Angebot, Struktur und den nächsten Schritt sauber einordnen.
+              </p>
+              <p>
+                Wenn Sie Texte und Bilder später selbst ändern wollen, fließt das von Anfang an in die Rückmeldung ein.
               </p>
             </div>
           </div>
@@ -248,9 +251,9 @@ const WebdesignIntakeForm: React.FC = () => {
                 <p className={themeClasses.webEyebrow}>Kurz gesagt</p>
                 <div className="mt-3 space-y-3">
                   {[
-                    'Ich sehe schneller, welche Art Website zu Ihrem Vorhaben passt.',
-                    'Ich kann Aufwand und Preisrahmen deutlich besser einschätzen.',
-                    'Sie müssen kein langes Formular ausfüllen, nur die wichtigsten Punkte.',
+                    'Ich sehe schneller, was auf der Website sofort klar werden muss.',
+                    'Ich kann die passende Richtung und den nächsten Schritt benennen.',
+                    'Sie bekommen eine persönliche Rückmeldung statt eines unklaren Formularausgangs.',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3">
                       <span className="mt-[0.45rem] h-2.5 w-2.5 rounded-full bg-blue-500 shadow-[0_0_0_4px_rgba(59,130,246,0.12)]" aria-hidden="true" />
@@ -300,7 +303,9 @@ const WebdesignIntakeForm: React.FC = () => {
                 />
               </div>
 
-              <p className="text-sm font-medium text-slate-600 sm:hidden">Schritt {currentStep + 1} von {steps.length}</p>
+              <p className="text-sm font-medium text-slate-600 sm:hidden">
+                Schritt {currentStep + 1} von {steps.length}
+              </p>
 
               <div className="hidden sm:grid sm:grid-cols-4 sm:gap-2">
                 {steps.map((step, index) => {
@@ -372,14 +377,11 @@ const WebdesignIntakeForm: React.FC = () => {
                         {[
                           { value: 'none', label: 'Noch keine', body: 'Die Website soll neu entstehen.' },
                           { value: 'live', label: 'Ja, sie ist live', body: 'Es gibt bereits eine bestehende Website.' },
-                          { value: 'relaunch', label: 'Ja, aber sie soll neu', body: 'Die aktuelle Seite soll ersetzt oder gründlich überarbeitet werden.' },
+                          { value: 'relaunch', label: 'Ja, aber sie soll neu', body: 'Die aktuelle Seite soll ersetzt oder gruendlich ueberarbeitet werden.' },
                         ].map((option) => {
                           const checked = formData.existingSite === option.value;
                           return (
-                            <label
-                              key={option.value}
-                              className={getOptionCardClassName(checked)}
-                            >
+                            <label key={option.value} className={getOptionCardClassName(checked)}>
                               <input
                                 type="radio"
                                 name="existingSite"
@@ -423,10 +425,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         {projectOptions.map((option) => {
                           const checked = formData.projectType === option.value;
                           return (
-                            <label
-                              key={option.value}
-                              className={getOptionCardClassName(checked)}
-                            >
+                            <label key={option.value} className={getOptionCardClassName(checked)}>
                               <input
                                 type="radio"
                                 name="projectType"
@@ -459,10 +458,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         {goalOptions.map((option) => {
                           const checked = formData.primaryGoal === option.value;
                           return (
-                            <label
-                              key={option.value}
-                              className={getOptionCardClassName(checked)}
-                            >
+                            <label key={option.value} className={getOptionCardClassName(checked)}>
                               <input
                                 type="radio"
                                 name="primaryGoal"
@@ -492,10 +488,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         {featureOptions.map((feature) => {
                           const checked = formData.features.includes(feature);
                           return (
-                            <label
-                              key={feature}
-                              className={getOptionCardClassName(checked)}
-                            >
+                            <label key={feature} className={getOptionCardClassName(checked)}>
                               <input
                                 type="checkbox"
                                 checked={checked}
@@ -520,10 +513,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         {timelineOptions.map((option) => {
                           const checked = formData.timeline === option.value;
                           return (
-                            <label
-                              key={option.value}
-                              className={getOptionCardClassName(checked)}
-                            >
+                            <label key={option.value} className={getOptionCardClassName(checked)}>
                               <input
                                 type="radio"
                                 name="timeline"
@@ -550,7 +540,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         value={formData.styleNotes}
                         onChange={(event) => updateField('styleNotes', event.target.value)}
                         className={textareaClassName}
-                        placeholder="z. B. bestehende Farben behalten, mobil besonders wichtig, Terminbuchung später möglich"
+                        placeholder="z. B. bestehende Farben behalten, mobil besonders wichtig, spätere Textpflege einfach halten"
                       />
                     </div>
                   </>
@@ -559,7 +549,7 @@ const WebdesignIntakeForm: React.FC = () => {
                 {currentStep === 3 && (
                   <>
                     <div className={`rounded-[1rem] p-4 sm:p-5 ${themeClasses.webCard}`}>
-                      <p className={themeClasses.webEyebrow}>Das schicken Sie mir</p>
+                      <p className={themeClasses.webEyebrow}>Das geht direkt an mich</p>
                       <div className="mt-3 space-y-2">
                         {summaryLines.map((line) => (
                           <p key={line} className="text-sm leading-relaxed text-slate-600">
@@ -621,7 +611,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         <div>
                           <p className={themeClasses.webEyebrow}>Was beim Klick passiert</p>
                           <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                            Beim Klick öffnet sich Ihre Mail-App mit allen Angaben. So geht Ihre Anfrage ohne Formularsystem direkt an mich raus.
+                            Beim Klick öffnet sich Ihre Mail-App mit allen Angaben. So landet Ihre Anfrage persönlich bei mir und ich kann direkt auf Ihr Vorhaben antworten.
                           </p>
                         </div>
                       </div>
@@ -639,7 +629,7 @@ const WebdesignIntakeForm: React.FC = () => {
                 className={`${themeClasses.webButtonSecondary} w-full sm:w-auto ${currentStep === 0 ? 'pointer-events-none opacity-45' : ''}`}
               >
                 <ArrowLeft className="h-4 w-4 text-blue-600" />
-                  <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>Zurück</span>
+                <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>Zurück</span>
               </button>
 
               {currentStep < steps.length - 1 ? (
@@ -649,7 +639,7 @@ const WebdesignIntakeForm: React.FC = () => {
                 </button>
               ) : (
                 <button type="button" onClick={prepareMail} className={`${themeClasses.webButtonPrimary} w-full sm:w-auto`}>
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Anfrage jetzt per E-Mail vorbereiten</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Rückmeldung per E-Mail vorbereiten</span>
                   <ArrowRight className="h-4 w-4 text-white" />
                 </button>
               )}

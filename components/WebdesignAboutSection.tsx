@@ -5,9 +5,10 @@ import ASCIIText from './ASCIIText';
 import { themeClasses } from './themeClasses';
 
 const workingPrinciples = [
+  '12+ Jahre Praxis in Webdesign und Marketing',
   'Direkter Kontakt statt Vertrieb oder Projektmanager',
   'Text, Struktur und Umsetzung aus einer Hand',
-  'Verständlich vor verspielt',
+  'Typische Inhalte später ohne Umwege weiterpflegbar',
 ];
 
 const WebdesignAboutSection: React.FC = () => {
@@ -53,7 +54,7 @@ const WebdesignAboutSection: React.FC = () => {
               <div className="mt-4 px-1 text-left">
                 <p className={themeClasses.webEyebrow}>Maximilian Unverricht</p>
                 <p className="mt-2 max-w-[32ch] text-sm leading-relaxed text-slate-600 sm:text-[0.96rem]">
-                  Dortmund, remote und direkt in der Umsetzung.
+                  Dortmund, direkt erreichbar und ohne Vertriebsstufe.
                 </p>
               </div>
             </div>
@@ -71,14 +72,14 @@ const WebdesignAboutSection: React.FC = () => {
                 <ASCIIText text="// ABOUT_THE_BUILDER" noWrap={false} enableHover={false} />
               </p>
               <h2 className="max-w-[18ch] text-balance text-[1.95rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.2rem] sm:leading-[0.96] lg:text-[2.35rem]">
-                Sie arbeiten direkt mit mir.
+                Ein Ansprechpartner von der ersten Frage bis zum Livegang.
               </h2>
               <div className="max-w-[58ch] space-y-3 text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
                 <p>
-                  Sie sprechen direkt mit der Person, die Ihre Website plant, schreibt und baut. Das spart Abstimmung, verkürzt Rückfragen und führt meist schneller zu einem brauchbaren Ergebnis.
+                  Sie sprechen direkt mit der Person, die Ihre Website plant, schreibt und baut. Das verkürzt Schleifen, klärt Verantwortung und führt schneller zu Entscheidungen, die auch online nachvollziehbar wirken.
                 </p>
                 <p>
-                  Ich baue Firmenwebsites für Unternehmen, die online klar wirken, Vertrauen aufbauen und den Kontakt für neue Kunden einfacher machen sollen.
+                  Ich arbeite aus Dortmund, bin per E-Mail und Telefon direkt erreichbar und setze Firmenwebsites so um, dass Angebot, Vertrauen und Kontakt nicht gegeneinander arbeiten.
                 </p>
               </div>
             </div>
@@ -87,7 +88,7 @@ const WebdesignAboutSection: React.FC = () => {
               <div className="space-y-2">
                 <p className={themeClasses.webEyebrow}>Worauf es ankommt</p>
                 <p className="max-w-[46ch] text-[1rem] font-medium leading-7 text-slate-800 sm:text-[1.04rem] sm:leading-8">
-                  Ihre Website soll in wenigen Sekunden erklären, was Sie anbieten, warum man Ihnen vertrauen kann und wie man Sie erreicht.
+                  Eine Firmenwebsite muss nicht alles sagen. Sie muss schnell klären, was Sie anbieten, warum man Sie ernst nehmen kann und was später ohne Umwege aktualisiert werden kann.
                 </p>
               </div>
 
@@ -105,7 +106,7 @@ const WebdesignAboutSection: React.FC = () => {
               <div className="flex flex-col gap-2.5 border-t border-blue-100/80 pt-4 sm:flex-row sm:gap-3">
                 <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full sm:flex-1`}>
                   <Mail className="h-4 w-4 text-white" />
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Projekt kurz anfragen</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
                   <ArrowRight className="h-3.5 w-3.5 text-white" />
                 </a>
                 <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} min-h-[46px] justify-start px-4 py-3 text-left sm:min-h-[52px] sm:flex-1 sm:justify-center`}>

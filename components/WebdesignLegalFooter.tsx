@@ -13,7 +13,7 @@ const WebdesignLegalFooter: React.FC = () => {
           Impressum & Datenschutz
         </h2>
         <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
-          Rechtliche Informationen zu dieser Website.
+          Impressum und Datenschutz gehören sichtbar zu einem seriösen Auftritt und sind hier direkt erreichbar.
         </p>
       </div>
 
@@ -22,13 +22,13 @@ const WebdesignLegalFooter: React.FC = () => {
           {
             kind: 'impressum',
             title: 'Impressum',
-            body: 'Anbieter, Kontakt und rechtliche Angaben.',
+            body: 'Anbieter, Kontakt und rechtliche Angaben direkt erreichbar.',
             cta: 'Impressum',
           },
           {
             kind: 'datenschutz',
             title: 'Datenschutz',
-            body: 'Informationen zur Datenverarbeitung auf dieser Website.',
+            body: 'Wie Daten auf dieser Website verarbeitet werden.',
             cta: 'Datenschutz',
           },
         ].map((card) => (
