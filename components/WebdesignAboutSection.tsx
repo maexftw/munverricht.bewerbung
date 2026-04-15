@@ -12,7 +12,7 @@ const workingPrinciples = [
 
 const WebdesignAboutSection: React.FC = () => {
   return (
-    <section id="about-me" className="relative scroll-mt-36 py-10 sm:py-12 lg:py-16">
+    <section id="about-me" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-16">
       <div className="absolute left-[3%] top-10 hidden h-36 w-36 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[5%] bottom-8 hidden h-40 w-40 rounded-full bg-cyan-100/70 blur-3xl lg:block" aria-hidden="true" />
 
@@ -28,13 +28,13 @@ const WebdesignAboutSection: React.FC = () => {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 grid gap-8 xl:grid-cols-[minmax(18rem,0.78fr)_minmax(0,1.22fr)] xl:items-start xl:gap-8">
+        <div className="relative z-10 grid gap-6 xl:grid-cols-[minmax(18rem,0.78fr)_minmax(0,1.22fr)] xl:items-start xl:gap-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="relative order-2 xl:order-1"
+            className="relative order-1 xl:order-1"
           >
             <div className="relative mx-auto max-w-[26rem]">
               <figure className={`relative overflow-hidden rounded-[1.25rem] p-3 ${themeClasses.webPanelSoft}`}>
@@ -64,7 +64,7 @@ const WebdesignAboutSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.72, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="order-1 space-y-5 xl:order-2"
+            className="order-2 space-y-5 xl:order-2"
           >
             <div className="space-y-4 text-left">
               <p className={themeClasses.webEyebrow}>
@@ -102,13 +102,13 @@ const WebdesignAboutSection: React.FC = () => {
                 ))}
               </ul>
 
-              <div className="flex flex-col gap-3 border-t border-blue-100/80 pt-4 sm:flex-row">
-                <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} sm:flex-1`}>
+              <div className="flex flex-col gap-2.5 border-t border-blue-100/80 pt-4 sm:flex-row sm:gap-3">
+                <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full sm:flex-1`}>
                   <Mail className="h-4 w-4 text-white" />
                   <span className={`${themeClasses.webMeta} font-bold text-white`}>Projekt kurz anfragen</span>
                   <ArrowRight className="h-3.5 w-3.5 text-white" />
                 </a>
-                <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} sm:flex-1`}>
+                <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} min-h-[46px] justify-start px-4 py-3 text-left sm:min-h-[52px] sm:flex-1 sm:justify-center`}>
                   <Phone className="h-4 w-4 text-blue-600" />
                   <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>+49 163 3229892</span>
                 </a>
