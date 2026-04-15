@@ -31,7 +31,7 @@ const projectOptions: Array<{ value: ProjectTypeValue; title: string; body: stri
   { value: 'multipage', title: 'Mehrseitige Website', body: 'Mehrere Unterseiten fuer Leistungen, Ueber-uns, Kontakt, Referenzen oder lokale Sichtbarkeit.' },
   { value: 'shop', title: 'Shop oder Buchung', body: 'Produkte, Zahlungen, Terminbuchung oder andere interaktive Ablaeufe.' },
   { value: 'relaunch', title: 'Relaunch', body: 'Eine bestehende Website soll inhaltlich, optisch oder technisch sauber neu aufgesetzt werden.' },
-  { value: 'unsure', title: 'Noch offen', body: 'Sie kennen Ihr Ziel, aber die passende Struktur ist noch nicht klar. Das reicht fuer eine Ersteinschaetzung.' },
+  { value: 'unsure', title: 'Noch offen', body: 'Sie kennen Ihr Ziel, aber die passende Struktur ist noch nicht klar. Das reicht fuer eine erste Rueckmeldung.' },
 ];
 
 const goalOptions: Array<{ value: GoalValue; label: string }> = [
@@ -186,7 +186,7 @@ const WebdesignIntakeForm: React.FC = () => {
     const body = [
       'Hallo Maximilian,',
       '',
-      'ich moechte eine Ersteinschaetzung fuer eine Website-Anfrage.',
+      'ich moechte eine erste Rueckmeldung zu folgendem Webprojekt.',
       '',
       ...summaryLines,
       `Beschreibung: ${formData.companySummary || 'Nicht angegeben'}`,
@@ -225,14 +225,14 @@ const WebdesignIntakeForm: React.FC = () => {
               <ASCIIText text="// PROJEKT_ANFRAGE" noWrap={false} enableHover={false} />
             </p>
             <h2 className="max-w-[13ch] text-balance text-[2.15rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.65rem] sm:leading-[0.96]">
-              In wenigen Schritten zu einer klareren Ersteinschaetzung.
+              In wenigen Schritten zu einer klaren Projektanfrage.
             </h2>
             <div className="max-w-[56ch] space-y-4 text-[1rem] leading-7 text-slate-600 sm:text-[1.04rem] sm:leading-8">
               <p>
-                Dieses Formular ist kein Agenturfragebogen. Ich frage nur das ab, was fuer Struktur, Aufwand und eine brauchbare Rueckmeldung wirklich relevant ist.
+                Dieses Formular ist kein Agenturfragebogen. Ich frage nur das ab, was ich fuer eine sinnvolle Rueckmeldung zu Struktur, Aufwand und naechstem Schritt wirklich brauche.
               </p>
               <p>
-                Je klarer die Angaben, desto konkreter kann ich einschaetzen, ob eher eine einfache Landingpage, eine mehrseitige Firmenwebsite, ein Relaunch oder ein Shop-System passt.
+                Am Ende oeffnet sich eine vorbereitete E-Mail mit Ihren Angaben. So weiss ich direkt, worum es geht, und Sie sparen eine Rueckfrage-Schleife fuer die Basics.
               </p>
             </div>
           </div>
@@ -241,9 +241,9 @@ const WebdesignIntakeForm: React.FC = () => {
             <p className={themeClasses.webEyebrow}>Was dieses Formular bringt</p>
             <div className="space-y-3">
               {[
-                'Sie muessen nicht alles perfekt wissen. Eine klare Richtung reicht.',
-                'Ich sehe schneller, welche Struktur und welcher Umfang wirklich passt.',
-                'Am Ende oeffnet sich Ihre Mail-App mit allen Angaben bereits vorbereitet.',
+                'Sie geben nur die Infos an, die fuer eine erste Einordnung wirklich helfen.',
+                'Ich kann Umfang, Richtung und naechsten Schritt sauber zurueckspiegeln.',
+                'Am Ende landet Ihre Anfrage nicht in einem anonymen Ticket, sondern direkt in einer vorbereiteten E-Mail.',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <span className="mt-[0.45rem] h-2.5 w-2.5 rounded-full bg-blue-500 shadow-[0_0_0_4px_rgba(59,130,246,0.12)]" aria-hidden="true" />
@@ -259,7 +259,7 @@ const WebdesignIntakeForm: React.FC = () => {
               <div>
                 <p className={themeClasses.webEyebrow}>Wichtiger Punkt</p>
                 <p className="mt-2 max-w-[42ch] text-sm leading-relaxed text-slate-600 sm:text-[0.96rem]">
-                  Damit ich sinnvoll antworten kann, ist im letzten Schritt eine E-Mail-Adresse erforderlich. Ohne diese kann aus der Anfrage keine Rueckmeldung werden.
+                  Die E-Mail-Adresse brauche ich nur, damit ich direkt auf Ihre Anfrage antworten kann. Ohne diese fehlt der klare Rueckkanal.
                 </p>
               </div>
             </div>
@@ -620,7 +620,7 @@ const WebdesignIntakeForm: React.FC = () => {
                         <div>
                           <p className={themeClasses.webEyebrow}>So funktioniert das Absenden</p>
                           <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                            Beim Klick auf den Button wird Ihre Mail-App mit allen Angaben bereits vorbereitet. So geht nichts verloren und ich kann direkt mit einer sinnvollen Rueckmeldung antworten.
+                            Beim Klick auf den Button oeffnet sich Ihre Mail-App mit allen Angaben bereits vorbereitet. Sie sehen also genau, was rausgeht, und ich habe direkt den noetigen Kontext fuer die Rueckmeldung.
                           </p>
                         </div>
                       </div>
@@ -648,7 +648,7 @@ const WebdesignIntakeForm: React.FC = () => {
                 </button>
               ) : (
                 <button type="button" onClick={prepareMail} className={themeClasses.webButtonPrimary}>
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Projektanfrage per E-Mail vorbereiten</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Projektanfrage in Mail-App oeffnen</span>
                   <ArrowRight className="h-4 w-4 text-white" />
                 </button>
               )}
@@ -657,7 +657,7 @@ const WebdesignIntakeForm: React.FC = () => {
             {mailPrepared && (
               <div className={`rounded-[1rem] p-4 sm:p-5 ${themeClasses.webCard}`}>
                 <p className="text-sm leading-relaxed text-slate-600">
-                  Falls sich kein Mailprogramm geoeffnet hat, schreiben Sie direkt an <a href="mailto:info@graphiks.de" className="font-semibold text-blue-600 hover:text-blue-500">info@graphiks.de</a>.
+                  Falls sich kein Mailprogramm geoeffnet hat, schreiben Sie direkt an <a href="mailto:info@graphiks.de" className="font-semibold text-blue-600 hover:text-blue-500">info@graphiks.de</a>. Ich antworte dann auf Basis Ihrer Angaben.
                 </p>
               </div>
             )}

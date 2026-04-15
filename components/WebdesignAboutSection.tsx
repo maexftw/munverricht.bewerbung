@@ -5,9 +5,9 @@ import ASCIIText from './ASCIIText';
 import { themeClasses } from './themeClasses';
 
 const workingPrinciples = [
-  'Direkter Kontakt statt Vertriebsschleife',
-  'Struktur, Text und Umsetzung aus einer Hand',
-  'Klare Firmenwebsite statt Agenturverpackung',
+  'Direkter Ansprechpartner statt Vertriebsschleife',
+  '12+ Jahre Erfahrung mit Websites, Inhalten und digitaler Umsetzung',
+  'Struktur, Text und Umsetzung in einer Hand',
 ];
 
 const WebdesignAboutSection: React.FC = () => {
@@ -53,7 +53,7 @@ const WebdesignAboutSection: React.FC = () => {
               <div className="mt-4 px-1 text-left">
                 <p className={themeClasses.webEyebrow}>Maximilian Unverricht</p>
                 <p className="mt-2 max-w-[32ch] text-sm leading-relaxed text-slate-600 sm:text-[0.96rem]">
-                  Dortmund, Remote und direkt in der Umsetzung. Keine Zwischenstation zwischen Idee, Text und Livegang.
+                  Dortmund, remote und direkt in der Umsetzung. Keine Zwischenstation zwischen Idee, Text und Livegang.
                 </p>
               </div>
             </div>
@@ -70,15 +70,15 @@ const WebdesignAboutSection: React.FC = () => {
               <p className={themeClasses.webEyebrow}>
                 <ASCIIText text="// ABOUT_THE_BUILDER" noWrap={false} enableHover={false} />
               </p>
-              <h2 className="max-w-[13ch] text-balance text-[2.15rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.6rem] sm:leading-[0.96]">
-                Sie sprechen nicht mit Vertrieb. Sie arbeiten direkt mit mir.
+              <h2 className="max-w-[14ch] text-balance text-[2.15rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.6rem] sm:leading-[0.96]">
+                Sie arbeiten direkt mit dem, der die Seite auch baut.
               </h2>
               <div className="max-w-[62ch] space-y-4 text-[1rem] leading-7 text-slate-600 sm:text-[1.04rem] sm:leading-8">
                 <p>
                   Ich bin Maximilian Unverricht. Seit mehr als 12 Jahren arbeite ich an Websites, Inhalten und digitalen Auftritten fuer Unternehmen, die online vor allem eines brauchen: einen serioesen ersten Eindruck, klare Orientierung und eine Seite, die technisch sauber funktioniert.
                 </p>
                 <p>
-                  Auf dieser Unterseite geht es deshalb nicht um Design fuer Designer. Ich baue Firmenwebsites so, dass Interessenten schnell verstehen, was Sie anbieten, Vertrauen fassen und ohne Reibung Kontakt aufnehmen koennen. Genau deshalb laufen Konzeption, Text, Gestaltung und technische Umsetzung bei mir direkt zusammen.
+                  Auf dieser Unterseite geht es deshalb nicht um Selbstdarstellung, sondern um Verstaendlichkeit und Verantwortung. Sie muessen nicht zwischen Text, Gestaltung und Technik vermitteln, weil diese Punkte bei mir direkt zusammenlaufen.
                 </p>
               </div>
             </div>
@@ -86,7 +86,7 @@ const WebdesignAboutSection: React.FC = () => {
             <div className={`rounded-[1.15rem] p-5 sm:p-6 ${themeClasses.webCard}`}>
               <p className={themeClasses.webEyebrow}>Worauf es in der Praxis ankommt</p>
               <p className="mt-3 max-w-[50ch] text-[1.02rem] font-medium leading-7 text-slate-800 sm:text-[1.08rem] sm:leading-8">
-                Meine Arbeit soll nicht beeindrucken, weil sie kompliziert klingt, sondern weil Ihre Website nach dem Livegang ruhig, klar und belastbar wirkt.
+                Eine Firmenwebsite soll im Alltag entlasten: klar in der Aussage, ruhig im Eindruck und sauber in der Umsetzung.
               </p>
             </div>
 
@@ -103,16 +103,16 @@ const WebdesignAboutSection: React.FC = () => {
 
             <div className={`flex flex-col gap-4 rounded-[1.15rem] p-5 sm:p-6 ${themeClasses.webCard}`}>
               <div className="space-y-2">
-                <p className={themeClasses.webEyebrow}>Wenn Sie eine saubere Firmenwebsite brauchen</p>
+                <p className={themeClasses.webEyebrow}>Wenn Sie eine Firmenwebsite brauchen, die Vertrauen aufbaut</p>
                 <p className="max-w-[48ch] text-sm leading-relaxed text-slate-600 sm:text-[0.96rem]">
-                  Dann sollten Struktur, Text und Technik nicht in drei Richtungen ziehen. Genau deshalb arbeite ich auf dieser Seite bewusst direkt, ueberschaubar und ohne Agenturverpackung.
+                  Dann ist direkter Austausch kein Detail, sondern ein Sicherheitsfaktor. Fragen landen bei der Person, die Struktur, Text und Umsetzung auch wirklich verantwortet.
                 </p>
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} sm:flex-1`}>
                   <Mail className="h-4 w-4 text-white" />
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Direkt anfragen</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Direkte Rueckmeldung anfragen</span>
                   <ArrowRight className="h-3.5 w-3.5 text-white" />
                 </a>
                 <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} sm:flex-1`}>

@@ -1,6 +1,7 @@
 import React, { useId, useState } from 'react';
 import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import ASCIIText from './ASCIIText';
 import { themeClasses } from './themeClasses';
 
 type WebdesignProject = {
@@ -24,9 +25,9 @@ const projects: WebdesignProject[] = [
     title: 'Bockel & Bartscher',
     href: 'https://www.bockel-bartscher.de/',
     image: '/screenshots/bockel-bartscher.png',
-    eyebrow: 'Kanzlei & Vertrauen',
-    strapline: 'Serioes im ersten Blick, klar im naechsten Schritt.',
-    note: 'Die Seite setzt auf Ruhe, Weissraum und eine direkte Ansprache, damit Vertrauen entsteht, bevor Details erklaert werden muessen.',
+    eyebrow: 'Vertrauen im Erstkontakt',
+    strapline: 'Ruhiger Auftritt, klare Orientierung, serioeser erster Eindruck.',
+    note: 'Die Seite priorisiert Lesbarkeit und Haltung, damit Ratsuchende schnell verstehen, wo sie sind und warum der Kontakt vertrauenswuerdig wirkt.',
     accent: {
       glow: 'bg-blue-200/65',
       tint: 'from-blue-300/70 via-sky-200/24 to-transparent',
@@ -38,9 +39,9 @@ const projects: WebdesignProject[] = [
     title: 'Fitnesscenter Drensteinfurt',
     href: 'https://fitnesscenter-drensteinfurt.de/',
     image: '/screenshots/fitnesscenter-drensteinfurt.png',
-    eyebrow: 'Lokal & direkt',
-    strapline: 'Mehr Energie, weniger Umwege bis zum Probetraining.',
-    note: 'Angebote, Einstieg und Kontakt liegen sofort offen, damit die Seite wie ein klarer Besuchsaufruf funktioniert statt wie ein Flyer im Web.',
+    eyebrow: 'Lokale Anfragefuehrung',
+    strapline: 'Angebot, Einstieg und Kontakt ohne Sucharbeit.',
+    note: 'Die Struktur fuehrt Besucher zuegig zu Probetraining und Kontakt, statt sie mit zu vielen Zwischenschritten aufzuhalten.',
     accent: {
       glow: 'bg-cyan-200/70',
       tint: 'from-cyan-300/70 via-blue-200/24 to-transparent',
@@ -52,9 +53,9 @@ const projects: WebdesignProject[] = [
     title: 'Kaffee Faensen',
     href: 'https://www.kaffee-faensen.de/shop/homepage',
     image: '/screenshots/kaffee-faensen.png',
-    eyebrow: 'Marke & Shopgefuehl',
-    strapline: 'Waerme, Herkunft und Produktnaehe in einem ruhigen Shopbild.',
-    note: 'Das Erscheinungsbild traegt die Marke, ohne den Weg zum Produkt zu verdecken. Atmosphaere und Kaufimpuls bleiben gleichzeitig sichtbar.',
+    eyebrow: 'Marke mit Orientierung',
+    strapline: 'Atmosphaere zeigen, ohne den Weg zum Produkt zu verdecken.',
+    note: 'Die Seite verbindet Markenbild und klare Produktfuehrung, damit Vertrauen und Kaufnaehe gleichzeitig sichtbar bleiben.',
     accent: {
       glow: 'bg-amber-100/80',
       tint: 'from-amber-200/85 via-orange-100/30 to-transparent',
@@ -66,9 +67,9 @@ const projects: WebdesignProject[] = [
     title: 'KOST Sicherheitstechnik',
     href: 'https://kost-sicherheitstechnik.de/',
     image: '/screenshots/kost-sicherheitstechnik.png',
-    eyebrow: 'Technik & Klarheit',
-    strapline: 'Kompetenz sichtbar machen, ohne technisch kuehl zu wirken.',
-    note: 'Die Oberflaeche ordnet Leistungen sauber, wirkt belastbar und laesst technische Inhalte verstaendlich erscheinen statt schwer zugaenglich.',
+    eyebrow: 'Kompetenz auf einen Blick',
+    strapline: 'Technische Leistungen verstaendlich und belastbar praesentiert.',
+    note: 'Leistungen, Struktur und Tonfall machen das Angebot zugaenglich, ohne an fachlicher Substanz zu verlieren.',
     accent: {
       glow: 'bg-emerald-100/80',
       tint: 'from-emerald-200/80 via-teal-100/30 to-transparent',
@@ -178,7 +179,7 @@ const WebdesignProjectCard: React.FC<{ project: WebdesignProject; index: number 
           >
             <span className="mono text-[10px] uppercase tracking-[0.26em] text-slate-500">Case {project.id}</span>
             <span className={`inline-flex items-center gap-1.5 mono text-[10px] font-semibold uppercase tracking-[0.22em] ${project.accent.badge}`}>
-              Live
+              Live Referenz
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
             </span>
           </motion.div>
@@ -246,7 +247,19 @@ const WebdesignProjectShowcase: React.FC = () => {
       <div className="absolute left-[4%] top-12 hidden h-32 w-32 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[3%] top-20 hidden h-44 w-44 rounded-full bg-cyan-100/65 blur-3xl lg:block" aria-hidden="true" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 space-y-8">
+        <div className="max-w-3xl space-y-4 text-left">
+          <p className={themeClasses.webEyebrow}>
+            <ASCIIText text="// REFERENZEN" noWrap={false} enableHover={false} />
+          </p>
+          <h2 className="max-w-[15ch] text-balance text-[2.15rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.6rem] sm:leading-[0.96]">
+            Beispiele, wie Klarheit und Vertrauen sichtbar werden.
+          </h2>
+          <p className="max-w-[60ch] text-[1rem] leading-7 text-slate-600 sm:text-[1.04rem] sm:leading-8">
+            Keine Platzhalter und keine Moodboards. Die Seiten zeigen, wie unterschiedliche Unternehmen online ruhiger, verstaendlicher und glaubwuerdiger auftreten koennen.
+          </p>
+        </div>
+
         <div className="grid min-w-0 grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6">
           {projects.map((project, index) => (
             <WebdesignProjectCard key={project.id} project={project} index={index} />

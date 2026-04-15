@@ -13,27 +13,27 @@ import { themeClasses } from './themeClasses';
 
 const technicalSpecs = [
   {
-    name: 'Technisch überlegen',
+    name: 'Saubere technische Basis',
     icon: Cpu,
     iconClassName: 'text-blue-600',
   },
   {
-    name: 'SEO optimiert',
+    name: 'Suchmaschinenfreundlich',
     icon: Zap,
     iconClassName: 'text-sky-500',
   },
   {
-    name: 'DSGVO sicher',
+    name: 'DSGVO-konform',
     icon: Shield,
     iconClassName: 'text-indigo-500',
   },
   {
-    name: 'Responsive Design',
+    name: 'Mobil optimiert',
     icon: Globe,
     iconClassName: 'text-cyan-600',
   },
   {
-    name: 'High-Speed Ranking',
+    name: 'Schnell geladen',
     icon: Activity,
     iconClassName: 'text-teal-600',
   },
@@ -42,20 +42,20 @@ const technicalSpecs = [
 const workflowSteps = [
   {
     id: '01',
-    title: 'Ein kurzes Gespräch',
-    body: 'Sie sagen kurz, was Ihr Unternehmen braucht. Ich übersetze das in eine klare Seitenstruktur, ohne Fachbegriffe und ohne komplizierte Fragebögen.',
+    title: 'Ausgangslage klaeren',
+    body: 'Sie sagen kurz, was Ihr Unternehmen braucht. Ich ordne das in eine klare Struktur ein, damit von Anfang an sichtbar wird, was die Website sagen und leisten soll.',
     icon: Clock3,
   },
   {
     id: '02',
-    title: 'Ich baue die Seite',
-    body: 'Ich baue Texte, Struktur, Design und mobile Ansicht so, dass Ihre Seite seriös wirkt, schnell lädt und für Kunden sofort verständlich ist.',
+    title: 'Verstaendlich umsetzen',
+    body: 'Ich verbinde Text, Aufbau, Design und Technik so, dass Ihr Auftritt professionell wirkt, schnell verstanden wird und nicht nach Baukasten aussieht.',
     icon: Activity,
   },
   {
     id: '03',
-    title: 'Live gehen und fertig',
-    body: 'Nach der Freigabe geht Ihre Seite live. Sie zahlen einmalig und haben keine laufenden Servicekosten oder versteckten Vertragsmodelle.',
+    title: 'Live gehen mit Klarheit',
+    body: 'Nach Ihrer Freigabe geht die Seite live. Der naechste Schritt bleibt klar: Sie wissen, wer die Umsetzung verantwortet und wo Sie mich direkt erreichen.',
     icon: Zap,
   },
 ];
@@ -88,34 +88,34 @@ const WebdesignLandingPage: React.FC = () => {
 
             <div className="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">
               <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut' }} className="relative flex w-full flex-col items-center">
-                <ASCIIText as="h2" text="WEBDESIGN & DELIVERY // FÜR HANDWERKER, PRAXEN & KMU" className="mb-4 text-center mono text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.3em]" noWrap={false} enableHover={false} />
-                <h1 className="mb-6 max-w-[11ch] text-balance text-[2.65rem] font-bold uppercase leading-[0.96] tracking-[0.028em] text-slate-900 sm:mb-8 sm:max-w-[12ch] sm:text-5xl md:text-7xl lg:text-[5.35rem]">
-                  <ASCIIText as="span" text="PROFI-WEBSEITE" className="text-slate-900" noWrap={false} enableHover={false} />{' '}
-                  <ASCIIText as="span" text="AB 300 €" className="text-blue-600" noWrap={false} enableHover={false} />
+                <ASCIIText as="h2" text="WEBDESIGN & DELIVERY // DIREKT FUER HANDWERK, PRAXEN & KMU" className="mb-4 text-center mono text-[11px] font-semibold uppercase tracking-[0.24em] text-blue-600 sm:mb-5 sm:text-xs sm:tracking-[0.3em]" noWrap={false} enableHover={false} />
+                <h1 className="mb-6 max-w-[13ch] text-balance text-[2.65rem] font-bold uppercase leading-[0.96] tracking-[0.028em] text-slate-900 sm:mb-8 sm:max-w-[15ch] sm:text-5xl md:text-7xl lg:text-[5.35rem]">
+                  <ASCIIText as="span" text="KLARE FIRMENWEBSITE" className="text-slate-900" noWrap={false} enableHover={false} />{' '}
+                  <ASCIIText as="span" text="DIREKT UMGESETZT" className="text-blue-600" noWrap={false} enableHover={false} />
                 </h1>
               </motion.div>
 
-              <motion.p initial={{ translateY: 10, opacity: 0 }} animate={{ translateY: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative z-10 mb-7 max-w-[34ch] text-[1.02rem] font-medium leading-7 text-slate-600 sm:mb-10 sm:max-w-[60ch] sm:text-lg sm:leading-8">
+              <motion.p initial={{ translateY: 10, opacity: 0 }} animate={{ translateY: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative z-10 mb-7 max-w-[36ch] text-[1.02rem] font-medium leading-7 text-slate-600 sm:mb-10 sm:max-w-[60ch] sm:text-lg sm:leading-8">
                 <ASCIIText
                   as="span"
                   noWrap={false}
                   enableHover={false}
-                  text="Klare Firmenwebsite statt Agentur-Gerede. Einmal zahlen, online gehen und erreichbar sein. Ich baue Ihre Seite, hoste sie kostenlos und halte sie technisch sauber – schnell, modern und DSGVO-konform."
+                  text="Ihre Website soll professionell wirken, schnell verstanden werden und nicht nach Baukasten aussehen. Genau darauf ist diese Seite ausgelegt: direkte Zusammenarbeit, klare Texte und eine technisch saubere Umsetzung."
                 />
               </motion.p>
 
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.25 }} className="mb-9 flex flex-wrap items-center justify-center gap-x-4 gap-y-2.5 px-3 text-center sm:mb-12 sm:gap-x-5 sm:px-0">
-                <span className={`${themeClasses.webMeta} text-blue-600`}>Ab 300 € einmalig</span>
+                <span className={`${themeClasses.webMeta} text-blue-600`}>Direkter Ansprechpartner</span>
                 <span className="h-1 w-1 rounded-full bg-blue-300" />
-                <span className={`${themeClasses.webMeta} text-slate-500`}>Kein Abo</span>
+                <span className={`${themeClasses.webMeta} text-slate-500`}>Projektstart ab 300 EUR</span>
                 <span className="h-1 w-1 rounded-full bg-blue-300" />
-                <span className={`${themeClasses.webMeta} text-slate-500`}>Hosting inklusive</span>
+                <span className={`${themeClasses.webMeta} text-slate-500`}>Keine laufende Vertragsbindung</span>
               </motion.div>
 
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.28 }} className="mb-6 flex w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mb-10 sm:flex-row sm:items-center sm:gap-4 sm:pt-1">
                 <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} flex-1`}>
                   <Mail className="h-4 w-4 text-white" />
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlose Ersteinschätzung anfragen</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Projekt schildern</span>
                 </a>
                 <a href="tel:+491633229892" className={themeClasses.webButtonSecondary}>
                   <Phone className="h-4 w-4 text-blue-600" />
@@ -135,12 +135,12 @@ const WebdesignLandingPage: React.FC = () => {
                   <div className={`space-y-4 rounded-[1rem] px-4 py-4 sm:rounded-[1.15rem] sm:px-6 sm:py-6 ${themeClasses.webPanelSoft}`}>
                     <div className={`flex items-center gap-2 text-blue-600 ${themeClasses.webMeta}`}>
                       <Terminal className="h-3.5 w-3.5" />
-                      Ihr Angebot auf einen Blick
+                      Vor der Anfrage einordnen
                     </div>
                     <div className="space-y-2">
-                      <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">300–400 € einmalig</p>
+                      <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">300-400 EUR als Orientierung</p>
                       <p className="max-w-[34ch] text-sm leading-relaxed text-slate-600 sm:text-base">
-                        Sie bekommen eine seriöse Unternehmensseite ohne Abo, ohne langfristige Bindung und ohne laufende Technik-Kosten.
+                        Fuer kompakte Firmenseiten dient dieser Rahmen als erste Einordnung. Entscheidend ist, dass Struktur, Text und Umsetzung sauber zusammenpassen.
                       </p>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ const WebdesignLandingPage: React.FC = () => {
                         <Globe className="mt-0.5 h-4 w-4 text-blue-500" />
                         <div>
                           <p className={`${technicalSpecMetaClassName} text-blue-600`}>Hosting</p>
-                          <p className="text-sm font-semibold text-slate-900">dauerhaft inklusive</p>
+                          <p className="text-sm font-semibold text-slate-900">technisch mitgedacht</p>
                         </div>
                       </div>
                     </div>
@@ -160,7 +160,7 @@ const WebdesignLandingPage: React.FC = () => {
                         <Activity className="mt-0.5 h-4 w-4 text-sky-500" />
                         <div>
                           <p className={`${technicalSpecMetaClassName} text-blue-600`}>Wartung</p>
-                          <p className="text-sm font-semibold text-slate-900">ohne monatliche Zusatzkosten</p>
+                          <p className="text-sm font-semibold text-slate-900">kein Technikvertrag noetig</p>
                         </div>
                       </div>
                     </div>
@@ -168,8 +168,8 @@ const WebdesignLandingPage: React.FC = () => {
                       <div className="flex items-start gap-3">
                         <Zap className="mt-0.5 h-4 w-4 text-indigo-500" />
                         <div>
-                          <p className={`${technicalSpecMetaClassName} text-blue-600`}>Entwurf</p>
-                          <p className="text-sm font-semibold text-slate-900">vorab unverbindlich</p>
+                          <p className={`${technicalSpecMetaClassName} text-blue-600`}>Einordnung</p>
+                          <p className="text-sm font-semibold text-slate-900">direkt und unverbindlich</p>
                         </div>
                       </div>
                     </div>
@@ -202,7 +202,7 @@ const WebdesignLandingPage: React.FC = () => {
               <div className="grid grid-cols-1 gap-3 text-left sm:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] sm:gap-4">
                 <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} rounded-[1rem] px-4 py-4`}>
                   <Mail className="h-4 w-4 text-white" />
-                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlose Ersteinschätzung anfragen</span>
+                  <span className={`${themeClasses.webMeta} font-bold text-white`}>Rueckmeldung zum Projekt anfragen</span>
                 </a>
                 <a href="tel:+491633229892" className={`${themeClasses.webButtonSecondary} rounded-[1rem] px-4 py-4`}>
                   <Phone className="h-4 w-4 text-blue-600" />
