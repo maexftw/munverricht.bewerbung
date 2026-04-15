@@ -41,55 +41,55 @@ const technicalSpecs = [
 const offerHighlights = [
   {
     label: 'Hosting',
-    title: 'inklusive',
-    body: 'Onlinegang ohne Zusatzpaket.',
+    title: 'ohne Technik-Extra',
+    body: 'Der Onlinegang ist mitgedacht und nicht an ein Zusatzpaket gekoppelt.',
     icon: Globe,
     iconClassName: 'text-blue-500',
   },
   {
     label: 'Abstimmung',
-    title: 'direkt mit mir',
-    body: 'Kurze Wege, klare Absprachen.',
+    title: 'ein Ansprechpartner',
+    body: 'Sie sprechen direkt mit der Person, die plant, textet und baut.',
     icon: Activity,
     iconClassName: 'text-sky-500',
   },
   {
-    label: 'Ziel',
-    title: 'klar und vertrauenswürdig',
-    body: 'Damit Besucher schneller anfragen.',
+    label: 'Pflege',
+    title: 'Texte und Bilder später änderbar',
+    body: 'Typische Inhalte können später ohne neues Projekt weitergeführt werden.',
     icon: Zap,
     iconClassName: 'text-indigo-500',
   },
   {
     label: 'Freigabe',
-    title: 'einmal abstimmen',
-    body: 'Danach geht die Seite live.',
+    title: 'vorher klar sehen',
+    body: 'Sie wissen vor dem Livegang, was online geht und wie es wirkt.',
     icon: Shield,
     iconClassName: 'text-teal-600',
   },
 ];
 
-const workflowIntroPoints = ['Direkt abstimmen', 'Festpreis statt Paketlogik', 'Online ohne Agenturprozess'];
+const workflowIntroPoints = ['Klare Ausgangslage', 'Direkte Verantwortung', 'Später weiterpflegbar'];
 const workflowSignalClassName =
   'inline-flex min-h-[44px] items-center rounded-full border border-blue-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(244,248,253,0.78))] px-4 py-2.5 shadow-[0_12px_28px_rgba(15,23,42,0.06),inset_0_1px_0_rgba(255,255,255,0.92)]';
 
 const workflowSteps = [
   {
     id: '01',
-    title: 'Kurz abstimmen',
-    body: 'Sie sagen kurz, was Ihr Unternehmen anbietet und was die Website leisten soll. Ich übersetze das in eine klare Struktur, ohne Fachsprache und ohne endlose Abstimmung.',
+    title: 'Ausgangslage klären',
+    body: 'Sie zeigen, was heute unklar, austauschbar oder schwer kontaktierbar wirkt. Ich übersetze das in eine verständliche Struktur mit klarem nächsten Schritt.',
     icon: Clock3,
   },
   {
     id: '02',
-    title: 'Ich baue die Website',
-    body: 'Ich erstelle Text, Aufbau, Design und mobile Darstellung so, dass Besucher schnell verstehen, worum es geht und wie sie Kontakt aufnehmen können.',
+    title: 'Klaren Auftritt bauen',
+    body: 'Ich formuliere Angebot, Seitenaufbau und Kontaktweg so, dass Besucher schneller verstehen, wer Sie sind, was Sie anbieten und wie sie Sie erreichen.',
     icon: Activity,
   },
   {
     id: '03',
-    title: 'Freigeben und online gehen',
-    body: 'Nach Ihrer Freigabe geht die Seite online. Sie zahlen einmalig und haben einen festen Ansprechpartner statt Abo, Vertrieb oder versteckter Zusatzpakete.',
+    title: 'Freigeben und weiterführen',
+    body: 'Vor dem Livegang sehen Sie, was online geht. Danach bleibt der Kontakt direkt und typische Inhalte lassen sich ohne unnötige Abhängigkeit weiterführen.',
     icon: Zap,
   },
 ];
@@ -104,11 +104,11 @@ const webdesignNavItems = [
 const technicalSpecMetaClassName = 'mono text-[11px] uppercase tracking-[0.18em]';
 const defaultMeta = {
   title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
-  description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU ab 300 EUR: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
+  description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU: direkter Ansprechpartner, reale Projektbeispiele und Inhalte, die später weitergeführt werden können.',
 };
 const webdesignMeta = {
   title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
-  description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU ab 300 EUR: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.',
+  description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU: direkter Ansprechpartner, reale Projektbeispiele und Inhalte, die später weitergeführt werden können.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -307,7 +307,7 @@ const WebdesignLandingPage: React.FC = () => {
               <div className="relative z-10 flex w-full max-w-4xl flex-col items-center text-center">
                 <motion.div initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8, ease: 'easeOut' }} className="relative flex w-full flex-col items-center">
                   <p className="mb-3 max-w-[24ch] text-center mono text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-600 sm:mb-5 sm:max-w-none sm:text-xs sm:tracking-[0.3em]">
-                    <ASCIIText as="span" text="WEBDESIGN // FÜR HANDWERKER, PRAXEN & KLEINE UNTERNEHMEN" noWrap={false} />
+                  <ASCIIText as="span" text="WEBDESIGN // FÜR HANDWERKER, PRAXEN & KLEINE UNTERNEHMEN" noWrap={false} />
                   </p>
                   <h1 className="mb-4 max-w-[12ch] break-normal [overflow-wrap:normal] text-[clamp(1.6rem,9.5vw,5.35rem)] font-bold uppercase leading-[0.92] tracking-[0.01em] text-slate-900 min-[390px]:max-w-[14ch] sm:mb-8 sm:max-w-none sm:text-5xl md:text-7xl lg:text-[5.35rem]">
                     <span className="block sm:hidden">KLARE</span>
@@ -318,9 +318,9 @@ const WebdesignLandingPage: React.FC = () => {
                     <span className="hidden sm:block">
                       <ASCIIText as="span" text="FIRMENWEBSITE" className="text-slate-900" noWrap={false} />
                     </span>
-                    <span className="block text-blue-600 sm:hidden">AB 300 EUR</span>
+                    <span className="block text-blue-600 sm:hidden">FÜR KMU</span>
                     <span className="hidden text-blue-600 sm:block">
-                      <ASCIIText as="span" text="AB 300 EUR" className="text-blue-600" noWrap={false} />
+                      <ASCIIText as="span" text="FÜR KMU" className="text-blue-600" noWrap={false} />
                     </span>
                   </h1>
                 </motion.div>
@@ -328,7 +328,7 @@ const WebdesignLandingPage: React.FC = () => {
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="mb-3 flex w-full max-w-sm sm:hidden">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full`}>
                     <Mail className="h-4 w-4 text-white" />
-                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Ersteinschätzung anfragen</span>
+                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
                   </a>
                 </motion.div>
 
@@ -338,7 +338,7 @@ const WebdesignLandingPage: React.FC = () => {
                     noWrap={false}
                     enableHover={false}
                     revealOnMount={false}
-                    text="Eine einfache Website zum Festpreis. Ohne Abo, ohne Agenturprozess und ohne Umwege. Ich baue Ihre Seite so, dass sie seriös wirkt, Vertrauen schafft und Anfragen leichter macht."
+                    text="Wenn eine Website unklar oder billig wirkt, kostet das Vertrauen vor der ersten Anfrage. Ich baue Firmenwebsites, die Angebot und Kontakt schnell verständlich machen und mit direktem Ansprechpartner, Telefonnummer und echten Referenzen seriös einzuordnen sind."
                   />
                 </motion.p>
 
@@ -351,18 +351,18 @@ const WebdesignLandingPage: React.FC = () => {
                 >
                   <li className={`flex min-h-[44px] items-center gap-2.5 rounded-[1rem] px-3.5 py-3 ${themeClasses.webCard}`}>
                     <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-blue-500" />
-                    <span className="text-sm font-medium leading-6 text-slate-700">Festpreis ab 300 EUR statt Paketlogik.</span>
+                    <span className="text-sm font-medium leading-6 text-slate-700">Direkter Ansprechpartner per Telefon oder E-Mail.</span>
                   </li>
                   <li className={`flex min-h-[44px] items-center gap-2.5 rounded-[1rem] px-3.5 py-3 ${themeClasses.webCard}`}>
                     <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-blue-500" />
-                    <span className="text-sm font-medium leading-6 text-slate-700">Direkter Kontakt ohne Agenturprozess.</span>
+                    <span className="text-sm font-medium leading-6 text-slate-700">Reale Projektbeispiele und spätere Pflege ohne Umwege.</span>
                   </li>
                 </motion.ul>
 
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.28 }} className="mb-4 hidden w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mb-7 sm:flex sm:flex-row sm:items-center sm:gap-4 sm:pt-1">
                   <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} flex-1`}>
                     <Mail className="h-4 w-4 text-white" />
-                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Kostenlose Ersteinschätzung anfragen</span>
+                    <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
                   </a>
                   <a href="tel:+491633229892" className={themeClasses.webButtonSecondary}>
                     <Phone className="h-4 w-4 text-blue-600" />
@@ -376,11 +376,11 @@ const WebdesignLandingPage: React.FC = () => {
                   transition={{ duration: 0.5, delay: 0.25 }}
                   className="mb-8 hidden flex-wrap items-center justify-center gap-x-4 gap-y-2.5 px-3 text-center min-[480px]:flex sm:mb-12 sm:gap-x-5 sm:px-0"
                 >
-                  <span className={`${themeClasses.webMeta} text-blue-600`}>Klare Firmenwebsite ab 300 EUR</span>
+                  <span className={`${themeClasses.webMeta} text-blue-600`}>Telefon & E-Mail direkt</span>
                   <span className="h-1 w-1 rounded-full bg-blue-300" />
-                  <span className={`${themeClasses.webMeta} text-slate-500`}>Kein Abo</span>
+                  <span className={`${themeClasses.webMeta} text-slate-500`}>Dortmund & direkte Zusammenarbeit</span>
                   <span className="h-1 w-1 rounded-full bg-blue-300" />
-                  <span className={`${themeClasses.webMeta} text-slate-500`}>Direkter Ansprechpartner</span>
+                  <span className={`${themeClasses.webMeta} text-slate-500`}>Reale Projektbeispiele</span>
                 </motion.div>
               </div>
 
@@ -399,7 +399,7 @@ const WebdesignLandingPage: React.FC = () => {
                       <div className="space-y-2">
                         <p className="text-[1.85rem] font-bold tracking-tight text-slate-900 sm:text-4xl">ab 300 EUR</p>
                         <p className="max-w-[34ch] text-sm leading-relaxed text-slate-600 sm:text-base">
-                          Festpreis statt Agenturpaket. Ohne Abo, ohne Umwege und mit direktem Ansprechpartner.
+                          Der Preis ist eine Orientierung für kompakte Seiten. Wichtiger ist, dass Sie wissen, wer zuständig ist, was online geht und wie Inhalte später weitergeführt werden können.
                         </p>
                       </div>
                     </div>
@@ -448,13 +448,13 @@ const WebdesignLandingPage: React.FC = () => {
                       <span>// SO LÄUFT DAS PROJEKT</span>
                     </p>
                     <h2 className="max-w-[15ch] text-balance text-[1.85rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:text-[2.2rem] sm:leading-[0.96]">
-                      Von der Anfrage bis online in drei klaren Schritten.
+                      So wird aus einer unklaren Website ein klarer Auftritt.
                     </h2>
                   </div>
 
                   <div className="space-y-4">
                     <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
-                      Kein langer Agenturablauf, sondern ein kurzer, nachvollziehbarer Prozess. Sie wissen früh, was gebaut wird, was es kostet und wann die Seite live gehen kann.
+                      Kein Agenturprozess zum Selbstzweck. Entscheidend ist, dass früh klar wird, was verbessert werden muss, wer es umsetzt und was später eigenständig weitergeführt werden kann.
                     </p>
                     <ul className="flex flex-wrap gap-2.5" aria-label="Projektvorteile im Ablauf">
                       {workflowIntroPoints.map((point) => (
@@ -492,7 +492,7 @@ const WebdesignLandingPage: React.FC = () => {
                   <div className="space-y-2 text-left">
                     <p className={themeClasses.webEyebrow}>// ANGEBOT_IM_UEBERBLICK</p>
                     <h2 className="max-w-[12ch] text-[1.6rem] font-bold uppercase leading-[0.95] tracking-[0.02em] text-slate-900">
-                      Festpreis, Klarheit und schneller Start.
+                      Preis als Orientierung. Klarheit im Auftritt.
                     </h2>
                   </div>
 
@@ -503,7 +503,7 @@ const WebdesignLandingPage: React.FC = () => {
                     </div>
                     <p className="mt-3 text-[1.9rem] font-bold tracking-tight text-slate-900">ab 300 EUR</p>
                     <p className="mt-2 text-sm leading-6 text-slate-600">
-                      Festpreis statt Agenturpaket. Ohne Abo, ohne Umwege und mit direktem Ansprechpartner.
+                      Der Preis ist eine Orientierung für kompakte Seiten. Wichtiger ist, dass klar ist, wer umsetzt, wie der Kontakt funktioniert und was später weitergeführt werden kann.
                     </p>
                   </div>
 
@@ -545,7 +545,7 @@ const WebdesignLandingPage: React.FC = () => {
                   <div className="space-y-2 text-left">
                     <p className={themeClasses.webEyebrow}>// SO_LAEUFT_DAS_PROJEKT</p>
                     <h2 className="max-w-[14ch] text-[1.6rem] font-bold uppercase leading-[0.95] tracking-[0.02em] text-slate-900">
-                      Von der Anfrage bis online in drei klaren Schritten.
+                      So wird aus einer unklaren Website ein klarer Auftritt.
                     </h2>
                     <p className="text-[0.96rem] leading-7 text-slate-600">
                       Kurzer, nachvollziehbarer Ablauf statt langer Agenturstrecke.

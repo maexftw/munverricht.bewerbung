@@ -25,9 +25,9 @@ const projects: WebdesignProject[] = [
     title: 'Bockel & Bartscher',
     href: 'https://www.bockel-bartscher.de/',
     image: '/screenshots/bockel-bartscher.webp',
-    eyebrow: 'Kanzlei & Vertrauen',
-    strapline: 'Seriös im ersten Blick, klar im nächsten Schritt.',
-    note: 'Die Seite setzt auf Ruhe, Weißraum und eine direkte Ansprache, damit Vertrauen entsteht, bevor Details erklärt werden müssen.',
+    eyebrow: 'Kanzlei / Vertrauen zuerst',
+    strapline: 'Aus fachlicher Information wurde ein ruhiger erster Eindruck mit klarer Kontaktführung.',
+    note: 'Leistungen, Haltung und Kontakt sind so geordnet, dass die Kanzlei zuerst seriös wirkt und dann verständlich wird.',
     accent: {
       glow: 'bg-blue-200/65',
       tint: 'from-blue-300/70 via-sky-200/24 to-transparent',
@@ -39,9 +39,9 @@ const projects: WebdesignProject[] = [
     title: 'Fitnesscenter Drensteinfurt',
     href: 'https://fitnesscenter-drensteinfurt.de/',
     image: '/screenshots/fitnesscenter-drensteinfurt.webp',
-    eyebrow: 'Lokal & direkt',
-    strapline: 'Mehr Energie, weniger Umwege bis zum Probetraining.',
-    note: 'Angebote, Einstieg und Kontakt liegen sofort offen, damit die Seite wie ein klarer Besuchsaufruf funktioniert statt wie ein Flyer im Web.',
+    eyebrow: 'Lokal / Einstieg ohne Suchen',
+    strapline: 'Aus vielen Eindrücken wurde ein direkter Weg zur Anfrage oder zum Probetraining.',
+    note: 'Angebot, Einstieg und Kontakt sind so sortiert, dass Besucher nicht erst suchen müssen, bevor sie handeln können.',
     accent: {
       glow: 'bg-cyan-200/70',
       tint: 'from-cyan-300/70 via-blue-200/24 to-transparent',
@@ -53,9 +53,9 @@ const projects: WebdesignProject[] = [
     title: 'Kaffee Fänsen',
     href: 'https://www.kaffee-faensen.de/shop/homepage',
     image: '/screenshots/kaffee-faensen.webp',
-    eyebrow: 'Marke & Shopgefühl',
-    strapline: 'Wärme, Herkunft und Produktnähe in einem ruhigen Shopbild.',
-    note: 'Das Erscheinungsbild trägt die Marke, ohne den Weg zum Produkt zu verdecken. Atmosphäre und Kaufimpuls bleiben gleichzeitig sichtbar.',
+    eyebrow: 'Marke / Produkt klar führen',
+    strapline: 'Die Marke bleibt spürbar, ohne Produkt und Kaufweg zu überdecken.',
+    note: 'Atmosphäre, Sortiment und nächster Schritt bleiben gleichzeitig sichtbar, statt sich gegenseitig wegzudrücken.',
     accent: {
       glow: 'bg-amber-100/80',
       tint: 'from-amber-200/85 via-orange-100/30 to-transparent',
@@ -67,9 +67,9 @@ const projects: WebdesignProject[] = [
     title: 'KOST Sicherheitstechnik',
     href: 'https://kost-sicherheitstechnik.de/',
     image: '/screenshots/kost-sicherheitstechnik.webp',
-    eyebrow: 'Technik & Klarheit',
-    strapline: 'Kompetenz sichtbar machen, ohne technisch kühl zu wirken.',
-    note: 'Die Oberfläche ordnet Leistungen sauber, wirkt belastbar und lässt technische Inhalte verständlich erscheinen statt schwer zugänglich.',
+    eyebrow: 'Technik / Kompetenz verständlich',
+    strapline: 'Technische Leistungen werden klar, ohne an Seriosität zu verlieren.',
+    note: 'Die Seite ordnet Themen so, dass Kompetenz sichtbar bleibt und der Kontaktweg nicht unter technischen Details verschwindet.',
     accent: {
       glow: 'bg-emerald-100/80',
       tint: 'from-emerald-200/80 via-teal-100/30 to-transparent',
@@ -79,7 +79,7 @@ const projects: WebdesignProject[] = [
 ];
 
 const cardSpring = { stiffness: 170, damping: 20, mass: 0.55 };
-const showcasePoints = ['4 reale Live-Projekte', 'Branchen von Kanzlei bis Fitness', 'Klarheit vor Showeffekten'];
+const showcasePoints = ['4 reale Live-Projekte', 'Problem -> Lösung -> Ergebnis', 'Angebot und Kontakt klarer'];
 const showcasePointClassName =
   'flex min-h-11 items-center justify-center rounded-full border border-slate-200/80 bg-white/78 px-4 py-2.5 text-center text-slate-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_20px_rgba(15,23,42,0.05)]';
 
@@ -260,13 +260,13 @@ const WebdesignProjectShowcase: React.FC = () => {
               <ASCIIText text="// AUSGEWÄHLTE_PROJEKTE" noWrap={false} enableHover={false} revealOnMount={false} />
             </p>
             <h2 className="max-w-[15ch] text-balance text-[1.9rem] font-bold uppercase tracking-[0.03em] text-slate-900 sm:max-w-[16ch] sm:text-[2.25rem] sm:leading-[0.96] lg:max-w-[17ch] lg:text-[2.45rem]">
-              So kann eine klare Firmenwebsite aussehen.
+              Reale Projekte, die Angebot und Kontakt klarer machen.
             </h2>
           </div>
 
           <div className="space-y-4 text-left">
             <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
-              Keine Mockups, sondern echte Seiten aus unterschiedlichen Branchen. Entscheidend ist nicht der Stil allein, sondern wie schnell das Angebot, der Nutzen und der nächste Schritt verständlich werden.
+              Diese Beispiele zeigen keine Designübungen, sondern wie aus unklaren oder überladenen Seiten verständliche Firmenauftritte werden.
             </p>
             <ul className="grid gap-2 sm:grid-cols-3 sm:gap-2.5" aria-label="Einordnung der Projektbeispiele">
               {showcasePoints.map((point) => (
