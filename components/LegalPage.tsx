@@ -7,6 +7,12 @@ type LegalPageProps = {
   onLanguageChange: (nextLanguage: LegalLanguage) => void;
 };
 
+const defaultMeta = {
+  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  description:
+    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+};
+
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
   let element = document.head.querySelector<HTMLMetaElement>(selector);
 
@@ -36,10 +42,8 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
     upsertMetaTag('meta[name="description"]', { name: 'description' }, `${title} | ${summary}`);
 
     return () => {
-      document.title = previousTitle || 'Webdesign für Handwerker, Praxen & KMU | graphiks.de';
-      if (previousDescription) {
-        upsertMetaTag('meta[name="description"]', { name: 'description' }, previousDescription);
-      }
+      document.title = previousTitle || defaultMeta.title;
+      upsertMetaTag('meta[name="description"]', { name: 'description' }, previousDescription || defaultMeta.description);
     };
   }, [summary, title]);
 

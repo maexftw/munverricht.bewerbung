@@ -444,11 +444,11 @@ const WebdesignLandingPage: React.FC = () => {
                   <div className="mb-3 text-left mono text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-600">
                     <span>// WICHTIG FÜR IHRE WEBSITE</span>
                   </div>
-                  <ul className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-x-4 sm:gap-y-3 md:gap-x-5" aria-label="Technische Merkmale der angebotenen Webdesign-Leistung">
+                  <ul className="grid grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-3 lg:grid-cols-5" aria-label="Technische Merkmale der angebotenen Webdesign-Leistung">
                     {technicalSpecs.map((tech) => (
-                      <li key={tech.name} className={`${themeClasses.webPill} pointer-events-none flex items-center gap-2`}>
+                      <li key={tech.name} className="pointer-events-none flex min-w-0 items-center gap-2.5 text-slate-700">
                         <tech.icon aria-hidden="true" className={`h-4 w-4 md:h-5 md:w-5 ${tech.iconClassName}`} />
-                        <span className="mono text-[10px] text-slate-700 sm:text-[11px]">{tech.name}</span>
+                        <span className="mono text-[10px] uppercase tracking-[0.12em] text-slate-500 sm:text-[11px]">{tech.name}</span>
                       </li>
                     ))}
                   </ul>
@@ -456,7 +456,7 @@ const WebdesignLandingPage: React.FC = () => {
               </motion.div>
 
               <div className="relative z-10 mt-10 hidden w-full grid-cols-1 gap-5 border-t border-blue-200/80 pt-6 text-left sm:mt-12 sm:grid sm:gap-6 sm:pt-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(20rem,0.88fr)] lg:items-start">
-                <div className="space-y-4 lg:col-span-2 lg:grid lg:grid-cols-[minmax(0,0.88fr)_minmax(20rem,1.12fr)] lg:items-end lg:gap-6 lg:space-y-0">
+                <div className="space-y-4 lg:col-span-2 lg:grid lg:grid-cols-[minmax(18rem,22rem)_minmax(0,1fr)] lg:items-start lg:gap-8 lg:space-y-0">
                   <div className="space-y-3">
                     <p className={themeClasses.webEyebrow}>
                       <span>// SO LÄUFT DAS PROJEKT</span>
@@ -466,14 +466,15 @@ const WebdesignLandingPage: React.FC = () => {
                     </h2>
                   </div>
 
-                  <div className="space-y-3">
-                    <p className="max-w-[60ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
+                  <div className="space-y-3 lg:max-w-[40rem]">
+                    <p className="max-w-[58ch] text-[0.98rem] leading-7 text-slate-600 sm:text-[1rem] sm:leading-8">
                       Kein Agenturprozess zum Selbstzweck. Entscheidend ist, dass früh klar wird, was verbessert werden muss, wer es umsetzt und was später eigenständig weitergeführt werden kann.
                     </p>
-                    <ul className="flex flex-wrap gap-2.5" aria-label="Projektvorteile im Ablauf">
+                    <ul className="grid gap-2 md:grid-cols-3 md:gap-3" aria-label="Projektvorteile im Ablauf">
                       {workflowIntroPoints.map((point) => (
-                        <li key={point} className={`${workflowSignalClassName} text-slate-700`}>
-                          <span className="mono text-[10px] font-semibold uppercase tracking-[0.2em] sm:text-[11px]">{point}</span>
+                        <li key={point} className="inline-flex items-center gap-2 text-slate-600">
+                          <span className="h-1.5 w-1.5 rounded-full bg-blue-400" aria-hidden="true" />
+                          <span className="mono text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-[11px]">{point}</span>
                         </li>
                       ))}
                     </ul>
