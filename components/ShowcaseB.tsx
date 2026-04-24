@@ -55,9 +55,11 @@ const phaseContent = {
 const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
   return (
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
-      <div className="flex flex-col items-end text-right space-y-4">
+      <div className="flex flex-col items-center text-center space-y-4 lg:items-end lg:text-right">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// WORKFLOW_USE_CASE_02" /></h3>
-        <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text="Agency workflow: draft, refine, deploy" /></h2>
+        <h2 className="max-w-full px-4 text-xl font-bold uppercase leading-tight tracking-[0.02em] mono sm:text-3xl lg:px-0 lg:text-4xl lg:tracking-[0.05em]">
+          <ASCIIText text="Agency workflow: draft, refine, deploy" noWrap={false} />
+        </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
             ? 'Kein Buzzword-Case, sondern ein konkreter Ablauf: schnell einen ersten Stand erzeugen, danach manuell verbessern und am Ende sauber für Kunden oder Redakteure übergeben.'

@@ -16,8 +16,11 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
         <h3 className="mono text-blue-500 text-[10px] tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// CHRONOLOGICAL_DATABASE" />
         </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text={language === 'de' ? 'Werdegang & Aufbau der Praxis' : 'Career Path & Practical Foundation'} />
+        <h2 className="max-w-full px-4 text-xl font-bold uppercase leading-tight tracking-[0.02em] mono sm:text-3xl sm:tracking-[0.05em]">
+          <ASCIIText
+            text={language === 'de' ? 'Werdegang & Aufbau der Praxis' : 'Career Path & Practical Foundation'}
+            noWrap={false}
+          />
         </h2>
       </div>
 
