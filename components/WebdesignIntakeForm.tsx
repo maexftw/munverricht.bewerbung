@@ -67,14 +67,14 @@ const steps = [
 ] as const;
 
 const inputBaseClassName =
-  'w-full rounded-[1rem] border border-slate-300/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,253,0.96))] px-4 py-3 text-[1rem] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.94),0_1px_0_rgba(15,23,42,0.02)] outline-none transition-all duration-200 placeholder:text-slate-500 caret-slate-900 focus:border-blue-400 focus:ring-2 focus:ring-blue-200/75 focus:ring-offset-1 focus:ring-offset-[#eef3fb]';
+  'w-full rounded-[1rem] border border-slate-300/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,253,0.96))] px-4 py-2.5 text-[1rem] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.94),0_1px_0_rgba(15,23,42,0.02)] outline-none transition-all duration-200 placeholder:text-slate-500 caret-slate-900 focus:border-blue-400 focus:ring-2 focus:ring-blue-200/75 focus:ring-offset-1 focus:ring-offset-[#eef3fb]';
 
-const textareaClassName = `${inputBaseClassName} min-h-[8rem] resize-y leading-7 lg:min-h-[7rem]`;
+const textareaClassName = `${inputBaseClassName} min-h-[7.25rem] resize-y leading-7 lg:min-h-[6.5rem]`;
 const optionCardBaseClassName =
-  'relative block cursor-pointer overflow-hidden rounded-[1rem] border px-4 py-4 transition-all duration-200 focus-within:border-blue-300 focus-within:ring-2 focus-within:ring-blue-200 focus-within:ring-offset-2 focus-within:ring-offset-[#eef3fb]';
+  'relative block cursor-pointer overflow-hidden rounded-[1rem] border px-4 py-3.5 transition-all duration-200 focus-within:border-blue-300 focus-within:ring-2 focus-within:ring-blue-200 focus-within:ring-offset-2 focus-within:ring-offset-[#eef3fb]';
 const optionInputClassName = 'absolute inset-0 h-full w-full cursor-pointer opacity-0';
 const getOptionCardClassName = (checked: boolean) =>
-  `${optionCardBaseClassName} ${checked ? 'border-blue-300 bg-blue-50/80 shadow-[0_10px_22px_rgba(59,130,246,0.10)]' : 'border-white/80 bg-white/66 hover:border-blue-200'}`;
+  `${optionCardBaseClassName} ${checked ? 'border-blue-200 bg-blue-50/60 shadow-[0_8px_16px_rgba(59,130,246,0.08)]' : 'border-white/80 bg-white/74 hover:border-blue-200'}`;
 
 const initialData: FormData = {
   businessName: '',
@@ -212,17 +212,17 @@ const WebdesignIntakeForm: React.FC = () => {
   };
 
   return (
-    <section id="project-intake" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-12">
+    <section id="project-intake" className="relative scroll-mt-24 py-10 sm:scroll-mt-36 sm:py-12 lg:py-10">
       <div className="absolute left-[4%] top-12 hidden h-36 w-36 rounded-full bg-blue-200/45 blur-3xl lg:block" aria-hidden="true" />
       <div className="absolute right-[6%] bottom-10 hidden h-44 w-44 rounded-full bg-cyan-100/70 blur-3xl lg:block" aria-hidden="true" />
 
-      <div className="relative z-10 grid gap-8 xl:grid-cols-[minmax(18rem,0.72fr)_minmax(0,1.28fr)] xl:gap-6">
+      <div className="relative z-10 grid gap-7 xl:grid-cols-[minmax(18rem,0.72fr)_minmax(0,1.28fr)] xl:gap-5">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="order-2 space-y-5 text-left xl:order-1"
+          className="order-2 space-y-4 text-left xl:order-1"
         >
           <div className="space-y-4">
             <p className={themeClasses.webEyebrow}>
@@ -244,7 +244,7 @@ const WebdesignIntakeForm: React.FC = () => {
             </div>
           </div>
 
-          <div className={`space-y-4 rounded-[1.2rem] p-5 sm:p-6 lg:p-5 ${themeClasses.webCard}`}>
+            <div className={`space-y-4 rounded-[1.2rem] p-5 sm:p-6 lg:p-4 ${themeClasses.webCard}`}>
             <div className="flex items-start gap-3">
               <ShieldCheck className="mt-0.5 h-5 w-5 text-blue-600" aria-hidden="true" />
               <div>
@@ -273,12 +273,12 @@ const WebdesignIntakeForm: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18 }}
           transition={{ duration: 0.72, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative order-1 overflow-hidden rounded-[1.35rem] p-4 sm:p-5 lg:p-4 xl:order-2 ${themeClasses.webPanel}`}
+          className={`relative order-1 overflow-hidden rounded-[1.35rem] p-4 sm:p-5 lg:p-3.5 xl:order-2 ${themeClasses.webPanel}`}
         >
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.36),transparent_40%)]" aria-hidden="true" />
 
-          <div className="relative z-10 space-y-4">
-            <div className="space-y-3">
+          <div className="relative z-10 space-y-3">
+            <div className="space-y-2.5">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className={themeClasses.webEyebrow}>
@@ -307,7 +307,7 @@ const WebdesignIntakeForm: React.FC = () => {
                 Schritt {currentStep + 1} von {steps.length}
               </p>
 
-              <div className="hidden sm:grid sm:grid-cols-4 sm:gap-2">
+              <div className="hidden sm:grid sm:grid-cols-4 sm:gap-1.5">
                 {steps.map((step, index) => {
                   const isActive = index === currentStep;
                   const isComplete = index < currentStep;
@@ -338,7 +338,7 @@ const WebdesignIntakeForm: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -14 }}
                 transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                className="space-y-5"
+                className="space-y-4"
               >
                 {currentStep === 0 && (
                   <>
@@ -373,7 +373,7 @@ const WebdesignIntakeForm: React.FC = () => {
 
                     <fieldset className="space-y-3">
                       <legend className="text-sm font-semibold text-slate-700">Gibt es schon eine Website?</legend>
-                      <div className="grid gap-3 sm:grid-cols-3">
+                      <div className="grid gap-2.5 sm:grid-cols-3">
                         {[
                           { value: 'none', label: 'Noch keine', body: 'Die Website soll neu entstehen.' },
                           { value: 'live', label: 'Ja, sie ist live', body: 'Es gibt bereits eine bestehende Website.' },
@@ -421,7 +421,7 @@ const WebdesignIntakeForm: React.FC = () => {
                   <>
                     <fieldset className="space-y-3">
                       <legend className="text-sm font-semibold text-slate-700">Welche Website brauchen Sie?</legend>
-                      <div className="grid gap-3">
+                      <div className="grid gap-2.5">
                         {projectOptions.map((option) => {
                           const checked = formData.projectType === option.value;
                           return (
@@ -454,7 +454,7 @@ const WebdesignIntakeForm: React.FC = () => {
 
                     <fieldset className="space-y-3">
                       <legend className="text-sm font-semibold text-slate-700">Was ist das wichtigste Ziel?</legend>
-                      <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="grid gap-2.5 sm:grid-cols-2">
                         {goalOptions.map((option) => {
                           const checked = formData.primaryGoal === option.value;
                           return (
@@ -484,7 +484,7 @@ const WebdesignIntakeForm: React.FC = () => {
                       <p className="text-sm leading-relaxed text-slate-600">
                         Nur auswählen, was für Ihr Vorhaben wirklich wichtig ist. Alles andere kann später geklärt werden.
                       </p>
-                      <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="grid gap-2.5 sm:grid-cols-2">
                         {featureOptions.map((feature) => {
                           const checked = formData.features.includes(feature);
                           return (
@@ -509,7 +509,7 @@ const WebdesignIntakeForm: React.FC = () => {
 
                     <fieldset className="space-y-3">
                       <legend className="text-sm font-semibold text-slate-700">Wann soll das Thema starten?</legend>
-                      <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="grid gap-2.5 sm:grid-cols-2">
                         {timelineOptions.map((option) => {
                           const checked = formData.timeline === option.value;
                           return (
@@ -559,7 +559,7 @@ const WebdesignIntakeForm: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="grid gap-3 sm:grid-cols-2">
                       <div>
                         <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="contactName">
                           Ihr Name
@@ -621,7 +621,7 @@ const WebdesignIntakeForm: React.FC = () => {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex flex-col-reverse gap-3 border-t border-blue-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col-reverse gap-3 border-t border-blue-100 pt-3 sm:flex-row sm:items-center sm:justify-between">
               <button
                 type="button"
                 onClick={goBack}

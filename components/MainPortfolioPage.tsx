@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import TerminalBoot from './TerminalBoot';
 import Hero from './Hero';
@@ -20,8 +20,61 @@ type MainPortfolioPageProps = {
   onLanguageChange: (nextLanguage: 'de' | 'en') => void;
 };
 
+const defaultMeta = {
+  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  description:
+    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+};
+
+const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
+  let element = document.head.querySelector<HTMLMetaElement>(selector);
+
+  if (!element) {
+    element = document.createElement('meta');
+    Object.entries(attributes).forEach(([key, value]) => element?.setAttribute(key, value));
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
+  return element;
+};
+
 const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLanguageChange }) => {
   const [booting, setBooting] = useState(true);
+  const portfolioMeta =
+    language === 'de'
+      ? {
+          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          description:
+            'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+        }
+      : {
+          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          description:
+            'Recruiter profile for Maximilian Unverricht: frontend developer with 12+ years of hands-on experience in web design, React, TypeScript, and local LLM workflows.',
+        };
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    const descriptionMeta = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const ogTitleMeta = document.head.querySelector<HTMLMetaElement>('meta[property="og:title"]');
+    const ogDescriptionMeta = document.head.querySelector<HTMLMetaElement>('meta[property="og:description"]');
+    const previousDescription = descriptionMeta?.getAttribute('content') ?? defaultMeta.description;
+    const previousOgTitle = ogTitleMeta?.getAttribute('content') ?? defaultMeta.title;
+    const previousOgDescription = ogDescriptionMeta?.getAttribute('content') ?? defaultMeta.description;
+
+    document.title = portfolioMeta.title;
+    upsertMetaTag('meta[name="description"]', { name: 'description' }, portfolioMeta.description);
+    upsertMetaTag('meta[property="og:title"]', { property: 'og:title' }, portfolioMeta.title);
+    upsertMetaTag('meta[property="og:description"]', { property: 'og:description' }, portfolioMeta.description);
+
+    return () => {
+      document.title = previousTitle || defaultMeta.title;
+      upsertMetaTag('meta[name="description"]', { name: 'description' }, previousDescription);
+      upsertMetaTag('meta[property="og:title"]', { property: 'og:title' }, previousOgTitle);
+      upsertMetaTag('meta[property="og:description"]', { property: 'og:description' }, previousOgDescription);
+    };
+  }, [portfolioMeta.description, portfolioMeta.title]);
 
   return (
     <ThemeProvider>

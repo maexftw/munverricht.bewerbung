@@ -4,6 +4,7 @@ import {
   Activity,
   BriefcaseBusiness,
   Clock3,
+  Globe,
   Github,
   Languages,
   Linkedin,
@@ -42,12 +43,18 @@ const quickActionLabels = {
   en: { resume: 'Resume', email: 'Email', phone: 'Phone', open: 'open' },
 };
 
+const webdesignQuickActionLabels: Record<Language, string> = {
+  de: 'Webdesign',
+  en: 'Web Design',
+};
+
 const Hero: React.FC<HeroProps> = ({ language }) => {
   const headingBlockRef = useRef<HTMLDivElement | null>(null);
   const introTextRef = useRef<HTMLParagraphElement | null>(null);
 
   const recruiterQuickActions = [
     { label: quickActionLabels[language].resume, href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
+    { label: webdesignQuickActionLabels[language], href: '/webdesign', icon: Globe },
     { label: quickActionLabels[language].email, href: 'mailto:info@graphiks.de', icon: Mail },
     { label: quickActionLabels[language].phone, href: 'tel:+491633229892', icon: Phone },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/maximilian-unverricht-590203392', icon: Linkedin, external: true },
@@ -171,7 +178,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {recruiterQuickActions.map((action) => (
             <a
               key={action.label}

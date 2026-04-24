@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webdesign für Handwerker, Praxen & KMU | graphiks.de</title>
+    <title>Maximilian Unverricht | Frontend Developer & Web Delivery</title>
     <meta name="description"
-        content="Klare Firmenwebsite für Handwerker, Praxen und KMU: direkter Ansprechpartner, reale Projektbeispiele und Inhalte, die später weitergeführt werden können.">
+        content="Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.">
+    <meta property="og:title" content="Maximilian Unverricht | Frontend Developer & Web Delivery">
+    <meta property="og:description"
+        content="Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.">
     <link rel="icon" type="image/png" href="/maximilian-unverricht.pages.dev_.png">
     <meta property="og:image" content="maximilian-unverricht.pages.dev_.png">
     <!-- v3.0.5-CACHE-BUST -->
@@ -349,9 +352,39 @@
     </style>
     <script>
         (function () {
+            var pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+            var isWebdesignRoute = pathname === '/webdesign';
+            var prefersLightShell = isWebdesignRoute || pathname === '/impressum' || pathname === '/datenschutz';
+            var portfolioBootConfig = {
+                title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+                description: 'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+                subtitle: 'Recruiter-Profil // Frontend Developer & Web Delivery'
+            };
+            var webdesignBootConfig = {
+                title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
+                description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU: direkter Ansprechpartner, reale Projektbeispiele und Inhalte, die später weitergeführt werden können.',
+                subtitle: 'Webdesign für Handwerker, Praxen & KMU'
+            };
+            var bootConfig = isWebdesignRoute ? webdesignBootConfig : portfolioBootConfig;
+            var upsertMetaTag = function (selector, attributes, content) {
+                var element = document.head.querySelector(selector);
+                if (!element) {
+                    element = document.createElement('meta');
+                    Object.keys(attributes).forEach(function (key) {
+                        element.setAttribute(key, attributes[key]);
+                    });
+                    document.head.appendChild(element);
+                }
+                element.setAttribute('content', content);
+            };
+
+            window.__graphiksBootConfig = bootConfig;
+            document.title = bootConfig.title;
+            upsertMetaTag('meta[name="description"]', { name: 'description' }, bootConfig.description);
+            upsertMetaTag('meta[property="og:title"]', { property: 'og:title' }, bootConfig.title);
+            upsertMetaTag('meta[property="og:description"]', { property: 'og:description' }, bootConfig.description);
+
             try {
-                var pathname = window.location.pathname.replace(/\/+$/, '') || '/';
-                var prefersLightShell = pathname === '/' || pathname === '/webdesign' || pathname === '/impressum' || pathname === '/datenschutz';
                 var savedTheme = localStorage.getItem('theme');
                 var theme = savedTheme === 'light' || savedTheme === 'dark'
                     ? savedTheme
@@ -363,8 +396,12 @@
                     document.documentElement.classList.remove('dark');
                 }
             } catch (error) {
-                document.documentElement.setAttribute('data-theme', 'light');
-                document.documentElement.classList.remove('dark');
+                document.documentElement.setAttribute('data-theme', prefersLightShell ? 'light' : 'dark');
+                if (prefersLightShell) {
+                    document.documentElement.classList.remove('dark');
+                } else {
+                    document.documentElement.classList.add('dark');
+                }
             }
         })();
     </script>
@@ -375,13 +412,14 @@
         <div id="initial-loader" class="boot-shell">
             <h1 class="boot-title">Maximilian
                 Unverricht</h1>
-            <p class="boot-subtitle">
-                Webdesign für Handwerker, Praxen &amp; KMU</p>
+            <p id="boot-subtitle" class="boot-subtitle">
+                Recruiter-Profil // Frontend Developer &amp; Web Delivery</p>
 
             <div class="boot-links">
+                <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a>
+                <a href="/webdesign" class="boot-link">Webdesign</a>
                 <a href="mailto:info@graphiks.de" class="boot-link">Kontakt</a>
                 <a href="https://github.com/maexftw" target="_blank" rel="noopener noreferrer" class="boot-link">GitHub</a>
-                <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a>
                 <a href="/impressum" class="boot-link">Impressum</a>
                 <a href="/datenschutz" class="boot-link">Datenschutz</a>
             </div>
@@ -393,8 +431,10 @@
     <noscript>
         <div class="noscript-shell">
             <h1>Maximilian Unverricht</h1>
-            <p>Webdesign für Handwerker, Praxen &amp; KMU</p>
+            <p>Recruiter-Profil // Frontend Developer &amp; Web Delivery</p>
             <p>
+                <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a> |
+                <a href="/webdesign" class="boot-link">Webdesign</a> |
                 <a href="mailto:info@graphiks.de" class="boot-link">info@graphiks.de</a> |
                 <a href="https://github.com/maexftw" class="boot-link">GitHub</a> |
                 <a href="/impressum" class="boot-link">Impressum</a> |
@@ -405,8 +445,14 @@
     </noscript>
     <script>
         (function () {
+            var bootConfig = window.__graphiksBootConfig;
+            var bootSubtitle = document.getElementById('boot-subtitle');
             var diag = document.getElementById('boot-diagnostic');
             var errDisplay = document.getElementById('error-display');
+
+            if (bootConfig && bootSubtitle) {
+                bootSubtitle.textContent = bootConfig.subtitle;
+            }
 
             window.onerror = function (msg, url, line, col, error) {
                 if (diag) diag.innerText = '[FEHLER_BEIM_LADEN]';
