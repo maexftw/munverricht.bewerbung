@@ -472,8 +472,8 @@ const CodeAmbientBackground: React.FC = () => {
         const lift = wave * amplitude * perspective;
         const heroWeight = Math.max(0.68, 1 - Math.max(0, sy - horizonY) / (fieldHeight * 1.32));
         const compileWeight = 0.92 + heroWeight * 0.52;
-        const barWidth = Math.max(0.9, 0.65 + perspective * 1.08);
-        const barHeight = Math.max(9, perspective * (14 + Math.abs(wave) * 22) * compileWeight);
+        const barWidth = Math.max(1.35, 1 + perspective * 1.75);
+        const barHeight = Math.max(14, perspective * (22 + Math.abs(wave) * 34) * compileWeight);
         const topY = sy - lift - barHeight;
         const alpha = Math.min(0.29, (0.045 + perspective * 0.1 + Math.max(0, wave) * 0.08) * compileWeight);
 

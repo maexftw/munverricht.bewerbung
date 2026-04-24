@@ -15,7 +15,7 @@ import {
   Zap,
 } from 'lucide-react';
 import ASCIIText from './ASCIIText';
-import { VSCodeIcon, GsapIcon } from './Icons';
+import { VSCodeIcon } from './Icons';
 
 type Language = 'de' | 'en';
 
@@ -23,19 +23,21 @@ type HeroProps = {
   language: Language;
 };
 
+const simpleIconUrl = (slug: string, color: string) => `https://cdn.simpleicons.org/${slug}/${color}`;
+
 const toolLogos = [
   { name: 'VS Code', Icon: VSCodeIcon, badgeClassName: 'bg-sky-500/12 text-sky-300 border-sky-500/25' },
-  { name: 'React', short: 'RE', badgeClassName: 'bg-cyan-500/12 text-cyan-300 border-cyan-500/25' },
-  { name: 'Tailwind', short: 'TW', badgeClassName: 'bg-teal-500/12 text-teal-300 border-teal-500/25' },
-  { name: 'Vite', short: 'VI', badgeClassName: 'bg-violet-500/12 text-violet-300 border-violet-500/25' },
-  { name: 'TypeScript', short: 'TS', badgeClassName: 'bg-blue-500/12 text-blue-300 border-blue-500/25' },
-  { name: 'GSAP', Icon: GsapIcon, badgeClassName: 'bg-emerald-500/12 text-emerald-300 border-emerald-500/25' },
-  { name: 'Anime.js', short: 'AN', badgeClassName: 'bg-fuchsia-500/12 text-fuchsia-300 border-fuchsia-500/25' },
-  { name: 'HTML5', short: 'H5', badgeClassName: 'bg-orange-500/12 text-orange-300 border-orange-500/25' },
-  { name: 'GitHub', short: 'GH', badgeClassName: 'bg-slate-500/12 text-slate-200 border-slate-500/25' },
-  { name: 'Cloudflare', short: 'CF', badgeClassName: 'bg-amber-500/12 text-amber-300 border-amber-500/25' },
-  { name: 'Webflow', short: 'WF', badgeClassName: 'bg-indigo-500/12 text-indigo-300 border-indigo-500/25' },
-  { name: 'Stripe', short: 'ST', badgeClassName: 'bg-purple-500/12 text-purple-300 border-purple-500/25' },
+  { name: 'React', logoSrc: simpleIconUrl('react', '61DAFB'), badgeClassName: 'bg-cyan-500/12 border-cyan-500/25' },
+  { name: 'Tailwind', logoSrc: simpleIconUrl('tailwindcss', '06B6D4'), badgeClassName: 'bg-teal-500/12 border-teal-500/25' },
+  { name: 'Vite', logoSrc: simpleIconUrl('vite', '646CFF'), badgeClassName: 'bg-violet-500/12 border-violet-500/25' },
+  { name: 'TypeScript', logoSrc: simpleIconUrl('typescript', '3178C6'), badgeClassName: 'bg-blue-500/12 border-blue-500/25' },
+  { name: 'GSAP', logoSrc: simpleIconUrl('gsap', '88CE02'), badgeClassName: 'bg-emerald-500/12 border-emerald-500/25' },
+  { name: 'Anime.js', logoSrc: simpleIconUrl('animedotjs', 'F7A8B8'), badgeClassName: 'bg-fuchsia-500/12 border-fuchsia-500/25' },
+  { name: 'HTML5', logoSrc: simpleIconUrl('html5', 'E34F26'), badgeClassName: 'bg-orange-500/12 border-orange-500/25' },
+  { name: 'GitHub', logoSrc: simpleIconUrl('github', 'FFFFFF'), badgeClassName: 'bg-slate-500/12 border-slate-500/25' },
+  { name: 'Cloudflare', logoSrc: simpleIconUrl('cloudflare', 'F38020'), badgeClassName: 'bg-amber-500/12 border-amber-500/25' },
+  { name: 'Webflow', logoSrc: simpleIconUrl('webflow', '4353FF'), badgeClassName: 'bg-indigo-500/12 border-indigo-500/25' },
+  { name: 'Stripe', logoSrc: simpleIconUrl('stripe', '635BFF'), badgeClassName: 'bg-purple-500/12 border-purple-500/25' },
 ];
 
 const quickActionLabels = {
@@ -164,8 +166,18 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
                   <tool.Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
               ) : (
-                <span className={`inline-flex h-7 min-w-7 items-center justify-center rounded-md border px-1.5 mono text-[10px] font-semibold uppercase tracking-[0.12em] ${tool.badgeClassName}`}>
-                  {tool.short}
+                <span className={`inline-flex h-7 w-7 items-center justify-center rounded-md border ${tool.badgeClassName}`}>
+                  <img
+                    src={tool.logoSrc}
+                    alt=""
+                    className="h-4 w-4 object-contain"
+                    width="16"
+                    height="16"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                    aria-hidden="true"
+                  />
                 </span>
               )}
               <span className="mono text-[10px] md:text-[11px] text-neutral-300 group-hover:text-blue-300 transition-colors">{tool.name}</span>
