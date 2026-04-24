@@ -56,7 +56,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-3' : 'bg-transparent py-6'
-                    } hidden md:block`}
+                    } hidden lg:block`}
             >
                 <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
                     <div
@@ -100,7 +100,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             </motion.nav>
 
             {/* Mobile Menu Button */}
-            <div className="fixed top-4 right-4 z-50 md:hidden">
+            <div className="fixed top-4 right-4 z-50 lg:hidden">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
@@ -111,7 +111,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             </div>
 
             {/* Mobile Theme Toggle */}
-            <div className="fixed top-4 left-4 z-50 md:hidden">
+            <div className="fixed top-4 left-4 z-50 lg:hidden">
                 <button
                     onClick={toggleTheme}
                     className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
@@ -129,7 +129,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 z-40 bg-[#050505] md:hidden flex flex-col justify-center items-center space-y-8"
+                        className="fixed inset-0 z-40 bg-[#050505] lg:hidden flex flex-col justify-center items-center space-y-8"
                     >
                         <button
                             onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
