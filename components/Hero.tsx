@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { animate } from 'animejs';
+import React from 'react';
+import { motion } from 'framer-motion';
 import {
   Activity,
   BriefcaseBusiness,
@@ -51,9 +51,6 @@ const webdesignQuickActionLabels: Record<Language, string> = {
 };
 
 const Hero: React.FC<HeroProps> = ({ language }) => {
-  const headingBlockRef = useRef<HTMLDivElement | null>(null);
-  const introTextRef = useRef<HTMLParagraphElement | null>(null);
-
   const recruiterQuickActions = [
     { label: quickActionLabels[language].resume, href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
     { label: webdesignQuickActionLabels[language], href: '/webdesign', icon: Globe },
@@ -63,45 +60,15 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
     { label: 'GitHub', href: 'https://github.com/maexftw', icon: Github, external: true },
   ];
 
-  useEffect(() => {
-    const runningAnimations = [];
 
-    if (headingBlockRef.current) {
-      runningAnimations.push(
-        animate(headingBlockRef.current, {
-          scale: [0.95, 1],
-          opacity: [0, 1],
-          duration: 800,
-          ease: 'outQuad',
-        }),
-      );
-    }
-
-    if (introTextRef.current) {
-      runningAnimations.push(
-        animate(introTextRef.current, {
-          translateY: [10, 0],
-          opacity: [0, 1],
-          delay: 200,
-          duration: 700,
-          ease: 'outQuad',
-        }),
-      );
-    }
-
-    return () => {
-      runningAnimations.forEach((animation) => {
-        animation.cancel();
-      });
-    };
-  }, []);
 
   return (
     <section id="hero" className="relative scroll-mt-28 flex flex-col items-center justify-center text-center space-y-8 pt-20">
-      <div
-        ref={headingBlockRef}
+      <motion.div
         className="relative"
-        style={{ transform: 'scale(0.95)', opacity: 0 }}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
@@ -110,19 +77,20 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
         </h1>
-      </div>
+      </motion.div>
 
-      <p
-        ref={introTextRef}
+      <motion.p
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
-        style={{ transform: 'translateY(10px)', opacity: 0 }}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.12, duration: 0.55, ease: "easeOut" }}
       >
         {language === 'de'
           ? 'Ich bin Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Meine besondere Stärke liegt heute in lokalen LLM-Workflows in Visual Studio Code: Modelle lokal aufsetzen, agentisch fürs Coden nutzen und daraus Prototypen, strukturierte Inhalte und real nutzbare Deliverables bauen.'
           : 'I am a frontend developer with 12+ years of hands-on experience in web design and marketing. My distinctive strength today is local LLM workflows inside Visual Studio Code: setting up local models, using them for agentic coding, and turning that into prototypes, structured output, and real deliverables.'}
-      </p>
+      </motion.p>
 
-      <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
+      <motion.div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }}>
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// HIRING_SNAPSHOT" />
         </div>
@@ -152,9 +120,9 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
             <p className="text-sm text-neutral-200">{language === 'de' ? 'Kurzfristig verfügbar' : 'Available at short notice'}</p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
+      <motion.div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }}>
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// TOOLING_STACK" />
         </div>
@@ -184,9 +152,9 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4">
+      <motion.div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }}>
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
         </div>
@@ -205,9 +173,9 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
             </a>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
+      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.45, ease: "easeOut" }}>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
             <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '01 / 12+ JAHRE PRAXIS' : '01 / 12+ YEARS EXPERIENCE'}
@@ -238,7 +206,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
               : 'I combine technical execution, editor-based workflows, and marketing practice. The result is not abstract AI demo work, but practical VS Code workflows that lead to testable interfaces, reliable content, and usable outcomes.'}
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

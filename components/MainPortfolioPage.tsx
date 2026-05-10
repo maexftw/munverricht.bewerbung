@@ -12,6 +12,7 @@ import Navigation from './Navigation';
 import Projects from './Projects';
 import LegalInfo from './LegalInfo';
 import ScrollToTop from './ScrollToTop';
+import AnimatedSection from './AnimatedSection';
 import { ThemeProvider } from './ThemeContext';
 import { themeClasses } from './themeClasses';
 
@@ -97,14 +98,14 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
 
         <div className="flex flex-col items-center w-full px-4 sm:px-5 lg:px-0">
           <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-24 sm:space-y-28 lg:space-y-32 py-10 sm:py-12 pb-28 sm:pb-24 outline-none" tabIndex={-1}>
-            <Hero language={language} />
-            <Evolution language={language} />
-            <ShowcaseA language={language} />
-            <ShowcaseB language={language} />
-            <Projects language={language} />
-            <SkillMonitor language={language} />
-            <ContactShell language={language} />
-            <LegalInfo language={language} />
+            <AnimatedSection><Hero language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.03}><Evolution language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.05}><ShowcaseA language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.07}><ShowcaseB language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.09}><Projects language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.11}><SkillMonitor language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.13}><ContactShell language={language} /></AnimatedSection>
+            <AnimatedSection delay={0.15}><LegalInfo language={language} /></AnimatedSection>
             <footer className={`pt-16 sm:pt-20 pb-8 text-center mono text-[10px] sm:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
               <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // FRONTEND & WEB DELIVERY</p>
             </footer>

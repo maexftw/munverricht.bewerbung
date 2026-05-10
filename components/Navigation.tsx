@@ -70,15 +70,17 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                     <ul className="flex space-x-8">
                         {navItems[language].map((item) => (
                             <li key={item.name}>
-                                <button
+                                <motion.button
                                     onClick={() => scrollToSection(item.href)}
-                                    className="text-sm font-medium text-neutral-400 hover:text-blue-500 transition-colors uppercase tracking-widest flex items-center gap-2"
+                                    whileHover={{ y: -1 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className="group text-sm font-medium text-neutral-400 hover:text-blue-500 transition-colors uppercase tracking-widest flex items-center gap-2"
                                 >
                                     <span className="opacity-0 group-hover:opacity-100 transition-opacity debug-icon">
                                         <item.icon className="w-3 h-3" />
                                     </span>
                                     {item.name}
-                                </button>
+                                </motion.button>
                             </li>
                         ))}
                     </ul>
@@ -101,13 +103,14 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
 
             {/* Mobile Menu Button */}
             <div className="fixed top-4 right-4 z-50 lg:hidden">
-                <button
+                <motion.button
                     onClick={() => setIsOpen(!isOpen)}
+                    whileTap={{ scale: 0.94 }}
                     className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
                     aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
                 >
                     {isOpen ? <X /> : <Menu />}
-                </button>
+                </motion.button>
             </div>
 
             {/* Mobile Theme Toggle */}
