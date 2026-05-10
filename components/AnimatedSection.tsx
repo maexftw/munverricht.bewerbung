@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { sectionReveal, sectionViewport } from './motionTokens';
 
 type AnimatedSectionProps = {
   children: React.ReactNode;
@@ -8,10 +9,20 @@ type AnimatedSectionProps = {
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, delay = 0 }) => (
   <motion.section
-    initial={{ opacity: 0, y: 18 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.22 }}
-    transition={{ duration: 0.5, delay, ease: 'easeOut' }}
+    initial="hidden"
+    whileInView="visible"
+    viewport={sectionViewport}
+    variants={{
+      ...sectionReveal,
+      visible: {
+        ...sectionReveal.visible,
+        transition: {
+          ...sectionReveal.visible.transition,
+          delay,
+        },
+      },
+    }}
+    style={{ willChange: 'transform, opacity, clip-path, filter' }}
   >
     {children}
   </motion.section>

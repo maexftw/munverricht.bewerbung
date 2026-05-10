@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Activity, Wrench, Workflow, Globe, Cpu } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
+import { motionEase, sectionViewport, subtleTap } from './motionTokens';
 
 type Language = 'de' | 'en';
 
@@ -99,7 +100,7 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
     <section id="skill-monitor" className="space-y-12 py-6 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true"><ASCIIText text="// TOOLS_IN_USE" /></h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
+        <h2 className="max-w-full text-2xl font-bold uppercase tracking-[0.03em] mono sm:text-3xl sm:tracking-[0.05em]"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
             ? 'Keine Buzzword-Matrix, sondern die Tools und Arbeitsbereiche, mit denen ich aktuell wirklich arbeite. Der Schwerpunkt liegt klar auf VS Code als Arbeitsumgebung, lokalen LLM-Modellen für agentische Coding-Workflows und der Umsetzung bis zum nutzbaren Ergebnis; Plattformen sind vorhanden, aber nicht der Kern der Positionierung.'
@@ -112,10 +113,12 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
           <motion.article
             key={skill.category.en}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08 }}
-            whileHover={{ y: -6, scale: 1.02 }}
-            className={`group relative overflow-hidden rounded-xl border border-neutral-900 bg-[#111111] p-6 hover:shadow-[0_0_30px_rgba(59,130,246,0.22)] transition-all duration-300 ${accentStyles[skill.accent].border}`}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={sectionViewport}
+            transition={{ delay: i * 0.07, duration: 0.46, ease: motionEase }}
+            whileHover={{ y: -5, scale: 1.012, boxShadow: '0 18px 42px rgba(37,99,235,0.16)' }}
+            whileTap={subtleTap}
+            className={`group relative overflow-hidden rounded-xl border border-neutral-900 bg-[#111111] p-6 transition-colors duration-300 ${accentStyles[skill.accent].border}`}
           >
             <PixelCanvas colors={[
               skill.accent === 'blue' ? '#3b82f6' : 
@@ -140,8 +143,9 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
             <div className="mt-4 h-[2px] w-full bg-neutral-900 overflow-hidden rounded-full" aria-hidden="true">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${skill.level}%` }}
-                transition={{ duration: 1.2, delay: 0.2 + i * 0.06, ease: 'easeOut' }}
+                whileInView={{ width: `${skill.level}%` }}
+                viewport={sectionViewport}
+                transition={{ duration: 0.95, delay: 0.18 + i * 0.06, ease: motionEase }}
                 className={`h-full bg-gradient-to-r ${accentStyles[skill.accent].bar}`}
               />
             </div>

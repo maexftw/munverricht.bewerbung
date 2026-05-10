@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Code2, CreditCard, Monitor, MousePointer2, Settings, Workflow, Zap } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { motionEase, sectionViewport, subtleHover, subtleTap } from './motionTokens';
 
 type Language = 'de' | 'en';
 
@@ -76,7 +77,9 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
               key={phase.id}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.08 }}
+              viewport={sectionViewport}
+              transition={{ delay: index * 0.08, duration: 0.46, ease: motionEase }}
+              whileHover={{ y: -5, boxShadow: isGreen ? '0 18px 38px rgba(34,197,94,0.12)' : '0 18px 38px rgba(37,99,235,0.14)' }}
               className={`relative overflow-hidden rounded-lg border p-6 space-y-6 transition-colors ${isGreen ? 'bg-[#111111] border-neutral-900 hover:border-green-500/50' : 'bg-[#111111] border-neutral-900 hover:border-blue-500/50'}`}
             >
               <div className="absolute -top-14 -right-14 h-28 w-28 rounded-full bg-blue-500/10 blur-2xl" aria-hidden="true" />
@@ -136,9 +139,11 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
 
       <motion.div
         initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25, duration: 0.45 }}
-        whileHover={{ scale: 1.01 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25, duration: 0.5, ease: motionEase }}
+        viewport={sectionViewport}
+        whileHover={subtleHover}
+        whileTap={subtleTap}
         className="group rounded-xl border border-blue-500/20 bg-gradient-to-br from-[#111111] via-[#0f1118] to-[#111111] p-8 md:p-10 space-y-8 overflow-hidden relative transition-all duration-300 hover:border-blue-500/60 hover:shadow-[0_0_35px_rgba(59,130,246,0.16)]"
       >
         <div className="absolute top-0 right-0 h-52 w-52 bg-blue-500/10 blur-3xl rounded-full" aria-hidden="true" />

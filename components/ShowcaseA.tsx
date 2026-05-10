@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Cpu, CheckCircle, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { motionEase, sectionViewport, subtleHover } from './motionTokens';
 
 type Language = 'de' | 'en';
 
@@ -31,22 +32,29 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-7 bg-[#111111] border border-neutral-900 rounded-lg p-8 relative overflow-hidden">
+        <motion.div
+          className="lg:col-span-7 bg-[#111111] border border-neutral-900 rounded-lg p-8 relative overflow-hidden"
+          initial={{ opacity: 0, y: 22, scale: 0.985 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={sectionViewport}
+          transition={{ duration: 0.56, ease: motionEase }}
+          whileHover={subtleHover}
+        >
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none mono text-[8px] leading-tight select-none" aria-hidden="true">
             {BACKGROUND_TEXT}
           </div>
 
           <div className="relative space-y-12">
             <div className="flex flex-col space-y-8" aria-hidden="true">
-              <div className="flex items-center gap-6">
+              <motion.div className="flex items-center gap-6" initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={sectionViewport} transition={{ duration: 0.4, ease: motionEase }}>
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-neutral-800 bg-neutral-900 flex items-center justify-center shadow-lg">
                   <FileText className="w-5 h-5 text-neutral-400" />
                 </div>
                 <div className="h-px flex-1 bg-neutral-800" />
                 <div className="mono text-[10px] text-neutral-500 text-right w-24">01_INGEST</div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-6">
+              <motion.div className="flex items-center gap-6" initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={sectionViewport} transition={{ delay: 0.1, duration: 0.4, ease: motionEase }}>
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-blue-500 bg-blue-500/10 flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
                   <Cpu className="w-5 h-5 text-blue-500" />
                 </div>
@@ -57,23 +65,23 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
                   </div>
                   <div className="w-full bg-neutral-900 h-1 rounded-full">
                     <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: '85%' }}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 0.85 }}
                       transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-                      className="bg-blue-500 h-full rounded-full"
+                      className="bg-blue-500 h-full rounded-full origin-left"
                     />
                   </div>
                 </div>
                 <div className="mono text-[10px] text-blue-500 text-right w-24">02_PROCESS</div>
-              </div>
+              </motion.div>
 
-              <div className="flex items-center gap-6">
+              <motion.div className="flex items-center gap-6" initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={sectionViewport} transition={{ delay: 0.2, duration: 0.4, ease: motionEase }}>
                 <div className="flex-shrink-0 w-12 h-12 rounded border border-green-500/50 bg-green-500/5 flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-green-500" />
                 </div>
                 <div className="h-px flex-1 bg-neutral-800" />
                 <div className="mono text-[10px] text-green-500 text-right w-24">03_VERIFY</div>
-              </div>
+              </motion.div>
             </div>
 
             <div className="grid grid-cols-3 gap-4 pt-4 text-center">
@@ -82,7 +90,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
               <div className="mono text-[8px] text-green-600 uppercase">{language === 'de' ? 'Validiertes JSON' : 'Validated JSON'}</div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="lg:col-span-5 space-y-8 self-center">
           <div className="space-y-6">

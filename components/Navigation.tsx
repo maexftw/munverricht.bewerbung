@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { useTheme } from './ThemeContext';
+import { motionEase, subtleTap } from './motionTokens';
 
 type Language = 'de' | 'en';
 
@@ -31,15 +32,26 @@ const navItems = {
 const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [activeHref, setActiveHref] = useState('#hero');
     const { theme, toggleTheme } = useTheme();
+    const { scrollYProgress } = useScroll();
+    const progressScale = useSpring(scrollYProgress, { stiffness: 120, damping: 28, mass: 0.2 });
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
+            const nextActive = navItems[language].reduce((current, item) => {
+                const element = document.querySelector(item.href);
+                if (!element) return current;
+                const rect = element.getBoundingClientRect();
+                return rect.top <= 180 ? item.href : current;
+            }, '#hero');
+            setActiveHref(nextActive);
         };
         window.addEventListener('scroll', handleScroll);
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [language]);
 
     const scrollToSection = (href: string) => {
         setIsOpen(false);
@@ -55,9 +67,15 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
+                transition={{ duration: 0.5, ease: motionEase }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-3' : 'bg-transparent py-6'
                     } hidden lg:block`}
             >
+                <motion.div
+                    className="absolute bottom-0 left-0 h-px w-full origin-left bg-blue-500/70"
+                    style={{ scaleX: progressScale }}
+                    aria-hidden="true"
+                />
                 <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
                     <div
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
@@ -68,21 +86,31 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                     </div>
 
                     <ul className="flex space-x-8">
-                        {navItems[language].map((item) => (
+                        {navItems[language].map((item) => {
+                            const isActive = activeHref === item.href;
+                            return (
                             <li key={item.name}>
                                 <motion.button
                                     onClick={() => scrollToSection(item.href)}
-                                    whileHover={{ y: -1 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="group text-sm font-medium text-neutral-400 hover:text-blue-500 transition-colors uppercase tracking-widest flex items-center gap-2"
+                                    whileHover={{ y: -2 }}
+                                    whileTap={subtleTap}
+                                    className={`group relative text-sm font-medium transition-colors uppercase tracking-widest flex items-center gap-2 ${isActive ? 'text-blue-300' : 'text-neutral-400 hover:text-blue-500'}`}
                                 >
-                                    <span className="opacity-0 group-hover:opacity-100 transition-opacity debug-icon">
+                                    <span className={`${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity debug-icon`}>
                                         <item.icon className="w-3 h-3" />
                                     </span>
                                     {item.name}
+                                    {isActive && (
+                                        <motion.span
+                                            layoutId="active-nav-dot"
+                                            className="absolute -bottom-2 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-blue-400"
+                                            transition={{ duration: 0.24, ease: motionEase }}
+                                        />
+                                    )}
                                 </motion.button>
                             </li>
-                        ))}
+                            );
+                        })}
                     </ul>
 
                     <button

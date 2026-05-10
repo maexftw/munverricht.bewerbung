@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 
+type CodeAmbientBackgroundProps = {
+  introActive?: boolean;
+};
+
 type SideRow = {
   y: number;
   speed: number;
@@ -169,9 +173,14 @@ const buildQualityProfile = (tier: QualityTier, width: number, height: number): 
   };
 };
 
-const CodeAmbientBackground: React.FC = () => {
+const CodeAmbientBackground: React.FC<CodeAmbientBackgroundProps> = ({ introActive = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
+  const introActiveRef = useRef(introActive);
+
+  useEffect(() => {
+    introActiveRef.current = introActive;
+  }, [introActive]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -179,6 +188,7 @@ const CodeAmbientBackground: React.FC = () => {
 
     const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let width = 0;
     let height = 0;
@@ -413,6 +423,7 @@ const CodeAmbientBackground: React.FC = () => {
 
     const drawPulseLine = () => {
       const pulseY = ((Math.sin(time * 0.45) + 1) * 0.5) * height;
+      const introMultiplier = introActiveRef.current ? 1.7 : 1;
 
       if (!pulseGradient) {
         pulseGradient = ctx.createLinearGradient(0, 0, width, 0);
@@ -422,11 +433,13 @@ const CodeAmbientBackground: React.FC = () => {
       }
 
       ctx.strokeStyle = pulseGradient;
-      ctx.lineWidth = 1;
+      ctx.lineWidth = introActiveRef.current ? 1.6 : 1;
+      ctx.globalAlpha = introMultiplier;
       ctx.beginPath();
       ctx.moveTo(0, pulseY);
       ctx.lineTo(width, pulseY);
       ctx.stroke();
+      ctx.globalAlpha = 1;
     };
 
     const getContourGradient = (index: number, y: number) => {
@@ -443,12 +456,13 @@ const CodeAmbientBackground: React.FC = () => {
     };
 
     const drawWaveField = () => {
+      const introMultiplier = introActiveRef.current ? 1.45 : 1;
       const centerX = width * 0.5;
       const horizonY = height * 0.23;
       const fieldHeight = height * 0.6;
       const colStep = width < 900 ? 9.2 : 11.5;
       const rowStep = height < 800 ? 13.6 : 15.6;
-      const amplitude = qualityProfile.tier === 'low' ? 17 : qualityProfile.tier === 'medium' ? 18.5 : 20;
+      const amplitude = (qualityProfile.tier === 'low' ? 17 : qualityProfile.tier === 'medium' ? 18.5 : 20) * introMultiplier;
 
       ctx.font = waveFont;
       ctx.textBaseline = 'middle';
@@ -463,10 +477,11 @@ const CodeAmbientBackground: React.FC = () => {
           continue;
         }
 
-        const ripple = Math.sin(cell.x * 0.46 + time * 2.2 + cell.seed) * 0.95;
-        const swell = Math.sin(cell.z * 0.62 - time * 1.85 + cell.seed * 0.6) * 0.9;
-        const ring = Math.sin(cell.radius * 0.52 - time * 2.45 + cell.seed) * 0.65;
-        const travel = Math.sin((cell.x + cell.z * 0.55) * 0.34 - time * 2.8) * 0.85;
+        const speed = introActiveRef.current ? 1.28 : 1;
+        const ripple = Math.sin(cell.x * 0.46 + time * 2.2 * speed + cell.seed) * 0.95;
+        const swell = Math.sin(cell.z * 0.62 - time * 1.85 * speed + cell.seed * 0.6) * 0.9;
+        const ring = Math.sin(cell.radius * 0.52 - time * 2.45 * speed + cell.seed) * 0.65;
+        const travel = Math.sin((cell.x + cell.z * 0.55) * 0.34 - time * 2.8 * speed) * 0.85;
         const wave = (ripple + swell + ring + travel) / 4;
 
         const lift = wave * amplitude * perspective;
@@ -475,7 +490,7 @@ const CodeAmbientBackground: React.FC = () => {
         const barWidth = Math.max(1.35, 1 + perspective * 1.75);
         const barHeight = Math.max(14, perspective * (22 + Math.abs(wave) * 34) * compileWeight);
         const topY = sy - lift - barHeight;
-        const alpha = Math.min(0.29, (0.045 + perspective * 0.1 + Math.max(0, wave) * 0.08) * compileWeight);
+        const alpha = Math.min(0.34, (0.045 + perspective * 0.1 + Math.max(0, wave) * 0.08) * compileWeight * introMultiplier);
 
         if (topY > height + 24) {
           continue;
@@ -537,9 +552,9 @@ const CodeAmbientBackground: React.FC = () => {
       }
 
       for (let index = 0; index < qualityProfile.sweepCount; index++) {
-        const sweepProgress = (time * (0.12 + index * 0.03) + index * 0.31) % 1;
+        const sweepProgress = (time * (0.12 + index * 0.03) * introMultiplier + index * 0.31) % 1;
         const sweepY = horizonY + fieldHeight * (0.1 + sweepProgress * 0.72);
-        const sweepAlpha = (0.03 + (1 - sweepProgress) * 0.045).toFixed(3);
+        const sweepAlpha = Math.min(0.13, (0.03 + (1 - sweepProgress) * 0.045) * introMultiplier).toFixed(3);
         ctx.strokeStyle = `rgba(191,219,254,${sweepAlpha})`;
         ctx.lineWidth = 1.35;
         ctx.beginPath();
@@ -658,6 +673,11 @@ const CodeAmbientBackground: React.FC = () => {
       if (downgradedTier && downgradedTier !== qualityTier) {
         warmupTierCap = downgradedTier;
         rebuildScene(true);
+      }
+
+      if (reducedMotion) {
+        rafRef.current = null;
+        return;
       }
 
       rafRef.current = window.requestAnimationFrame(draw);

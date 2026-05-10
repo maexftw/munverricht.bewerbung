@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
+import { motionEase, sectionViewport, subtleTap } from './motionTokens';
 
 type Language = 'de' | 'en';
 
@@ -141,7 +142,13 @@ const projects: Record<Language, ProjectItem[]> = {
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
     <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
-      <div className="flex flex-col items-center text-center space-y-4">
+      <motion.div
+        className="flex flex-col items-center text-center space-y-4"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={sectionViewport}
+        transition={{ duration: 0.52, ease: motionEase }}
+      >
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// SELECTED_WORK" />
         </h3>
@@ -153,7 +160,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
             ? 'Auswahl realer Projekte im Format Problem → Lösung → Ergebnis, damit Recruiter Umfang und Arbeitsweise schnell einordnen können.'
             : 'Selection of real projects in a Problem → Solution → Result format so recruiters can quickly assess scope and working style.'}
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects[language].map((p, i) => (
@@ -162,15 +169,18 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
             href={p.url}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
+            initial={{ opacity: 0, y: 22, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={sectionViewport}
+            transition={{ delay: i * 0.055, duration: 0.46, ease: motionEase }}
+            whileHover={{ y: -6, rotateX: 1.2, rotateY: i % 2 === 0 ? -1 : 1, boxShadow: '0 18px 45px rgba(37,99,235,0.14)' }}
+            whileTap={subtleTap}
+            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-colors duration-300 relative overflow-hidden [transform-style:preserve-3d]"
           >
             <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
+            <motion.div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true" whileHover={{ x: 2, y: -2 }}>
               <ExternalLink className="w-5 h-5" />
-            </div>
+            </motion.div>
 
             <div className="space-y-4 relative z-10">
               <div className="flex items-center gap-3 mb-2">
@@ -185,11 +195,18 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
               </div>
 
               <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
-                {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
+                {p.stack.map((item, stackIndex) => (
+                  <motion.span
+                    key={item}
+                    className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1"
+                    initial={{ opacity: 0, y: 5 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={sectionViewport}
+                    transition={{ delay: i * 0.04 + stackIndex * 0.035, duration: 0.24, ease: motionEase }}
+                  >
                     <Layers className="w-3 h-3" />
                     {item}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>

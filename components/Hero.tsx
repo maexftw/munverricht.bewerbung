@@ -16,11 +16,13 @@ import {
 } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { VSCodeIcon } from './Icons';
+import { itemReveal, motionEase, motionTimings, subtleHover, subtleTap } from './motionTokens';
 
 type Language = 'de' | 'en';
 
 type HeroProps = {
   language: Language;
+  playIntro?: boolean;
 };
 
 const simpleIconUrl = (slug: string, color: string) => `https://cdn.simpleicons.org/${slug}/${color}`;
@@ -50,7 +52,40 @@ const webdesignQuickActionLabels: Record<Language, string> = {
   en: 'Web Design',
 };
 
-const Hero: React.FC<HeroProps> = ({ language }) => {
+const heroSequence = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.08,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const heroTitle = {
+  hidden: { opacity: 0, y: 34, scale: 0.965, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: motionTimings.hero, ease: motionEase },
+  },
+};
+
+const heroPanel = {
+  hidden: { opacity: 0, y: 18, scale: 0.985, filter: 'blur(6px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.52, ease: motionEase },
+  },
+};
+
+const Hero: React.FC<HeroProps> = ({ language, playIntro = true }) => {
   const recruiterQuickActions = [
     { label: quickActionLabels[language].resume, href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
     { label: webdesignQuickActionLabels[language], href: '/webdesign', icon: Globe },
@@ -63,72 +98,96 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
 
 
   return (
-    <section id="hero" className="relative scroll-mt-28 flex flex-col items-center justify-center text-center space-y-8 pt-20">
+    <motion.section
+      id="hero"
+      className="relative scroll-mt-28 flex flex-col items-center justify-center text-center space-y-8 pt-20"
+      initial="hidden"
+      animate={playIntro ? 'visible' : 'hidden'}
+      variants={heroSequence}
+    >
       <motion.div
         className="relative"
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        variants={heroTitle}
+        style={{ willChange: 'transform, opacity, filter' }}
       >
-        <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
-        <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
+        <motion.div
+          className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full"
+          aria-hidden="true"
+          animate={playIntro ? { opacity: [0.25, 0.65, 0.35], scale: [0.94, 1.06, 1] } : { opacity: 0.25, scale: 0.94 }}
+          transition={{ duration: 1.45, ease: motionEase }}
+        />
+        <motion.h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4" variants={itemReveal}>
           {language === 'de' ? 'RECRUITER PROFIL // FRONTEND DEVELOPER & WEB DELIVERY' : 'RECRUITER PROFILE // FRONTEND DEVELOPER & WEB DELIVERY'}
-        </h2>
-        <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
+        </motion.h2>
+        <motion.h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2" variants={itemReveal}>
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
-        </h1>
+        </motion.h1>
       </motion.div>
 
       <motion.p
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.12, duration: 0.55, ease: "easeOut" }}
+        variants={itemReveal}
       >
         {language === 'de'
           ? 'Ich bin Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Meine besondere Stärke liegt heute in lokalen LLM-Workflows in Visual Studio Code: Modelle lokal aufsetzen, agentisch fürs Coden nutzen und daraus Prototypen, strukturierte Inhalte und real nutzbare Deliverables bauen.'
           : 'I am a frontend developer with 12+ years of hands-on experience in web design and marketing. My distinctive strength today is local LLM workflows inside Visual Studio Code: setting up local models, using them for agentic coding, and turning that into prototypes, structured output, and real deliverables.'}
       </motion.p>
 
-      <motion.div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }}>
+      <motion.div
+        className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4"
+        variants={heroPanel}
+        whileHover={subtleHover}
+      >
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// HIRING_SNAPSHOT" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+          <motion.div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3" whileHover={{ y: -2, borderColor: 'rgba(59,130,246,0.48)' }}>
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Standort' : 'Location'}
             </p>
             <p className="text-sm text-neutral-200">Dortmund, NRW</p>
-          </div>
-          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+          </motion.div>
+          <motion.div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3" whileHover={{ y: -2, borderColor: 'rgba(59,130,246,0.48)' }}>
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
               <Languages className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Sprachen' : 'Languages'}
             </p>
             <p className="text-sm text-neutral-200">German, English</p>
-          </div>
-          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+          </motion.div>
+          <motion.div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3" whileHover={{ y: -2, borderColor: 'rgba(59,130,246,0.48)' }}>
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
               <BriefcaseBusiness className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Arbeitsmodell' : 'Work model'}
             </p>
             <p className="text-sm text-neutral-200">Remote / Hybrid</p>
-          </div>
-          <div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3">
+          </motion.div>
+          <motion.div className="rounded-lg border border-neutral-800 bg-neutral-950/60 p-3" whileHover={{ y: -2, borderColor: 'rgba(59,130,246,0.48)' }}>
             <p className="mono text-[10px] uppercase tracking-wider text-blue-400 mb-2 flex items-center gap-2">
               <Clock3 className="w-3.5 h-3.5" aria-hidden="true" /> {language === 'de' ? 'Verfügbarkeit' : 'Availability'}
             </p>
             <p className="text-sm text-neutral-200">{language === 'de' ? 'Kurzfristig verfügbar' : 'Available at short notice'}</p>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
 
-      <motion.div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }}>
+      <motion.div
+        className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4"
+        variants={heroPanel}
+        whileHover={subtleHover}
+      >
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// TOOLING_STACK" />
         </div>
         <div className="flex flex-wrap items-center justify-center gap-5 md:gap-6">
-          {toolLogos.map((tool) => (
-            <div key={tool.name} className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors">
+          {toolLogos.map((tool, index) => (
+            <motion.div
+              key={tool.name}
+              className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors"
+              initial={{ opacity: 0, y: 8 }}
+              animate={playIntro ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+              transition={{ delay: 0.64 + index * 0.035, duration: 0.34, ease: motionEase }}
+              whileHover={{ y: -3, scale: 1.025 }}
+              whileTap={subtleTap}
+            >
               {tool.Icon ? (
                 <span className={`inline-flex h-7 w-7 items-center justify-center rounded-md border ${tool.badgeClassName}`}>
                   <tool.Icon className="h-4 w-4" aria-hidden="true" />
@@ -149,33 +208,44 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
                 </span>
               )}
               <span className="mono text-[10px] md:text-[11px] text-neutral-300 group-hover:text-blue-300 transition-colors">{tool.name}</span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>
 
-      <motion.div className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4" initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.35 }} transition={{ duration: 0.45, ease: "easeOut" }}>
+      <motion.div
+        className="w-full max-w-4xl rounded-xl border border-blue-500/25 bg-[#0f1118]/75 px-5 py-4 mt-4"
+        variants={heroPanel}
+        whileHover={subtleHover}
+      >
         <div className="mono text-[10px] tracking-[0.22em] uppercase text-blue-400/90 mb-3">
           <ASCIIText text="// QUICK_RECRUITER_ACCESS" />
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          {recruiterQuickActions.map((action) => (
-            <a
+          {recruiterQuickActions.map((action, index) => (
+            <motion.a
               key={action.label}
               href={action.href}
               target={action.external ? '_blank' : undefined}
               rel={action.external ? 'noopener noreferrer' : undefined}
               className="flex items-center justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-950/70 px-3 py-3 text-sm text-neutral-200 hover:border-blue-500/70 hover:text-white transition-colors"
               aria-label={`${action.label} ${quickActionLabels[language].open}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={playIntro ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ delay: 0.82 + index * 0.045, duration: 0.34, ease: motionEase }}
+              whileHover={{ y: -3, scale: 1.018, boxShadow: '0 0 22px rgba(59,130,246,0.16)' }}
+              whileTap={subtleTap}
             >
-              <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
+              <motion.span whileHover={{ rotate: -4, scale: 1.08 }} className="inline-flex">
+                <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
+              </motion.span>
               <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
-            </a>
+            </motion.a>
           ))}
         </div>
       </motion.div>
 
-      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.45, ease: "easeOut" }}>
+      <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12" variants={heroPanel}>
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
             <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '01 / 12+ JAHRE PRAXIS' : '01 / 12+ YEARS EXPERIENCE'}
@@ -207,7 +277,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           </p>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

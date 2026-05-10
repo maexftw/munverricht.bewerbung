@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, MotionConfig } from 'framer-motion';
 import TerminalBoot from './TerminalBoot';
 import Hero from './Hero';
 import Evolution from './Evolution';
@@ -42,6 +42,9 @@ const upsertMetaTag = (selector: string, attributes: Record<string, string>, con
 
 const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLanguageChange }) => {
   const [booting, setBooting] = useState(true);
+  const [heroReady, setHeroReady] = useState(false);
+  const [canvasIntroActive, setCanvasIntroActive] = useState(true);
+  const canvasCalmTimerRef = useRef<number | null>(null);
   const portfolioMeta =
     language === 'de'
       ? {
@@ -77,8 +80,27 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
     };
   }, [portfolioMeta.description, portfolioMeta.title]);
 
+  useEffect(() => {
+    return () => {
+      if (canvasCalmTimerRef.current !== null) {
+        window.clearTimeout(canvasCalmTimerRef.current);
+      }
+    };
+  }, []);
+
+  const completeBoot = () => {
+    setBooting(false);
+    setHeroReady(true);
+    setCanvasIntroActive(true);
+    if (canvasCalmTimerRef.current !== null) {
+      window.clearTimeout(canvasCalmTimerRef.current);
+    }
+    canvasCalmTimerRef.current = window.setTimeout(() => setCanvasIntroActive(false), 1800);
+  };
+
   return (
     <ThemeProvider>
+      <MotionConfig reducedMotion="user">
       <div className={`relative min-h-screen overflow-hidden ${themeClasses.pageShell}`}>
         <div className="fixed inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_top,_color-mix(in_srgb,var(--accent-color)_8%,transparent)_0%,transparent_48%)]" />
         <div className="fixed bottom-0 left-0 right-0 h-[34vh] pointer-events-none z-0 bg-[linear-gradient(to_top,color-mix(in_srgb,var(--accent-color)_7%,transparent),transparent_72%)]" />
@@ -94,11 +116,11 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
 
         <Navigation language={language} onLanguageChange={onLanguageChange} />
 
-        <CodeAmbientBackground />
+        <CodeAmbientBackground introActive={canvasIntroActive} />
 
         <div className="flex flex-col items-center w-full px-4 sm:px-5 lg:px-0">
           <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-24 sm:space-y-28 lg:space-y-32 py-10 sm:py-12 pb-28 sm:pb-24 outline-none" tabIndex={-1}>
-            <AnimatedSection><Hero language={language} /></AnimatedSection>
+            <AnimatedSection><Hero language={language} playIntro={heroReady} /></AnimatedSection>
             <AnimatedSection delay={0.03}><Evolution language={language} /></AnimatedSection>
             <AnimatedSection delay={0.05}><ShowcaseA language={language} /></AnimatedSection>
             <AnimatedSection delay={0.07}><ShowcaseB language={language} /></AnimatedSection>
@@ -116,10 +138,11 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
 
         <AnimatePresence>
           {booting && (
-            <TerminalBoot onComplete={() => setBooting(false)} />
+            <TerminalBoot onComplete={completeBoot} />
           )}
         </AnimatePresence>
       </div>
+      </MotionConfig>
     </ThemeProvider>
   );
 };
