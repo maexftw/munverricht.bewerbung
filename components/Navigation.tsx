@@ -55,16 +55,16 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-3' : 'bg-transparent py-6'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#1b1b1b]/75 backdrop-blur-lg shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-b border-[#424754]/25 py-3.5' : 'bg-transparent py-5'
                     } hidden lg:block`}
             >
-                <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
+                <div className="max-w-6xl mx-auto px-6 flex justify-between items-center font-headline">
                     <div
-                        className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
+                        className="font-bold text-xl tracking-tighter cursor-pointer text-[#e2e2e2] hover:text-[#adc6ff] transition-colors duration-300"
                         onClick={() => scrollToSection('#hero')}
                     >
                         <ASCIIText text="graphiks" className="lowercase" />
-                        <span className="text-blue-500">.de</span>
+                        <span className="text-[#adc6ff]">.de</span>
                     </div>
 
                     <ul className="flex space-x-8">
@@ -72,30 +72,30 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                             <li key={item.name}>
                                 <button
                                     onClick={() => scrollToSection(item.href)}
-                                    className="text-sm font-medium text-neutral-400 hover:text-blue-500 transition-colors uppercase tracking-widest flex items-center gap-2"
+                                    className="text-xs font-semibold text-[#e2e2e2] hover:text-[#adc6ff] transition-all duration-300 uppercase tracking-widest flex items-center gap-2 relative group py-1"
                                 >
-                                    <span className="opacity-0 group-hover:opacity-100 transition-opacity debug-icon">
-                                        <item.icon className="w-3 h-3" />
-                                    </span>
                                     {item.name}
+                                    <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-[#adc6ff] transition-all duration-300 group-hover:w-full"></span>
                                 </button>
                             </li>
                         ))}
                     </ul>
 
-                    <button
-                        onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
-                        className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
-                    >
-                        {language === 'de' ? 'EN' : 'DE'}
-                    </button>
+                    <div className="flex items-center gap-4">
+                        <button
+                            onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                            className="px-3.5 py-1.5 bg-[#2a2a2a]/60 backdrop-blur-sm border border-[#424754]/40 hover:border-[#adc6ff] text-[#e2e2e2] hover:text-[#adc6ff] rounded font-label text-[10px] font-bold uppercase tracking-wider transition-all"
+                        >
+                            {language === 'de' ? 'EN' : 'DE'}
+                        </button>
 
-                    <a
-                        href="Maximilian_Unverricht_Resume.html"
-                        className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
-                    >
-                        {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
-                    </a>
+                        <a
+                            href="Maximilian_Unverricht_Resume.html"
+                            className="bg-gradient-to-r from-[#adc6ff] to-[#4d8eff] text-[#002e6a] hover:shadow-[0_0_20px_rgba(173,198,255,0.4)] px-5 py-2 rounded font-label text-[10px] font-bold uppercase tracking-wider transition-all scale-95 hover:scale-100"
+                        >
+                            {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="align-middle">↓</span>
+                        </a>
+                    </div>
                 </div>
             </motion.nav>
 

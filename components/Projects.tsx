@@ -140,22 +140,22 @@ const projects: Record<Language, ProjectItem[]> = {
 
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
-    <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
-          <ASCIIText text="// SELECTED_WORK" />
-        </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} />
+    <section id="projects" className="space-y-16 py-20 border-t border-[#424754]/20 scroll-mt-28 kinetic-grid">
+      <div className="flex flex-col items-center text-center space-y-4 px-6">
+        <div className="inline-block px-3 py-1 bg-[#2a2a2a]/60 border border-[#424754]/30 rounded">
+          <span className="font-label text-xs text-[#adc6ff] uppercase tracking-[0.3em] font-bold">Selected_Work</span>
+        </div>
+        <h2 className="text-4xl font-headline font-bold text-[#e2e2e2] tracking-tighter">
+          {language === 'de' ? 'Projektübersicht' : 'Project Overview'}
         </h2>
-        <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
+        <p className="max-w-[65ch] text-[#c2c6d6] text-base leading-relaxed font-body">
           {language === 'de'
             ? 'Auswahl realer Projekte im Format Problem → Lösung → Ergebnis, damit Recruiter Umfang und Arbeitsweise schnell einordnen können.'
             : 'Selection of real projects in a Problem → Solution → Result format so recruiters can quickly assess scope and working style.'}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 max-w-6xl mx-auto">
         {projects[language].map((p, i) => (
           <motion.a
             key={i}
@@ -165,29 +165,29 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
+            className="group block bg-[#1f1f1f]/60 p-8 rounded-xl border border-[#424754]/20 hover:border-[#adc6ff]/35 transition-all duration-500 hover:shadow-[0_0_30px_rgba(173,198,255,0.12)] hover:translate-y-[-6px] relative overflow-hidden"
           >
-            <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
+            <PixelCanvas colors={['#adc6ff', '#4d8eff']} density={0.15} gap={10} />
+            <div className="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[#adc6ff]" aria-hidden="true">
               <ExternalLink className="w-5 h-5" />
             </div>
 
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
-                <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
+            <div className="space-y-6 relative z-10">
+              <div className="flex items-center gap-3">
+                <Layout className="w-5 h-5 text-[#8c909f] group-hover:text-[#adc6ff] transition-colors duration-300" />
+                <h3 className="font-headline font-bold text-xl text-[#e2e2e2] group-hover:text-[#adc6ff] transition-colors duration-300 tracking-tight">{p.title}</h3>
               </div>
 
-              <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
+              <div className="space-y-3 text-sm leading-relaxed text-[#c2c6d6] font-body">
+                <p><span className="font-bold text-[#adc6ff]">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
+                <p><span className="font-bold text-[#adc6ff]">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
+                <p><span className="font-bold text-[#adc6ff]">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
               </div>
 
-              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
+              <div className="pt-4 border-t border-[#424754]/25 flex flex-wrap gap-2">
                 {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
-                    <Layers className="w-3 h-3" />
+                  <span key={item} className="inline-flex items-center gap-1.5 font-label text-[10px] uppercase tracking-wider text-[#8c909f] border border-[#424754]/20 rounded-md px-3 py-1 bg-[#131313]/60 group-hover:text-[#adc6ff] group-hover:border-[#adc6ff]/20 transition-all duration-300">
+                    <Layers className="w-3 h-3 text-[#adc6ff]/50" />
                     {item}
                   </span>
                 ))}

@@ -32,7 +32,7 @@ const LogItem = memo(({ log }: { log: LogEntry }) => {
     <motion.div
       initial={{ opacity: 0, x: -5 }}
       animate={{ opacity: 1, x: 0 }}
-      className={`${isSpecial ? 'text-green-500 font-bold' : isWarn ? 'text-yellow-500' : 'text-neutral-300'}`}
+      className={`${isSpecial ? 'text-blue-400 font-bold' : isWarn ? 'text-yellow-500' : 'text-neutral-300'}`}
     >
       <span className="text-neutral-600">[{log.timestamp}]</span> {log.message}
     </motion.div>
