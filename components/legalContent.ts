@@ -5,7 +5,7 @@ export const legalContact = {
   name: 'Maximilian Unverricht',
   street: 'Echeloh 48',
   postalCode: '44149 Dortmund',
-  email: 'info@graphiks.de',
+  email: 'info@munverricht.org',
   phone: '+49 163 3229892',
 };
 

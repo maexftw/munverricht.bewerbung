@@ -22,6 +22,14 @@ type ProjectItem = {
 const projects: Record<Language, ProjectItem[]> = {
   de: [
     {
+      title: 'ASL Ademco Vertical Agent',
+      url: '/case/asl-ademco-agent',
+      problem: 'Security-Tech-Beratung braucht mehr Kontext als ein normaler Shop-Chat liefern darf.',
+      solution: 'Partnerfähige AI-Demo mit ASL-Modus, Produktkorridoren, Fallbacks und Evidence-Mapping für Tests/Evals.',
+      result: 'Ein Proof-of-Work für AI Product Thinking, Frontend, RAG-/Eval-Struktur und Cloudflare-orientierte Delivery.',
+      stack: ['AI Workflow', 'React', 'RAG/Evals', 'Cloudflare'],
+    },
+    {
       title: 'TriXstar Portfolio',
       url: 'https://trixstar-portfolio.pages.dev/',
       problem: 'Das Künstlerportfolio sollte auf Mobilgeräten besser funktionieren und Inhalte schneller aktualisierbar machen.',
@@ -79,6 +87,14 @@ const projects: Record<Language, ProjectItem[]> = {
     },
   ],
   en: [
+    {
+      title: 'ASL Ademco Vertical Agent',
+      url: '/case/asl-ademco-agent',
+      problem: 'Security-tech consultation needs more context than a normal shop chat should pretend to provide.',
+      solution: 'Partner-facing AI demo with ASL mode, product corridors, fallbacks, and evidence mapping for tests/evals.',
+      result: 'A proof-of-work for AI product thinking, frontend delivery, RAG/eval structure, and Cloudflare-oriented delivery.',
+      stack: ['AI Workflow', 'React', 'RAG/Evals', 'Cloudflare'],
+    },
     {
       title: 'TriXstar Portfolio',
       url: 'https://trixstar-portfolio.pages.dev/',
@@ -160,8 +176,8 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
           <motion.a
             key={i}
             href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={p.url.startsWith('/') ? undefined : '_blank'}
+            rel={p.url.startsWith('/') ? undefined : 'noopener noreferrer'}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}

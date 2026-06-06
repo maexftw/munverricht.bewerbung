@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import TerminalBoot from './TerminalBoot';
 import Hero from './Hero';
+import AslFlagshipCase from './AslFlagshipCase';
 import Evolution from './Evolution';
 import ShowcaseA from './ShowcaseA';
 import ShowcaseB from './ShowcaseB';
@@ -21,9 +22,9 @@ type MainPortfolioPageProps = {
 };
 
 const defaultMeta = {
-  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  title: 'Maximilian Unverricht | AI Workflow & Web Delivery',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+    'Recruiter-Profil von Maximilian Unverricht: AI Workflow & Web Delivery mit React, TypeScript, lokalen LLM-Workflows und dem ASL Ademco Vertical Agent als Proof-of-Work.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -44,14 +45,14 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
   const portfolioMeta =
     language === 'de'
       ? {
-          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          title: 'Maximilian Unverricht | AI Workflow & Web Delivery',
           description:
-            'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+            'Recruiter-Profil von Maximilian Unverricht: AI Workflow & Web Delivery mit React, TypeScript, lokalen LLM-Workflows und dem ASL Ademco Vertical Agent als Proof-of-Work.',
         }
       : {
-          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          title: 'Maximilian Unverricht | AI Workflow & Web Delivery',
           description:
-            'Recruiter profile for Maximilian Unverricht: frontend developer with 12+ years of hands-on experience in web design, React, TypeScript, and local LLM workflows.',
+            'Recruiter profile for Maximilian Unverricht: AI Workflow & Web Delivery with React, TypeScript, local LLM workflows, and the ASL Ademco Vertical Agent as proof of work.',
         };
 
   useEffect(() => {
@@ -98,6 +99,7 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
         <div className="flex flex-col items-center w-full px-4 sm:px-5 lg:px-0">
           <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-24 sm:space-y-28 lg:space-y-32 py-10 sm:py-12 pb-28 sm:pb-24 outline-none" tabIndex={-1}>
             <Hero language={language} />
+            <AslFlagshipCase language={language} />
             <Evolution language={language} />
             <ShowcaseA language={language} />
             <ShowcaseB language={language} />
@@ -106,7 +108,7 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
             <ContactShell language={language} />
             <LegalInfo language={language} />
             <footer className={`pt-16 sm:pt-20 pb-8 text-center mono text-[10px] sm:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
-              <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // FRONTEND & WEB DELIVERY</p>
+              <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // AI WORKFLOW & WEB DELIVERY</p>
             </footer>
           </main>
         </div>

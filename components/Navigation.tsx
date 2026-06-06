@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { useTheme } from './ThemeContext';
 
@@ -14,6 +14,7 @@ type NavigationProps = {
 const navItems = {
     de: [
         { name: 'Start', href: '#hero', icon: Terminal },
+        { name: 'ASL Case', href: '#asl-case', icon: ShieldCheck },
         { name: 'Über mich', href: '#evolution', icon: User },
         { name: 'Projekte', href: '#projects', icon: Briefcase },
         { name: 'Skills', href: '#skill-monitor', icon: Code },
@@ -21,6 +22,7 @@ const navItems = {
     ],
     en: [
         { name: 'Home', href: '#hero', icon: Terminal },
+        { name: 'ASL Case', href: '#asl-case', icon: ShieldCheck },
         { name: 'About', href: '#evolution', icon: User },
         { name: 'Projects', href: '#projects', icon: Briefcase },
         { name: 'Skills', href: '#skill-monitor', icon: Code },
@@ -63,8 +65,8 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
                     >
-                        <ASCIIText text="graphiks" className="lowercase" />
-                        <span className="text-blue-500">.de</span>
+                        <ASCIIText text="munverricht" className="lowercase" />
+                        <span className="text-blue-500">.org</span>
                     </div>
 
                     <ul className="flex space-x-8">

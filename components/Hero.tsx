@@ -4,13 +4,13 @@ import {
   Activity,
   BriefcaseBusiness,
   Clock3,
-  Globe,
   Github,
   Languages,
   Linkedin,
   Mail,
   MapPin,
   Phone,
+  ShieldCheck,
   Terminal,
   Zap,
 } from 'lucide-react';
@@ -41,13 +41,8 @@ const toolLogos = [
 ];
 
 const quickActionLabels = {
-  de: { resume: 'Lebenslauf', email: 'E-Mail', phone: 'Telefon', open: 'öffnen' },
-  en: { resume: 'Resume', email: 'Email', phone: 'Phone', open: 'open' },
-};
-
-const webdesignQuickActionLabels: Record<Language, string> = {
-  de: 'Webdesign',
-  en: 'Web Design',
+  de: { case: 'ASL Case', resume: 'Lebenslauf', email: 'E-Mail', phone: 'Telefon', open: 'öffnen' },
+  en: { case: 'ASL Case', resume: 'Resume', email: 'Email', phone: 'Phone', open: 'open' },
 };
 
 const Hero: React.FC<HeroProps> = ({ language }) => {
@@ -55,9 +50,9 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
   const introTextRef = useRef<HTMLParagraphElement | null>(null);
 
   const recruiterQuickActions = [
+    { label: quickActionLabels[language].case, href: '/case/asl-ademco-agent', icon: ShieldCheck },
     { label: quickActionLabels[language].resume, href: 'Maximilian_Unverricht_Resume.html', icon: Terminal },
-    { label: webdesignQuickActionLabels[language], href: '/webdesign', icon: Globe },
-    { label: quickActionLabels[language].email, href: 'mailto:info@graphiks.de', icon: Mail },
+    { label: quickActionLabels[language].email, href: 'mailto:info@munverricht.org', icon: Mail },
     { label: quickActionLabels[language].phone, href: 'tel:+491633229892', icon: Phone },
     { label: 'LinkedIn', href: 'https://linkedin.com/in/maximilian-unverricht-590203392', icon: Linkedin, external: true },
     { label: 'GitHub', href: 'https://github.com/maexftw', icon: Github, external: true },
@@ -105,7 +100,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          {language === 'de' ? 'RECRUITER PROFIL // FRONTEND DEVELOPER & WEB DELIVERY' : 'RECRUITER PROFILE // FRONTEND DEVELOPER & WEB DELIVERY'}
+          {language === 'de' ? 'RECRUITER PROFIL // AI WORKFLOW & WEB DELIVERY' : 'RECRUITER PROFILE // AI WORKFLOW & WEB DELIVERY'}
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
@@ -118,8 +113,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
         {language === 'de'
-          ? 'Ich bin Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Meine besondere Stärke liegt heute in lokalen LLM-Workflows in Visual Studio Code: Modelle lokal aufsetzen, agentisch fürs Coden nutzen und daraus Prototypen, strukturierte Inhalte und real nutzbare Deliverables bauen.'
-          : 'I am a frontend developer with 12+ years of hands-on experience in web design and marketing. My distinctive strength today is local LLM workflows inside Visual Studio Code: setting up local models, using them for agentic coding, and turning that into prototypes, structured output, and real deliverables.'}
+          ? 'Ich baue AI-gestützte Web-Workflows vom Konzept bis zur testbaren Preview. Mein stärkster Proof ist der ASL Ademco Vertical Agent: ein Security-Tech-Use-Case, der Frontend, Domain-Framing, lokale LLM-Workflows, Evals und Cloudflare-Delivery zusammenführt.'
+          : 'I build AI-assisted web workflows from concept to testable preview. My strongest proof is the ASL Ademco Vertical Agent: a security-tech use case combining frontend work, domain framing, local LLM workflows, evals, and Cloudflare delivery.'}
       </p>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">

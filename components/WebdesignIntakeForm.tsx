@@ -205,7 +205,7 @@ const WebdesignIntakeForm: React.FC = () => {
     ].join('\n');
 
     const subject = `Webdesign-Anfrage // ${formData.businessName || formData.contactName}`;
-    const mailtoUrl = `mailto:info@graphiks.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = `mailto:info@munverricht.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     setMailPrepared(true);
     window.location.href = mailtoUrl;
@@ -648,7 +648,7 @@ const WebdesignIntakeForm: React.FC = () => {
             {mailPrepared && (
               <div className={`rounded-[1rem] p-4 sm:p-5 ${themeClasses.webCard}`}>
                 <p className="text-sm leading-relaxed text-slate-600">
-                  Falls sich keine Mail-App geöffnet hat, schreiben Sie direkt an <a href="mailto:info@graphiks.de" className="font-semibold text-blue-600 hover:text-blue-500">info@graphiks.de</a>.
+                  Falls sich keine Mail-App geöffnet hat, schreiben Sie direkt an <a href="mailto:info@munverricht.org" className="font-semibold text-blue-600 hover:text-blue-500">info@munverricht.org</a>.
                 </p>
               </div>
             )}
