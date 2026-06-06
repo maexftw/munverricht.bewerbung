@@ -19,3 +19,11 @@ This file provides guidance to agents when working with code in this repository.
 - Verification run: `npx @google/design.md lint DESIGN.md` (0 errors, 6 token-usage warnings), `npx tsc --noEmit` (pass), `npm run build` (pass), GStack Browse checks for `/`, `/case/asl-ademco-agent`, mobile 390px, and `/webdesign` (no console errors, no measured horizontal overflow, no `graphiks` text in checked pages).
 - QA artifacts: screenshots and JSON/text checks are under `/tmp/munverricht-asl-qa/`; they are local artifacts, not committed.
 - Not done: no Cloudflare/deployment action, no live ASL/KOST test reruns, no production-ready claim that ASL tests are currently green.
+
+## Local GBrain Handoff — 2026-06-06T10:54:02Z
+
+- Local GBrain is configured and synced for this worktree; `.gbrain-source` pins this clone to source id `gstack-code-99b8d56b-8378d8` and is intentionally gitignored because it is machine/worktree-specific.
+- Repo GBrain policy: `read-write`. Search mode: `conservative`. Local embedding route: `ollama:nomic-embed-text` at 768 dimensions, with LM Studio reachable from WSL via `http://172.17.240.1:1234/v1`.
+- Last verified sync: `bun run ~/.hermes/skills/gstack/bin/gstack-gbrain-sync.ts` completed with 3 ok / 0 error / 0 skipped; code source page_count is 77 with 1339 chunks and embedding coverage is 100%.
+- Smoke searches that worked: `gbrain search "ASL Ademco Vertical Agent" --source gstack-code-99b8d56b-8378d8` and `gbrain search "AslFlagshipCase" --source gstack-code-99b8d56b-8378d8`.
+- Caveat: `dist/assets/...` is currently included in search results because generated build output exists in the worktree; prefer source files (`components/*`, `App.tsx`, docs) as canonical results.
