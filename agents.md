@@ -13,6 +13,7 @@ This file provides guidance to agents when working with code in this repository.
 ## Current Handoff — 2026-06-06T07:03:24Z
 
 - Branch/worktree: `codex/asl-ademco-portfolio-redesign` in `/home/llm/workspaces/munverricht-asl-redesign`; created from a fresh clone of `maexftw/munverricht.bewerbung` default branch `main`.
+- PR: https://github.com/maexftw/munverricht.bewerbung/pull/60
 - Scope completed in this slice: repo source-of-truth `DESIGN.md`, ASL evidence map at `docs/design/asl-ademco-evidence-map.md`, `munverricht.org` branding/contact replacement, ASL flagship block on the homepage, and a new case route at `/case/asl-ademco-agent` with `/asl-ademco-agent` alias.
 - `/webdesign` was intentionally left structurally out of scope; only shared/domain/contact branding and one existing TypeScript inference issue were adjusted so gates pass.
 - Verification run: `npx @google/design.md lint DESIGN.md` (0 errors, 6 token-usage warnings), `npx tsc --noEmit` (pass), `npm run build` (pass), GStack Browse checks for `/`, `/case/asl-ademco-agent`, mobile 390px, and `/webdesign` (no console errors, no measured horizontal overflow, no `graphiks` text in checked pages).
