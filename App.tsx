@@ -5,6 +5,7 @@ import CookieBanner from './components/CookieBanner';
 const FirecrawlAnimationDemo = lazy(() => import('./components/FirecrawlAnimationDemo'));
 const WebdesignLandingPage = lazy(() => import('./components/WebdesignLandingPage'));
 const MainPortfolioPage = lazy(() => import('./components/MainPortfolioPage'));
+const AslAdemcoCasePage = lazy(() => import('./components/AslAdemcoCasePage'));
 const LegalPage = lazy(() => import('./components/LegalPage'));
 
 const App: React.FC = () => {
@@ -17,6 +18,7 @@ const App: React.FC = () => {
   const isFirecrawlAnimationDemo = pathname === '/firecrawl-animation';
   const isLegalPage = pathname === '/impressum' || pathname === '/datenschutz';
   const isWebdesignLandingPage = pathname === '/webdesign';
+  const isAslCasePage = pathname === '/case/asl-ademco-agent' || pathname === '/asl-ademco-agent';
   const isPortfolioPage = pathname === '/' || pathname === '/bewerbung' || pathname === '/portfolio';
   const legalPage = pathname === '/impressum' ? 'impressum' : 'datenschutz';
 
@@ -54,6 +56,17 @@ const App: React.FC = () => {
       <>
         <Suspense fallback={null}>
           <LegalPage page={legalPage} language={language} onLanguageChange={handleLanguageChange} />
+        </Suspense>
+        <CookieBanner language={language} />
+      </>
+    );
+  }
+
+  if (isAslCasePage) {
+    return (
+      <>
+        <Suspense fallback={null}>
+          <AslAdemcoCasePage language={language} onLanguageChange={handleLanguageChange} />
         </Suspense>
         <CookieBanner language={language} />
       </>

@@ -8,6 +8,7 @@ interface PixelCanvasProps {
   noFocus?: boolean;
   ambient?: boolean; // Continuously animate some pixels autonomously
   fixed?: boolean; // Keep canvas fixed to viewport
+  className?: string;
 }
 
 class Pixel {
@@ -180,7 +181,8 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
   density = 0.3, 
   noFocus = false,
   ambient = false,
-  fixed = false
+  fixed = false,
+  className = ''
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -329,7 +331,7 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
   }, [colorsStr, gap, speed, density, animationType, ambient, fixed]);
 
   return (
-    <div ref={containerRef} className={`${fixed ? 'fixed' : 'absolute'} inset-0 z-0 pointer-events-none overflow-hidden`}>
+    <div ref={containerRef} className={`${fixed ? 'fixed' : 'absolute'} inset-0 z-0 pointer-events-none overflow-hidden ${className}`.trim()}>
       <canvas ref={canvasRef} className="w-full h-full" />
     </div>
   );

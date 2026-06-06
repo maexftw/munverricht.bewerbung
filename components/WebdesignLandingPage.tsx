@@ -103,11 +103,11 @@ const webdesignNavItems = [
 
 const technicalSpecMetaClassName = 'mono text-[11px] uppercase tracking-[0.18em]';
 const defaultMeta = {
-  title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
+  title: 'Webdesign für Handwerker, Praxen & KMU | munverricht.org',
   description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU: direkter Ansprechpartner, reale Projektbeispiele und Inhalte, die später weitergeführt werden können.',
 };
 const webdesignMeta = {
-  title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
+  title: 'Webdesign für Handwerker, Praxen & KMU | munverricht.org',
   description: 'Klare Firmenwebsite für Handwerker, Praxen und KMU: direkter Ansprechpartner, reale Projektbeispiele und Inhalte, die später weitergeführt werden können.',
 };
 
@@ -161,7 +161,7 @@ const WebdesignLandingPage: React.FC = () => {
       const navHeight = document.querySelector('nav')?.getBoundingClientRect().height ?? 0;
       const viewportAnchor = window.scrollY + navHeight + Math.min(window.innerHeight * 0.18, 140);
 
-      let nextActive = webdesignNavItems[0].id;
+      let nextActive: (typeof webdesignNavItems)[number]['id'] = webdesignNavItems[0].id;
       for (const item of webdesignNavItems) {
         const section = document.getElementById(item.id);
         if (!section) continue;
@@ -204,9 +204,9 @@ const WebdesignLandingPage: React.FC = () => {
         <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/50 bg-[linear-gradient(180deg,rgba(248,251,255,0.86),rgba(239,244,252,0.72))] px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-[16px] sm:px-5 lg:px-6">
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-2.5 sm:gap-3">
             <div className="flex items-center justify-between gap-2.5 sm:gap-3">
-              <a href="/" aria-label="Zur Startseite von graphiks.de" className="group flex min-h-[40px] items-center gap-0.5 rounded-full px-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#eef3fb] sm:min-h-[44px] sm:px-2">
-                <ASCIIText text="graphiks" className="mono text-[13px] font-semibold lowercase tracking-tight text-slate-800 sm:text-sm" revealOnMount={false} />
-                <span className="mono text-[13px] font-semibold text-blue-600 sm:text-sm">.de</span>
+              <a href="/" aria-label="Zur Startseite von munverricht.org" className="group flex min-h-[40px] items-center gap-0.5 rounded-full px-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#eef3fb] sm:min-h-[44px] sm:px-2">
+                <ASCIIText text="munverricht" className="mono text-[13px] font-semibold lowercase tracking-tight text-slate-800 sm:text-sm" revealOnMount={false} />
+                <span className="mono text-[13px] font-semibold text-blue-600 sm:text-sm">.org</span>
               </a>
 
               <div className="hidden lg:flex items-center rounded-full border border-white/70 bg-white/60 p-1 shadow-[0_10px_24px_rgba(15,23,42,0.05),inset_0_1px_0_rgba(255,255,255,0.86)]">
@@ -230,7 +230,7 @@ const WebdesignLandingPage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-2">
-                <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonSecondary} min-h-[40px] shrink-0 gap-2 px-3 py-2 text-blue-600 sm:min-h-11 sm:px-4 sm:py-2.5`}>
+                <a href="mailto:info@munverricht.org" className={`${themeClasses.webButtonSecondary} min-h-[40px] shrink-0 gap-2 px-3 py-2 text-blue-600 sm:min-h-11 sm:px-4 sm:py-2.5`}>
                   <Mail className="h-3.5 w-3.5 text-blue-600" />
                   <span className={`${themeClasses.webMeta} text-blue-600`}>Kontakt</span>
                   <ArrowRight className="hidden h-3.5 w-3.5 sm:block" />
@@ -294,7 +294,7 @@ const WebdesignLandingPage: React.FC = () => {
                   })}
                 </div>
                 <div className="mt-3 grid gap-2 border-t border-blue-100/80 pt-3">
-                  <a href="mailto:info@graphiks.de" onClick={handleAnchorClick} className={`${themeClasses.webButtonPrimary} w-full`}>
+                  <a href="mailto:info@munverricht.org" onClick={handleAnchorClick} className={`${themeClasses.webButtonPrimary} w-full`}>
                     <Mail className="h-4 w-4 text-white" />
                     <span className={`${themeClasses.webMeta} font-bold text-white`}>E-Mail schreiben</span>
                   </a>
@@ -336,7 +336,7 @@ const WebdesignLandingPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.18 }} className="mb-3 flex w-full max-w-sm flex-col gap-2.5 sm:hidden">
-                  <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full`}>
+                  <a href="mailto:info@munverricht.org" className={`${themeClasses.webButtonPrimary} w-full`}>
                     <Mail className="h-4 w-4 text-white" />
                     <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
                   </a>
@@ -374,7 +374,7 @@ const WebdesignLandingPage: React.FC = () => {
                 </motion.ul>
 
                 <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5, delay: 0.28 }} className="mb-4 hidden w-full max-w-3xl flex-col items-stretch justify-center gap-3 sm:mb-6 sm:flex sm:flex-row sm:items-center sm:gap-4 sm:pt-1 lg:mb-5">
-                  <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} flex-1`}>
+                  <a href="mailto:info@munverricht.org" className={`${themeClasses.webButtonPrimary} flex-1`}>
                     <Mail className="h-4 w-4 text-white" />
                     <span className={`${themeClasses.webMeta} font-bold text-white`}>Erstgespräch anfragen</span>
                   </a>

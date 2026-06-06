@@ -26,3 +26,5 @@ dist-ssr
 # Large asset folder / backup
 01Munverricht Bewerbung/
 indeed_cookies.json
+.gstack/
+.gbrain-source
