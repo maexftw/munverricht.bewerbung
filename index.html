@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maximilian Unverricht | Frontend Developer & Web Delivery</title>
+    <title>Maximilian Unverricht | AI Product Builder für Web & E-Commerce</title>
     <meta name="description"
-        content="Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.">
-    <meta property="og:title" content="Maximilian Unverricht | Frontend Developer & Web Delivery">
+        content="Recruiter-Profil von Maximilian Unverricht: AI Product Builder für Web, E-Commerce, Produktberater-Agenten, Custom Shops, lokale LLM-Workflows und React-Prototypen.">
+    <meta property="og:title" content="Maximilian Unverricht | AI Product Builder für Web & E-Commerce">
     <meta property="og:description"
-        content="Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.">
+        content="Recruiter-Profil von Maximilian Unverricht: AI Product Builder für Web, E-Commerce, Produktberater-Agenten, Custom Shops, lokale LLM-Workflows und React-Prototypen.">
     <link rel="icon" type="image/png" href="/maximilian-unverricht.pages.dev_.png">
     <meta property="og:image" content="maximilian-unverricht.pages.dev_.png">
     <!-- v3.0.5-CACHE-BUST -->
@@ -343,10 +343,33 @@
 
         .noscript-shell {
             padding: 40px;
-            text-align: center;
+            text-align: left;
             color: var(--text-primary);
             background-color: var(--bg-color);
             min-height: 100vh;
+            max-width: 960px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .noscript-shell h1,
+        .noscript-shell h2 {
+            line-height: 1.08;
+            text-wrap: balance;
+        }
+
+        .noscript-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .noscript-card {
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            background: var(--surface-1);
+            padding: 18px;
         }
 
     </style>
@@ -356,9 +379,9 @@
             var isWebdesignRoute = pathname === '/webdesign';
             var prefersLightShell = isWebdesignRoute || pathname === '/impressum' || pathname === '/datenschutz';
             var portfolioBootConfig = {
-                title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
-                description: 'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
-                subtitle: 'Recruiter-Profil // Frontend Developer & Web Delivery'
+                title: 'Maximilian Unverricht | AI Product Builder für Web & E-Commerce',
+                description: 'Recruiter-Profil von Maximilian Unverricht: AI Product Builder für Web, E-Commerce, Produktberater-Agenten, Custom Shops, lokale LLM-Workflows und React-Prototypen.',
+                subtitle: 'Recruiter-Profil // AI Product Builder für Web & E-Commerce'
             };
             var webdesignBootConfig = {
                 title: 'Webdesign für Handwerker, Praxen & KMU | graphiks.de',
@@ -413,7 +436,7 @@
             <h1 class="boot-title">Maximilian
                 Unverricht</h1>
             <p id="boot-subtitle" class="boot-subtitle">
-                Recruiter-Profil // Frontend Developer &amp; Web Delivery</p>
+                Recruiter-Profil // AI Product Builder für Web &amp; E-Commerce</p>
 
             <div class="boot-links">
                 <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a>
@@ -431,7 +454,39 @@
     <noscript>
         <div class="noscript-shell">
             <h1>Maximilian Unverricht</h1>
-            <p>Recruiter-Profil // Frontend Developer &amp; Web Delivery</p>
+            <p><strong>AI Product Builder für Web, E-Commerce &amp; agentische Workflows</strong></p>
+            <p>
+                Ich baue produktionsnahe KI-Websysteme: Produktberater-Agenten, Custom Shops, lokale Dokumenten-/LLM-Pipelines,
+                agentische Workflows und schnelle React/Vite-Prototypen. Dazu kommen 13 Jahre Praxis in Webdesign,
+                E-Commerce, SEO, Marketing und Kundenprojekten.
+            </p>
+            <div class="noscript-grid">
+                <section class="noscript-card">
+                    <h2>Zielrollen</h2>
+                    <ul>
+                        <li>AI Solutions Developer</li>
+                        <li>AI Automation Engineer</li>
+                        <li>Technical AI Consultant</li>
+                        <li>Product Engineer AI</li>
+                        <li>E-Commerce AI Specialist</li>
+                        <li>Frontend Developer mit AI-Integration</li>
+                    </ul>
+                </section>
+                <section class="noscript-card">
+                    <h2>Wichtigste Cases</h2>
+                    <ul>
+                        <li>Vertikaler Produktberater-Agent für ca. 1400 Produkte</li>
+                        <li>Custom-Shop-System mit eigener Logik, Warenkorb, Checkout und Stripe</li>
+                        <li>Dokumentenpipeline mit Docling/PyMuPDF, lokaler LLM-Verarbeitung, JSON-Ausgabe und Python-Validierung</li>
+                        <li>React/Vite-Prototypen und Deployments auf Cloudflare Pages</li>
+                    </ul>
+                </section>
+                <section class="noscript-card">
+                    <h2>Einordnung</h2>
+                    <p>Kein ML-Researcher, kein reiner Data Scientist, kein klassischer Konzern-Senior.</p>
+                    <p>Stärke: schnelle produktnahe Umsetzung, Prototyping, Web, Commerce, Agenten und Deployment.</p>
+                </section>
+            </div>
             <p>
                 <a href="Maximilian_Unverricht_Resume.html" class="boot-link">Lebenslauf</a> |
                 <a href="/webdesign" class="boot-link">Webdesign</a> |
@@ -440,7 +495,7 @@
                 <a href="/impressum" class="boot-link">Impressum</a> |
                 <a href="/datenschutz" class="boot-link">Datenschutz</a>
             </p>
-            <p>Please enable JavaScript to view the full site.</p>
+            <p>Die vollständige interaktive Version benötigt JavaScript; die Kerninformationen sind hier statisch sichtbar.</p>
         </div>
     </noscript>
     <script>

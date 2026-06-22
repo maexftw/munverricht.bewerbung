@@ -161,7 +161,7 @@ const WebdesignLandingPage: React.FC = () => {
       const navHeight = document.querySelector('nav')?.getBoundingClientRect().height ?? 0;
       const viewportAnchor = window.scrollY + navHeight + Math.min(window.innerHeight * 0.18, 140);
 
-      let nextActive = webdesignNavItems[0].id;
+      let nextActive: (typeof webdesignNavItems)[number]['id'] = webdesignNavItems[0].id;
       for (const item of webdesignNavItems) {
         const section = document.getElementById(item.id);
         if (!section) continue;

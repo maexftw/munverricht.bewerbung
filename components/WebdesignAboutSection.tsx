@@ -7,7 +7,7 @@ import { themeClasses } from './themeClasses';
 const workingPrinciples = [
   'Direkter Kontakt ohne Vertrieb oder Projektmanager',
   'Planung, Text und Umsetzung aus einer Hand',
-  '12+ Jahre Praxis in Webdesign und Marketing',
+  '13 Jahre Praxis in Webdesign, SEO und Marketing',
   'Typische Inhalte spaeter selbst weiterpflegbar',
 ];
 

@@ -12,52 +12,52 @@ type SkillMonitorProps = {
 
 const skills = [
   {
-    category: { de: 'VS Code & Frontend-Umsetzung', en: 'VS Code & frontend delivery' },
+    category: { de: 'AI-Websysteme & Prototypen', en: 'AI web systems & prototypes' },
     items: [
-      'Visual Studio Code',
       'React',
       'Vite',
       'TypeScript',
       'Tailwind',
-      'Anime.js',
-      'HTML5',
+      'Product advisor UI',
+      'Agentic workflow UI',
+      'Fast prototypes',
     ],
     icon: Globe,
     level: 94,
     accent: 'blue',
-    status: { de: 'tägliche Arbeitsumgebung', en: 'primary day-to-day environment' },
+    status: { de: 'Interfaces und Prototypen bis zum testbaren Stand', en: 'interfaces and prototypes through to a testable state' },
   },
   {
-    category: { de: 'Delivery & Plattformen', en: 'Delivery & platforms' },
-    items: ['GitHub', 'Cloudflare Pages', 'Wrangler', 'Google Cloud', 'AWS', 'Azure'],
+    category: { de: 'E-Commerce & Produktdaten', en: 'E-commerce & product data' },
+    items: ['Custom shop logic', 'Stripe', 'Cart/Checkout', 'Product states', 'Catalog structure', 'Product advisor flows'],
     icon: Workflow,
     level: 74,
     accent: 'violet',
-    status: { de: 'vorhandene Plattform-Erfahrung, nicht Kernprofil', en: 'platform exposure, not the core specialization' },
+    status: { de: 'Shop-Logik und beratungsnahe Produktkommunikation', en: 'shop logic and advice-oriented product communication' },
   },
   {
-    category: { de: 'Lokale LLM-Workflows', en: 'Local LLM workflows' },
-    items: ['Local models', 'VS Code agents', 'Roo Code', 'Cline', 'Structured generation', 'Python validation scripts'],
+    category: { de: 'Dokumenten-/LLM-Pipelines', en: 'Document / LLM pipelines' },
+    items: ['Docling', 'PyMuPDF', 'Local LLM workflows', 'Structured generation', 'JSON output', 'Python validation scripts'],
     icon: Cpu,
     level: 91,
     accent: 'cyan',
-    status: { de: 'Kernfokus für Coding, Prototyping und Verfeinerung', en: 'core focus for coding, prototyping, and refinement' },
+    status: { de: 'prüfbare Ausgabe statt losem Chat-Ergebnis', en: 'verifiable output instead of loose chat results' },
   },
   {
-    category: { de: 'Praxis-Fundament', en: 'Practical foundation' },
-    items: ['WordPress', 'Webflow', 'Content structure', 'Launch support', 'Client communication'],
+    category: { de: 'Delivery & Deployment', en: 'Delivery & deployment' },
+    items: ['GitHub', 'Cloudflare Pages', 'Wrangler', 'Preview QA', 'Build checks', 'Handoffs'],
     icon: Wrench,
     level: 88,
     accent: 'amber',
-    status: { de: 'langjährige Projektpraxis', en: 'long-term project experience' },
+    status: { de: 'vom Prototyp zum überprüfbaren Preview-Stand', en: 'from prototype to verifiable preview state' },
   },
   {
-    category: { de: 'Marketing-nahe Tools', en: 'Marketing-adjacent tools' },
-    items: ['Google Ads (Cert.)', 'Google Analytics (Cert.)', 'Tag Manager'],
+    category: { de: '13 Jahre Web-/Marketing-Praxis', en: '13 years web / marketing practice' },
+    items: ['Webdesign', 'SEO structure', 'Google Ads (Cert.)', 'Analytics', 'Content structure', 'Client communication'],
     icon: Activity,
     level: 72,
     accent: 'emerald',
-    status: { de: 'hilfreich für Seiten mit Vertriebsbezug', en: 'helpful for sites with commercial goals' },
+    status: { de: 'businessnaher Blick auf Seiten mit Vertriebsbezug', en: 'business-oriented view on commercially focused sites' },
   },
 ];
 
@@ -102,8 +102,8 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Keine Buzzword-Matrix, sondern die Tools und Arbeitsbereiche, mit denen ich aktuell wirklich arbeite. Der Schwerpunkt liegt klar auf VS Code als Arbeitsumgebung, lokalen LLM-Modellen für agentische Coding-Workflows und der Umsetzung bis zum nutzbaren Ergebnis; Plattformen sind vorhanden, aber nicht der Kern der Positionierung.'
-            : 'This is not a buzzword matrix. It shows the tools and work areas I actually use right now. The center of gravity is clearly VS Code as the working environment, local LLM models for agentic coding workflows, and implementation through to usable output; platform exposure exists, but it is not the core positioning.'}
+            ? 'Keine Buzzword-Matrix: hier stehen die Outputs und Arbeitsbereiche, die für AI-nahe Produktrollen relevant sind — Websysteme, Commerce, Produktdaten, Dokumentenpipelines, Preview-Delivery und die Web-/Marketing-Praxis dahinter.'
+            : 'Not a buzzword matrix: these are the outputs and work areas relevant to AI-adjacent product roles — web systems, commerce, product data, document pipelines, preview delivery, and the web/marketing practice behind them.'}
         </p>
       </div>
 

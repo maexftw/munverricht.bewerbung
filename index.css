@@ -1,1 +1,41 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "munverricht";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-base-100: #050505;
+  --color-base-200: #0b0f17;
+  --color-base-300: #111827;
+  --color-base-content: #f5f7fb;
+
+  --color-primary: #3b82f6;
+  --color-primary-content: #ffffff;
+  --color-secondary: #60a5fa;
+  --color-secondary-content: #050505;
+  --color-accent: #22d3ee;
+  --color-accent-content: #050505;
+  --color-neutral: #1f2937;
+  --color-neutral-content: #f5f7fb;
+
+  --color-info: #38bdf8;
+  --color-info-content: #050505;
+  --color-success: #22c55e;
+  --color-success-content: #04130a;
+  --color-warning: #f59e0b;
+  --color-warning-content: #160d02;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+
+  --radius-selector: 999rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}

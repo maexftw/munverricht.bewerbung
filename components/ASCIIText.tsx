@@ -17,6 +17,7 @@ interface ASCIITextProps {
   text: string;
   className?: string;
   duration?: number;
+  spread?: number;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'div' | 'p';
   revealOnMount?: boolean;
   noWrap?: boolean;

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
+import { Badge, CardLink, Section } from './ui';
 
 type Language = 'de' | 'en';
 
@@ -67,7 +68,7 @@ const projects: Record<Language, ProjectItem[]> = {
       problem: 'Der Unternehmensauftritt sollte seriöser wirken und lokal besser auffindbar sein.',
       solution: 'Neuaufbau mit klarerer Struktur und Betrieb über Cloudflare, um Wartung und Auslieferung zu vereinfachen.',
       result: 'Ruhigerer Gesamteindruck, weniger technische Reibung und eine bessere Basis für lokale Sichtbarkeit.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Performance'],
+      stack: ['Cloudflare Pages', 'Deployment', 'Performance'],
     },
     {
       title: 'Bockel-Bartscher',
@@ -75,7 +76,7 @@ const projects: Record<Language, ProjectItem[]> = {
       problem: 'Kanzlei-Inhalte waren für neue Besucher nicht schnell genug erfassbar.',
       solution: 'Klar gegliederter Auftritt mit nachvollziehbarer Informationsarchitektur und ruhigem visuellen Rahmen.',
       result: 'Ein vertrauenswürdigerer erster Eindruck und schnellere Orientierung bei Erstbesuchen.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Corporate Design'],
+      stack: ['Cloudflare Pages', 'Information Architecture', 'Corporate Design'],
     },
   ],
   en: [
@@ -125,7 +126,7 @@ const projects: Record<Language, ProjectItem[]> = {
       problem: 'The company site needed a more credible presentation and better local findability.',
       solution: 'Rebuild with clearer structure and Cloudflare-based delivery to simplify maintenance and publishing.',
       result: 'A calmer first impression, less technical friction, and a better base for local visibility.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Performance'],
+      stack: ['Cloudflare Pages', 'Deployment', 'Performance'],
     },
     {
       title: 'Bockel-Bartscher',
@@ -133,14 +134,14 @@ const projects: Record<Language, ProjectItem[]> = {
       problem: 'The law firm content was not easy enough to scan for first-time visitors.',
       solution: 'Clearly structured site with understandable information architecture and a restrained visual frame.',
       result: 'A more trustworthy first impression and faster orientation for potential clients.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Corporate Design'],
+      stack: ['Cloudflare Pages', 'Information Architecture', 'Corporate Design'],
     },
   ],
 };
 
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
-    <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
+    <Section id="projects" spacing="md" className="border-t border-neutral-900 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// SELECTED_WORK" />
@@ -157,46 +158,50 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects[language].map((p, i) => (
-          <motion.a
-            key={i}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.article
+            key={p.title}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
+            className="h-full"
           >
-            <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
-              <ExternalLink className="w-5 h-5" />
-            </div>
-
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
-                <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
+            <CardLink
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${p.title} in neuem Tab öffnen`}
+              className="h-full p-6 hover:-translate-y-0.5 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)]"
+            >
+              <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
+              <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
+                <ExternalLink className="w-5 h-5" />
               </div>
 
-              <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
-              </div>
+              <div className="space-y-4 relative z-10">
+                <div className="flex items-center gap-3 mb-2">
+                  <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
+                  <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
+                </div>
 
-              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
-                {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
-                    <Layers className="w-3 h-3" />
+                <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
+                  <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
+                  <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
+                  <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
+                </div>
+
+                <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
+                  {p.stack.map((item) => (
+                    <Badge key={item} tone="muted" icon={<Layers className="w-3 h-3" aria-hidden="true" />}>
                     {item}
-                  </span>
-                ))}
+                    </Badge>
+                  ))}
+                </div>
               </div>
-            </div>
-          </motion.a>
+            </CardLink>
+          </motion.article>
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

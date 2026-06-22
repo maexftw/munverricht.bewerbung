@@ -105,7 +105,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
-          {language === 'de' ? 'RECRUITER PROFIL // FRONTEND DEVELOPER & WEB DELIVERY' : 'RECRUITER PROFILE // FRONTEND DEVELOPER & WEB DELIVERY'}
+          {language === 'de' ? 'RECRUITER PROFIL // AI PRODUCT BUILDER FÜR WEB & E-COMMERCE' : 'RECRUITER PROFILE // AI PRODUCT BUILDER FOR WEB & E-COMMERCE'}
         </h2>
         <h1 className="text-5xl md:text-8xl font-bold uppercase tracking-[0.05em] leading-tight text-white mb-2">
           MAXIMILIAN <span className="text-blue-500">UNVERRICHT</span>
@@ -118,8 +118,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
         {language === 'de'
-          ? 'Ich bin Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign und Marketing. Meine besondere Stärke liegt heute in lokalen LLM-Workflows in Visual Studio Code: Modelle lokal aufsetzen, agentisch fürs Coden nutzen und daraus Prototypen, strukturierte Inhalte und real nutzbare Deliverables bauen.'
-          : 'I am a frontend developer with 12+ years of hands-on experience in web design and marketing. My distinctive strength today is local LLM workflows inside Visual Studio Code: setting up local models, using them for agentic coding, and turning that into prototypes, structured output, and real deliverables.'}
+          ? 'Ich baue produktionsnahe KI-Websysteme: Produktberater-Agenten, Custom Shops, agentische Workflows, lokale Dokumentenpipelines und schnelle React/Vite-Prototypen. Dazu bringe ich 13 Jahre Praxis in Webdesign, E-Commerce, SEO, Marketing und Kundenprojekten mit.'
+          : 'I build production-adjacent AI web systems: product advisor agents, custom shops, agentic workflows, local document pipelines, and fast React/Vite prototypes. I bring 13 years of practical web design, e-commerce, SEO, marketing, and client project experience.'}
       </p>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">
@@ -210,12 +210,12 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-24 text-left border-t border-neutral-900 pt-12">
         <div className="space-y-3">
           <div className="flex items-center text-blue-500 mono text-[10px] tracking-[0.05em]">
-            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '01 / 12+ JAHRE PRAXIS' : '01 / 12+ YEARS EXPERIENCE'}
+            <Terminal className="w-3.5 h-3.5 mr-2" aria-hidden="true" /> {language === 'de' ? '01 / 13 JAHRE PRAXIS' : '01 / 13 YEARS EXPERIENCE'}
           </div>
           <p className="text-sm text-neutral-200 leading-relaxed">
             {language === 'de'
-              ? 'Erfahrung aus Agentur-, KMU- und eigenen Projekten. Ich kenne enge Deadlines, Abstimmung mit Kunden und Übergaben, die im Live-Betrieb funktionieren müssen.'
-              : 'Experience across agency, SME, and self-directed work. I know tight deadlines, client communication, and handovers that need to hold up in production.'}
+              ? 'Webdesign, SEO, E-Commerce, Content-Struktur und Kundenabstimmung aus realen KMU- und Eigenprojekten. Ich kenne enge Deadlines und Übergaben, die im Live-Betrieb funktionieren müssen.'
+              : 'Web design, SEO, e-commerce, content structure, and client communication from real SME and self-directed projects. I know tight deadlines and handovers that need to hold up in production.'}
           </p>
         </div>
         <div className="space-y-3">
@@ -224,8 +224,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           </div>
           <p className="text-sm text-neutral-200 leading-relaxed">
             {language === 'de'
-              ? 'Aktuell arbeite ich vor allem in VS Code mit React, Vite, TypeScript und lokalen LLM-Setups. Cloud-Erfahrung mit Google Cloud, AWS und Azure ist vorhanden, mein eigentlicher Schwerpunkt liegt aber klar auf lokaler Modellnutzung für agentisches Coden, Prototyping, strukturierte Generierung, Überarbeitung und Umsetzung.'
-              : 'I currently work mainly in VS Code with React, Vite, TypeScript, and local LLM setups. I do have exposure to Google Cloud, AWS, and Azure, but my real specialization is clearly local model usage for agentic coding, prototyping, structured generation, refinement, and implementation.'}
+              ? 'Der aktuelle Fokus liegt auf AI-gestützten Websystemen: Produktberater/RAG, Custom-Commerce-Logik, lokale LLM-Workflows, strukturierte Generierung, Python-Validierung und React/Vite-Prototyping.'
+              : 'The current focus is AI-enabled web systems: product advisor/RAG, custom commerce logic, local LLM workflows, structured generation, Python validation, and React/Vite prototyping.'}
           </p>
         </div>
         <div className="space-y-3">
@@ -234,8 +234,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           </div>
           <p className="text-sm text-neutral-200 leading-relaxed">
             {language === 'de'
-              ? 'Ich verbinde technische Umsetzung, Editor-Workflows und Marketing-Praxis. Dadurch entstehen keine abstrakten AI-Demos, sondern nachvollziehbare Arbeitsstrecken in VS Code, die zu testbaren Interfaces, belastbaren Inhalten und einsatzfähigen Ergebnissen führen.'
-              : 'I combine technical execution, editor-based workflows, and marketing practice. The result is not abstract AI demo work, but practical VS Code workflows that lead to testable interfaces, reliable content, and usable outcomes.'}
+              ? 'Ich bin kein ML-Researcher, sondern ein produktnaher Builder: Anforderungen verstehen, ein belastbares Interface bauen, Daten/Output strukturieren, testen und deploybare Ergebnisse liefern.'
+              : 'I am not positioning as an ML researcher, but as a product-adjacent builder: understand requirements, build reliable interfaces, structure data/output, test, and ship deployable results.'}
           </p>
         </div>
       </div>

@@ -8,9 +8,9 @@ type LegalPageProps = {
 };
 
 const defaultMeta = {
-  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  title: 'Maximilian Unverricht | AI Product Builder für Web & E-Commerce',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+    'Recruiter-Profil von Maximilian Unverricht: AI Product Builder für Web, E-Commerce, Produktberater-Agenten, Custom Shops, lokale LLM-Workflows und React-Prototypen.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {

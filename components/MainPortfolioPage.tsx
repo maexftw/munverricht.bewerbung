@@ -9,7 +9,9 @@ import SkillMonitor from './SkillMonitor';
 import ContactShell from './ContactShell';
 import CodeAmbientBackground from './CodeAmbientBackground';
 import Navigation from './Navigation';
+import FlagshipAICases from './FlagshipAICases';
 import Projects from './Projects';
+import RoleFit from './RoleFit';
 import LegalInfo from './LegalInfo';
 import ScrollToTop from './ScrollToTop';
 import { ThemeProvider } from './ThemeContext';
@@ -21,9 +23,9 @@ type MainPortfolioPageProps = {
 };
 
 const defaultMeta = {
-  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  title: 'Maximilian Unverricht | AI Product Builder für Web & E-Commerce',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+    'Recruiter-Profil von Maximilian Unverricht: AI Product Builder für Web, E-Commerce, Produktberater-Agenten, Custom Shops, lokale LLM-Workflows und React-Prototypen.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -44,14 +46,14 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
   const portfolioMeta =
     language === 'de'
       ? {
-          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          title: 'Maximilian Unverricht | AI Product Builder für Web & E-Commerce',
           description:
-            'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+            'Recruiter-Profil von Maximilian Unverricht: AI Product Builder für Web, E-Commerce, Produktberater-Agenten, Custom Shops, lokale LLM-Workflows und React-Prototypen.',
         }
       : {
-          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          title: 'Maximilian Unverricht | AI Product Builder for Web & E-Commerce',
           description:
-            'Recruiter profile for Maximilian Unverricht: frontend developer with 12+ years of hands-on experience in web design, React, TypeScript, and local LLM workflows.',
+            'Recruiter profile for Maximilian Unverricht: AI Product Builder for web, e-commerce, product advisor agents, custom shops, local LLM workflows, and React prototypes.',
         };
 
   useEffect(() => {
@@ -98,6 +100,8 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
         <div className="flex flex-col items-center w-full px-4 sm:px-5 lg:px-0">
           <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-24 sm:space-y-28 lg:space-y-32 py-10 sm:py-12 pb-28 sm:pb-24 outline-none" tabIndex={-1}>
             <Hero language={language} />
+            <FlagshipAICases language={language} />
+            <RoleFit language={language} />
             <Evolution language={language} />
             <ShowcaseA language={language} />
             <ShowcaseB language={language} />
@@ -106,12 +110,12 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
             <ContactShell language={language} />
             <LegalInfo language={language} />
             <footer className={`pt-16 sm:pt-20 pb-8 text-center mono text-[10px] sm:text-xs leading-relaxed ${themeClasses.textSoft} border-t ${themeClasses.sectionBorder}`}>
-              <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // FRONTEND & WEB DELIVERY</p>
+              <p className="break-words">© 2026 MAXIMILIAN UNVERRICHT // AI PRODUCT BUILDER FOR WEB & E-COMMERCE</p>
             </footer>
           </main>
         </div>
 
-        <ScrollToTop language={language} />
+        <ScrollToTop />
 
         <AnimatePresence>
           {booting && (

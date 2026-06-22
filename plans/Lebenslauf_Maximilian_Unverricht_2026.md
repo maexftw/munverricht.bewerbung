@@ -1,4 +1,4 @@
-# Maximilian Unverricht – AI Workflow & Web Delivery (React/WordPress)
+# Maximilian Unverricht – AI Product Builder für Web, E-Commerce & agentische Workflows
 
 **Standort:** Dortmund (DE) · **Arbeitsmodell:** Remote / Hybrid  
 **E-Mail:** info@munverricht.org · **Telefon:** +49 163 3229892  

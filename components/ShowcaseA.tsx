@@ -78,7 +78,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
 
             <div className="grid grid-cols-3 gap-4 pt-4 text-center">
               <div className="mono text-[8px] text-neutral-600 uppercase">Input: Engineering PDF</div>
-              <div className="mono text-[8px] text-blue-500 uppercase">{language === 'de' ? 'RTX 5090 Inferenz' : 'RTX 5090 Inference'}</div>
+              <div className="mono text-[8px] text-blue-500 uppercase">{language === 'de' ? 'Lokale Inferenz' : 'Local Inference'}</div>
               <div className="mono text-[8px] text-green-600 uppercase">{language === 'de' ? 'Validiertes JSON' : 'Validated JSON'}</div>
             </div>
           </div>
