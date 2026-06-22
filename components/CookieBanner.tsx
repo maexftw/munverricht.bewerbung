@@ -58,7 +58,7 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ language }) => {
             {copy.body}{' '}
             <a
               href="/datenschutz"
-              className="font-semibold text-[color:var(--accent-color)] underline decoration-[color:var(--accent-border-strong)] underline-offset-4 transition-colors hover:text-[color:var(--accent-soft)]"
+              className="inline-flex min-h-8 items-center rounded-sm px-1 font-semibold text-[color:var(--accent-color)] underline decoration-[color:var(--accent-border-strong)] underline-offset-4 transition-colors hover:text-[color:var(--accent-soft)]"
             >
               {copy.privacy}
             </a>

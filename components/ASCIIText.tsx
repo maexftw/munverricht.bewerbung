@@ -35,8 +35,8 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   duration = 1000,
   spread = 1,
   as: Component = 'span',
-  revealOnMount = true,
-  noWrap = true,
+  revealOnMount = false,
+  noWrap = false,
   enableHover = true
 }) => {
   const shouldReduceMotion = useReducedMotion();
@@ -223,7 +223,7 @@ export const ASCIIText: React.FC<ASCIITextProps> = ({
   return (
     <Component
       ref={containerRef as any}
-      className={`${className} cursor-default select-none ${noWrap ? 'inline-block whitespace-nowrap' : 'inline'}`}
+      className={`${className} cursor-default select-none ${noWrap ? 'inline-block whitespace-nowrap' : 'inline whitespace-normal break-words'}`}
       onMouseEnter={enableHover ? handleMouseEnter : undefined}
       onMouseMove={enableHover ? handleMouseMove : undefined}
       onMouseLeave={enableHover ? handleMouseLeave : undefined}

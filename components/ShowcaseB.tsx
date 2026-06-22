@@ -146,12 +146,14 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
         <div className="relative space-y-3">
           <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-500">// CASE_03</p>
           <div className="flex items-start justify-between gap-4 flex-wrap">
-            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee Faensen Commerce Engine" /></h3>
+            <h3 className="min-w-0 max-w-full text-2xl font-bold uppercase tracking-[0.03em] mono md:text-3xl">
+              <ASCIIText text="Kaffee Faensen Commerce Engine" noWrap={false} />
+            </h3>
             <a
               href="https://www.kaffee-faensen.de/shop/homepage"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mono text-[10px] uppercase tracking-widest"
+              className="inline-flex min-h-11 items-center gap-2 rounded-md border border-blue-500/20 px-3 py-2 text-blue-400 hover:text-blue-300 mono text-[10px] uppercase tracking-widest"
             >
               {language === 'de' ? 'Live ansehen' : 'View live'} <ArrowUpRight className="w-3 h-3" aria-hidden="true" />
             </a>

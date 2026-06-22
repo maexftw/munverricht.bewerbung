@@ -99,7 +99,7 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
     <section id="skill-monitor" className="space-y-12 py-6 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true"><ASCIIText text="// TOOLS_IN_USE" /></h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
+        <h2 className="max-w-full px-3 text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} noWrap={false} /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
             ? 'Keine Buzzword-Matrix: hier stehen die Outputs und Arbeitsbereiche, die für AI-nahe Produktrollen relevant sind — Websysteme, Commerce, Produktdaten, Dokumentenpipelines, Preview-Delivery und die Web-/Marketing-Praxis dahinter.'

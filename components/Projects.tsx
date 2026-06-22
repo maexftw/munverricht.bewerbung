@@ -146,8 +146,8 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
           <ASCIIText text="// SELECTED_WORK" />
         </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} />
+        <h2 className="max-w-full px-3 text-3xl font-bold uppercase tracking-[0.04em] mono">
+          <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} noWrap={false} />
         </h2>
         <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
@@ -160,7 +160,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
         {projects[language].map((p, i) => (
           <motion.article
             key={p.title}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={false}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
             className="h-full"

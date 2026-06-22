@@ -26,7 +26,7 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
 
       <div className="max-w-[65ch] mx-auto space-y-12">
         <ul className="relative pl-8 border-l border-neutral-800 space-y-16">
-          <motion.li initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
+          <motion.li initial={false} whileInView={{ opacity: 1, x: 0 }} className="relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-black border-2 border-blue-500 rounded-full flex items-center justify-center" aria-hidden="true">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
@@ -41,7 +41,7 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
             </div>
           </motion.li>
 
-          <motion.li initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
+          <motion.li initial={false} whileInView={{ opacity: 1, x: 0 }} className="relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-black border border-neutral-700 rounded-full flex items-center justify-center" aria-hidden="true">
               <GitCommit className="w-3 h-3 text-neutral-500" />
             </div>
@@ -56,7 +56,7 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
             </div>
           </motion.li>
 
-          <motion.li initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} className="relative">
+          <motion.li initial={false} whileInView={{ opacity: 1, x: 0 }} className="relative">
             <div className="absolute -left-[41px] top-1 w-5 h-5 bg-black border border-neutral-800 rounded-full flex items-center justify-center" aria-hidden="true">
               <History className="w-3 h-3 text-neutral-700" />
             </div>

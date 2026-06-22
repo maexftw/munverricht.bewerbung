@@ -103,10 +103,10 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <div className="fixed top-4 right-4 z-50 lg:hidden">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
+                    className="flex h-11 w-11 items-center justify-center rounded border border-neutral-800 bg-neutral-900 text-neutral-200"
                     aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
                 >
-                    {isOpen ? <X /> : <Menu />}
+                    {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                 </button>
             </div>
 
@@ -114,10 +114,10 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <div className="fixed top-4 left-4 z-50 lg:hidden">
                 <button
                     onClick={toggleTheme}
-                    className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-neutral-300 transition-colors hover:text-blue-500"
                     aria-label={`Zu ${theme === 'light' ? 'dunklem' : 'hellem'} Modus wechseln`}
                 >
-                    {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                    {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
                 </button>
             </div>
 
