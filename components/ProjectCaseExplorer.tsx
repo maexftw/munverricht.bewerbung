@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { ArrowUpRight, CheckCircle2, Filter, MonitorUp, Sparkles } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { Badge, Card, CardLink, Section } from './ui';
@@ -16,6 +16,7 @@ const labels = {
     more: 'Weitere Live-Arbeiten',
     filterLabel: 'Projektfilter',
     open: 'öffnen',
+    newTab: 'öffnet in neuem Tab',
     note: 'Ponytail: keine Fake-Metriken. Nur belegbare Live-Projekte und die Arbeitsentscheidung dahinter.',
   },
   en: {
@@ -29,6 +30,7 @@ const labels = {
     more: 'More live work',
     filterLabel: 'Project filters',
     open: 'open',
+    newTab: 'opens in new tab',
     note: 'Ponytail: no fake metrics. Only verifiable live projects and the build decision behind them.',
   },
 } satisfies Record<Language, Record<string, string>>;
@@ -57,7 +59,6 @@ const FeaturedCaseCard: React.FC<{ project: ProjectCase; language: Language; ind
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${project.title} ${copy.open}`}
       className="h-full p-5 transition-transform hover:-translate-y-0.5 hover:border-blue-500/60 hover:shadow-[0_0_28px_rgba(59,130,246,0.16)] sm:p-6"
     >
       <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-blue-500/10 blur-3xl" aria-hidden="true" />
@@ -67,6 +68,7 @@ const FeaturedCaseCard: React.FC<{ project: ProjectCase; language: Language; ind
             <p className="mono text-[10px] uppercase tracking-[0.22em] text-blue-400">{copy.featured} / 0{index + 1}</p>
             <h3 className="text-xl font-bold uppercase tracking-[0.035em] text-white mono sm:text-2xl">
               {project.title}
+              <span className="sr-only"> — {copy.newTab}</span>
             </h3>
           </div>
           <span className={`rounded-md border p-2 ${signalAccent[project.signal]}`} aria-hidden="true">
@@ -106,7 +108,6 @@ const CompactCaseCard: React.FC<{ project: ProjectCase; language: Language }> = 
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${project.title} ${copy.open}`}
       className="h-full p-5 hover:border-blue-500/40"
     >
       <div className="relative z-10 space-y-4">
@@ -115,7 +116,10 @@ const CompactCaseCard: React.FC<{ project: ProjectCase; language: Language }> = 
             <span className={`inline-flex rounded border px-2 py-1 mono text-[9px] uppercase tracking-[0.18em] ${signalAccent[project.signal]}`}>
               {signalLabel(project.signal, language)}
             </span>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.04em] text-white">{project.title}</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.04em] text-white">
+              {project.title}
+              <span className="sr-only"> — {copy.newTab}</span>
+            </h3>
           </div>
           <ArrowUpRight className="h-4 w-4 text-neutral-600 transition-colors group-hover:text-blue-400" aria-hidden="true" />
         </div>
@@ -132,7 +136,7 @@ const CompactCaseCard: React.FC<{ project: ProjectCase; language: Language }> = 
 
 const ProjectCaseExplorer: React.FC<{ language: Language }> = ({ language }) => {
   const [activeSignal, setActiveSignal] = useState<ProjectSignal | 'all'>('all');
-  const visibleCases = useMemo(() => getProjectCases(activeSignal), [activeSignal]);
+  const visibleCases = getProjectCases(activeSignal);
   const featuredCases = visibleCases.filter((project) => project.featured);
   const compactCases = visibleCases.filter((project) => !project.featured);
   const copy = labels[language];
@@ -153,7 +157,7 @@ const ProjectCaseExplorer: React.FC<{ language: Language }> = ({ language }) => 
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-2 lg:justify-start" aria-label={copy.filterLabel}>
+      <div className="flex flex-wrap justify-center gap-2 lg:justify-start" role="group" aria-label={copy.filterLabel}>
         {projectSignals.map((signal) => {
           const isActive = activeSignal === signal.id;
 
@@ -162,6 +166,7 @@ const ProjectCaseExplorer: React.FC<{ language: Language }> = ({ language }) => 
               key={signal.id}
               type="button"
               onClick={() => setActiveSignal(signal.id)}
+              aria-pressed={isActive}
               className={`inline-flex min-h-10 items-center gap-2 rounded-md border px-3 py-2 mono text-[10px] uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                 isActive
                   ? 'border-blue-500/70 bg-blue-500/15 text-blue-100'
