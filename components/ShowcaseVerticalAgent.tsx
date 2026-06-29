@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Braces, ListChecks, MessageSquareText, ShieldCheck, Workflow } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 
 type Language = 'de' | 'en';
 
@@ -126,31 +128,36 @@ const ShowcaseVerticalAgent: React.FC<ShowcaseVerticalAgentProps> = ({ language 
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-7 bg-[#111111] border border-blue-500/20 rounded-lg p-6 sm:p-8 relative overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.08)]">
+        <Card className="lg:col-span-7 gap-0 py-0 bg-[#111111] border-blue-500/20 text-neutral-100 relative overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.08)]">
           <div className="absolute inset-0 opacity-[0.035] pointer-events-none mono text-[8px] leading-tight select-none" aria-hidden="true">
             {AGENT_BACKGROUND_TEXT}
           </div>
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" aria-hidden="true" />
 
-          <div className="relative space-y-6" aria-hidden="true">
+          <CardContent className="relative space-y-6 p-6 sm:p-8" aria-hidden="true">
             <div className="flex items-center justify-between border-b border-neutral-800 pb-4 mono text-[10px] uppercase tracking-widest">
               <span className="text-blue-400">VERTICAL_AGENT_CONSOLE</span>
-              <span className="text-amber-400">REVIEW MODE</span>
+              <Badge variant="outline" className="border-amber-500/30 bg-amber-500/10 mono text-[9px] uppercase tracking-widest text-amber-300">
+                REVIEW MODE
+              </Badge>
             </div>
 
-            <div className="rounded border border-neutral-800 bg-neutral-950/70 p-4 space-y-3">
+            <Card className="gap-0 py-0 rounded border-neutral-800 bg-neutral-950/70 text-neutral-100">
+              <CardContent className="p-4 space-y-3">
               <div className="flex items-center gap-2 mono text-[10px] text-neutral-500 uppercase tracking-widest">
                 <MessageSquareText className="w-4 h-4 text-blue-400" />
                 Scoped intake
               </div>
               <p className="text-sm text-neutral-200 leading-relaxed">{t.intake}</p>
-            </div>
+              </CardContent>
+            </Card>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stages.map((stage, index) => {
                 const Icon = stageIcons[index] ?? Workflow;
                 return (
-                  <div key={stage} className="rounded border border-blue-500/20 bg-blue-500/5 p-3 mono text-[9px] text-blue-300 min-h-24">
+                  <Card key={stage} size="sm" className="min-h-24 gap-0 py-0 rounded border-blue-500/20 bg-blue-500/5 mono text-[9px] text-blue-300">
+                    <CardContent className="p-3">
                     <div className="flex items-center justify-between mb-3 text-neutral-500">
                       <span>0{index + 1}</span>
                       <Icon className="w-3.5 h-3.5 text-blue-400" />
@@ -163,7 +170,8 @@ const ShowcaseVerticalAgent: React.FC<ShowcaseVerticalAgentProps> = ({ language 
                       viewport={{ once: true, amount: 0.7 }}
                       transition={{ delay: index * 0.18, duration: 0.45 }}
                     />
-                  </div>
+                    </CardContent>
+                  </Card>
                 );
               })}
             </div>
@@ -184,25 +192,30 @@ const ShowcaseVerticalAgent: React.FC<ShowcaseVerticalAgentProps> = ({ language 
               <div className="mono text-[8px] text-blue-500 uppercase">{t.labels.process}</div>
               <div className="mono text-[8px] text-amber-500 uppercase">{t.labels.output}</div>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         <div className="lg:col-span-5 space-y-8 self-center">
           <div className="space-y-6">
             {t.steps.map((step) => (
-              <div key={step.label} className="space-y-2">
+              <Card key={step.label} size="sm" className="gap-0 py-0 border-neutral-800 bg-neutral-950/35 text-neutral-100">
+                <CardContent className="p-4 space-y-2">
                 <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
                   <ASCIIText text={`>> ${step.label}`} />
                 </h4>
                 <p className="text-neutral-200 text-sm leading-relaxed">{step.text}</p>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
 
           <div className="flex items-center gap-3 bg-neutral-900 border border-amber-500/20 px-4 py-3 rounded">
             <ShieldCheck className="w-5 h-5 text-amber-400 flex-shrink-0" aria-hidden="true" />
             <div className="mono text-[10px] text-neutral-500 leading-relaxed">
-              STATUS: <span className="text-amber-400">{t.status}</span>
+              STATUS:{' '}
+              <Badge variant="outline" className="h-auto border-amber-500/30 bg-amber-500/10 mono text-[9px] uppercase tracking-widest text-amber-300">
+                {t.status}
+              </Badge>
             </div>
           </div>
         </div>

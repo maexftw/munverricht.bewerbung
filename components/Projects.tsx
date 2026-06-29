@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
+import { Badge } from '@/components/ui/badge';
 
 type Language = 'de' | 'en';
 
@@ -170,10 +171,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project: p, index: i, languag
 
         <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
           {p.stack.map((item) => (
-            <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
+            <Badge key={item} variant="outline" className="h-auto rounded border-neutral-700 bg-neutral-950/40 px-2 py-1 mono text-[10px] uppercase tracking-wider text-neutral-400">
               <Layers className="w-3 h-3" />
               {item}
-            </span>
+            </Badge>
           ))}
         </div>
       </div>

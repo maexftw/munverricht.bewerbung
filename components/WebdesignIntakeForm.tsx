@@ -3,6 +3,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Check, Mail, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { themeClasses } from './themeClasses';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Progress } from '@/components/ui/progress';
+import { Textarea } from '@/components/ui/textarea';
 
 type ExistingSiteValue = 'none' | 'live' | 'relaunch';
 type ProjectTypeValue = 'landing' | 'multipage' | 'shop' | 'relaunch' | 'unsure';
@@ -67,7 +72,7 @@ const steps = [
 ] as const;
 
 const inputBaseClassName =
-  'w-full rounded-[1rem] border border-slate-300/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,253,0.96))] px-4 py-2.5 text-[1rem] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.94),0_1px_0_rgba(15,23,42,0.02)] outline-none transition-all duration-200 placeholder:text-slate-500 caret-slate-900 focus:border-blue-400 focus:ring-2 focus:ring-blue-200/75 focus:ring-offset-1 focus:ring-offset-[#eef3fb]';
+  'h-auto w-full rounded-[1rem] border border-slate-300/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,250,253,0.96))] px-4 py-2.5 text-[1rem] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.94),0_1px_0_rgba(15,23,42,0.02)] outline-none transition-all duration-200 placeholder:text-slate-500 caret-slate-900 focus:border-blue-400 focus:ring-2 focus:ring-blue-200/75 focus:ring-offset-1 focus:ring-offset-[#eef3fb]';
 
 const textareaClassName = `${inputBaseClassName} min-h-[7.25rem] resize-y leading-7 lg:min-h-[6.5rem]`;
 const optionCardBaseClassName =
@@ -295,13 +300,10 @@ const WebdesignIntakeForm: React.FC = () => {
                 </span>
               </div>
 
-              <div className="h-2 overflow-hidden rounded-full bg-white/65">
-                <motion.div
-                  className="h-full rounded-full bg-[linear-gradient(90deg,rgba(37,99,235,0.88),rgba(14,165,233,0.72))]"
-                  animate={{ width: `${progressValue}%` }}
-                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </div>
+              <Progress
+                value={progressValue}
+                className="h-2 bg-white/65 [&_[data-slot=progress-indicator]]:bg-[linear-gradient(90deg,rgba(37,99,235,0.88),rgba(14,165,233,0.72))]"
+              />
 
               <p className="text-sm font-medium text-slate-600 sm:hidden">
                 Schritt {currentStep + 1} von {steps.length}
@@ -343,10 +345,10 @@ const WebdesignIntakeForm: React.FC = () => {
                 {currentStep === 0 && (
                   <>
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="businessName">
+                      <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="businessName">
                         Unternehmen oder Projektname
-                      </label>
-                      <input
+                      </Label>
+                      <Input
                         id="businessName"
                         type="text"
                         value={formData.businessName}
@@ -358,10 +360,10 @@ const WebdesignIntakeForm: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="companySummary">
+                      <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="companySummary">
                         Was bieten Sie an und was soll auf der Website sofort klar werden?
-                      </label>
-                      <textarea
+                      </Label>
+                      <Textarea
                         id="companySummary"
                         value={formData.companySummary}
                         onChange={(event) => updateField('companySummary', event.target.value)}
@@ -401,10 +403,10 @@ const WebdesignIntakeForm: React.FC = () => {
 
                     {(formData.existingSite === 'live' || formData.existingSite === 'relaunch') && (
                       <div>
-                        <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="existingUrl">
+                        <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="existingUrl">
                           Falls vorhanden: aktuelle Website
-                        </label>
-                        <input
+                        </Label>
+                        <Input
                           id="existingUrl"
                           type="url"
                           value={formData.existingUrl}
@@ -532,10 +534,10 @@ const WebdesignIntakeForm: React.FC = () => {
                     </fieldset>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="styleNotes">
+                      <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="styleNotes">
                         Optional: Gibt es noch wichtige Hinweise?
-                      </label>
-                      <textarea
+                      </Label>
+                      <Textarea
                         id="styleNotes"
                         value={formData.styleNotes}
                         onChange={(event) => updateField('styleNotes', event.target.value)}
@@ -561,10 +563,10 @@ const WebdesignIntakeForm: React.FC = () => {
 
                     <div className="grid gap-3 sm:grid-cols-2">
                       <div>
-                        <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="contactName">
+                        <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="contactName">
                           Ihr Name
-                        </label>
-                        <input
+                        </Label>
+                        <Input
                           id="contactName"
                           type="text"
                           value={formData.contactName}
@@ -576,10 +578,10 @@ const WebdesignIntakeForm: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="email">
+                        <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="email">
                           E-Mail-Adresse
-                        </label>
-                        <input
+                        </Label>
+                        <Input
                           id="email"
                           type="email"
                           value={formData.email}
@@ -592,10 +594,10 @@ const WebdesignIntakeForm: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="phone">
+                      <Label className="mb-2 block text-sm font-semibold text-slate-700" htmlFor="phone">
                         Optional: Telefonnummer
-                      </label>
-                      <input
+                      </Label>
+                      <Input
                         id="phone"
                         type="tel"
                         value={formData.phone}
@@ -622,26 +624,27 @@ const WebdesignIntakeForm: React.FC = () => {
             </AnimatePresence>
 
             <div className="flex flex-col-reverse gap-3 border-t border-blue-100 pt-3 sm:flex-row sm:items-center sm:justify-between">
-              <button
+              <Button
                 type="button"
                 onClick={goBack}
                 disabled={currentStep === 0}
-                className={`${themeClasses.webButtonSecondary} w-full sm:w-auto ${currentStep === 0 ? 'pointer-events-none opacity-45' : ''}`}
+                variant="outline"
+                className={`${themeClasses.webButtonSecondary} h-auto w-full sm:w-auto ${currentStep === 0 ? 'pointer-events-none opacity-45' : ''}`}
               >
                 <ArrowLeft className="h-4 w-4 text-blue-600" />
                 <span className={`${themeClasses.webMeta} font-bold text-slate-800`}>Zurück</span>
-              </button>
+              </Button>
 
               {currentStep < steps.length - 1 ? (
-                <button type="button" onClick={goNext} className={`${themeClasses.webButtonPrimary} w-full sm:w-auto`}>
+                <Button type="button" onClick={goNext} className={`${themeClasses.webButtonPrimary} h-auto w-full sm:w-auto`}>
                   <span className={`${themeClasses.webMeta} font-bold text-white`}>Weiter</span>
                   <ArrowRight className="h-4 w-4 text-white" />
-                </button>
+                </Button>
               ) : (
-                <button type="button" onClick={prepareMail} className={`${themeClasses.webButtonPrimary} w-full sm:w-auto`}>
+                <Button type="button" onClick={prepareMail} className={`${themeClasses.webButtonPrimary} h-auto w-full sm:w-auto`}>
                   <span className={`${themeClasses.webMeta} font-bold text-white`}>Rückmeldung per E-Mail vorbereiten</span>
                   <ArrowRight className="h-4 w-4 text-white" />
-                </button>
+                </Button>
               )}
             </div>
 

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { VSCodeIcon } from './Icons';
+import { Button } from '@/components/ui/button';
 
 type Language = 'de' | 'en';
 
@@ -192,17 +193,22 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {recruiterQuickActions.map((action) => (
-            <a
+            <Button
               key={action.label}
-              href={action.href}
-              target={action.external ? '_blank' : undefined}
-              rel={action.external ? 'noopener noreferrer' : undefined}
-              className="flex items-center justify-center gap-2 rounded-lg border border-neutral-800 bg-neutral-950/70 px-3 py-3 text-sm text-neutral-200 hover:border-blue-500/70 hover:text-white transition-colors"
-              aria-label={`${action.label} ${quickActionLabels[language].open}`}
+              asChild
+              variant="outline"
+              className="h-auto justify-center border-neutral-800 bg-neutral-950/70 px-3 py-3 text-sm text-neutral-200 hover:border-blue-500/70 hover:bg-neutral-950 hover:text-white"
             >
-              <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
-              <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
-            </a>
+              <a
+                href={action.href}
+                target={action.external ? '_blank' : undefined}
+                rel={action.external ? 'noopener noreferrer' : undefined}
+                aria-label={`${action.label} ${quickActionLabels[language].open}`}
+              >
+                <action.icon className="w-4 h-4 text-blue-400" aria-hidden="true" />
+                <span className="mono text-[11px] uppercase tracking-wider">{action.label}</span>
+              </a>
+            </Button>
           ))}
         </div>
       </div>

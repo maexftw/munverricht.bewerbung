@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Menu, Terminal, User, Code, Briefcase, Mail, Sun, Moon } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { useTheme } from './ThemeContext';
+import { Button } from '@/components/ui/button';
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from '@/components/ui/sheet';
 
 type Language = 'de' | 'en';
 
@@ -83,31 +93,86 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         ))}
                     </ul>
 
-                    <button
+                    <Button
                         onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
-                        className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                        variant="outline"
+                        className="h-auto bg-neutral-900 border-neutral-700 px-3 py-2 mono text-xs font-bold uppercase tracking-wider text-neutral-200 hover:border-blue-500 hover:bg-neutral-900 hover:text-white"
                     >
                         {language === 'de' ? 'EN' : 'DE'}
-                    </button>
+                    </Button>
 
-                    <a
-                        href="Maximilian_Unverricht_Resume.html"
-                        className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                    <Button
+                        asChild
+                        variant="outline"
+                        className="h-auto bg-neutral-900 border-neutral-700 px-4 py-2 mono text-xs font-bold uppercase tracking-wider text-neutral-200 hover:border-blue-500 hover:bg-neutral-900 hover:text-white"
                     >
-                        {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
-                    </a>
+                        <a href="Maximilian_Unverricht_Resume.html">
+                            {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
+                        </a>
+                    </Button>
                 </div>
             </motion.nav>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Sheet */}
             <div className="fixed top-4 right-4 z-50 lg:hidden">
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
-                    aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
-                >
-                    {isOpen ? <X /> : <Menu />}
-                </button>
+                <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                    <SheetTrigger asChild>
+                        <Button
+                            variant="outline"
+                            size="icon-lg"
+                            className="bg-neutral-900/90 border-neutral-800 text-neutral-200 shadow-[0_0_24px_rgba(59,130,246,0.12)] backdrop-blur hover:border-blue-500/70 hover:bg-neutral-900 hover:text-white"
+                            aria-label={language === 'de' ? 'Menü öffnen' : 'Open menu'}
+                        >
+                            <Menu className="w-5 h-5" />
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent
+                        side="right"
+                        className="z-[60] w-[min(92vw,24rem)] border-blue-500/20 bg-[#05070d]/98 px-6 py-10 text-white shadow-[0_0_40px_rgba(59,130,246,0.16)] backdrop-blur-xl"
+                    >
+                        <SheetHeader className="px-0 pb-6 pt-0 text-left">
+                            <SheetTitle className="mono text-sm uppercase tracking-[0.24em] text-blue-400">
+                                graphiks<span className="text-white">.de</span>
+                            </SheetTitle>
+                            <SheetDescription className="text-xs leading-relaxed text-neutral-400">
+                                {language === 'de'
+                                    ? 'Schneller Zugriff auf Profil, Projekte, Skills und Kontakt.'
+                                    : 'Fast access to profile, projects, skills, and contact.'}
+                            </SheetDescription>
+                        </SheetHeader>
+
+                        <div className="flex flex-col gap-3">
+                            <Button
+                                onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                                variant="outline"
+                                className="justify-start border-blue-500/20 bg-blue-500/10 mono text-xs uppercase tracking-widest text-blue-200 hover:border-blue-400/60 hover:bg-blue-500/15 hover:text-white"
+                            >
+                                {language === 'de' ? 'Switch to EN' : 'Wechsel zu DE'}
+                            </Button>
+
+                            {navItems[language].map((item) => (
+                                <SheetClose asChild key={item.name}>
+                                    <button
+                                        onClick={() => scrollToSection(item.href)}
+                                        className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-950/80 px-4 py-4 text-left text-lg font-bold uppercase tracking-widest text-white transition-colors hover:border-blue-500/60 hover:text-blue-300"
+                                    >
+                                        <item.icon className="w-5 h-5 text-blue-500" />
+                                        {item.name}
+                                    </button>
+                                </SheetClose>
+                            ))}
+
+                            <SheetClose asChild>
+                                <a
+                                    href="Maximilian_Unverricht_Resume.html"
+                                    className="mt-4 inline-flex items-center justify-center rounded-xl border border-blue-500/30 bg-blue-500/10 px-5 py-4 mono text-sm font-bold uppercase tracking-wider text-blue-100 transition-colors hover:border-blue-400/70 hover:text-white"
+                                >
+                                    {language === 'de' ? 'Lebenslauf herunterladen' : 'Download resume'}
+                                </a>
+                            </SheetClose>
+                        </div>
+                    </SheetContent>
+                </Sheet>
             </div>
 
             {/* Mobile Theme Toggle */}
@@ -121,42 +186,6 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                 </button>
             </div>
 
-            {/* Mobile Navigation Overlay */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: '100%' }}
-                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="fixed inset-0 z-40 bg-[#050505] lg:hidden flex flex-col justify-center items-center space-y-8"
-                    >
-                        <button
-                            onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
-                            className="text-sm font-bold uppercase tracking-widest text-blue-400"
-                        >
-                            {language === 'de' ? 'Switch to EN' : 'Wechsel zu DE'}
-                        </button>
-
-                        {navItems[language].map((item) => (
-                            <button
-                                key={item.name}
-                                onClick={() => scrollToSection(item.href)}
-                                className="text-2xl font-bold uppercase tracking-widest text-white hover:text-blue-500 transition-colors flex items-center gap-4"
-                            >
-                                <item.icon className="w-6 h-6 text-blue-500" />
-                                {item.name}
-                            </button>
-                        ))}
-                        <a
-                            href="Maximilian_Unverricht_Resume.html"
-                            className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
-                        >
-                            {language === 'de' ? 'Lebenslauf herunterladen' : 'Download resume'}
-                        </a>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </>
     );
 };
