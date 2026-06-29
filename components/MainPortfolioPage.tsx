@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import TerminalBoot from './TerminalBoot';
 import Hero from './Hero';
 import Evolution from './Evolution';
+import ShowcaseVerticalAgent from './ShowcaseVerticalAgent';
 import ShowcaseA from './ShowcaseA';
 import ShowcaseB from './ShowcaseB';
 import SkillMonitor from './SkillMonitor';
@@ -23,7 +24,7 @@ type MainPortfolioPageProps = {
 const defaultMeta = {
   title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+    'Portfolio von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Web-Praxis, React/TypeScript und lokalen LLM-Workflows für Prototyping, Content und Web Delivery.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -46,12 +47,12 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
       ? {
           title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
           description:
-            'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+            'Portfolio von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Web-Praxis, React/TypeScript und lokalen LLM-Workflows für Prototyping, Content und Web Delivery.',
         }
       : {
           title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
           description:
-            'Recruiter profile for Maximilian Unverricht: frontend developer with 12+ years of hands-on experience in web design, React, TypeScript, and local LLM workflows.',
+            'Portfolio for Maximilian Unverricht: frontend developer with 12+ years of web experience, React/TypeScript, and local LLM workflows for prototyping, content, and web delivery.',
         };
 
   useEffect(() => {
@@ -99,6 +100,7 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
           <main id="main-content" className="relative z-10 w-full max-w-6xl mx-auto space-y-24 sm:space-y-28 lg:space-y-32 py-10 sm:py-12 pb-28 sm:pb-24 outline-none" tabIndex={-1}>
             <Hero language={language} />
             <Evolution language={language} />
+            <ShowcaseVerticalAgent language={language} />
             <ShowcaseA language={language} />
             <ShowcaseB language={language} />
             <Projects language={language} />

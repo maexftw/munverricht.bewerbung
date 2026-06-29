@@ -14,13 +14,13 @@ const phaseContent = {
     {
       id: 'PHASE_01',
       title: 'Entwurf & erster Code',
-      text: 'Aus Briefing, Referenzen und Seitenstruktur entsteht ein erster umsetzbarer Stand für Layouts, Komponenten und Content-Blöcke.',
+      text: 'Aus Briefing, Referenzen und Seitenstruktur entsteht ein erster Stand für Layout, Komponenten und Content.',
       tone: 'blue' as const,
     },
     {
       id: 'PHASE_02',
       title: 'Review & Verfeinerung',
-      text: 'Danach folgen manuelle Überarbeitung in der IDE, inhaltliche Schärfung, technische Korrekturen und saubere Übergänge für den Live-Betrieb.',
+      text: 'Danach folgen manuelle Überarbeitung in der IDE, schärfere Texte, technische Korrekturen und saubere Übergänge für den Live-Betrieb.',
       tone: 'blue' as const,
     },
     {
@@ -46,7 +46,7 @@ const phaseContent = {
     {
       id: 'PHASE_03',
       title: 'Deployment & client editing',
-      text: 'After deployment through Cloudflare, an editing layer like TinaCMS can be added when ongoing content updates should happen without code changes.',
+      text: 'After deployment through Cloudflare, an editing layer like TinaCMS can be added when ongoing content updates should not require code changes.',
       tone: 'green' as const,
     },
   ],
@@ -62,8 +62,8 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Kein Buzzword-Case, sondern ein konkreter Ablauf: schnell einen ersten Stand erzeugen, danach manuell verbessern und am Ende sauber für Kunden oder Redakteure übergeben.'
-            : 'Not a buzzword case but a practical sequence: get to a first version quickly, refine it manually, then hand it over cleanly for clients or editors.'}
+            ? 'Ein praktischer Ablauf für Webprojekte: schnell zu einem ersten Stand kommen, dann in der IDE sauber nacharbeiten und am Ende so übergeben, dass Kunden oder Redakteure weiterarbeiten können.'
+            : 'A practical sequence for web projects: get to a first version quickly, refine it properly in the IDE, then hand it over so clients or editors can keep working.'}
         </p>
       </div>
 
@@ -158,8 +158,8 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
           </div>
           <p className="text-neutral-200 text-sm leading-relaxed max-w-[72ch]">
             {language === 'de'
-              ? 'Für den Shop wurde keine Standardvorlage übernommen, sondern eine eigene Commerce-Strecke aufgebaut. Produkte, Warenkorb und Checkout folgen den realen Anforderungen des Projekts; Stripe übernimmt die Zahlungsabwicklung.'
-              : 'The shop does not rely on a standard template. A custom commerce flow was built around the actual project requirements, with Stripe handling payments.'}
+              ? 'Für den Shop wurde keine Standardvorlage übernommen. Produkte, Warenkorb und Checkout folgen den realen Anforderungen des Projekts; Stripe übernimmt die Zahlungsabwicklung.'
+              : 'The shop does not rely on a standard template. Products, cart, and checkout follow the actual project requirements, with Stripe handling payments.'}
           </p>
         </div>
 

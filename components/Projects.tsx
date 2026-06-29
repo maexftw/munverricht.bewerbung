@@ -12,7 +12,7 @@ type ProjectsProps = {
 
 type ProjectItem = {
   title: string;
-  url: string;
+  url?: string;
   problem: string;
   solution: string;
   result: string;
@@ -138,6 +138,71 @@ const projects: Record<Language, ProjectItem[]> = {
   ],
 };
 
+const projectCardClassName = 'group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden';
+
+type ProjectCardProps = {
+  project: ProjectItem;
+  index: number;
+  language: Language;
+};
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project: p, index: i, language }) => {
+  const content = (
+    <>
+      <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
+      {p.url && (
+        <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
+          <ExternalLink className="w-5 h-5" />
+        </div>
+      )}
+
+      <div className="space-y-4 relative z-10">
+        <div className="flex items-center gap-3 mb-2">
+          <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
+          <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
+        </div>
+
+        <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
+          <p><span className="text-blue-400">Problem:</span> {p.problem}</p>
+          <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
+          <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
+        </div>
+
+        <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
+          {p.stack.map((item) => (
+            <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
+              <Layers className="w-3 h-3" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+
+  const motionProps = {
+    initial: { opacity: 0, scale: 0.95 },
+    whileInView: { opacity: 1, scale: 1 },
+    transition: { delay: i * 0.05 },
+    className: projectCardClassName,
+  };
+
+  if (!p.url) {
+    return <motion.article {...motionProps}>{content}</motion.article>;
+  }
+
+  return (
+    <motion.a
+      href={p.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...motionProps}
+    >
+      {content}
+    </motion.a>
+  );
+};
+
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
     <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
@@ -157,43 +222,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects[language].map((p, i) => (
-          <motion.a
-            key={i}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
-          >
-            <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
-              <ExternalLink className="w-5 h-5" />
-            </div>
-
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
-                <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
-              </div>
-
-              <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
-              </div>
-
-              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
-                {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
-                    <Layers className="w-3 h-3" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.a>
+          <ProjectCard key={p.title} project={p} index={i} language={language} />
         ))}
       </div>
     </section>

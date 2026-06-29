@@ -25,8 +25,8 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Konkretes Beispiel für die Art von lokaler LLM-Arbeit, auf die ich mich spezialisiert habe: Analyse, Übersetzung und Prüfung technischer Dokumente in einem bewusst lokalen Workflow. Entwickelt für sensible Inhalte, bei denen Verarbeitung, Kontrolle und Iteration nah an der eigentlichen Arbeitsumgebung bleiben sollen.'
-            : 'A concrete example of the kind of local LLM work I specialize in: analysing, translating, and checking technical documents inside a deliberately local workflow. Built for sensitive material where processing, control, and iteration are meant to stay close to the actual working environment.'}
+            ? 'Ein Beispiel für lokale LLM-Arbeit mit echtem Nutzen: technische PDFs einlesen, übersetzen, prüfen und als strukturierte Daten weitergeben. Der Workflow bleibt lokal, damit sensible Inhalte und Review-Schritte kontrollierbar bleiben.'
+            : 'A concrete local LLM workflow: read technical PDFs, translate them, check them, and pass the result on as structured data. The workflow stays local so sensitive material and review steps remain controlled.'}
         </p>
       </div>
 
@@ -92,8 +92,8 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Docling und PyMuPDF lesen Tabellen, Textblöcke und Werte aus komplexen PDFs aus und bereiten sie für die weitere Verarbeitung vor.'
-                  : 'Docling and PyMuPDF extract tables, text blocks, and values from complex PDFs and prepare them for the next processing step.'}
+                  ? 'Docling und PyMuPDF ziehen Tabellen, Textblöcke und Werte aus komplexen PDFs. Danach liegen die Inhalte so vor, dass Modell und Skript weiterarbeiten können.'
+                  : 'Docling and PyMuPDF pull tables, text blocks, and values from complex PDFs. The content is then ready for a model or script to process further.'}
               </p>
             </div>
             <div className="space-y-2">
@@ -102,8 +102,8 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Die Übersetzung läuft nicht blind Wort für Wort, sondern mit Dokumentkontext, damit Fachbegriffe und technische Zusammenhänge verständlich bleiben.'
-                  : 'The translation does not run word by word in isolation. It uses document context so technical terms and relationships stay understandable.'}
+                  ? 'Die Übersetzung nutzt Dokumentkontext. Fachbegriffe bleiben nachvollziehbar, statt Satz für Satz aus dem Zusammenhang zu fallen.'
+                  : 'The translation uses document context. Technical terms stay understandable instead of being translated sentence by sentence in isolation.'}
               </p>
             </div>
             <div className="space-y-2">
@@ -112,8 +112,8 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Eine Python-Validierung prüft Zahlenwerte und formale Muster gegen das Ausgangsdokument. Das reduziert Fehler und macht Abweichungen sichtbar.'
-                  : 'A Python validation layer checks numeric values and formal patterns against the source document. That helps reduce errors and makes mismatches visible.'}
+                  ? 'Eine Python-Prüfung vergleicht Zahlenwerte und formale Muster mit dem Ausgangsdokument. So werden Abweichungen sichtbar, bevor das Ergebnis weitergenutzt wird.'
+                  : 'A Python check compares numeric values and formal patterns with the source document. Mismatches become visible before the output is used further.'}
               </p>
             </div>
           </div>

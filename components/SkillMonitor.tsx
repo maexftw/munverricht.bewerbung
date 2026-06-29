@@ -37,7 +37,7 @@ const skills = [
   },
   {
     category: { de: 'Lokale LLM-Workflows', en: 'Local LLM workflows' },
-    items: ['Local models', 'VS Code agents', 'Roo Code', 'Cline', 'Structured generation', 'Python validation scripts'],
+    items: ['Local models', 'VS Code agents', 'Roo Code', 'Cline', 'Vertical agent prototypes', 'Python validation scripts'],
     icon: Cpu,
     level: 91,
     accent: 'cyan',
@@ -102,8 +102,8 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
         <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Keine Buzzword-Matrix, sondern die Tools und Arbeitsbereiche, mit denen ich aktuell wirklich arbeite. Der Schwerpunkt liegt klar auf VS Code als Arbeitsumgebung, lokalen LLM-Modellen für agentische Coding-Workflows und der Umsetzung bis zum nutzbaren Ergebnis; Plattformen sind vorhanden, aber nicht der Kern der Positionierung.'
-            : 'This is not a buzzword matrix. It shows the tools and work areas I actually use right now. The center of gravity is clearly VS Code as the working environment, local LLM models for agentic coding workflows, and implementation through to usable output; platform exposure exists, but it is not the core positioning.'}
+            ? 'Tools und Arbeitsbereiche, die ich aktuell wirklich nutze. Der Schwerpunkt liegt auf VS Code, React/Vite, lokalen LLMs und agentischen Workflows, die am Ende in Code, Content oder nutzbaren Prototypen landen.'
+            : 'Tools and work areas I actually use right now. The center of gravity is VS Code, React/Vite, local LLMs, and agentic workflows that end in code, content, or usable prototypes.'}
         </p>
       </div>
 
