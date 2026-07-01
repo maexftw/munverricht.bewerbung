@@ -56,14 +56,14 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
   return (
     <section id="showcase-b" className="space-y-16 py-12 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-4 lg:items-end lg:text-right">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// WORKFLOW_USE_CASE_02" /></h3>
+        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true"><ASCIIText text="// DELIVERY_EVIDENCE_02" /></h3>
         <h2 className="max-w-full px-4 text-xl font-bold uppercase leading-tight tracking-[0.02em] mono sm:text-3xl lg:px-0 lg:text-4xl lg:tracking-[0.05em]">
           <ASCIIText text="Agency workflow: draft, refine, deploy" noWrap={false} />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Kein Buzzword-Case, sondern ein konkreter Ablauf: schnell einen ersten Stand erzeugen, danach manuell verbessern und am Ende sauber für Kunden oder Redakteure übergeben.'
-            : 'Not a buzzword case but a practical sequence: get to a first version quickly, refine it manually, then hand it over cleanly for clients or editors.'}
+            ? 'Kein Buzzword-Case, sondern ein konkreter Ablauf: schnell einen ersten Stand erzeugen, manuell verbessern, sauber übergeben und die nächsten Schritte nachvollziehbar halten.'
+            : 'Not a buzzword case but a practical sequence: get to a first version quickly, refine it manually, hand it over cleanly, and keep the next steps traceable.'}
         </p>
       </div>
 
@@ -144,7 +144,7 @@ const ShowcaseB: React.FC<ShowcaseBProps> = ({ language }) => {
         <div className="absolute top-0 right-0 h-52 w-52 bg-blue-500/10 blur-3xl rounded-full" aria-hidden="true" />
 
         <div className="relative space-y-3">
-          <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-500">// CASE_03</p>
+          <p className="mono text-[10px] uppercase tracking-[0.24em] text-blue-500">// EVIDENCE_CASE_03</p>
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] mono"><ASCIIText text="Kaffee Faensen Commerce Engine" /></h3>
             <a

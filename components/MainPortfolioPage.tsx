@@ -24,7 +24,7 @@ type MainPortfolioPageProps = {
 const defaultMeta = {
   title: 'Maximilian Unverricht | AI Workflow & Web Delivery',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: AI Workflow & Web Delivery mit React, TypeScript, lokalen LLM-Workflows und dem ASL Ademco Vertical Agent als Proof-of-Work.',
+    'Recruiter-Profil von Maximilian Unverricht: AI Workflow & Web Delivery mit React, TypeScript, lokalen LLM-Workflows und dem ASL Ademco B2B Fachassistenten als Proof-of-Work.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -47,12 +47,12 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
       ? {
           title: 'Maximilian Unverricht | AI Workflow & Web Delivery',
           description:
-            'Recruiter-Profil von Maximilian Unverricht: AI Workflow & Web Delivery mit React, TypeScript, lokalen LLM-Workflows und dem ASL Ademco Vertical Agent als Proof-of-Work.',
+            'Recruiter-Profil von Maximilian Unverricht: AI Workflow & Web Delivery mit React, TypeScript, lokalen LLM-Workflows und dem ASL Ademco B2B Fachassistenten als Proof-of-Work.',
         }
       : {
           title: 'Maximilian Unverricht | AI Workflow & Web Delivery',
           description:
-            'Recruiter profile for Maximilian Unverricht: AI Workflow & Web Delivery with React, TypeScript, local LLM workflows, and the ASL Ademco Vertical Agent as proof of work.',
+            'Recruiter profile for Maximilian Unverricht: AI Workflow & Web Delivery with React, TypeScript, local LLM workflows, and the ASL Ademco B2B assistant as proof of work.',
         };
 
   useEffect(() => {

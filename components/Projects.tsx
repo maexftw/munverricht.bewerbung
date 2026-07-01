@@ -22,12 +22,12 @@ type ProjectItem = {
 const projects: Record<Language, ProjectItem[]> = {
   de: [
     {
-      title: 'ASL Ademco Vertical Agent',
+      title: 'ASL Ademco B2B Fachassistent',
       url: '/case/asl-ademco-agent',
-      problem: 'Security-Tech-Beratung braucht mehr Kontext als ein normaler Shop-Chat liefern darf.',
-      solution: 'Partnerfähige AI-Demo mit ASL-Modus, Produktkorridoren, Fallbacks und Evidence-Mapping für Tests/Evals.',
-      result: 'Ein Proof-of-Work für AI Product Thinking, Frontend, RAG-/Eval-Struktur und Cloudflare-orientierte Delivery.',
-      stack: ['AI Workflow', 'React', 'RAG/Evals', 'Cloudflare'],
+      problem: 'Fachpartner brauchen schnelle Orientierung zu Produktsuche, Spezifikationen, Zubehör und Projektvorschlägen.',
+      solution: 'React/Vite-Studio mit serverseitiger Agent-API, Produktdatenbank, LLM-Integration, Guardrails und B2B-Workflows.',
+      result: 'Ein nachvollziehbarer AI-Web-Prototyp mit dokumentierter QA, ohne öffentliche Live-Grün- oder 100%-Claims.',
+      stack: ['React/Vite Studio', 'Agent API', 'Guardrails', 'QA dokumentiert'],
     },
     {
       title: 'TriXstar Portfolio',
@@ -88,12 +88,12 @@ const projects: Record<Language, ProjectItem[]> = {
   ],
   en: [
     {
-      title: 'ASL Ademco Vertical Agent',
+      title: 'ASL Ademco B2B Assistant',
       url: '/case/asl-ademco-agent',
-      problem: 'Security-tech consultation needs more context than a normal shop chat should pretend to provide.',
-      solution: 'Partner-facing AI demo with ASL mode, product corridors, fallbacks, and evidence mapping for tests/evals.',
-      result: 'A proof-of-work for AI product thinking, frontend delivery, RAG/eval structure, and Cloudflare-oriented delivery.',
-      stack: ['AI Workflow', 'React', 'RAG/Evals', 'Cloudflare'],
+      problem: 'Trade partners need fast orientation for product search, specifications, accessories, and project suggestions.',
+      solution: 'React/Vite studio with a server-side agent API, product database, LLM integration, guardrails, and B2B workflows.',
+      result: 'A traceable AI web prototype with documented QA, without public live-green or 100% claims.',
+      stack: ['React/Vite Studio', 'Agent API', 'Guardrails', 'QA documented'],
     },
     {
       title: 'TriXstar Portfolio',

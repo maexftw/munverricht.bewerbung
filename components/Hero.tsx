@@ -113,8 +113,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         style={{ transform: 'translateY(10px)', opacity: 0 }}
       >
         {language === 'de'
-          ? 'Ich baue AI-gestützte Web-Workflows vom Konzept bis zur testbaren Preview. Mein stärkster Proof ist der ASL Ademco Vertical Agent: ein Security-Tech-Use-Case, der Frontend, Domain-Framing, lokale LLM-Workflows, Evals und Cloudflare-Delivery zusammenführt.'
-          : 'I build AI-assisted web workflows from concept to testable preview. My strongest proof is the ASL Ademco Vertical Agent: a security-tech use case combining frontend work, domain framing, local LLM workflows, evals, and Cloudflare delivery.'}
+          ? 'Ich baue AI-gestützte Web-Workflows vom Konzept bis zur testbaren Preview. Mein stärkster Proof ist der ASL Ademco B2B Fachassistent: Produktsuche, Spezifikationsprüfung, Zubehör- und Projektvorschläge für Fachpartner, umgesetzt als nachvollziehbarer Web-Prototyp.'
+          : 'I build AI-assisted web workflows from concept to testable preview. My strongest proof is the ASL Ademco B2B assistant: product search, specification checks, accessories, and project suggestions for trade partners, shaped into a traceable web prototype.'}
       </p>
 
       <div className="w-full max-w-4xl rounded-xl border border-neutral-800/80 bg-[#0f1118]/80 px-5 py-4">

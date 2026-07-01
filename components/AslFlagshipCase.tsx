@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Cloud, GitBranch, Layers, Search, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import AslEvidenceFlow from './AslEvidenceFlow';
 import PixelCanvas from './PixelCanvas';
 
 type Language = 'de' | 'en';
@@ -13,41 +14,43 @@ type AslFlagshipCaseProps = {
 const copy = {
   de: {
     eyebrow: '// FLAGSHIP_CASE',
-    title: 'ASL Ademco Vertical Agent',
+    title: 'ASL Ademco B2B Fachassistent',
+    titleLines: ['ASL Ademco', 'B2B', 'Fachassistent'],
     subtitle:
-      'Eine partnerfähige AI-Demo für Security-Tech-Fragen: Anfrage einordnen, Produktkorridore zeigen, Fallbacks absichern und alles browser- und buildbar halten.',
+      'B2B-Fachassistent für ASL Ademco: Produktsuche, Spezifikationsprüfung, Zubehör- und Projektvorschläge für Fachpartner.',
     problemLabel: 'Problem',
     problem:
-      'Sicherheitsprodukte sind beratungsintensiv. Partner brauchen schnelle Orientierung zu Kompatibilität, Einsatzbereich und nächsten Prüfpunkten, ohne dass ein normaler Endkunden-Shop falsche Sicherheit vorgibt.',
+      'Fachpartner brauchen schnelle Orientierung in Produktdaten, Spezifikationen und Zubehör, ohne dass ein normaler Shop-Chat zu viel behauptet.',
     solutionLabel: 'Lösung',
     solution:
-      'Separate ASL-Demo-Strecke mit Partner-Modus, sicheren Antwortkorridoren, Katalog-/RAG-Kontext, UI-Fallbacks und Eval-/Test-Hooks.',
+      'React/Vite-Studio mit serverseitiger Agent-API, Produktdatenbank, LLM-Integration, Guardrails und klaren B2B-Workflows.',
     resultLabel: 'Ergebnis',
     result:
-      'Ein prüfbarer Produktprototyp, der zeigt, wie ich AI-Workflows in echte Web-Deliverables übersetze: Frontend, Domain-Framing, QA und Cloudflare-Delivery.',
+      'Ein nachvollziehbarer Produktprototyp, der AI-Workflow, Frontend, Domain-Framing und dokumentierte QA in ein nutzbares Web-Deliverable übersetzt.',
     cta: 'Case ansehen',
-    proof: ['Partner Mode', 'Catalog/RAG', 'Eval Hooks', 'Cloudflare', 'Responsive QA'],
+    proof: ['React/Vite Studio', 'Pages Functions API', 'Produktdatenbank', 'LLM-Integration', 'Guardrails', 'Mobile UI', 'QA dokumentiert'],
   },
   en: {
     eyebrow: '// FLAGSHIP_CASE',
-    title: 'ASL Ademco Vertical Agent',
+    title: 'ASL Ademco B2B Assistant',
+    titleLines: ['ASL Ademco', 'B2B', 'Assistant'],
     subtitle:
-      'A partner-facing AI demo for security-tech questions: classify the request, show product corridors, guard fallbacks, and keep the result browser- and build-verifiable.',
+      'B2B assistant for ASL Ademco: product search, specification checks, accessories, and project suggestions for trade partners.',
     problemLabel: 'Problem',
     problem:
-      'Security products need context-heavy consultation. Partners need quick orientation around compatibility, use case, and next checks without a normal end-customer shop pretending to know too much.',
+      'Trade partners need fast orientation across product data, specifications, and accessories without a normal shop chat overclaiming.',
     solutionLabel: 'Solution',
     solution:
-      'A separate ASL demo surface with partner mode, safe answer corridors, catalog/RAG context, UI fallbacks, and eval/test hooks.',
+      'React/Vite studio with a server-side agent API, product database, LLM integration, guardrails, and focused B2B workflows.',
     resultLabel: 'Result',
     result:
-      'A verifiable product prototype showing how I turn AI workflows into real web deliverables: frontend, domain framing, QA, and Cloudflare delivery.',
+      'A traceable product prototype showing how AI workflow, frontend work, domain framing, and documented QA become a usable web deliverable.',
     cta: 'View case',
-    proof: ['Partner Mode', 'Catalog/RAG', 'Eval Hooks', 'Cloudflare', 'Responsive QA'],
+    proof: ['React/Vite Studio', 'Pages Functions API', 'Product database', 'LLM integration', 'Guardrails', 'Mobile UI', 'QA documented'],
   },
 } as const;
 
-const proofIcons = [ShieldCheck, Search, GitBranch, Cloud, CheckCircle2];
+const proofIcons = [ShieldCheck, Cloud, Layers, GitBranch, CheckCircle2, Search, CheckCircle2];
 
 const AslFlagshipCase: React.FC<AslFlagshipCaseProps> = ({ language }) => {
   const t = copy[language];
@@ -73,8 +76,12 @@ const AslFlagshipCase: React.FC<AslFlagshipCaseProps> = ({ language }) => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="max-w-[10ch] text-[2.6rem] font-bold uppercase leading-[0.95] tracking-[0.02em] text-white sm:text-5xl lg:text-6xl">
-                {t.title}
+              <h2 aria-label={t.title} className="max-w-full text-[2.25rem] font-bold uppercase leading-[0.96] tracking-normal text-white sm:text-5xl lg:text-6xl">
+                {t.titleLines.map((line) => (
+                  <span key={line} className="block whitespace-nowrap">
+                    {line}
+                  </span>
+                ))}
               </h2>
               <p className="max-w-[58ch] text-base font-medium leading-8 text-blue-50/84 sm:text-lg">
                 {t.subtitle}
@@ -103,6 +110,7 @@ const AslFlagshipCase: React.FC<AslFlagshipCaseProps> = ({ language }) => {
           </div>
 
           <div className="grid gap-4">
+            <AslEvidenceFlow language={language} compact />
             {[
               { label: t.problemLabel, body: t.problem },
               { label: t.solutionLabel, body: t.solution },

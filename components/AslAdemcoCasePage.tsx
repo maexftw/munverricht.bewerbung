@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { ArrowLeft, ArrowRight, CheckCircle2, Cloud, ExternalLink, GitBranch, Layers, Search, ShieldCheck, Terminal } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
 import ASCIIText from './ASCIIText';
+import AslEvidenceFlow from './AslEvidenceFlow';
 import PixelCanvas from './PixelCanvas';
 import { ThemeProvider } from './ThemeContext';
 import { themeClasses } from './themeClasses';
@@ -17,39 +18,37 @@ const copy = {
     back: 'Zurück',
     languageToggle: 'EN',
     eyebrow: 'CASE STUDY // AI WORKFLOW & WEB DELIVERY',
-    title: 'ASL Ademco Vertical Agent',
+    title: 'ASL Ademco B2B Fachassistent',
+    titleLines: ['ASL Ademco', 'B2B', 'Fachassistent'],
     subtitle:
-      'Partnerfähige AI-Demo für Security-Tech-Fragen: Fragen einordnen, Produktkorridore zeigen, Fallbacks absichern und den Prototyp test- und previewfähig halten.',
+      'B2B-Fachassistent für ASL Ademco: Produktsuche, Spezifikationsprüfung, Zubehör- und Projektvorschläge für Fachpartner.',
     intro:
-      'Dieser Case zeigt nicht nur eine Oberfläche. Er zeigt die ganze Arbeitsstrecke: aus einer beratungsintensiven Domäne eine sichere Demo formulieren, UI bauen, Antwortgrenzen definieren, Tests/Evals vorbereiten und Cloudflare-Delivery mitdenken.',
-    roles: ['Product/UX', 'Frontend', 'AI Workflow', 'Catalog/RAG', 'Eval/QA', 'Cloudflare'],
+      'Dieser Case zeigt, wie aus einer beratungsintensiven B2B-Domäne ein nachvollziehbarer Web-Prototyp wird: Frontend-Studio, serverseitige Agent-API, Produktdaten, LLM-Integration, Guardrails, mobile Bedienbarkeit und dokumentierte QA.',
+    roles: ['React/Vite Studio', 'Pages Functions API', 'Produktdatenbank', 'LLM-Integration', 'Guardrails', 'QA dokumentiert'],
     sections: [
       {
         title: 'Ausgangslage',
         body:
-          'ASL-/Ademco- und Sicherheitstechnik-Fragen sind selten einfache Produktsuchen. Partner müssen wissen, welche Bestandsdaten, Kompatibilitäten und Einsatzbereiche relevant sind. Ein normaler Shop-Chat würde hier zu schnell falsche Sicherheit vermitteln.',
+          'ASL-Ademco-Fragen sind selten einfache Produktsuchen. Fachpartner müssen Spezifikationen, Zubehör, Projektkontext und Einsatzbereiche schnell einordnen, ohne dass ein Chat falsche Sicherheit vorgibt.',
       },
       {
         title: 'Was gebaut wurde',
         body:
-          'Eine separate ASL-Demo-Strecke mit Partner-Modus, vordefinierten Einstiegsprompts, sicheren Antwortkorridoren, Katalog-/Produktbezügen und Fallbacks für ungeeignete Fragen. Die Demo trennt bewusst Partnerberatung von Endkunden-Shop-Verhalten.',
+          'Ein React/Vite-Studio mit serverseitiger Agent-API, Produktdatenbank, LLM-Route, fachlichem Out-of-Scope-Guard, mobilen Panels, Empty States und B2B-Vorlagen für Errichter.',
       },
       {
         title: 'Was der Case beweist',
         body:
-          'Ich kann AI nicht nur als Chatfenster einbauen. Ich kann Domänenwissen in Produktlogik übersetzen, UI-Zustände absichern, technische Prüfpfade vorbereiten und das Ergebnis so strukturieren, dass Recruiter oder technische Teams es nachvollziehen können.',
+          'Ich kann AI nicht nur als Chatfenster einbauen. Ich kann Domänenlogik, UI-Zustände, Datenfluss, Guardrails und Handoff-Dokumentation so strukturieren, dass Recruiter oder technische Teams den Arbeitsweg nachvollziehen können.',
       },
     ],
-    flowTitle: 'Workflow',
-    flow: ['Partnerfrage', 'ASL Gate', 'Katalog/RAG Kontext', 'Antwortkorridor', 'Fallback/Eval'],
     evidenceTitle: 'Evidence Mapping',
     evidenceIntro:
-      'Die öffentlichen Claims bleiben bewusst vorsichtig: vorhandene Projektbelege werden getrennt von Checks, die im aktuellen Workspace neu laufen müssen.',
+      'Die öffentlichen Claims bleiben bewusst vorsichtig: Handoff-Belege werden von Checks getrennt, die vor einem Public-Green-Claim neu laufen müssten.',
     evidence: [
-      { label: 'Existing evidence', item: 'Standalone `/asl-demo/` route documented in ASL walkthrough report.' },
-      { label: 'Existing evidence', item: 'Partner-mode, chat-gate, RAG/eval and deployment test entry points exist in the ASL project.' },
-      { label: 'Needs rerun', item: '`npm run test:asl-demo`, `test:asl-eval`, `test:deployment`, `test:rag`, `build:pages` before public green status.' },
-      { label: 'Not claimed', item: 'No revenue, adoption, live-production or customer-approval metrics without explicit current evidence.' },
+      { label: 'Handoff-dokumentiert', item: 'B2B-Fachassistent für Produktsuche, Spezifikationsprüfung, Zubehör und Projektvorschläge.' },
+      { label: 'Vor Public-Green-Claim neu prüfen', item: 'Build-, Regression-, Stress- und Accessibility-Prüfungen nicht als aktuellen Live-Status behaupten.' },
+      { label: 'Keine Secrets / keine internen Admin-Details', item: 'Keine Tokens, lokalen Pfade, Datenbanknamen, Admin-Kommandos oder operative Log-Inhalte veröffentlichen.' },
     ],
     linksTitle: 'Repo-visible source of truth',
     designDoc: 'DESIGN.md',
@@ -61,39 +60,37 @@ const copy = {
     back: 'Back',
     languageToggle: 'DE',
     eyebrow: 'CASE STUDY // AI WORKFLOW & WEB DELIVERY',
-    title: 'ASL Ademco Vertical Agent',
+    title: 'ASL Ademco B2B Assistant',
+    titleLines: ['ASL Ademco', 'B2B', 'Assistant'],
     subtitle:
-      'Partner-facing AI demo for security-tech questions: classify requests, show product corridors, guard fallbacks, and keep the prototype test- and preview-ready.',
+      'B2B assistant for ASL Ademco: product search, specification checks, accessories, and project suggestions for trade partners.',
     intro:
-      'This case is not only a UI. It shows the whole delivery path: shape a consultation-heavy domain into a safe demo, build the interface, define answer boundaries, prepare tests/evals, and keep Cloudflare delivery in mind.',
-    roles: ['Product/UX', 'Frontend', 'AI Workflow', 'Catalog/RAG', 'Eval/QA', 'Cloudflare'],
+      'This case shows how a consultation-heavy B2B domain becomes a traceable web prototype: frontend studio, server-side agent API, product data, LLM integration, guardrails, mobile usability, and documented QA.',
+    roles: ['React/Vite Studio', 'Pages Functions API', 'Product database', 'LLM integration', 'Guardrails', 'QA documented'],
     sections: [
       {
         title: 'Starting point',
         body:
-          'ASL/Ademco and security-technology questions are rarely simple product searches. Partners need to know which existing systems, compatibility constraints, and use cases matter. A normal shop chat would create false confidence too quickly.',
+          'ASL Ademco questions are rarely simple product searches. Trade partners need to classify specifications, accessories, project context, and use cases quickly without a chat creating false confidence.',
       },
       {
         title: 'What was built',
         body:
-          'A separate ASL demo surface with partner mode, predefined starter prompts, safe answer corridors, catalog/product references, and fallbacks for unsuitable questions. The demo intentionally separates partner consultation from end-customer shop behavior.',
+          'A React/Vite studio with a server-side agent API, product database, LLM route, domain out-of-scope guard, mobile panels, empty states, and B2B templates for installers.',
       },
       {
         title: 'What the case proves',
         body:
-          'I can do more than embed a chat window. I can turn domain knowledge into product logic, guard UI states, prepare verification paths, and structure the result so recruiters or technical teams can follow it.',
+          'I can do more than embed a chat window. I can structure domain logic, UI states, data flow, guardrails, and handoff documentation so recruiters or technical teams can follow the work.',
       },
     ],
-    flowTitle: 'Workflow',
-    flow: ['Partner question', 'ASL gate', 'Catalog/RAG context', 'Answer corridor', 'Fallback/Eval'],
     evidenceTitle: 'Evidence Mapping',
     evidenceIntro:
-      'Public claims stay deliberately careful: existing project evidence is separated from checks that must be rerun in the current workspace.',
+      'Public claims stay deliberately careful: handoff evidence is separated from checks that would need a fresh run before any public green-status claim.',
     evidence: [
-      { label: 'Existing evidence', item: 'Standalone `/asl-demo/` route documented in ASL walkthrough report.' },
-      { label: 'Existing evidence', item: 'Partner-mode, chat-gate, RAG/eval and deployment test entry points exist in the ASL project.' },
-      { label: 'Needs rerun', item: '`npm run test:asl-demo`, `test:asl-eval`, `test:deployment`, `test:rag`, `build:pages` before public green status.' },
-      { label: 'Not claimed', item: 'No revenue, adoption, live-production or customer-approval metrics without explicit current evidence.' },
+      { label: 'Handoff documented', item: 'B2B assistant for product search, specification checks, accessories, and project suggestions.' },
+      { label: 'Rerun before public green claim', item: 'Build, regression, stress, and accessibility checks are not claimed as current live status.' },
+      { label: 'No secrets / no internal admin details', item: 'No tokens, local paths, database names, admin commands, or operational log contents are published.' },
     ],
     linksTitle: 'Repo-visible source of truth',
     designDoc: 'DESIGN.md',
@@ -102,8 +99,6 @@ const copy = {
     ctaMail: 'Get in touch',
   },
 } as const;
-
-const flowIcons = [Search, ShieldCheck, Layers, GitBranch, CheckCircle2];
 
 const AslAdemcoCasePage: React.FC<AslAdemcoCasePageProps> = ({ language, onLanguageChange }) => {
   const t = copy[language];
@@ -163,8 +158,12 @@ const AslAdemcoCasePage: React.FC<AslAdemcoCasePageProps> = ({ language, onLangu
               <p className="mono text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-200">
                 <ASCIIText text={t.eyebrow} />
               </p>
-              <h1 className="max-w-[11ch] text-[3rem] font-bold uppercase leading-[0.94] tracking-[0.015em] text-white sm:text-6xl lg:text-7xl">
-                {t.title}
+              <h1 aria-label={t.title} className="max-w-full text-[2.25rem] font-bold uppercase leading-[0.96] tracking-normal text-white sm:text-6xl lg:text-7xl">
+                {t.titleLines.map((line) => (
+                  <span key={line} className="block whitespace-nowrap">
+                    {line}
+                  </span>
+                ))}
               </h1>
               <p className="max-w-[70ch] text-lg font-medium leading-8 text-blue-50/86 sm:text-xl sm:leading-9">{t.subtitle}</p>
               <p className="max-w-[76ch] text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">{t.intro}</p>
@@ -188,25 +187,7 @@ const AslAdemcoCasePage: React.FC<AslAdemcoCasePageProps> = ({ language, onLangu
             ))}
           </section>
 
-          <section className="mt-10 rounded-[1.3rem] border border-blue-500/20 bg-[#0b111b]/88 p-5 sm:p-7">
-            <div className="mb-6 flex items-center gap-3">
-              <Cloud className="h-5 w-5 text-blue-400" aria-hidden="true" />
-              <h2 className="mono text-sm font-bold uppercase tracking-[0.2em] text-white">{t.flowTitle}</h2>
-            </div>
-            <div className="grid gap-3 md:grid-cols-5">
-              {t.flow.map((step, index) => {
-                const Icon = flowIcons[index] ?? Terminal;
-                return (
-                  <div key={step} className="relative rounded-[1rem] border border-slate-800 bg-slate-950/58 p-4">
-                    <Icon className="mb-4 h-5 w-5 text-cyan-300" aria-hidden="true" />
-                    <p className="mono text-[10px] font-semibold uppercase tracking-[0.18em] text-blue-300">0{index + 1}</p>
-                    <p className="mt-2 text-sm font-semibold text-slate-100">{step}</p>
-                    {index < t.flow.length - 1 && <ArrowRight className="absolute -right-3 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-blue-500 md:block" aria-hidden="true" />}
-                  </div>
-                );
-              })}
-            </div>
-          </section>
+          <AslEvidenceFlow language={language} className="mt-10" />
 
           <section className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)]">
             <div className="rounded-[1.2rem] border border-slate-800 bg-[#101827]/88 p-5 sm:p-6">

@@ -10,7 +10,7 @@ type ShowcaseAProps = {
 };
 
 const BACKGROUND_TEXT = Array(50)
-  .fill('LOCAL_DOCUMENT_WORKFLOW_PDF_INPUT_VALIDATION_TRANSLATION_JSON_OUTPUT ')
+  .fill('LOCAL_DOCUMENT_WORKFLOW_EVIDENCE_TRACE_PDF_INPUT_VALIDATION_TRANSLATION_JSON_OUTPUT ')
   .join(' ');
 
 const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
@@ -18,7 +18,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
     <section id="showcase-a" className="space-y-16">
       <div className="space-y-4">
         <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
-          <ASCIIText text="// ENGINEERING_USE_CASE_01" />
+          <ASCIIText text="// EVIDENCE_WORKFLOW_01" />
         </h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
           <ASCIIText text="ZBN Offline Document Workflow" />
@@ -121,7 +121,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
           <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 px-4 py-3 rounded">
             <ShieldCheck className="w-5 h-5 text-green-500" aria-hidden="true" />
             <div className="mono text-[10px] text-neutral-500">
-              STATUS: <span className="text-green-500">LOCAL PROCESSING / VALIDATION INCLUDED</span>
+              STATUS: <span className="text-green-500">LOCAL PROCESSING / VALIDATION TRACE</span>
             </div>
           </div>
         </div>
