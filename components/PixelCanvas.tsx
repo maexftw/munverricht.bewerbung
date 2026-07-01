@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 interface PixelCanvasProps {
   colors?: string[];
@@ -189,10 +190,12 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
   const rafRef = useRef<number | null>(null);
   const pixelsRef = useRef<Pixel[]>([]);
   const [animationType, setAnimationType] = useState<'appear' | 'disappear'>('disappear');
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const colorsStr = colors.join(',');
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
     if (ambient) return; // Ignore hover events if purely ambient
 
     const container = containerRef.current?.parentElement;
@@ -216,13 +219,17 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
         container.removeEventListener('focusout', handleLeave);
       }
     };
-  }, [noFocus, ambient]);
+  }, [noFocus, ambient, prefersReducedMotion]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+    if (prefersReducedMotion) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
+    }
     let timePrevious = performance.now();
     const timeInterval = 1000 / 60;
 
@@ -328,7 +335,9 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
         rafRef.current = null;
       }
     };
-  }, [colorsStr, gap, speed, density, animationType, ambient, fixed]);
+  }, [colorsStr, gap, speed, density, animationType, ambient, fixed, prefersReducedMotion]);
+
+  if (prefersReducedMotion) return null;
 
   return (
     <div ref={containerRef} className={`${fixed ? 'fixed' : 'absolute'} inset-0 z-0 pointer-events-none overflow-hidden ${className}`.trim()}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
@@ -155,6 +155,8 @@ const projects: Record<Language, ProjectItem[]> = {
 };
 
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-4">
@@ -178,9 +180,10 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
             href={p.url}
             target={p.url.startsWith('/') ? undefined : '_blank'}
             rel={p.url.startsWith('/') ? undefined : 'noopener noreferrer'}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.05 }}
+            aria-label={`${p.title} ${language === 'de' ? 'ansehen' : 'open'}`}
+            initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { delay: i * 0.05 }}
             className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
           >
             <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />

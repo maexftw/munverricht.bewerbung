@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="munverricht.org">
+  <rect width="64" height="64" rx="12" fill="#05070d"/>
+  <path d="M14 44V20h8l10 13 10-13h8v24h-8V31L32 44 22 31v13z" fill="#edf2ff"/>
+  <path d="M50 48h6v6h-6z" fill="#60a5fa"/>
+</svg>

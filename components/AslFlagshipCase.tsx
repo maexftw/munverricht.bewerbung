@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Cloud, GitBranch, Layers, Search, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import AslEvidenceFlow from './AslEvidenceFlow';
@@ -54,19 +54,18 @@ const proofIcons = [ShieldCheck, Cloud, Layers, GitBranch, CheckCircle2, Search,
 
 const AslFlagshipCase: React.FC<AslFlagshipCaseProps> = ({ language }) => {
   const t = copy[language];
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section id="asl-case" className="scroll-mt-28 border-t border-blue-500/20 pt-16 sm:pt-20">
       <motion.article
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+        whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.55, ease: 'easeOut' }}
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.55, ease: 'easeOut' }}
         className="relative overflow-hidden rounded-[1.5rem] border border-blue-500/25 bg-[linear-gradient(135deg,rgba(15,23,42,0.94),rgba(8,13,23,0.88)_48%,rgba(29,78,216,0.16))] p-5 shadow-[0_28px_80px_rgba(2,6,23,0.42),inset_0_1px_0_rgba(148,163,184,0.16)] sm:p-7 lg:p-9"
       >
         <PixelCanvas colors={['#1d4ed8', '#38bdf8', '#0f172a']} density={0.12} gap={12} className="opacity-[0.18]" />
-        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-blue-500/14 blur-[90px]" aria-hidden="true" />
-        <div className="absolute -bottom-28 left-1/2 h-56 w-72 -translate-x-1/2 rounded-full bg-cyan-300/10 blur-[100px]" aria-hidden="true" />
 
         <div className="relative z-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-start">
           <div className="space-y-6">

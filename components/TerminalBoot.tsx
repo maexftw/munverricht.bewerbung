@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 interface TerminalBootProps {
   onComplete: () => void;
@@ -24,14 +24,15 @@ const CURSOR_ANIMATION = { opacity: [0, 1, 0] };
 const CURSOR_TRANSITION = { repeat: Infinity, duration: 0.8 };
 
 // Optimized LogItem component with memoization to prevent re-renders of previous logs
-const LogItem = memo(({ log }: { log: LogEntry }) => {
+const LogItem = memo(({ log, reducedMotion }: { log: LogEntry; reducedMotion: boolean }) => {
   const isSpecial = log.message && (log.message.includes('[OK]') || log.message.includes('ACTIVE'));
   const isWarn = log.message && log.message.includes('[WARN]');
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: -5 }}
+      initial={reducedMotion ? false : { opacity: 0, x: -5 }}
       animate={{ opacity: 1, x: 0 }}
+      transition={reducedMotion ? { duration: 0 } : undefined}
       className={`${isSpecial ? 'text-green-500 font-bold' : isWarn ? 'text-yellow-500' : 'text-neutral-300'}`}
     >
       <span className="text-neutral-600">[{log.timestamp}]</span> {log.message}
@@ -43,6 +44,7 @@ LogItem.displayName = 'LogItem';
 
 const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
   const [logs, setLogs] = useState<LogEntry[]>([]);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     let currentLine = 0;
@@ -66,9 +68,10 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.5 } }}
+      exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.9, transition: { duration: 0.5 } }}
+      transition={shouldReduceMotion ? { duration: 0 } : undefined}
       className="fixed bottom-4 right-4 z-[1000] flex flex-col items-end pointer-events-none"
       role="status"
       aria-label="Portfolio loading status"
@@ -81,11 +84,11 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
         </div>
         <div className="space-y-1 font-mono text-xs" role="log" aria-live="polite">
           {logs.slice(-5).map((log, i) => ( // Show only last 5 logs to keep it compact
-            <LogItem key={i} log={log} />
+            <LogItem key={i} log={log} reducedMotion={shouldReduceMotion} />
           ))}
           <motion.div
-            animate={CURSOR_ANIMATION}
-            transition={CURSOR_TRANSITION}
+            animate={shouldReduceMotion ? undefined : CURSOR_ANIMATION}
+            transition={shouldReduceMotion ? undefined : CURSOR_TRANSITION}
             className="w-1.5 h-3 bg-blue-500 inline-block align-middle ml-1"
             aria-hidden="true"
           />
@@ -93,9 +96,9 @@ const TerminalBoot: React.FC<TerminalBootProps> = ({ onComplete }) => {
         <div className="mt-2 h-1 w-full bg-neutral-800 rounded overflow-hidden">
           <motion.div
             className="h-full bg-blue-500"
-            initial={{ width: "0%" }}
+            initial={shouldReduceMotion ? false : { width: "0%" }}
             animate={{ width: "100%" }}
-            transition={{ duration: bootMessages.length * 0.12, ease: "linear" }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: bootMessages.length * 0.12, ease: "linear" }}
           />
         </div>
       </div>

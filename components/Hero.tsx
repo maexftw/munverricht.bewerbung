@@ -2,20 +2,28 @@ import React, { useEffect, useRef } from 'react';
 import { animate } from 'animejs';
 import {
   Activity,
+  Atom,
   BriefcaseBusiness,
   Clock3,
+  Cloud,
+  Code2,
+  CreditCard,
+  FileCode2,
   Github,
   Languages,
   Linkedin,
   Mail,
   MapPin,
+  PanelTop,
   Phone,
   ShieldCheck,
   Terminal,
+  Wind,
   Zap,
 } from 'lucide-react';
 import ASCIIText from './ASCIIText';
-import { VSCodeIcon } from './Icons';
+import { AnimeJsIcon, GsapIcon, VSCodeIcon } from './Icons';
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 type Language = 'de' | 'en';
 
@@ -23,21 +31,19 @@ type HeroProps = {
   language: Language;
 };
 
-const simpleIconUrl = (slug: string, color: string) => `https://cdn.simpleicons.org/${slug}/${color}`;
-
 const toolLogos = [
   { name: 'VS Code', Icon: VSCodeIcon, badgeClassName: 'bg-sky-500/12 text-sky-300 border-sky-500/25' },
-  { name: 'React', logoSrc: simpleIconUrl('react', '61DAFB'), badgeClassName: 'bg-cyan-500/12 border-cyan-500/25' },
-  { name: 'Tailwind', logoSrc: simpleIconUrl('tailwindcss', '06B6D4'), badgeClassName: 'bg-teal-500/12 border-teal-500/25' },
-  { name: 'Vite', logoSrc: simpleIconUrl('vite', '646CFF'), badgeClassName: 'bg-violet-500/12 border-violet-500/25' },
-  { name: 'TypeScript', logoSrc: simpleIconUrl('typescript', '3178C6'), badgeClassName: 'bg-blue-500/12 border-blue-500/25' },
-  { name: 'GSAP', logoSrc: simpleIconUrl('gsap', '88CE02'), badgeClassName: 'bg-emerald-500/12 border-emerald-500/25' },
-  { name: 'Anime.js', logoSrc: simpleIconUrl('animedotjs', 'F7A8B8'), badgeClassName: 'bg-fuchsia-500/12 border-fuchsia-500/25' },
-  { name: 'HTML5', logoSrc: simpleIconUrl('html5', 'E34F26'), badgeClassName: 'bg-orange-500/12 border-orange-500/25' },
-  { name: 'GitHub', logoSrc: simpleIconUrl('github', 'FFFFFF'), badgeClassName: 'bg-slate-500/12 border-slate-500/25' },
-  { name: 'Cloudflare', logoSrc: simpleIconUrl('cloudflare', 'F38020'), badgeClassName: 'bg-amber-500/12 border-amber-500/25' },
-  { name: 'Webflow', logoSrc: simpleIconUrl('webflow', '4353FF'), badgeClassName: 'bg-indigo-500/12 border-indigo-500/25' },
-  { name: 'Stripe', logoSrc: simpleIconUrl('stripe', '635BFF'), badgeClassName: 'bg-purple-500/12 border-purple-500/25' },
+  { name: 'React', Icon: Atom, badgeClassName: 'bg-cyan-500/12 text-cyan-300 border-cyan-500/25' },
+  { name: 'Tailwind', Icon: Wind, badgeClassName: 'bg-teal-500/12 text-teal-300 border-teal-500/25' },
+  { name: 'Vite', Icon: Zap, badgeClassName: 'bg-violet-500/12 text-violet-300 border-violet-500/25' },
+  { name: 'TypeScript', Icon: Code2, badgeClassName: 'bg-blue-500/12 text-blue-300 border-blue-500/25' },
+  { name: 'GSAP', Icon: GsapIcon, badgeClassName: 'bg-emerald-500/12 text-emerald-300 border-emerald-500/25' },
+  { name: 'Anime.js', Icon: AnimeJsIcon, badgeClassName: 'bg-fuchsia-500/12 text-fuchsia-300 border-fuchsia-500/25' },
+  { name: 'HTML5', Icon: FileCode2, badgeClassName: 'bg-orange-500/12 text-orange-300 border-orange-500/25' },
+  { name: 'GitHub', Icon: Github, badgeClassName: 'bg-slate-500/12 text-slate-300 border-slate-500/25' },
+  { name: 'Cloudflare', Icon: Cloud, badgeClassName: 'bg-amber-500/12 text-amber-300 border-amber-500/25' },
+  { name: 'Webflow', Icon: PanelTop, badgeClassName: 'bg-indigo-500/12 text-indigo-300 border-indigo-500/25' },
+  { name: 'Stripe', Icon: CreditCard, badgeClassName: 'bg-purple-500/12 text-purple-300 border-purple-500/25' },
 ];
 
 const quickActionLabels = {
@@ -48,6 +54,7 @@ const quickActionLabels = {
 const Hero: React.FC<HeroProps> = ({ language }) => {
   const headingBlockRef = useRef<HTMLDivElement | null>(null);
   const introTextRef = useRef<HTMLParagraphElement | null>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const recruiterQuickActions = [
     { label: quickActionLabels[language].case, href: '/case/asl-ademco-agent', icon: ShieldCheck },
@@ -59,6 +66,8 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
   ];
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const runningAnimations = [];
 
     if (headingBlockRef.current) {
@@ -89,14 +98,14 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         animation.cancel();
       });
     };
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <section id="hero" className="relative scroll-mt-28 flex flex-col items-center justify-center text-center space-y-8 pt-20">
       <div
         ref={headingBlockRef}
         className="relative"
-        style={{ transform: 'scale(0.95)', opacity: 0 }}
+        style={prefersReducedMotion ? undefined : { transform: 'scale(0.95)', opacity: 0 }}
       >
         <div className="absolute -inset-4 bg-blue-500/5 blur-3xl rounded-full" aria-hidden="true" />
         <h2 className="mono text-blue-500 text-xs tracking-[0.4em] uppercase mb-4">
@@ -110,7 +119,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       <p
         ref={introTextRef}
         className="max-w-[70ch] text-neutral-200 text-xl font-medium leading-relaxed"
-        style={{ transform: 'translateY(10px)', opacity: 0 }}
+        style={prefersReducedMotion ? undefined : { transform: 'translateY(10px)', opacity: 0 }}
       >
         {language === 'de'
           ? 'Ich baue AI-gestützte Web-Workflows vom Konzept bis zur testbaren Preview. Mein stärkster Proof ist der ASL Ademco B2B Fachassistent: Produktsuche, Spezifikationsprüfung, Zubehör- und Projektvorschläge für Fachpartner, umgesetzt als nachvollziehbarer Web-Prototyp.'
@@ -156,25 +165,9 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         <div className="flex flex-wrap items-center justify-center gap-5 md:gap-6">
           {toolLogos.map((tool) => (
             <div key={tool.name} className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-neutral-800 bg-neutral-950/60 hover:border-blue-500/60 transition-colors">
-              {tool.Icon ? (
-                <span className={`inline-flex h-7 w-7 items-center justify-center rounded-md border ${tool.badgeClassName}`}>
-                  <tool.Icon className="h-4 w-4" aria-hidden="true" />
-                </span>
-              ) : (
-                <span className={`inline-flex h-7 w-7 items-center justify-center rounded-md border ${tool.badgeClassName}`}>
-                  <img
-                    src={tool.logoSrc}
-                    alt=""
-                    className="h-4 w-4 object-contain"
-                    width="16"
-                    height="16"
-                    loading="lazy"
-                    decoding="async"
-                    draggable={false}
-                    aria-hidden="true"
-                  />
-                </span>
-              )}
+              <span className={`inline-flex h-7 w-7 items-center justify-center rounded-md border ${tool.badgeClassName}`}>
+                <tool.Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
               <span className="mono text-[10px] md:text-[11px] text-neutral-300 group-hover:text-blue-300 transition-colors">{tool.name}</span>
             </div>
           ))}

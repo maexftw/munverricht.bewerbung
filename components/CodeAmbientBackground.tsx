@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 type SideRow = {
   y: number;
@@ -172,8 +173,11 @@ const buildQualityProfile = (tier: QualityTier, width: number, height: number): 
 const CodeAmbientBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -704,7 +708,9 @@ const CodeAmbientBackground: React.FC = () => {
       }
       stopLoop();
     };
-  }, []);
+  }, [prefersReducedMotion]);
+
+  if (prefersReducedMotion) return null;
 
   return (
     <div id="code-ambient-canvas-container" aria-hidden="true">

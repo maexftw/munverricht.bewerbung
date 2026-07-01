@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon, ShieldCheck } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import { useTheme } from './ThemeContext';
@@ -34,6 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { theme, toggleTheme } = useTheme();
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,7 +48,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
         setIsOpen(false);
         const element = document.querySelector(href);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth' });
         }
     };
 
@@ -55,19 +56,22 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
         <>
             {/* Desktop Navigation */}
             <motion.nav
-                initial={{ y: -100 }}
+                initial={shouldReduceMotion ? false : { y: -100 }}
                 animate={{ y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : undefined}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-3' : 'bg-transparent py-6'
                     } hidden lg:block`}
             >
                 <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
-                    <div
-                        className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
+                    <button
+                        type="button"
+                        className="font-bold text-xl tracking-tighter text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
+                        aria-label={language === 'de' ? 'Zum Start springen' : 'Go to home'}
                     >
                         <ASCIIText text="munverricht" className="lowercase" />
                         <span className="text-blue-500">.org</span>
-                    </div>
+                    </button>
 
                     <ul className="flex space-x-8">
                         {navItems[language].map((item) => (
@@ -87,6 +91,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
 
                     <button
                         onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                        aria-label={language === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
                         className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                     >
                         {language === 'de' ? 'EN' : 'DE'}
@@ -105,7 +110,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <div className="fixed top-4 right-4 z-50 lg:hidden">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="p-2 bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
+                    className="flex min-h-[44px] min-w-[44px] items-center justify-center bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
                     aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
                 >
                     {isOpen ? <X /> : <Menu />}
@@ -116,7 +121,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <div className="fixed top-4 left-4 z-50 lg:hidden">
                 <button
                     onClick={toggleTheme}
-                    className="p-2 rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
+                    className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
                     aria-label={`Zu ${theme === 'light' ? 'dunklem' : 'hellem'} Modus wechseln`}
                 >
                     {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
@@ -127,14 +132,15 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: '100%' }}
+                        initial={shouldReduceMotion ? false : { opacity: 0, x: '100%' }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: '100%' }}
-                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", damping: 25, stiffness: 200 }}
                         className="fixed inset-0 z-40 bg-[#050505] lg:hidden flex flex-col justify-center items-center space-y-8"
                     >
                         <button
                             onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                            aria-label={language === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
                             className="text-sm font-bold uppercase tracking-widest text-blue-400"
                         >
                             {language === 'de' ? 'Switch to EN' : 'Wechsel zu DE'}

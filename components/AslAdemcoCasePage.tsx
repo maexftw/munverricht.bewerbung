@@ -144,7 +144,8 @@ const AslAdemcoCasePage: React.FC<AslAdemcoCasePageProps> = ({ language, onLangu
             <button
               type="button"
               onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
-              className="rounded border border-slate-700 bg-slate-950/80 px-3 py-2 mono text-xs font-bold uppercase tracking-wider text-slate-100 transition-colors hover:border-blue-400"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded border border-slate-700 bg-slate-950/80 px-3 py-2 mono text-xs font-bold uppercase tracking-wider text-slate-100 transition-colors hover:border-blue-400"
+              aria-label={language === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
             >
               {t.languageToggle}
             </button>
@@ -155,8 +156,8 @@ const AslAdemcoCasePage: React.FC<AslAdemcoCasePageProps> = ({ language, onLangu
           <section className="relative overflow-hidden rounded-[1.6rem] border border-blue-500/24 bg-[linear-gradient(135deg,rgba(15,23,42,0.94),rgba(8,13,23,0.9)_48%,rgba(29,78,216,0.18))] p-5 shadow-[0_28px_80px_rgba(2,6,23,0.42),inset_0_1px_0_rgba(148,163,184,0.16)] sm:p-8 lg:p-10">
             <PixelCanvas colors={['#1d4ed8', '#38bdf8', '#0f172a']} density={0.1} gap={14} className="opacity-[0.16]" />
             <div className="relative z-10 max-w-4xl space-y-6">
-              <p className="mono text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan-200">
-                <ASCIIText text={t.eyebrow} />
+              <p className="max-w-full mono text-[10px] font-semibold uppercase leading-5 tracking-[0.16em] text-cyan-200 sm:text-[11px] sm:tracking-[0.28em]">
+                <ASCIIText text={t.eyebrow} noWrap={false} />
               </p>
               <h1 aria-label={t.title} className="max-w-full text-[2.25rem] font-bold uppercase leading-[0.96] tracking-normal text-white sm:text-6xl lg:text-7xl">
                 {t.titleLines.map((line) => (
