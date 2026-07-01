@@ -10,6 +10,18 @@ This file provides guidance to agents when working with code in this repository.
 - The animated background is custom canvas code in `components/CodeAmbientBackground.tsx`, layered under fixed overlays from `index.html`. Its opacity values were intentionally reduced to stay visible but non-distracting; visual tweaks here can easily overpower foreground copy.
 - User preference for this repository: when a task is materially faster, clearer, or safer with delegation, proactively spawn subagents instead of waiting for a separate prompt. Prefer parallel exploration or implementation when the work can be cleanly split.
 
+## Preview Handoff - 2026-07-01
+
+- Continue from branch `preview/asl-ademco-portfolio-redesign`, pushed to `origin/preview/asl-ademco-portfolio-redesign`; latest implementation commit before this handoff note is `657f644 feat: update asl showcase preview`.
+- Before changing code, run `git fetch --all --prune --tags` and `git status -sb`; do not assume Codex has refreshed remote branches automatically.
+- ASL showcase direction is conservative: describe ASL as a B2B Fachassistent / B2B assistant for product search, specification checks, accessories, and project suggestions for trade partners. Do not publish secrets, local paths, admin commands, internal DB names, live-green claims, or 100%/stress-test metrics without fresh verification.
+- New source component: `components/AslEvidenceFlow.tsx`. It renders the ASCII process flow `React/Vite Studio -> Agent API -> Produktdaten/Product data -> LLM Route -> Safe B2B Antwort/Safe B2B answer` and respects `prefers-reduced-motion` through Framer Motion's `useReducedMotion`.
+- Updated ASL surfaces: `components/Hero.tsx`, `components/AslFlagshipCase.tsx`, `components/AslAdemcoCasePage.tsx`, `components/Projects.tsx`, plus meta/fallback copy in `components/MainPortfolioPage.tsx`, `components/LegalPage.tsx`, and `index.html`.
+- Light polish only was applied to `components/ShowcaseA.tsx`, `components/ShowcaseB.tsx`, and `components/SkillMonitor.tsx`; keep future changes similarly small unless the user explicitly asks for a redesign.
+- Current route contract remains `/case/asl-ademco-agent` with alias `/asl-ademco-agent`; no new public API or dependency was added.
+- Verification already run for the ASL preview update: `npx tsc --noEmit`, `npm run build`, `git diff --check`, forbidden-claim `rg` scan, desktop browser check, and mobile Playwright screenshot check for the case headline. `pnpm install --frozen-lockfile` was used only to restore missing local `node_modules`; no lockfile change was intended.
+- The local Vite preview had been started at `http://127.0.0.1:5173/` during QA, but future agents should check whether it is still running before relying on it.
+
 ## Current Handoff — 2026-06-06T07:03:24Z
 
 - Branch/worktree: `codex/asl-ademco-portfolio-redesign` in `/home/llm/workspaces/munverricht-asl-redesign`; created from a fresh clone of `maexftw/munverricht.bewerbung` default branch `main`.
