@@ -7,3 +7,8 @@
 **Vulnerability:** Exposed an unauthenticated API endpoint at `functions/api/chat.ts` that interfaced with Google Gemini. Any user could send requests to this endpoint, potentially exhausting the API quota or incurring costs if billed.
 **Learning:** Legacy endpoints or features that are no longer linked from the frontend can remain active in the deployment environment (Cloudflare Functions) if not explicitly removed, creating a hidden attack surface.
 **Prevention:** Regularly audit the `functions/` or `api/` directory to ensure all active endpoints are required and properly authenticated. Implement a "cleanup" step when pivoting features or branding.
+
+## 2026-02-21 - [Restricted Local Development Server Exposure]
+**Vulnerability:** The Vite development server was configured to bind to `0.0.0.0`, exposing it to the entire local network.
+**Learning:** Defaulting to `0.0.0.0` for convenience can lead to unauthorized access to the development environment, including source code and potentially sensitive data if the local network is not trusted.
+**Prevention:** Always use `localhost` (the default) for development servers unless explicit external access is required for testing. Avoid committing `host: '0.0.0.0'` to the repository.
