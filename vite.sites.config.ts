@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  publicDir: false,
   build: {
     ssr: resolve(__dirname, 'sites/server.ts'),
     outDir: 'dist/server',
