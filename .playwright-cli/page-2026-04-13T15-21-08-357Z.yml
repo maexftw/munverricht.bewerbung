@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - link [ref=e5] [cursor=pointer]:
+        - /url: https://mailbox.org/de
+        - img [ref=e6]
+      - generic [ref=e10]:
+        - banner
+        - heading "Login" [level=3] [ref=e11]
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]: E-Mail-Adresse
+            - textbox "E-Mail-Adresse" [ref=e15]: munverricht@mailbox.org
+          - generic [ref=e16]:
+            - generic [ref=e17]: Passwort
+            - generic [ref=e18]:
+              - textbox "Passwort" [ref=e19]
+              - img [ref=e21] [cursor=pointer]
+          - generic [ref=e22]:
+            - checkbox "Angemeldet bleiben" [ref=e23]
+            - generic [ref=e24]: Angemeldet bleiben
+          - paragraph [ref=e25]: Bitte geben Sie die vollständige E-Mail-Adresse Ihres Nutzerkontos an.
+          - paragraph [ref=e26]:
+            - text: Business-Administratoren können sich
+            - link "hier" [ref=e27] [cursor=pointer]:
+              - /url: https://setup.mailbox.org
+            - text: in die Verwaltungsoberfläche einloggen.
+          - button "Login" [ref=e29] [cursor=pointer]
+          - link "Passwort vergessen?" [ref=e31] [cursor=pointer]:
+            - /url: https://login.mailbox.org/de/passwordrecovery
+    - generic [ref=e33]:
+      - heading "News" [level=2] [ref=e34]
+      - paragraph [ref=e35]: Sie wollen auf dem Laufenden bleiben? Entdecken Sie alle Updates und News rund um mailbox.
+      - link "16.02.2026 mailbox erhält Label „Cybersecurity Made in Europe“" [ref=e37] [cursor=pointer]:
+        - /url: https://mailbox.org/de/news/mailbox-erhaelt-label-cybersecurity-made-europe/
+        - generic [ref=e38]:
+          - paragraph [ref=e41]: 16.02.2026
+          - paragraph [ref=e42]: mailbox erhält Label „Cybersecurity Made in Europe“
+      - link "Alle Beiträge" [ref=e43] [cursor=pointer]:
+        - /url: https://mailbox.org/de/news/
+  - contentinfo [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - list [ref=e48]:
+          - listitem [ref=e49]:
+            - link "Link to LinkedIn" [ref=e50] [cursor=pointer]:
+              - /url: https://de.linkedin.com/company/mailbox.org
+              - img "Link to LinkedIn" [ref=e51]
+          - listitem [ref=e52]:
+            - link "Link to Mastodon" [ref=e53] [cursor=pointer]:
+              - /url: https://social.mailbox.org/@mailbox_org
+              - img "Link to Mastodon" [ref=e54]
+          - listitem [ref=e55]:
+            - link "Link to Bluesky" [ref=e56] [cursor=pointer]:
+              - /url: https://bsky.app/profile/mailbox.org
+              - img "Link to Bluesky" [ref=e57]
+          - listitem [ref=e58]:
+            - link "Link to RSS-Feed" [ref=e59] [cursor=pointer]:
+              - /url: https://mailbox.org/de/news/rss.xml
+              - img "Link to RSS-Feed" [ref=e60]
+        - list [ref=e62]:
+          - listitem [ref=e63]:
+            - link "Impressum" [ref=e64] [cursor=pointer]:
+              - /url: https://mailbox.org/de/impressum
+          - listitem [ref=e65]:
+            - link "AGB" [ref=e66] [cursor=pointer]:
+              - /url: https://mailbox.org/de/agb-widerrufsbelehrung
+          - listitem [ref=e67]:
+            - link "Datenschutz" [ref=e68] [cursor=pointer]:
+              - /url: https://mailbox.org/de/datenschutz
+          - listitem [ref=e69]:
+            - link "Kündigung" [ref=e70] [cursor=pointer]:
+              - /url: https://register.mailbox.org/de/cancellation
+          - listitem [ref=e71]:
+            - paragraph [ref=e72]: © 2026 mailbox
+      - generic [ref=e73]:
+        - list [ref=e75]:
+          - listitem [ref=e76]: Sprache
+          - listitem [ref=e77]:
+            - link "Deutsch":
+              - /url: https://account.mailbox.org/realms/mailbox/protocol/openid-connect/auth?client_id=login&redirect_uri=https%3A%2F%2Fapp.mailbox.org&state=6f13d8a9-c4f6-4fc6-9a2c-29616125b65a&response_mode=fragment&response_type=code&scope=openid&nonce=ec8315e7-106f-47a8-a11a-9f0b9ba73509&login_hint=munverricht%40mailbox.org&ui_locales=de
+          - listitem [ref=e78]:
+            - link "Englisch" [ref=e79] [cursor=pointer]:
+              - /url: https://account.mailbox.org/realms/mailbox/protocol/openid-connect/auth?client_id=login&redirect_uri=https%3A%2F%2Fapp.mailbox.org&state=6f13d8a9-c4f6-4fc6-9a2c-29616125b65a&response_mode=fragment&response_type=code&scope=openid&nonce=ec8315e7-106f-47a8-a11a-9f0b9ba73509&login_hint=munverricht%40mailbox.org&ui_locales=en
+        - paragraph [ref=e81]: Heinlein Gruppe

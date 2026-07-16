@@ -1,0 +1,328 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e4]
+    - generic [ref=e5]: X X X X X X X X X X
+    - generic [ref=e6]: X
+    - text: X
+  - generic [ref=e10]:
+    - banner [ref=e14]:
+      - heading "Neue E-Mail" [level=1] [ref=e707]
+      - generic [ref=e16]:
+        - link "Zum Hauptinhalt wechseln" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+        - button "Standard-App öffnen" [ref=e19] [cursor=pointer]:
+          - img [ref=e21]
+        - toolbar [ref=e33]:
+          - button "Navigieren zu:" [ref=e34] [cursor=pointer]:
+            - generic [ref=e35]:
+              - img
+        - toolbar [ref=e36]:
+          - button "Portal" [ref=e708] [cursor=pointer]:
+            - generic [ref=e709]:
+              - img
+          - button "Mail (2 ungelesen)" [ref=e710] [cursor=pointer]:
+            - generic [ref=e711]:
+              - img [ref=e712]
+              - img
+          - button "Kalender" [ref=e714] [cursor=pointer]:
+            - generic [ref=e715]:
+              - img:
+                - generic: "13"
+          - button "Adressbuch" [ref=e716] [cursor=pointer]:
+            - generic [ref=e717]:
+              - img
+          - button "Aufgaben" [ref=e718] [cursor=pointer]:
+            - generic [ref=e719]:
+              - img
+          - button "Drive" [ref=e720] [cursor=pointer]:
+            - generic [ref=e721]:
+              - img
+          - button "Chat" [ref=e722] [cursor=pointer]:
+            - generic [ref=e723]:
+              - img
+          - button "Meet" [ref=e724] [cursor=pointer]:
+            - generic [ref=e725]:
+              - img
+      - generic [ref=e580]:
+        - button "Suchen" [ref=e581] [cursor=pointer]:
+          - generic [ref=e582]:
+            - img
+        - generic [ref=e583]: In E-Mail suchen
+        - searchbox "In E-Mail suchen" [ref=e585]
+        - button "Weitere Suchoptionen" [ref=e586] [cursor=pointer]:
+          - generic [ref=e587]:
+            - img
+      - toolbar [ref=e57]:
+        - button "Es gibt keine Benachrichtigungen" [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]:
+            - img
+        - button "Aktualisieren" [ref=e918] [cursor=pointer]:
+          - generic [ref=e61]:
+            - img
+        - button "Hilfe" [ref=e62] [cursor=pointer]:
+          - generic [ref=e63]:
+            - img
+        - button "Einstellungen" [ref=e64] [cursor=pointer]:
+          - generic [ref=e65]:
+            - img
+        - button "Abmelden" [ref=e66] [cursor=pointer]:
+          - generic [ref=e67]:
+            - img
+        - button "Mein Konto" [ref=e68] [cursor=pointer]:
+          - img [ref=e70]:
+            - generic [ref=e71]: MU
+    - document [ref=e588]:
+      - generic [ref=e589]:
+        - generic [ref=e590]:
+          - region "Neue E-Mail" [ref=e592]:
+            - toolbar [ref=e593]:
+              - button "Neue E-Mail" [ref=e594] [cursor=pointer]:
+                - generic [ref=e595]: Neue E-Mail
+              - button "Weitere Aktionen" [ref=e596] [cursor=pointer]:
+                - generic [ref=e597]:
+                  - img
+          - navigation "Ordner" [ref=e598]:
+            - tree "Ordner" [ref=e599]:
+              - treeitem "mailbox.org" [expanded] [ref=e600] [cursor=pointer]:
+                - generic [ref=e601]:
+                  - generic [ref=e602]:
+                    - img
+                  - generic [ref=e603]: mailbox.org
+                - group [ref=e604]:
+                  - treeitem "Posteingang, 2 ungelesen, 2 gesamt." [selected] [ref=e605]:
+                    - generic [ref=e606]:
+                      - generic [ref=e607]:
+                        - img
+                      - generic [ref=e608]: Posteingang
+                      - generic [ref=e609]: "2"
+                      - button [ref=e610]:
+                        - generic [ref=e611]:
+                          - img
+                  - treeitem "Ungelesen, 2 gesamt." [ref=e612]:
+                    - generic [ref=e613]:
+                      - generic [ref=e614]:
+                        - img
+                      - generic [ref=e615]: Ungelesen
+                      - generic [ref=e616]: "2"
+                  - treeitem "Entwürfe, 1 gesamt." [ref=e890]:
+                    - generic [ref=e618]:
+                      - generic [ref=e619]:
+                        - img
+                      - generic [ref=e620]: Entwürfe
+                      - generic [ref=e891]: "1"
+                  - treeitem "Gesendet" [ref=e621]:
+                    - generic [ref=e622]:
+                      - generic [ref=e623]:
+                        - img
+                      - generic [ref=e624]: Gesendet
+                  - treeitem "Spam" [ref=e625]:
+                    - generic [ref=e626]:
+                      - generic [ref=e627]:
+                        - img
+                      - generic [ref=e628]: Spam
+                  - treeitem "Papierkorb" [ref=e629]:
+                    - generic [ref=e630]:
+                      - generic [ref=e631]:
+                        - img
+                      - generic [ref=e632]: Papierkorb
+              - treeitem "Meine Ordner" [ref=e633] [cursor=pointer]:
+                - generic [ref=e634]:
+                  - generic [ref=e635]:
+                    - img
+                  - generic [ref=e636]: Meine Ordner
+                  - button [ref=e637]:
+                    - generic [ref=e638]:
+                      - img
+            - generic [ref=e641]:
+              - generic [ref=e642]:
+                - generic [ref=e643]: E-Mail-Speicherplatz
+                - generic [ref=e644]:
+                  - generic [ref=e645]: 174 kB /
+                  - text: 100 MB
+              - progressbar "Verwendung in Prozent" [ref=e647]
+              - generic [ref=e648]: 1% belegt, 100 MB verbleibend.
+          - region "Ordneransicht schließen" [ref=e649]:
+            - button "Ordneransicht schließen" [ref=e650] [cursor=pointer]:
+              - generic [ref=e651]:
+                - img
+            - button "Online-Hilfe" [ref=e652] [cursor=pointer]:
+              - generic [ref=e653]:
+                - img
+        - main [ref=e654]:
+          - generic [ref=e655]:
+            - navigation "Nachrichten" [ref=e657]:
+              - toolbar "Nachrichten-Optionen" [ref=e658]:
+                - heading "Posteingang" [level=2] [ref=e659]
+                - generic [ref=e660]: 2 Nachrichten
+                - button "Weitere Optionen für Nachrichten" [ref=e661] [cursor=pointer]:
+                  - generic [ref=e662]:
+                    - img
+              - listbox "Listenansicht" [ref=e663]:
+                - option "Ungelesen, mailbox, Bestätigung des Nutzungsvertrags und wichtige Informationen zu Ihrem Account bei mailbox, 16:27." [ref=e664] [cursor=pointer]:
+                  - generic [ref=e665]:
+                    - img [ref=e893]:
+                      - generic [ref=e894]: M
+                    - img [ref=e895]
+                    - generic [ref=e897]:
+                      - generic [ref=e898]: mailbox
+                      - time [ref=e899]: 16:27
+                    - generic [ref=e900]:
+                      - text: Bestätigung des Nutzungsvertrags und wichtige Informationen zu Ihrem Account bei mailbox
+                      - img
+                    - generic [ref=e902]: Hallo Maximilian Unverricht, wir freuen uns, dass Sie sich für mailbox entschieden haben. Aktuell befinden Sie sich in der 30-tägigen Testphase, in der Sie all unsere Features in Ruhe ausprobieren kön
+                - option "Ungelesen, mailbox, Herzlich Willkommen bei mailbox, 16:27, enthält Anhänge." [ref=e678] [cursor=pointer]:
+                  - generic [ref=e679]:
+                    - img [ref=e905]:
+                      - generic [ref=e906]: M
+                    - img [ref=e907]
+                    - generic [ref=e909]:
+                      - generic [ref=e910]: mailbox
+                      - time [ref=e911]: 16:27
+                    - generic [ref=e912]:
+                      - text: Herzlich Willkommen bei mailbox
+                      - img
+                      - img
+                    - generic [ref=e914]: Herzlich Willkommen bei mailbox! Wir freuen uns, dass Sie sich für uns entschieden haben. Jeder Anfang ist etwas ungewohnt und wir möchten, dass Sie sich gut zurechtfinden. mailbox unterstützt Sie in
+              - toolbar "Nachrichten-Optionen" [ref=e692]: Aktualisiert vor 5 Minuten
+            - generic [ref=e694]:
+              - toolbar "Mail-Werkzeugleiste. Verwenden Sie die Pfeiltasten zum Navigieren." [ref=e696]:
+                - button "Löschen" [disabled] [ref=e697]:
+                  - img
+                - button "Antwort an Absender" [disabled] [ref=e698]:
+                  - img
+                - button "Antwort an alle Empfänger" [disabled] [ref=e699]:
+                  - img
+                - button "Weiterleiten" [disabled] [ref=e700]:
+                  - img
+              - generic [ref=e702]:
+                - img [ref=e703]
+                - generic [ref=e706]: Keine Nachricht markiert
+    - dialog "Test von info@munverricht.org" [ref=e916]:
+      - document [ref=e727]:
+        - generic [ref=e728]:
+          - heading "Test von info@munverricht.org" [level=1] [ref=e917]:
+            - generic [ref=e730]: Test von info@munverricht.org
+          - toolbar [ref=e731]:
+            - button "Minimieren" [disabled] [ref=e732]:
+              - img
+            - button "Maximieren" [disabled] [ref=e733]:
+              - img
+            - button "Speichern und schließen" [disabled] [ref=e887]:
+              - img
+        - generic [ref=e735]:
+          - region [ref=e737]:
+            - generic [ref=e739]:
+              - generic [ref=e740]:
+                - generic [ref=e741]:
+                  - generic [ref=e742]: Von
+                  - button "Von" [ref=e745] [cursor=pointer]:
+                    - generic [ref=e881]: info@munverricht.org
+                    - img
+                  - generic [ref=e749]:
+                    - button "CC" [ref=e750] [cursor=pointer]
+                    - button "BCC" [ref=e751] [cursor=pointer]
+                    - button "AW" [ref=e752] [cursor=pointer]
+                - generic [ref=e753]:
+                  - generic "Kontakte auswählen" [ref=e754] [cursor=pointer]: An
+                  - application [ref=e756]:
+                    - generic [ref=e757]: Drücken Sie die Leertaste zum Markieren und Neusortieren. Drücken Sie die Rücktaste zum Löschen.
+                    - textbox [ref=e759]: munverricht89@gmail.com
+                    - textbox [ref=e760]
+                    - generic "munverricht89@gmail.com" [ref=e884]:
+                      - generic [ref=e885]: munverricht89@gmail.com
+                      - 'img "A SSL/TLS encrypted connection will be used to send the email to the recipient''s mailserver. Encryption: TLSv1.3, TLS_AES_256_GCM_SHA384 (256/256 bits) key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256" [ref=e888]':
+                        - img
+                        - text: SSL
+                      - link "Remove" [ref=e886] [cursor=pointer]:
+                        - /url: "#"
+                        - img
+                    - generic [ref=e761]:
+                      - textbox [ref=e762]
+                      - 'textbox "Autovervollständigungs-Eingabefeld: An. Verwenden Sie die linke und rechte Pfeiltaste, um zwischen den Empfängern zu navigieren" [ref=e763]':
+                        - /placeholder: An
+                  - button "Kontakte auswählen" [ref=e765] [cursor=pointer]:
+                    - generic [ref=e766]:
+                      - img
+                - generic [ref=e767]:
+                  - generic [ref=e768]: Betreff
+                  - textbox "Betreff" [ref=e770]: Test von info@munverricht.org
+                - alert [ref=e771]
+              - application [ref=e774]:
+                - generic [ref=e775]:
+                  - iframe [ref=e778]:
+                    - generic "Rich-Text-Bereich. Drücken Sie Alt+0 für Hilfe." [active] [ref=f21e1]:
+                      - generic [ref=f21e2]: "Kurzer Test: Versand aus mailbox.org mit Absender info@munverricht.org funktioniert."
+                  - generic [ref=e780]:
+                    - group [ref=e781]:
+                      - toolbar [ref=e782]:
+                        - button "Rückgängig machen" [disabled] [ref=e783]:
+                          - img [ref=e785]
+                        - button "Wiederholen" [disabled] [ref=e787]:
+                          - img [ref=e789]
+                      - toolbar [ref=e791]:
+                        - button "Fett" [ref=e792]:
+                          - img [ref=e794]
+                        - button "Kursiv" [ref=e796]:
+                          - img [ref=e798]
+                        - button "Unterstrichen" [ref=e800]:
+                          - img [ref=e802]
+                      - toolbar [ref=e804]:
+                        - button "Aufzählung" [ref=e805]:
+                          - img [ref=e807]
+                        - button "Nummerierte Liste" [ref=e809]:
+                          - img [ref=e811]
+                        - button "Einzug verkleinern" [disabled] [ref=e813]:
+                          - img [ref=e815]
+                        - button "Einzug vergrößern" [ref=e817]:
+                          - img [ref=e819]
+                      - toolbar [ref=e821]:
+                        - button "Font size 11pt" [ref=e822]:
+                          - generic [ref=e823]: 11pt
+                          - img [ref=e825]
+                      - toolbar [ref=e827]:
+                        - button "Formatierung entfernen" [ref=e828]:
+                          - img [ref=e830]
+                        - button "Link einfügen/bearbeiten" [ref=e832]:
+                          - img [ref=e834]
+                        - button "Bild einfügen" [ref=e836]:
+                          - img [ref=e838]
+                      - toolbar [ref=e840]:
+                        - button "Text color Schwarz" [ref=e841]:
+                          - img [ref=e843]
+                          - img [ref=e847]
+                        - button "Background color Schwarz" [ref=e849]:
+                          - img [ref=e851]
+                          - img [ref=e855]
+                    - group
+                    - group
+          - generic [ref=e858]:
+            - button "Senden" [ref=e859] [cursor=pointer]
+            - toolbar "Aktionen. Verwenden Sie die Pfeiltasten zum Navigieren." [ref=e860]:
+              - button "Werkzeugleiste ausblenden" [ref=e861] [cursor=pointer]:
+                - img
+              - button "Anhänge" [ref=e862] [cursor=pointer]:
+                - img
+              - button "Verschlüsselung aktivieren" [ref=e863] [cursor=pointer]:
+                - img
+              - button "Aktionen zum Verfassen von E-Mails" [ref=e864] [cursor=pointer]:
+                - img
+            - log [ref=e865]: Gespeichert vor 36 Minuten
+  - complementary:
+    - alert [ref=e13]
+  - alert [ref=e208]:
+    - img
+    - generic [ref=e210]:
+      - button "Erlauben Sie Benachrichtigungen" [ref=e211] [cursor=pointer]
+      - text: in Ihren Browsereinstellungen, um Push-Nachrichten in Echtzeit zu erhalten.
+    - button "Schließen" [ref=e213] [cursor=pointer]:
+      - generic [ref=e214]:
+        - img
+  - dialog "Entwurf speichern" [ref=e932]:
+    - document [ref=e933]:
+      - generic [ref=e934]:
+        - heading "Entwurf speichern" [level=1] [ref=e936]
+        - generic [ref=e938]: Diese E-Mail wurde nicht gesendet. Sie können den Entwurf zum späteren Bearbeiten speichern.
+        - generic [ref=e939]:
+          - button "Entwurf löschen" [ref=e940] [cursor=pointer]
+          - button "Abbrechen" [ref=e941] [cursor=pointer]
+          - button "Entwurf speichern" [active] [ref=e942] [cursor=pointer]

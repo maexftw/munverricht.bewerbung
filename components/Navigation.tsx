@@ -1,0 +1,172 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Sun, Moon, ShieldCheck } from 'lucide-react';
+import ASCIIText from './ASCIIText';
+import { useTheme } from './ThemeContext';
+
+type Language = 'de' | 'en';
+
+type NavigationProps = {
+    language: Language;
+    onLanguageChange: (language: Language) => void;
+};
+
+const navItems = {
+    de: [
+        { name: 'Start', href: '#hero', icon: Terminal },
+        { name: 'ASL Case', href: '#asl-case', icon: ShieldCheck },
+        { name: 'Über mich', href: '#evolution', icon: User },
+        { name: 'Projekte', href: '#projects', icon: Briefcase },
+        { name: 'Skills', href: '#skill-monitor', icon: Code },
+        { name: 'Kontakt', href: '#contact-shell', icon: Mail },
+    ],
+    en: [
+        { name: 'Home', href: '#hero', icon: Terminal },
+        { name: 'ASL Case', href: '#asl-case', icon: ShieldCheck },
+        { name: 'About', href: '#evolution', icon: User },
+        { name: 'Projects', href: '#projects', icon: Briefcase },
+        { name: 'Skills', href: '#skill-monitor', icon: Code },
+        { name: 'Contact', href: '#contact-shell', icon: Mail },
+    ],
+};
+
+const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const { theme, toggleTheme } = useTheme();
+    const shouldReduceMotion = useReducedMotion();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToSection = (href: string) => {
+        setIsOpen(false);
+        const element = document.querySelector(href);
+        if (element) {
+            element.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth' });
+        }
+    };
+
+    return (
+        <>
+            {/* Desktop Navigation */}
+            <motion.nav
+                initial={shouldReduceMotion ? false : { y: -100 }}
+                animate={{ y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : undefined}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#050505]/80 backdrop-blur-md border-b border-neutral-800 py-3' : 'bg-transparent py-6'
+                    } hidden lg:block`}
+            >
+                <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
+                    <button
+                        type="button"
+                        className="font-bold text-xl tracking-tighter text-neutral-100"
+                        onClick={() => scrollToSection('#hero')}
+                        aria-label={language === 'de' ? 'Zum Start springen' : 'Go to home'}
+                    >
+                        <ASCIIText text="munverricht" className="lowercase" />
+                        <span className="text-blue-500">.org</span>
+                    </button>
+
+                    <ul className="flex space-x-8">
+                        {navItems[language].map((item) => (
+                            <li key={item.name}>
+                                <button
+                                    onClick={() => scrollToSection(item.href)}
+                                    className="text-sm font-medium text-neutral-400 hover:text-blue-500 transition-colors uppercase tracking-widest flex items-center gap-2"
+                                >
+                                    <span className="opacity-0 group-hover:opacity-100 transition-opacity debug-icon">
+                                        <item.icon className="w-3 h-3" />
+                                    </span>
+                                    {item.name}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <button
+                        onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                        aria-label={language === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
+                        className="px-3 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                    >
+                        {language === 'de' ? 'EN' : 'DE'}
+                    </button>
+
+                    <a
+                        href="Maximilian_Unverricht_Resume.html"
+                        className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                    >
+                        {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
+                    </a>
+                </div>
+            </motion.nav>
+
+            {/* Mobile Menu Button */}
+            <div className="fixed top-4 right-4 z-50 lg:hidden">
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="flex min-h-[44px] min-w-[44px] items-center justify-center bg-neutral-900 border border-neutral-800 rounded text-neutral-200"
+                    aria-label={language === 'de' ? 'Menü umschalten' : 'Toggle menu'}
+                >
+                    {isOpen ? <X /> : <Menu />}
+                </button>
+            </div>
+
+            {/* Mobile Theme Toggle */}
+            <div className="fixed top-4 left-4 z-50 lg:hidden">
+                <button
+                    onClick={toggleTheme}
+                    className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-blue-500 transition-colors"
+                    aria-label={`Zu ${theme === 'light' ? 'dunklem' : 'hellem'} Modus wechseln`}
+                >
+                    {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                </button>
+            </div>
+
+            {/* Mobile Navigation Overlay */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={shouldReduceMotion ? false : { opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={shouldReduceMotion ? { duration: 0 } : { type: "spring", damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-40 bg-[#050505] lg:hidden flex flex-col justify-center items-center space-y-8"
+                    >
+                        <button
+                            onClick={() => onLanguageChange(language === 'de' ? 'en' : 'de')}
+                            aria-label={language === 'de' ? 'Switch to English' : 'Auf Deutsch wechseln'}
+                            className="text-sm font-bold uppercase tracking-widest text-blue-400"
+                        >
+                            {language === 'de' ? 'Switch to EN' : 'Wechsel zu DE'}
+                        </button>
+
+                        {navItems[language].map((item) => (
+                            <button
+                                key={item.name}
+                                onClick={() => scrollToSection(item.href)}
+                                className="text-2xl font-bold uppercase tracking-widest text-white hover:text-blue-500 transition-colors flex items-center gap-4"
+                            >
+                                <item.icon className="w-6 h-6 text-blue-500" />
+                                {item.name}
+                            </button>
+                        ))}
+                        <a
+                            href="Maximilian_Unverricht_Resume.html"
+                            className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
+                        >
+                            {language === 'de' ? 'Lebenslauf herunterladen' : 'Download resume'}
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
+};
+
+export default Navigation;

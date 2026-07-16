@@ -1,0 +1,200 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - img [ref=e4]
+    - generic [ref=e5]: X X X X X X X X X X
+    - generic [ref=e6]: X
+    - text: X
+  - generic [ref=e7]:
+    - banner [ref=e8]:
+      - heading "Mail" [level=1] [ref=e232]
+      - generic [ref=e10]:
+        - link "Zum Hauptinhalt wechseln" [ref=e11] [cursor=pointer]:
+          - /url: "#"
+        - button "Standard-App öffnen" [ref=e13] [cursor=pointer]:
+          - img [ref=e15]
+        - toolbar [ref=e27]:
+          - button "Navigieren zu:" [ref=e28] [cursor=pointer]:
+            - generic [ref=e29]:
+              - img
+        - toolbar [ref=e30]:
+          - button "Portal" [ref=e31] [cursor=pointer]:
+            - generic [ref=e32]:
+              - img
+          - button "Mail (5 ungelesen)" [ref=e33] [cursor=pointer]:
+            - generic [ref=e34]:
+              - img [ref=e35]
+              - img
+          - button "Kalender" [ref=e37] [cursor=pointer]:
+            - generic [ref=e38]:
+              - img:
+                - generic: "13"
+          - button "Adressbuch" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]:
+              - img
+          - button "Aufgaben" [ref=e41] [cursor=pointer]:
+            - generic [ref=e42]:
+              - img
+          - button "Drive" [ref=e43] [cursor=pointer]:
+            - generic [ref=e44]:
+              - img
+          - button "Chat" [ref=e45] [cursor=pointer]:
+            - generic [ref=e46]:
+              - img
+          - button "Meet" [ref=e47] [cursor=pointer]:
+            - generic [ref=e48]:
+              - img
+      - generic [ref=e233]:
+        - button "Suchen" [ref=e234] [cursor=pointer]:
+          - generic [ref=e235]:
+            - img
+        - generic [ref=e236]: In E-Mail suchen
+        - searchbox "In E-Mail suchen" [ref=e238]
+        - button "Weitere Suchoptionen" [ref=e239] [cursor=pointer]:
+          - generic [ref=e240]:
+            - img
+      - toolbar [ref=e51]:
+        - button "Es gibt keine Benachrichtigungen" [ref=e52] [cursor=pointer]:
+          - generic [ref=e53]:
+            - img
+        - button "Aktualisieren" [ref=e54] [cursor=pointer]:
+          - generic [ref=e55]:
+            - img
+        - button "Hilfe" [ref=e56] [cursor=pointer]:
+          - generic [ref=e57]:
+            - img
+        - button "Einstellungen" [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]:
+            - img
+        - button "Abmelden" [ref=e60] [cursor=pointer]:
+          - generic [ref=e61]:
+            - img
+        - button "Mein Konto" [ref=e62] [cursor=pointer]:
+          - img [ref=e64]:
+            - generic [ref=e65]: MU
+    - document [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - region "Neue E-Mail" [ref=e245]:
+            - toolbar [ref=e246]:
+              - button "Neue E-Mail" [ref=e247] [cursor=pointer]:
+                - generic [ref=e248]: Neue E-Mail
+              - button "Weitere Aktionen" [ref=e249] [cursor=pointer]:
+                - generic [ref=e250]:
+                  - img
+          - navigation "Ordner" [ref=e251]:
+            - tree "Ordner" [ref=e252]:
+              - treeitem "mailbox.org" [expanded] [ref=e253] [cursor=pointer]:
+                - generic [ref=e254]:
+                  - generic [ref=e255]:
+                    - img
+                  - generic [ref=e256]: mailbox.org
+                - group [ref=e257]:
+                  - treeitem "Posteingang, 5 ungelesen, 5 gesamt." [ref=e258]:
+                    - generic [ref=e259]:
+                      - generic [ref=e260]:
+                        - img
+                      - generic [ref=e261]: Posteingang
+                      - generic [ref=e262]: "5"
+                  - treeitem "Ungelesen, 5 gesamt." [ref=e265]:
+                    - generic [ref=e266]:
+                      - generic [ref=e267]:
+                        - img
+                      - generic [ref=e268]: Ungelesen
+                      - generic [ref=e269]: "5"
+                  - treeitem "Entwürfe" [ref=e270]:
+                    - generic [ref=e271]:
+                      - generic [ref=e272]:
+                        - img
+                      - generic [ref=e273]: Entwürfe
+                  - treeitem "Gesendet, 1 gesamt." [ref=e274]:
+                    - generic [ref=e275]:
+                      - generic [ref=e276]:
+                        - img
+                      - generic [ref=e277]: Gesendet
+                  - treeitem "Spam" [ref=e278]:
+                    - generic [ref=e279]:
+                      - generic [ref=e280]:
+                        - img
+                      - generic [ref=e281]: Spam
+                  - treeitem "Papierkorb" [ref=e282]:
+                    - generic [ref=e283]:
+                      - generic [ref=e284]:
+                        - img
+                      - generic [ref=e285]: Papierkorb
+              - treeitem "Meine Ordner" [selected] [ref=e286] [cursor=pointer]:
+                - generic [ref=e287]:
+                  - generic [ref=e288]:
+                    - img
+                  - generic [ref=e289]:
+                    - img
+                  - generic [ref=e290]: Meine Ordner
+                  - button [ref=e291]:
+                    - generic [ref=e292]:
+                      - img
+            - generic [ref=e295]:
+              - generic [ref=e296]:
+                - generic [ref=e297]: E-Mail-Speicherplatz
+                - generic [ref=e298]:
+                  - generic [ref=e299]: 430 kB /
+                  - text: 10 GB
+              - progressbar "Verwendung in Prozent" [ref=e301]
+              - generic [ref=e302]: 1% belegt, 10 GB verbleibend.
+          - region "Ordneransicht schließen" [ref=e303]:
+            - button "Ordneransicht schließen" [ref=e304] [cursor=pointer]:
+              - generic [ref=e305]:
+                - img
+            - button "Online-Hilfe" [ref=e306] [cursor=pointer]:
+              - generic [ref=e307]:
+                - img
+        - main [ref=e308]:
+          - generic [ref=e309]:
+            - navigation "Nachrichten" [ref=e311]:
+              - toolbar "Nachrichten-Optionen" [ref=e312]:
+                - heading [level=2]
+                - button "Weitere Optionen für Nachrichten" [ref=e315] [cursor=pointer]:
+                  - generic [ref=e316]:
+                    - img
+              - listbox "Listenansicht" [ref=e317]:
+                - option "Dieser Ordner ist leer" [ref=e405]:
+                  - img [ref=e406]
+                  - generic [ref=e413]: Dieser Ordner ist leer
+              - toolbar "Nachrichten-Optionen" [ref=e388]: Soeben aktualisiert
+            - generic [ref=e390]:
+              - toolbar "Mail-Werkzeugleiste. Verwenden Sie die Pfeiltasten zum Navigieren." [ref=e392]:
+                - button "Löschen" [disabled] [ref=e393]:
+                  - img
+                - button "Antwort an Absender" [disabled] [ref=e394]:
+                  - img
+                - button "Antwort an alle Empfänger" [disabled] [ref=e395]:
+                  - img
+                - button "Weiterleiten" [disabled] [ref=e396]:
+                  - img
+              - generic [ref=e398]:
+                - img [ref=e414]
+                - generic [ref=e417]: Keine Nachricht markiert
+  - complementary:
+    - alert [ref=e222]
+  - alert [ref=e225]:
+    - img
+    - generic [ref=e227]:
+      - button "Erlauben Sie Benachrichtigungen" [ref=e228] [cursor=pointer]
+      - text: in Ihren Browsereinstellungen, um Push-Nachrichten in Echtzeit zu erhalten.
+    - button "Schließen" [ref=e230] [cursor=pointer]:
+      - generic [ref=e231]:
+        - img
+  - dialog "Neuen Ordner hinzufügen" [ref=e423]:
+    - document [ref=e424]:
+      - generic [ref=e425]:
+        - generic [ref=e426]:
+          - heading "Neuen Ordner hinzufügen" [level=1] [ref=e427]
+          - button "Online-Hilfe" [ref=e428] [cursor=pointer]:
+            - generic [ref=e429]:
+              - img
+        - generic [ref=e431]:
+          - generic [ref=e432]: Ordnername
+          - textbox "Ordnername" [active] [ref=e433]:
+            - /placeholder: Neuer Ordner
+            - text: Neuer Ordner
+        - generic [ref=e434]:
+          - button "Abbrechen" [ref=e435] [cursor=pointer]
+          - button "Hinzufügen" [ref=e436] [cursor=pointer]

@@ -1,0 +1,8 @@
+{
+  "name": "Webdesign für Handwerker, Praxen & KMU | Maximilian Unverricht",
+  "description": "Klare Firmenwebsite für Handwerker, Praxen und KMU: Festpreis statt Abo, direkter Kontakt statt Agenturprozess und eine Website, die Vertrauen aufbaut und Anfragen erleichtert.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

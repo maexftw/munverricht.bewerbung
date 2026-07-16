@@ -1,0 +1,78 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - link "mailbox-org-logo" [ref=e6] [cursor=pointer]:
+        - /url: https://mailbox.org/en
+        - img "mailbox-org-logo" [ref=e7]
+      - generic [ref=e9]:
+        - heading "Login" [level=3] [ref=e10]
+        - generic [ref=e14]:
+          - paragraph
+          - generic [ref=e15]:
+            - generic [ref=e16]: E-mail address
+            - textbox "E-mail address" [ref=e18]
+          - paragraph
+          - paragraph [ref=e20]: Please enter the full email address of your user account.
+          - paragraph [ref=e21]:
+            - text: Business administrators can log into the administration interface
+            - link "here" [ref=e22] [cursor=pointer]:
+              - /url: https://setup.mailbox.org
+            - text: .
+          - button "Continue" [ref=e24] [cursor=pointer]
+          - link "Forgot password?" [ref=e26] [cursor=pointer]:
+            - /url: https://register.mailbox.org/en/passwordrecovery/step1
+    - generic [ref=e28]:
+      - heading "News" [level=2] [ref=e29]
+      - paragraph [ref=e30]: Do you want to stay up to date? Discover all the updates and news about mailbox.
+      - link "2026/02/16 Label \"Cybersecurity Made in Europe\" for mailbox" [ref=e32] [cursor=pointer]:
+        - /url: https://mailbox.org/en/news/label-cybersecurity-made-europe-mailbox/
+        - generic [ref=e33]:
+          - paragraph [ref=e36]: 2026/02/16
+          - paragraph [ref=e37]: Label "Cybersecurity Made in Europe" for mailbox
+      - link "See more" [ref=e38] [cursor=pointer]:
+        - /url: https://mailbox.org/en/news/
+  - contentinfo [ref=e39]:
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - list [ref=e43]:
+          - listitem [ref=e44]:
+            - link "Link to LinkedIn" [ref=e45] [cursor=pointer]:
+              - /url: https://de.linkedin.com/company/mailbox.org
+              - img "Link to LinkedIn" [ref=e46]
+          - listitem [ref=e47]:
+            - link "Link to Mastodon" [ref=e48] [cursor=pointer]:
+              - /url: https://social.mailbox.org/@mailbox_org
+              - img "Link to Mastodon" [ref=e49]
+          - listitem [ref=e50]:
+            - link "Link to Bluesky" [ref=e51] [cursor=pointer]:
+              - /url: https://bsky.app/profile/mailbox.org
+              - img "Link to Bluesky" [ref=e52]
+          - listitem [ref=e53]:
+            - link "Link to RSS-Feed" [ref=e54] [cursor=pointer]:
+              - /url: https://mailbox.org/en/news/rss.xml
+              - img "Link to RSS-Feed" [ref=e55]
+        - list [ref=e57]:
+          - listitem [ref=e58]:
+            - link "Legal notice" [ref=e59] [cursor=pointer]:
+              - /url: https://mailbox.org/en/legal-information
+          - listitem [ref=e60]:
+            - link "Terms and conditions" [ref=e61] [cursor=pointer]:
+              - /url: https://mailbox.org/en/t-cs-cancellation-policy
+          - listitem [ref=e62]:
+            - link "Data protection" [ref=e63] [cursor=pointer]:
+              - /url: https://mailbox.org/en/data-protection
+          - listitem [ref=e64]:
+            - link "Cancellation" [ref=e65] [cursor=pointer]:
+              - /url: https://register.mailbox.org/en/cancellation
+          - listitem [ref=e66]:
+            - paragraph [ref=e67]: © 2026 mailbox
+      - generic [ref=e68]:
+        - list [ref=e70]:
+          - listitem [ref=e71]: Language
+          - listitem [ref=e72]:
+            - link "German" [ref=e73] [cursor=pointer]:
+              - /url: https://login.mailbox.org/de
+          - listitem [ref=e74]:
+            - link "English":
+              - /url: https://login.mailbox.org/en
+        - paragraph [ref=e76]: Heinlein Gruppe
