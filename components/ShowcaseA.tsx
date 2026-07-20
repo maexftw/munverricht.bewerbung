@@ -10,7 +10,7 @@ type ShowcaseAProps = {
 };
 
 const BACKGROUND_TEXT = Array(50)
-  .fill('LOCAL_DOCUMENT_WORKFLOW_PDF_INPUT_VALIDATION_TRANSLATION_JSON_OUTPUT ')
+  .fill('RLC_CONTENT_WORKFLOW_NEWS_CONTACT_PYTHON_PREVIEW_RELEASE_VERIFICATION ')
   .join(' ');
 
 const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
@@ -21,12 +21,12 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
           <ASCIIText text="// ENGINEERING_USE_CASE_01" />
         </h3>
         <h2 className="text-4xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text="ZBN Offline Document Workflow" />
+          <ASCIIText text="RLC Content & Release Workflow" />
         </h2>
         <p className="max-w-[65ch] text-neutral-200 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Konkretes Beispiel für die Art von lokaler LLM-Arbeit, auf die ich mich spezialisiert habe: Analyse, Übersetzung und Prüfung technischer Dokumente in einem bewusst lokalen Workflow. Entwickelt für sensible Inhalte, bei denen Verarbeitung, Kontrolle und Iteration nah an der eigentlichen Arbeitsumgebung bleiben sollen.'
-            : 'A concrete example of the kind of local LLM work I specialize in: analysing, translating, and checking technical documents inside a deliberately local workflow. Built for sensitive material where processing, control, and iteration are meant to stay close to the actual working environment.'}
+            ? 'Für die Vereinswebsite des RLC 1952 habe ich Contentpflege, Kontaktfunktion und Release-Ablauf als zusammenhängenden Workflow aufgebaut. News und Termine lassen sich strukturiert pflegen, Änderungen werden in einer Vorschau geprüft und erst danach veröffentlicht.'
+            : 'For the RLC 1952 association website, I connected content maintenance, the contact function, and the release process. News and events can be maintained in a structured way, reviewed in preview, and published afterwards.'}
         </p>
       </div>
 
@@ -52,7 +52,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
                 </div>
                 <div className="flex-1 bg-blue-500/10 border border-blue-500/20 rounded p-3 mono text-[9px] text-blue-400">
                   <div className="flex justify-between mb-1">
-                    <span>LOCAL_DOCUMENT_PROCESSING</span>
+                    <span>PYTHON_CONTENT_SYNC</span>
                     <span>ACTIVE</span>
                   </div>
                   <div className="w-full bg-neutral-900 h-1 rounded-full">
@@ -77,9 +77,9 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
             </div>
 
             <div className="grid grid-cols-3 gap-4 pt-4 text-center">
-              <div className="mono text-[8px] text-neutral-600 uppercase">Input: Engineering PDF</div>
-              <div className="mono text-[8px] text-blue-500 uppercase">{language === 'de' ? 'RTX 5090 Inferenz' : 'RTX 5090 Inference'}</div>
-              <div className="mono text-[8px] text-green-600 uppercase">{language === 'de' ? 'Validiertes JSON' : 'Validated JSON'}</div>
+              <div className="mono text-[8px] text-neutral-600 uppercase">{language === 'de' ? 'Input: News & Termine' : 'Input: News & events'}</div>
+              <div className="mono text-[8px] text-blue-500 uppercase">{language === 'de' ? 'Python Content Sync' : 'Python content sync'}</div>
+              <div className="mono text-[8px] text-green-600 uppercase">{language === 'de' ? 'Geprüfter Release' : 'Verified release'}</div>
             </div>
           </div>
         </div>
@@ -88,32 +88,32 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
           <div className="space-y-6">
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                <ASCIIText text=">> Ingest & Extraction" />
+                <ASCIIText text=">> Content automation" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Docling und PyMuPDF lesen Tabellen, Textblöcke und Werte aus komplexen PDFs aus und bereiten sie für die weitere Verarbeitung vor.'
-                  : 'Docling and PyMuPDF extract tables, text blocks, and values from complex PDFs and prepare them for the next processing step.'}
+                  ? 'Python-Skripte unterstützen die Pflege wiederkehrender Inhalte und halten News, Seiten und strukturierte Daten im gleichen Arbeitsablauf.'
+                  : 'Python scripts support recurring content maintenance and keep news, pages, and structured data in the same workflow.'}
               </p>
             </div>
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                <ASCIIText text=">> Context-aware translation" />
+                <ASCIIText text=">> Contact function" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Die Übersetzung läuft nicht blind Wort für Wort, sondern mit Dokumentkontext, damit Fachbegriffe und technische Zusammenhänge verständlich bleiben.'
-                  : 'The translation does not run word by word in isolation. It uses document context so technical terms and relationships stay understandable.'}
+                  ? 'Eine Cloudflare Function verarbeitet das Kontaktformular serverseitig. Turnstile und Eingabeprüfungen schützen den Weg bis zur E-Mail-Weiterleitung.'
+                  : 'A Cloudflare Function handles the contact form server-side. Turnstile and input validation protect the path through to email delivery.'}
               </p>
             </div>
             <div className="space-y-2">
               <h4 className="mono text-[10px] text-blue-500 uppercase font-bold tracking-widest">
-                <ASCIIText text=">> Validation layer" />
+                <ASCIIText text=">> Preview & release" />
               </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Eine Python-Validierung prüft Zahlenwerte und formale Muster gegen das Ausgangsdokument. Das reduziert Fehler und macht Abweichungen sichtbar.'
-                  : 'A Python validation layer checks numeric values and formal patterns against the source document. That helps reduce errors and makes mismatches visible.'}
+                  ? 'Vor dem Livegang werden Seiten, Links, Formulare und Build-Ausgabe geprüft. Der Release bleibt dadurch nachvollziehbar und wiederholbar.'
+                  : 'Pages, links, forms, and build output are checked before publication. This keeps the release clear and repeatable.'}
               </p>
             </div>
           </div>
@@ -121,7 +121,7 @@ const ShowcaseA: React.FC<ShowcaseAProps> = ({ language }) => {
           <div className="flex items-center gap-3 bg-neutral-900 border border-neutral-800 px-4 py-3 rounded">
             <ShieldCheck className="w-5 h-5 text-green-500" aria-hidden="true" />
             <div className="mono text-[10px] text-neutral-500">
-              STATUS: <span className="text-green-500">LOCAL PROCESSING / VALIDATION INCLUDED</span>
+              STATUS: <span className="text-green-500">LIVE / BUILD & RELEASE CHECKED</span>
             </div>
           </div>
         </div>

@@ -21,9 +21,9 @@ type MainPortfolioPageProps = {
 };
 
 const defaultMeta = {
-  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  title: 'Maximilian Unverricht | Webentwicklung & AI-Automatisierung',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+    'Portfolio von Maximilian Unverricht: moderne Websites, Cloudflare-Integrationen, Content-Automatisierung und interaktive Webanwendungen.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -44,14 +44,14 @@ const MainPortfolioPage: React.FC<MainPortfolioPageProps> = ({ language, onLangu
   const portfolioMeta =
     language === 'de'
       ? {
-          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          title: 'Maximilian Unverricht | Webentwicklung & AI-Automatisierung',
           description:
-            'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+            'Portfolio von Maximilian Unverricht: moderne Websites, Cloudflare-Integrationen, Content-Automatisierung und interaktive Webanwendungen.',
         }
       : {
-          title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+          title: 'Maximilian Unverricht | Web Development & AI-assisted Automation',
           description:
-            'Recruiter profile for Maximilian Unverricht: frontend developer with 12+ years of hands-on experience in web design, React, TypeScript, and local LLM workflows.',
+            'The portfolio of Maximilian Unverricht: modern websites, Cloudflare integrations, content automation, and interactive web applications.',
         };
 
   useEffect(() => {

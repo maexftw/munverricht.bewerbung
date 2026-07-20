@@ -72,7 +72,7 @@ const WebdesignAboutSection: React.FC = () => {
               </ul>
 
               <div className="flex flex-col gap-2.5 border-t border-blue-100/80 pt-4 sm:flex-row sm:gap-3">
-                <a href="mailto:info@graphiks.de" className={`${themeClasses.webButtonPrimary} w-full sm:flex-1`}>
+                <a href="mailto:info@munverricht.org" className={`${themeClasses.webButtonPrimary} w-full sm:flex-1`}>
                   <Mail className="h-4 w-4 text-white" />
                   <span className={`${themeClasses.webMeta} font-bold text-white`}>Projekt anfragen</span>
                   <ArrowRight className="h-3.5 w-3.5 text-white" />

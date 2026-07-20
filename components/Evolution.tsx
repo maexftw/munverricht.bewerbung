@@ -31,12 +31,14 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-blue-500">2024 - {language === 'de' ? 'HEUTE' : 'TODAY'} // LOCAL MODELS, VS CODE & DELIVERY</span>
-              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">Lokale LLM-Workflows, VS Code & umsetzbare Ergebnisse</h4>
+              <span className="mono text-[10px] text-blue-500">{language === 'de' ? 'AKTUELL // WEB-SYSTEME & AUTOMATISIERUNG' : 'CURRENT // WEB SYSTEMS & AUTOMATION'}</span>
+              <h4 className="text-xl font-bold text-white uppercase tracking-[0.05em]">
+                {language === 'de' ? 'Websites, Integrationen und wiederholbare Abläufe' : 'Websites, integrations, and repeatable workflows'}
+              </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Arbeit an React/Vite-basierten Websites, Prototypen und lokalen LLM-Workflows direkt in VS Code. Der Schwerpunkt liegt darauf, lokale Modelle sinnvoll für Coding, strukturierte Generierung, Überarbeitung und Implementierung einzusetzen, sodass aus Ideen belastbare Oberflächen, Dokumente und produktionsnahe Ergebnisse werden.'
-                  : 'Working on React/Vite-based websites, prototypes, and local LLM workflows directly inside VS Code. The focus is on using local models in a practical way for coding, structured generation, refinement, and implementation so ideas become reliable interfaces, documents, and production-adjacent outcomes.'}
+                  ? 'Ich arbeite an React/Vite-Anwendungen, statischen Websites und Cloudflare-Integrationen. Dazu gehören Contentpflege, serverseitige Funktionen, technische Prüfungen und nachvollziehbare Releases.'
+                  : 'I work on React/Vite applications, static websites, and Cloudflare integrations. That includes content maintenance, server-side functions, technical checks, and clear releases.'}
               </p>
             </div>
           </motion.li>
@@ -46,12 +48,14 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <GitCommit className="w-3 h-3 text-neutral-500" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-neutral-600">2023 - 2024 // TRANSITION INTO NEW TOOLS</span>
-              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">Übergang zu lokalen Modellen und editorbasierten Workflows</h4>
+              <span className="mono text-[10px] text-neutral-600">{language === 'de' ? 'CA. 1,5 JAHRE // AI-ASSISTED DEVELOPMENT' : 'AROUND 1.5 YEARS // AI-ASSISTED DEVELOPMENT'}</span>
+              <h4 className="text-xl font-bold text-neutral-300 uppercase tracking-[0.05em]">
+                {language === 'de' ? 'Coding Agents als Werkzeug, nicht als Versprechen' : 'Coding agents as a tool, not a promise'}
+              </h4>
               <p className="text-neutral-200 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Vertiefung in neue Entwicklungswerkzeuge, Automatisierung und erste lokale Modell-Setups. In dieser Phase habe ich sehr praktisch herausgearbeitet, welche agentischen Abläufe in VS Code echte Arbeit beschleunigen und welche nur gut klingen.'
-                  : 'Deeper work with newer development tools, automation, and early local model setups. This phase was a very practical process of identifying which agentic workflows in VS Code genuinely speed up delivery and which ones only sound impressive.'}
+                  ? 'Coding Agents unterstützen mich bei Analyse, Umsetzung und Fehlersuche. Entscheidend bleiben klare Quellen, Tests und die Prüfung des tatsächlichen Ergebnisses.'
+                  : 'Coding agents support analysis, implementation, and debugging. Clear source material, tests, and verification of the actual result still guide the work.'}
               </p>
             </div>
           </motion.li>
@@ -61,12 +65,14 @@ const Evolution: React.FC<EvolutionProps> = ({ language }) => {
               <History className="w-3 h-3 text-neutral-700" />
             </div>
             <div className="space-y-2">
-              <span className="mono text-[10px] text-neutral-600">2012 - 2023 // WEB, CMS & MARKETING FOUNDATION</span>
-              <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">Web-Projekte, CMS-Alltag und Marketing-Praxis</h4>
+              <span className="mono text-[10px] text-neutral-600">{language === 'de' ? 'SEIT 2013 // MARKETING, CMS & COMMERCE' : 'SINCE 2013 // MARKETING, CMS & COMMERCE'}</span>
+              <h4 className="text-xl font-bold text-neutral-200 uppercase tracking-[0.05em]">
+                {language === 'de' ? 'Von Google Ads und WordPress zur modernen Webentwicklung' : 'From Google Ads and WordPress to modern web development'}
+              </h4>
               <p className="text-neutral-300 text-sm leading-relaxed">
                 {language === 'de'
-                  ? 'Mehr als ein Jahrzehnt praktische Arbeit an Kundenwebsites, Content-Strukturen, WordPress/Webflow-Projekten und Marketing-nahen Anforderungen. Daraus kommt mein Blick für klare Inhalte, saubere Launches und nachvollziehbare Nutzerführung.'
-                  : 'More than a decade of practical work on client websites, content structures, WordPress/Webflow projects, and marketing-adjacent requirements. That is where my focus on clear content, clean launches, and understandable user guidance comes from.'}
+                  ? 'Seit 2013 arbeite ich mit Google Ads beziehungsweise AdWords und Analytics; 2017 war ich dafür zertifiziert. WordPress kam etwa 2014/15 hinzu, später Elementor, WooCommerce, JTL – unter anderem beim Aufbau des D-Smoker-Shops –, Shopify und ab etwa Mitte 2022 Webflow. Dieses Fundament verbinde ich heute mit React, Cloudflare und Automatisierung.'
+                  : 'I have worked with Google Ads or AdWords and Analytics since 2013 and held certifications for them in 2017. WordPress followed around 2014/15, later Elementor, WooCommerce, JTL—including work on the D-Smoker shop—Shopify, and Webflow from around mid-2022. Today I combine that foundation with React, Cloudflare, and automation.'}
               </p>
             </div>
           </motion.li>

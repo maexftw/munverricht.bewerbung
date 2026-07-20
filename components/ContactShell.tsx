@@ -35,12 +35,12 @@ const ContactShell: React.FC<ContactShellProps> = ({ language }) => {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <a href="mailto:info@graphiks.de" className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors">
+            <a href="mailto:info@munverricht.org" className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors">
               <span className="flex items-center gap-2 text-blue-400 mb-2">
                 <Mail className="w-4 h-4" aria-hidden="true" />
                 <span className="mono text-[10px] uppercase tracking-widest">E-Mail</span>
               </span>
-              <span className="text-neutral-100 text-sm break-all">info@graphiks.de</span>
+              <span className="text-neutral-100 text-sm break-all">info@munverricht.org</span>
             </a>
 
             <a href="tel:+491633229892" className="bg-neutral-900 border border-neutral-800 rounded px-4 py-4 hover:border-blue-500/70 hover:shadow-[0_0_15px_rgba(59,130,246,0.25)] transition-colors">

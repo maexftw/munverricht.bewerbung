@@ -12,7 +12,7 @@ type ProjectsProps = {
 
 type ProjectItem = {
   title: string;
-  url: string;
+  url?: string;
   problem: string;
   solution: string;
   result: string;
@@ -22,118 +22,116 @@ type ProjectItem = {
 const projects: Record<Language, ProjectItem[]> = {
   de: [
     {
-      title: 'TriXstar Portfolio',
-      url: 'https://trixstar-portfolio.pages.dev/',
-      problem: 'Das Künstlerportfolio sollte auf Mobilgeräten besser funktionieren und Inhalte schneller aktualisierbar machen.',
-      solution: 'Relaunch mit React und Vite, klarerer Seitenstruktur und Deployment über Cloudflare Pages.',
-      result: 'Besser lesbarer Erstkontakt für Booking-Anfragen und eine einfachere Basis für laufende Updates.',
-      stack: ['React', 'Vite', 'Cloudflare'],
+      title: 'RLC 1952',
+      url: 'https://rlc-1952-recklinghausen.pages.dev/',
+      problem: 'Eine umfangreiche Vereinswebsite brauchte einen verlässlichen Weg für News, Termine, Kontakt und Releases.',
+      solution: 'Statische Seiten, Python-gestützte Contentpflege und eine Cloudflare Function für das Kontaktformular.',
+      result: 'Live-Website mit geprüftem Build, funktionierendem Kontaktweg und nachvollziehbarem Preview-/Releaseprozess.',
+      stack: ['JavaScript', 'Python', 'Cloudflare'],
     },
     {
-      title: 'Fitness Drensteinfurt',
-      url: 'https://fitness-drensteinfurt-v2.pages.dev/',
-      problem: 'Die Website sollte lokale Sichtbarkeit und Anfragen besser unterstützen, ohne ein großes Budget oder langen Relaunch.',
-      solution: 'Umbau zu einer fokussierten Landingpage mit klaren CTAs, sauberer Informationshierarchie und kurzer Kontaktstrecke.',
-      result: 'Eine klarere Grundlage für Kampagnen und weniger Reibung bis zur Anfrage.',
-      stack: ['Landing Page', 'Conversion Opt.'],
-    },
-    {
-      title: 'Immo Netzwerk Portal',
-      url: 'https://immonetzwerkportal.pages.dev/',
-      problem: 'Eine komplexe Plattform-Idee musste früh sichtbar und diskutierbar werden, bevor in einen Vollbau investiert wird.',
-      solution: 'Interaktiver React-Prototyp mit Dashboard-Struktur, um User-Flows und Umfang gemeinsam durchzugehen.',
-      result: 'Frühere Abstimmung mit Stakeholdern und eine günstigere Entscheidungsbasis für die nächsten Schritte.',
-      stack: ['React', 'Dashboard', 'Concept'],
-    },
-    {
-      title: 'Baker & Charlie',
-      url: 'https://bakerandcharlie.pages.dev/',
-      problem: 'Das traditionelle Angebot brauchte einen digitalen Auftritt, der verständlicher und passender zur Marke wirkt.',
-      solution: 'Website-Konzept mit klaren Content-Modulen, visueller Führung und lokaler Ansprache.',
-      result: 'Bessere Grundlage für einen glaubwürdigen ersten Eindruck bei neuen Besuchern.',
-      stack: ['Design', 'Local Business'],
+      title: 'KOST Sicherheitstechnik',
+      url: 'https://www.kost-sicherheitstechnik.de/',
+      problem: 'Eine produktive Unternehmenswebsite musste technisch geprüft und zuverlässig über Cloudflare betrieben werden.',
+      solution: 'Statische Umsetzung, Cloudflare-Deployment sowie technische Audits für Links, Tracking und Laufzeitfehler.',
+      result: 'Produktiver Betrieb auf der kanonischen Domain mit verifiziertem Build und dokumentierten Prüfungen.',
+      stack: ['JavaScript', 'Cloudflare', 'Python'],
     },
     {
       title: 'Kaffee Faensen Commerce',
       url: 'https://www.kaffee-faensen.de/shop/homepage',
-      problem: 'Die vorhandene Shop-Logik passte nicht zu den konkreten Produkt- und Prozessanforderungen.',
-      solution: 'Eigene Commerce-Strecke mit individueller Shop-Logik, Stripe-Anbindung und passender UX.',
-      result: 'Mehr Kontrolle über den Verkaufsablauf und eine tragfähige Basis für spätere Erweiterungen.',
-      stack: ['Custom Shop Logic', 'Stripe', 'Brand Identity'],
+      problem: 'Shop und Versand mussten reale Adress-, PLZ- und Gewichtsregeln abbilden.',
+      solution: 'Statischer Shop mit Warenkorb, Cloudflare-Checkout-Function, Stripe und eigener Versandlogik.',
+      result: 'Die Geschäftsregeln sind umgesetzt und durch 21 Node-Tests abgedeckt; eine echte Stripe-Transaktion war nicht Teil der Prüfung.',
+      stack: ['JavaScript', 'Stripe', 'Cloudflare Functions'],
     },
     {
-      title: 'Kost Sicherheitstechnik',
-      url: 'https://www.kost-sicherheitstechnik.de/',
-      problem: 'Der Unternehmensauftritt sollte seriöser wirken und lokal besser auffindbar sein.',
-      solution: 'Neuaufbau mit klarerer Struktur und Betrieb über Cloudflare, um Wartung und Auslieferung zu vereinfachen.',
-      result: 'Ruhigerer Gesamteindruck, weniger technische Reibung und eine bessere Basis für lokale Sichtbarkeit.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Performance'],
+      title: 'Baker & Charlie',
+      url: 'https://baker-charlie-production.pages.dev/',
+      problem: 'Inhalte sollten pflegbar bleiben, ohne ein schweres klassisches CMS einzuführen.',
+      solution: 'Mehrseitige Website mit JSON-basierten Inhalten, Pages CMS und Git-basiertem Redaktionsprozess.',
+      result: 'Contentmodell, Build und CMS-Checks sind nachvollziehbar; zwei Browserprüfungen bleiben als offene QA-Punkte dokumentiert.',
+      stack: ['JavaScript', 'JSON', 'Pages CMS'],
     },
     {
-      title: 'Bockel-Bartscher',
-      url: 'https://www.bockel-bartscher.de/',
-      problem: 'Kanzlei-Inhalte waren für neue Besucher nicht schnell genug erfassbar.',
-      solution: 'Klar gegliederter Auftritt mit nachvollziehbarer Informationsarchitektur und ruhigem visuellen Rahmen.',
-      result: 'Ein vertrauenswürdigerer erster Eindruck und schnellere Orientierung bei Erstbesuchen.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Corporate Design'],
+      title: 'VR Air Bridge Fix',
+      url: 'https://github.com/maexftw/vr-airbridge-fix',
+      problem: 'Ein nicht mehr unterstützter VR-Adapter fiel unter Windows 11 auf USB 2.0 und 2,4 GHz zurück.',
+      solution: 'PowerShell automatisiert Geräteerkennung, Registry- und Treiberparameter, WinRT-Hotspotkonfiguration sowie Service- und Hardware-Neustarts.',
+      result: 'Öffentlich dokumentierter und parser-geprüfter Fix; ein Meta-freier Betrieb setzt einen generischen Realtek-Treiber voraus.',
+      stack: ['PowerShell', 'Windows PnP', 'WinRT'],
+    },
+    {
+      title: 'Aim Trainer',
+      url: 'https://aim-trainer-react.pages.dev/',
+      problem: 'Eine kleine Browseranwendung sollte mehrere Trainingsmodi und nachvollziehbare lokale Ergebnisse verbinden.',
+      solution: 'React-App mit Canvas-Interaktion, Metriken und lokaler Speicherung der Resultate.',
+      result: 'Produktiver Build und Live-Deployment mit verifiziertem Kernablauf.',
+      stack: ['React', 'Canvas', 'LocalStorage'],
+    },
+    {
+      title: 'STALKER 2 Re Voice',
+      problem: 'Hunderte Sprachdateien mussten eindeutig zugeordnet, ersetzt und als entfernbares Mod-Paket reproduzierbar gebaut werden.',
+      solution: 'Python-Pipeline für Manifest, WEM-Mapping, Sprachgenerierung, ASR-/Audio-QC, Wwise-Konvertierung und PAK-Build.',
+      result: '410 Banditen-Sprachpfade gebaut und hash-geprüft; zehn relevante Offline-Tests bestanden. Das Projekt ist lokal und noch nicht öffentlich versioniert.',
+      stack: ['Python', 'Wwise/WEM', 'Audio QC'],
     },
   ],
   en: [
     {
-      title: 'TriXstar Portfolio',
-      url: 'https://trixstar-portfolio.pages.dev/',
-      problem: 'The artist portfolio needed to work better on mobile and make updates easier to ship.',
-      solution: 'Relaunch with React and Vite, clearer page structure, and deployment through Cloudflare Pages.',
-      result: 'A cleaner first touchpoint for booking requests and an easier base for ongoing updates.',
-      stack: ['React', 'Vite', 'Cloudflare'],
+      title: 'RLC 1952',
+      url: 'https://rlc-1952-recklinghausen.pages.dev/',
+      problem: 'A large association website needed a reliable workflow for news, events, contact, and releases.',
+      solution: 'Static pages, Python-assisted content maintenance, and a Cloudflare Function for the contact form.',
+      result: 'A live website with a verified build, working contact path, and a clear preview and release process.',
+      stack: ['JavaScript', 'Python', 'Cloudflare'],
     },
     {
-      title: 'Fitness Drensteinfurt',
-      url: 'https://fitness-drensteinfurt-v2.pages.dev/',
-      problem: 'The website needed to support local visibility and enquiries without a large budget or long rebuild.',
-      solution: 'Reshaped into a focused landing page with clear CTAs, better information order, and a shorter path to contact.',
-      result: 'A clearer campaign landing point and less friction before enquiry.',
-      stack: ['Landing Page', 'Conversion Opt.'],
-    },
-    {
-      title: 'Immo Netzwerk Portal',
-      url: 'https://immonetzwerkportal.pages.dev/',
-      problem: 'A complex platform idea needed to become visible and discussable before investing in a full build.',
-      solution: 'Interactive React prototype with dashboard structure to walk through user flows and scope early.',
-      result: 'Earlier stakeholder alignment and a lower-risk basis for the next product decisions.',
-      stack: ['React', 'Dashboard', 'Concept'],
-    },
-    {
-      title: 'Baker & Charlie',
-      url: 'https://bakerandcharlie.pages.dev/',
-      problem: 'The traditional offer needed a clearer digital presence that felt closer to the brand.',
-      solution: 'Website concept with clearer content modules, guided reading flow, and local audience framing.',
-      result: 'A better starting point for a credible first impression online.',
-      stack: ['Design', 'Local Business'],
+      title: 'KOST Sicherheitstechnik',
+      url: 'https://www.kost-sicherheitstechnik.de/',
+      problem: 'A production company website needed technical review and reliable Cloudflare operations.',
+      solution: 'Static implementation, Cloudflare deployment, and technical audits for links, tracking, and runtime errors.',
+      result: 'Production operation on the canonical domain with a verified build and documented checks.',
+      stack: ['JavaScript', 'Cloudflare', 'Python'],
     },
     {
       title: 'Kaffee Faensen Commerce',
       url: 'https://www.kaffee-faensen.de/shop/homepage',
-      problem: 'The default shop logic did not fit the actual product and process requirements.',
-      solution: 'Custom commerce flow with tailored shop logic, Stripe integration, and fitting UX.',
-      result: 'More control over the sales flow and a workable base for later extensions.',
-      stack: ['Custom Shop Logic', 'Stripe', 'Brand Identity'],
+      problem: 'The shop and shipping flow needed to represent real address, postcode, and weight rules.',
+      solution: 'Static shop with cart, Cloudflare checkout function, Stripe, and custom shipping logic.',
+      result: 'The business rules are implemented and covered by 21 Node tests; a real Stripe transaction was outside the verification scope.',
+      stack: ['JavaScript', 'Stripe', 'Cloudflare Functions'],
     },
     {
-      title: 'Kost Sicherheitstechnik',
-      url: 'https://www.kost-sicherheitstechnik.de/',
-      problem: 'The company site needed a more credible presentation and better local findability.',
-      solution: 'Rebuild with clearer structure and Cloudflare-based delivery to simplify maintenance and publishing.',
-      result: 'A calmer first impression, less technical friction, and a better base for local visibility.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Performance'],
+      title: 'Baker & Charlie',
+      url: 'https://baker-charlie-production.pages.dev/',
+      problem: 'Content needed to remain editable without introducing a heavyweight traditional CMS.',
+      solution: 'Multi-page website with JSON content, Pages CMS, and a Git-based editorial workflow.',
+      result: 'The content model, build, and CMS checks are documented; two browser checks remain open QA items.',
+      stack: ['JavaScript', 'JSON', 'Pages CMS'],
     },
     {
-      title: 'Bockel-Bartscher',
-      url: 'https://www.bockel-bartscher.de/',
-      problem: 'The law firm content was not easy enough to scan for first-time visitors.',
-      solution: 'Clearly structured site with understandable information architecture and a restrained visual frame.',
-      result: 'A more trustworthy first impression and faster orientation for potential clients.',
-      stack: ['Cloudflare', 'Modern Workflows', 'Corporate Design'],
+      title: 'VR Air Bridge Fix',
+      url: 'https://github.com/maexftw/vr-airbridge-fix',
+      problem: 'An unsupported VR adapter fell back to USB 2.0 and 2.4 GHz under Windows 11.',
+      solution: 'PowerShell automates device discovery, registry and driver parameters, WinRT hotspot configuration, and service and hardware restarts.',
+      result: 'A publicly documented and parser-validated fix; Meta-free operation requires a generic Realtek driver.',
+      stack: ['PowerShell', 'Windows PnP', 'WinRT'],
+    },
+    {
+      title: 'Aim Trainer',
+      url: 'https://aim-trainer-react.pages.dev/',
+      problem: 'A small browser application needed to combine several training modes with clear local results.',
+      solution: 'React app with Canvas interaction, metrics, and local result storage.',
+      result: 'Production build and live deployment with a verified core flow.',
+      stack: ['React', 'Canvas', 'LocalStorage'],
+    },
+    {
+      title: 'STALKER 2 Re Voice',
+      problem: 'Hundreds of voice files needed to be mapped, replaced, and packaged reproducibly as a removable mod.',
+      solution: 'Python pipeline for manifests, WEM mapping, voice generation, ASR and audio QC, Wwise conversion, and PAK builds.',
+      result: 'Built and hash-verified 410 Bandit voice paths, with ten relevant offline tests passing. The project is local and not yet publicly versioned.',
+      stack: ['Python', 'Wwise/WEM', 'Audio QC'],
     },
   ],
 };
@@ -150,8 +148,8 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
         </h2>
         <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Auswahl realer Projekte im Format Problem → Lösung → Ergebnis, damit Recruiter Umfang und Arbeitsweise schnell einordnen können.'
-            : 'Selection of real projects in a Problem → Solution → Result format so recruiters can quickly assess scope and working style.'}
+            ? 'Repository-geprüfte Projekte im Format Problem → Lösung → Ergebnis. Die Texte nennen nur Aufgaben und Resultate, die sich im Code, in Tests oder im Live-Stand nachvollziehen lassen.'
+            : 'Repository-reviewed projects in a Problem → Solution → Result format. The descriptions only state work and results that can be traced in code, tests, or the live version.'}
         </p>
       </div>
 
@@ -160,17 +158,19 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
           <motion.a
             key={i}
             href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={p.url ? '_blank' : undefined}
+            rel={p.url ? 'noopener noreferrer' : undefined}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
             className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
           >
             <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
-            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
-              <ExternalLink className="w-5 h-5" />
-            </div>
+            {p.url && (
+              <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
+                <ExternalLink className="w-5 h-5" />
+              </div>
+            )}
 
             <div className="space-y-4 relative z-10">
               <div className="flex items-center gap-3 mb-2">

@@ -26,7 +26,7 @@ const phaseContent = {
     {
       id: 'PHASE_03',
       title: 'Deployment & Kundenpflege',
-      text: 'Nach dem Deployment über Cloudflare können passende Editierstrecken wie TinaCMS eingebunden werden, wenn Inhalte später ohne Code gepflegt werden sollen.',
+      text: 'Wenn redaktionelle Pflege Teil des Projekts ist, wird eine passende Content-Schicht ergänzt. Bei Baker & Charlie geschieht das über JSON-Inhalte und Pages CMS.',
       tone: 'green' as const,
     },
   ],
@@ -46,7 +46,7 @@ const phaseContent = {
     {
       id: 'PHASE_03',
       title: 'Deployment & client editing',
-      text: 'After deployment through Cloudflare, an editing layer like TinaCMS can be added when ongoing content updates should happen without code changes.',
+      text: 'When editorial maintenance is part of a project, a suitable content layer is added. Baker & Charlie uses JSON content and Pages CMS for this.',
       tone: 'green' as const,
     },
   ],

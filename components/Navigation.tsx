@@ -63,8 +63,8 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                         className="font-bold text-xl tracking-tighter cursor-pointer text-neutral-100"
                         onClick={() => scrollToSection('#hero')}
                     >
-                        <ASCIIText text="graphiks" className="lowercase" />
-                        <span className="text-blue-500">.de</span>
+                        <ASCIIText text="munverricht" className="lowercase" />
+                        <span className="text-blue-500">.org</span>
                     </div>
 
                     <ul className="flex space-x-8">
@@ -91,7 +91,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                     </button>
 
                     <a
-                        href="Maximilian_Unverricht_Resume.html"
+                        href="Maximilian_Unverricht_Resume_2026.html"
                         className="px-4 py-2 bg-neutral-900 border border-neutral-700 rounded text-xs font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                     >
                         {language === 'de' ? 'Lebenslauf' : 'Resume'} <span className="text-blue-500">↓</span>
@@ -149,7 +149,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, onLanguageChange }) =
                             </button>
                         ))}
                         <a
-                            href="Maximilian_Unverricht_Resume.html"
+                            href="Maximilian_Unverricht_Resume_2026.html"
                             className="mt-8 px-8 py-4 bg-neutral-900 border border-neutral-700 rounded text-sm font-bold uppercase tracking-wider hover:border-blue-500 hover:text-white transition-all"
                         >
                             {language === 'de' ? 'Lebenslauf herunterladen' : 'Download resume'}

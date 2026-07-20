@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Activity, Wrench, Workflow, Globe, Cpu } from 'lucide-react';
+import { Activity, BadgeCheck, Wrench, Workflow, Globe, Cpu } from 'lucide-react';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
 
@@ -12,52 +12,46 @@ type SkillMonitorProps = {
 
 const skills = [
   {
-    category: { de: 'VS Code & Frontend-Umsetzung', en: 'VS Code & frontend delivery' },
-    items: [
-      'Visual Studio Code',
-      'React',
-      'Vite',
-      'TypeScript',
-      'Tailwind',
-      'Anime.js',
-      'HTML5',
-    ],
+    category: { de: 'Frontend-Umsetzung', en: 'Frontend delivery' },
+    items: ['React', 'Vite', 'TypeScript', 'Tailwind', 'HTML', 'CSS', 'JavaScript'],
     icon: Globe,
-    level: 94,
     accent: 'blue',
-    status: { de: 'tägliche Arbeitsumgebung', en: 'primary day-to-day environment' },
+    status: { de: 'neue Oberflächen und bestehende Codebasen', en: 'new interfaces and existing codebases' },
   },
   {
-    category: { de: 'Delivery & Plattformen', en: 'Delivery & platforms' },
-    items: ['GitHub', 'Cloudflare Pages', 'Wrangler', 'Google Cloud', 'AWS', 'Azure'],
+    category: { de: 'Cloudflare & Delivery', en: 'Cloudflare & delivery' },
+    items: ['Cloudflare Pages', 'Cloudflare Functions', 'Wrangler', 'GitHub', 'D1', 'Turnstile'],
     icon: Workflow,
-    level: 74,
     accent: 'violet',
-    status: { de: 'vorhandene Plattform-Erfahrung, nicht Kernprofil', en: 'platform exposure, not the core specialization' },
+    status: { de: 'Deployment, serverseitige Funktionen und Betrieb', en: 'deployment, server-side functions, and operations' },
   },
   {
-    category: { de: 'Lokale LLM-Workflows', en: 'Local LLM workflows' },
-    items: ['Local models', 'VS Code agents', 'Roo Code', 'Cline', 'Structured generation', 'Python validation scripts'],
+    category: { de: 'AI-assisted Entwicklung', en: 'AI-assisted development' },
+    items: ['Coding Agents', 'Hermes', 'Codex', 'Claude Code', 'MCP', 'Graphify'],
     icon: Cpu,
-    level: 91,
     accent: 'cyan',
-    status: { de: 'Kernfokus für Coding, Prototyping und Verfeinerung', en: 'core focus for coding, prototyping, and refinement' },
+    status: { de: 'Analyse, Umsetzung, Fehlersuche und Verifikation', en: 'analysis, implementation, debugging, and verification' },
   },
   {
-    category: { de: 'Praxis-Fundament', en: 'Practical foundation' },
-    items: ['WordPress', 'Webflow', 'Content structure', 'Launch support', 'Client communication'],
+    category: { de: 'Automatisierung & Inhalte', en: 'Automation & content' },
+    items: ['Python', 'Node.js', 'JSON', 'Git workflows', 'Pages CMS', 'Playwright'],
     icon: Wrench,
-    level: 88,
     accent: 'amber',
-    status: { de: 'langjährige Projektpraxis', en: 'long-term project experience' },
+    status: { de: 'Contentpflege, Prüfungen und wiederholbare Releases', en: 'content maintenance, checks, and repeatable releases' },
   },
   {
-    category: { de: 'Marketing-nahe Tools', en: 'Marketing-adjacent tools' },
-    items: ['Google Ads (Cert.)', 'Google Analytics (Cert.)', 'Tag Manager'],
+    category: { de: 'Interaktion & Integrationen', en: 'Interaction & integrations' },
+    items: ['Stripe', 'SQL', 'Leaflet', 'Canvas', 'GeoJSON', 'LocalStorage'],
     icon: Activity,
-    level: 72,
     accent: 'emerald',
-    status: { de: 'hilfreich für Seiten mit Vertriebsbezug', en: 'helpful for sites with commercial goals' },
+    status: { de: 'Commerce, Daten und interaktive Browseranwendungen', en: 'commerce, data, and interactive browser applications' },
+  },
+  {
+    category: { de: 'Marketing, CMS & Commerce', en: 'Marketing, CMS & commerce' },
+    items: ['Google Ads', 'Google Analytics', 'WordPress', 'Elementor', 'WooCommerce', 'JTL', 'Shopify', 'Webflow'],
+    icon: BadgeCheck,
+    accent: 'violet',
+    status: { de: 'Praxis seit 2013; Google-Zertifizierungen von 2017 historisch', en: 'practice since 2013; 2017 Google certifications are historical' },
   },
 ];
 
@@ -99,11 +93,13 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
     <section id="skill-monitor" className="space-y-12 py-6 scroll-mt-28">
       <div className="flex flex-col items-center text-center space-y-2">
         <h3 className="mono text-blue-500 text-xs tracking-widest uppercase mb-2" aria-hidden="true"><ASCIIText text="// TOOLS_IN_USE" /></h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono"><ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} /></h2>
+        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
+          <ASCIIText text={language === 'de' ? 'Tools & Arbeitskontext' : 'Tools & working context'} noWrap={false} />
+        </h2>
         <p className="max-w-[68ch] text-neutral-400 text-sm leading-relaxed">
           {language === 'de'
-            ? 'Keine Buzzword-Matrix, sondern die Tools und Arbeitsbereiche, mit denen ich aktuell wirklich arbeite. Der Schwerpunkt liegt klar auf VS Code als Arbeitsumgebung, lokalen LLM-Modellen für agentische Coding-Workflows und der Umsetzung bis zum nutzbaren Ergebnis; Plattformen sind vorhanden, aber nicht der Kern der Positionierung.'
-            : 'This is not a buzzword matrix. It shows the tools and work areas I actually use right now. The center of gravity is clearly VS Code as the working environment, local LLM models for agentic coding workflows, and implementation through to usable output; platform exposure exists, but it is not the core positioning.'}
+            ? 'Diese Bereiche sind durch konkrete Projekte belegt. Die Tools stehen nicht für sich: Entscheidend ist, was damit umgesetzt, getestet und in Betrieb gebracht wurde.'
+            : 'These areas are backed by practical projects. The tools do not stand alone; what matters is what was implemented, tested, and put into operation with them.'}
         </p>
       </div>
 
@@ -140,7 +136,7 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
             <div className="mt-4 h-[2px] w-full bg-neutral-900 overflow-hidden rounded-full" aria-hidden="true">
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${skill.level}%` }}
+                animate={{ width: '100%' }}
                 transition={{ duration: 1.2, delay: 0.2 + i * 0.06, ease: 'easeOut' }}
                 className={`h-full bg-gradient-to-r ${accentStyles[skill.accent].bar}`}
               />
@@ -160,8 +156,7 @@ const SkillMonitor: React.FC<SkillMonitorProps> = ({ language }) => {
             <div className="mt-5 pt-4 border-t border-neutral-900 flex items-center justify-between" aria-hidden="true">
               <span className="mono text-[8px] text-neutral-600">{language === 'de' ? 'EINORDNUNG' : 'CONTEXT'}</span>
               <div className="flex items-center gap-2">
-                <span className="mono text-[9px] text-neutral-300">{skill.level}%</span>
-                <span className={`mono text-[8px] ${accentStyles[skill.accent].text}`}>{language === 'de' ? '>> PRAKTISCH GENUTZT' : '>> PRACTICALLY USED'}</span>
+                <span className={`mono text-[8px] ${accentStyles[skill.accent].text}`}>{language === 'de' ? '>> PROJEKTBELEGT' : '>> PROJECT-BACKED'}</span>
               </div>
             </div>
           </motion.article>

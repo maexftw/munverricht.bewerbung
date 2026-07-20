@@ -8,9 +8,9 @@ type LegalPageProps = {
 };
 
 const defaultMeta = {
-  title: 'Maximilian Unverricht | Frontend Developer & Web Delivery',
+  title: 'Maximilian Unverricht | Webentwicklung & AI-Automatisierung',
   description:
-    'Recruiter-Profil von Maximilian Unverricht: Frontend Developer mit 12+ Jahren Praxiserfahrung in Webdesign, React, TypeScript und lokalen LLM-Workflows.',
+    'Portfolio von Maximilian Unverricht: moderne Websites, Cloudflare-Integrationen, Content-Automatisierung und interaktive Webanwendungen.',
 };
 
 const upsertMetaTag = (selector: string, attributes: Record<string, string>, content: string) => {
@@ -38,7 +38,7 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
     const descriptionMeta = document.head.querySelector<HTMLMetaElement>('meta[name="description"]');
     const previousDescription = descriptionMeta?.getAttribute('content') ?? '';
 
-    document.title = `${title} | graphiks.de`;
+    document.title = `${title} | munverricht.org`;
     upsertMetaTag('meta[name="description"]', { name: 'description' }, `${title} | ${summary}`);
 
     return () => {
@@ -52,7 +52,7 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
       <header className="sticky top-0 z-20 border-b border-blue-100/80 bg-white/78 backdrop-blur-[18px]">
         <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <a href="/" className="mono text-sm font-semibold uppercase tracking-[0.2em] text-slate-800">
-            graphiks.de
+            munverricht.org
           </a>
 
           <div className="flex flex-wrap items-center justify-end gap-2">
@@ -83,12 +83,7 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
             >
               {language === 'de' ? 'EN' : 'DE'}
             </button>
-            <a
-              href="/webdesign"
-              className="inline-flex min-h-[40px] items-center rounded-full border border-blue-100 bg-white px-3.5 py-2 mono text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-700 transition-colors hover:border-blue-200 hover:text-blue-600"
-            >
-              {labels.webdesign}
-            </a>
+
           </div>
         </div>
       </header>
@@ -134,12 +129,7 @@ const LegalPage: React.FC<LegalPageProps> = ({ page, language, onLanguageChange 
           >
             {labels.backHome}
           </a>
-          <a
-            href="/webdesign"
-            className="inline-flex min-h-[44px] items-center rounded-full border border-blue-100 bg-white px-4 py-2.5 mono text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-700 transition-colors hover:border-blue-200 hover:text-blue-600"
-          >
-            {labels.webdesign}
-          </a>
+
         </section>
       </main>
     </div>
