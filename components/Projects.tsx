@@ -63,11 +63,11 @@ const projects: Record<Language, ProjectItem[]> = {
     },
     {
       title: 'Aim Trainer',
-      url: 'https://aim-trainer-react.pages.dev/',
-      problem: 'Eine kleine Browseranwendung sollte mehrere Trainingsmodi und nachvollziehbare lokale Ergebnisse verbinden.',
-      solution: 'React-App mit Canvas-Interaktion, Metriken und lokaler Speicherung der Resultate.',
-      result: 'Produktiver Build und Live-Deployment mit verifiziertem Kernablauf.',
-      stack: ['React', 'Canvas', 'LocalStorage'],
+      url: 'https://maexftw.github.io/aim-trainer/',
+      problem: 'Ein frameworkfreier Browsertrainer sollte drei Trainingsmodi mit messbaren und lokal gespeicherten Ergebnissen verbinden.',
+      solution: 'Vanilla JavaScript mit Canvas-/Pointer-Lock-Interaktion, Leistungsmetriken und LocalStorage-Persistenz.',
+      result: 'Unit-Test und Build bestanden; das GitHub-Pages-Deployment wurde live ohne JavaScript-Fehler geprüft.',
+      stack: ['Vanilla JavaScript', 'Canvas', 'LocalStorage'],
     },
     {
       title: 'STALKER 2 Re Voice',
@@ -120,11 +120,11 @@ const projects: Record<Language, ProjectItem[]> = {
     },
     {
       title: 'Aim Trainer',
-      url: 'https://aim-trainer-react.pages.dev/',
-      problem: 'A small browser application needed to combine several training modes with clear local results.',
-      solution: 'React app with Canvas interaction, metrics, and local result storage.',
-      result: 'Production build and live deployment with a verified core flow.',
-      stack: ['React', 'Canvas', 'LocalStorage'],
+      url: 'https://maexftw.github.io/aim-trainer/',
+      problem: 'A framework-free browser trainer needed to combine three training modes with measurable, locally stored results.',
+      solution: 'Vanilla JavaScript with Canvas and Pointer Lock interaction, performance metrics, and LocalStorage persistence.',
+      result: 'The unit test and build passed, and the GitHub Pages deployment was checked live without JavaScript errors.',
+      stack: ['Vanilla JavaScript', 'Canvas', 'LocalStorage'],
     },
     {
       title: 'STALKER 2 Re Voice',

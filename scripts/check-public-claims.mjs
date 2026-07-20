@@ -24,20 +24,6 @@ const publicSourceFiles = [
   ...walkTextFiles(join(root, 'public')),
 ];
 
-const jobProfileFiles = [
-  'index.html',
-  'components/MainPortfolioPage.tsx',
-  'components/Hero.tsx',
-  'components/Evolution.tsx',
-  'components/ShowcaseA.tsx',
-  'components/ShowcaseB.tsx',
-  'components/Projects.tsx',
-  'components/SkillMonitor.tsx',
-  'components/LegalPage.tsx',
-  'public/Maximilian_Unverricht_Resume.html',
-  'public/Maximilian_Unverricht_Resume_2026.html',
-].map((path) => join(root, path));
-
 const failures = [];
 
 const checkPattern = (files, label, pattern) => {
@@ -81,7 +67,7 @@ const unsupportedClaims = [
 ];
 
 for (const [label, pattern] of unsupportedClaims) {
-  checkPattern(jobProfileFiles, label, pattern);
+  checkPattern(publicSourceFiles, label, pattern);
 }
 
 checkPattern(
@@ -127,6 +113,21 @@ checkRequiredPattern(
   [join(root, 'components/Projects.tsx'), join(root, 'public/Maximilian_Unverricht_Resume_2026.html')],
   'STALKER 2 Re Voice fehlt',
   /STALKER 2 Re Voice/u,
+);
+checkPattern(
+  [join(root, 'components/Projects.tsx')],
+  'falsche Aim-Trainer-React-URL oder React-Implementierung',
+  /aim-trainer-react\.pages\.dev|title:\s*['"]Aim Trainer['"][\s\S]{0,300}\bReact\b/iu,
+);
+checkRequiredPattern(
+  [join(root, 'components/Projects.tsx')],
+  'verifizierte Aim-Trainer-URL oder Vanilla-JavaScript-Einordnung fehlt',
+  /https:\/\/maexftw\.github\.io\/aim-trainer\/[\s\S]{0,500}Vanilla JavaScript/iu,
+);
+checkRequiredPattern(
+  [join(root, 'components/WebdesignAboutSection.tsx')],
+  'belegte Webdesign-/Marketing-Einordnung seit 2013 fehlt',
+  /Praxis seit 2013 in digitalem Marketing und Webprojekten/iu,
 );
 
 if (failures.length > 0) {
