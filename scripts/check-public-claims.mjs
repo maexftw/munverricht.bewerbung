@@ -124,6 +124,34 @@ checkRequiredPattern(
   'verifizierte Aim-Trainer-URL oder Vanilla-JavaScript-Einordnung fehlt',
   /https:\/\/maexftw\.github\.io\/aim-trainer\/[\s\S]{0,500}Vanilla JavaScript/iu,
 );
+
+const projectsSource = [join(root, 'components/Projects.tsx')];
+checkRequiredPattern(
+  projectsSource,
+  'commit-spezifische Shop-WIP-Preview fehlt',
+  /https:\/\/c95787f1\.kost-9h6\.pages\.dev\/shop\/[\s\S]{0,900}status:\s*['"]wip['"]/iu,
+);
+checkRequiredPattern(
+  projectsSource,
+  'commit-spezifische Totti-WIP-Preview fehlt',
+  /https:\/\/c95787f1\.kost-9h6\.pages\.dev\/shop\/totti\/[\s\S]{0,900}status:\s*['"]wip['"]/iu,
+);
+checkRequiredPattern(
+  projectsSource,
+  'WIP-Provenienz mit Datum, KOST-Repository und Commit fehlt',
+  /20\.07\.2026[\s\S]{0,80}KOST-(?:Repository|repository)[\s\S]{0,80}7e52176/iu,
+);
+
+const forbiddenWipClaims = [
+  ['unbelegter autonomer Totti-Claim', /(?:Totti|Vertical Agent)[\s\S]{0,700}(?:vollständig autonom|fully autonomous)/iu],
+  ['unbelegter Produktionsreife-Claim', /(?:Totti|Sicherheitstechnik Shop)[\s\S]{0,700}(?:produktionsreif|production-ready)/iu],
+  ['unbelegter fertiger Checkout-Claim', /(?:Sicherheitstechnik Shop)[\s\S]{0,700}(?:fertiger (?:Produktions)?checkout|completed checkout)/iu],
+  ['unbelegter universeller Normkonformitäts-Claim', /(?:Totti|Vertical Agent)[\s\S]{0,700}(?:universelle Normkonformität|universal standards compliance)/iu],
+];
+for (const [label, pattern] of forbiddenWipClaims) {
+  checkPattern(projectsSource, label, pattern);
+}
+
 checkRequiredPattern(
   [join(root, 'components/WebdesignAboutSection.tsx')],
   'belegte Webdesign-/Marketing-Einordnung seit 2013 fehlt',

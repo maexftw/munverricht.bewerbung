@@ -1,46 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
+import { IconButton } from '@astryxdesign/core/IconButton';
 
-const ScrollToTop: React.FC = () => {
+type ScrollToTopProps = { language?: 'de' | 'en' };
+
+const ScrollToTop: React.FC<ScrollToTopProps> = ({ language = 'de' }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 400) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
+    const toggleVisibility = () => setIsVisible(window.scrollY > 400);
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  const label = language === 'de' ? 'Zum Seitenanfang springen' : 'Back to top';
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.button
+        <motion.span
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-[1100] flex items-center gap-2 px-4 py-2 bg-[#111111]/90 backdrop-blur-sm border border-blue-500/30 rounded text-neutral-200 hover:text-white hover:border-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all group"
-          aria-label="Zum Seitenanfang springen"
+          className="fixed bottom-8 right-8 z-[1100]"
         >
-          <span className="mono text-[10px] uppercase tracking-widest hidden sm:block">
-            [Zum Seitenanfang]
-          </span>
-          <ChevronUp className="w-4 h-4 text-blue-500 group-hover:animate-bounce" />
-        </motion.button>
+          <IconButton
+            label={label}
+            tooltip={label}
+            variant="secondary"
+            icon={<ChevronUp aria-hidden="true" />}
+            onClick={() => window.scrollTo({ top: 0, behavior: shouldReduceMotion ? 'auto' : 'smooth' })}
+          />
+        </motion.span>
       )}
     </AnimatePresence>
   );

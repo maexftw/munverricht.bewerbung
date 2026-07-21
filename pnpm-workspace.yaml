@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+
+overrides:
+  '@babel/core': 7.29.7
+  picomatch: 4.0.5
+  postcss: 8.5.20

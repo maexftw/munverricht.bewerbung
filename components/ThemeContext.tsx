@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { Theme as AstryxTheme } from '@astryxdesign/core';
+import { munverrichtPortfolioTheme } from './astryx/munverricht-portfolio';
 
 type Theme = 'light' | 'dark';
 
@@ -17,27 +19,21 @@ export const useTheme = () => {
   return context;
 };
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode; forcedTheme?: Theme }> = ({ children, forcedTheme }) => {
-  const [theme, setTheme] = useState<Theme>('dark');
+type ThemeProviderProps = {
+  children: React.ReactNode;
+  forcedTheme?: Theme;
+  withAstryx?: boolean;
+};
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, forcedTheme, withAstryx = false }) => {
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (forcedTheme || typeof window === 'undefined') return forcedTheme ?? 'dark';
+    return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+  });
+
+  const activeTheme = forcedTheme ?? theme;
 
   useEffect(() => {
-    if (forcedTheme) {
-      return;
-    }
-
-    // Check for saved theme and default to dark for strongest visual presentation
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-    
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      setTheme('dark');
-    }
-  }, [forcedTheme]);
-
-  useEffect(() => {
-    const activeTheme = forcedTheme ?? theme;
-
     // Apply theme to document
     document.documentElement.setAttribute('data-theme', activeTheme);
 
@@ -65,11 +61,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode; forcedTheme?: 
     setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+  const content = (
+    <ThemeContext.Provider value={{ theme: activeTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
+
+  return withAstryx ? (
+    <AstryxTheme theme={munverrichtPortfolioTheme} mode={activeTheme}>
+      {content}
+    </AstryxTheme>
+  ) : content;
 };
 
 export default ThemeProvider;

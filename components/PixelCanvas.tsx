@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
 interface PixelCanvasProps {
   colors?: string[];
@@ -187,10 +188,12 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
   const rafRef = useRef<number | null>(null);
   const pixelsRef = useRef<Pixel[]>([]);
   const [animationType, setAnimationType] = useState<'appear' | 'disappear'>('disappear');
+  const shouldReduceMotion = useReducedMotion();
 
   const colorsStr = colors.join(',');
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
     if (ambient) return; // Ignore hover events if purely ambient
 
     const container = containerRef.current?.parentElement;
@@ -214,9 +217,10 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
         container.removeEventListener('focusout', handleLeave);
       }
     };
-  }, [noFocus, ambient]);
+  }, [noFocus, ambient, shouldReduceMotion]);
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -326,7 +330,7 @@ const AmbientPixelCanvas: React.FC<PixelCanvasProps> = ({
         rafRef.current = null;
       }
     };
-  }, [colorsStr, gap, speed, density, animationType, ambient, fixed]);
+  }, [colorsStr, gap, speed, density, animationType, ambient, fixed, shouldReduceMotion]);
 
   return (
     <div ref={containerRef} className={`${fixed ? 'fixed' : 'absolute'} inset-0 z-0 pointer-events-none overflow-hidden`}>

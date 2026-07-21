@@ -1,6 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Layers, Layout } from 'lucide-react';
+import { Card } from '@astryxdesign/core/Card';
+import { Grid } from '@astryxdesign/core/Grid';
+import { Heading } from '@astryxdesign/core/Heading';
+import { HStack } from '@astryxdesign/core/HStack';
+import { Text } from '@astryxdesign/core/Text';
+import { Token } from '@astryxdesign/core/Token';
+import { VStack } from '@astryxdesign/core/VStack';
 import ASCIIText from './ASCIIText';
 import PixelCanvas from './PixelCanvas';
 
@@ -17,6 +24,8 @@ type ProjectItem = {
   solution: string;
   result: string;
   stack: string[];
+  status?: 'wip';
+  provenance?: string;
 };
 
 const projects: Record<Language, ProjectItem[]> = {
@@ -36,6 +45,26 @@ const projects: Record<Language, ProjectItem[]> = {
       solution: 'Statische Umsetzung, Cloudflare-Deployment sowie technische Audits für Links, Tracking und Laufzeitfehler.',
       result: 'Produktiver Betrieb auf der kanonischen Domain mit verifiziertem Build und dokumentierten Prüfungen.',
       stack: ['JavaScript', 'Cloudflare', 'Python'],
+    },
+    {
+      title: 'KOST Sicherheitstechnik Shop',
+      url: 'https://c95787f1.kost-9h6.pages.dev/shop/',
+      problem: 'Eine bereitgestellte Produktbasis von rund 1.500 Sicherheitstechnik-Artikeln sollte importiert, strukturiert und responsiv navigierbar werden.',
+      solution: 'React-/Cloudflare-Shop mit CSV-Import, D1-Katalogschema, Pages-Functions-API, KOST-Taxonomie, Produktansichten und persistentem Browser-Warenkorb.',
+      result: 'Bestellanfragen werden mit Pflichtdaten und Legal Consent sowie einem testabgedeckten Draft-, Freigabe- und Payment-Link-Vertrag vorbereitet.',
+      stack: ['React 19', 'Cloudflare Functions', 'D1'],
+      status: 'wip',
+      provenance: 'Stand 20.07.2026 · KOST-Repository · Commit 7e52176 · Produktion und main unverändert',
+    },
+    {
+      title: 'Totti Vertical Agent',
+      url: 'https://c95787f1.kost-9h6.pages.dev/shop/totti/',
+      problem: 'Endkundenbedarf in der Sicherheitstechnik sollte strukturiert erfasst werden, ohne unklare oder normkritische Fälle als sichere Fachplanung auszugeben.',
+      solution: 'Kataloggebundener KI-Berater mit freier Texteingabe, Guided Questions, serverseitiger Hydrierung, Produktrollen und Safety-, Norm- und Fremdmarken-Guards.',
+      result: 'Passende KOST-Produkte werden eingegrenzt; Kauf-, Misch-, Anfrage- und Ablehnungspfade sind getrennt, und planungsintensive Fälle gehen fail-closed an eine persönliche KOST-Prüfung.',
+      stack: ['React', 'Cloudflare Functions', 'D1'],
+      status: 'wip',
+      provenance: 'Stand 20.07.2026 · KOST-Repository · Commit 7e52176 · Produktion und main unverändert',
     },
     {
       title: 'Kaffee Faensen Commerce',
@@ -95,6 +124,26 @@ const projects: Record<Language, ProjectItem[]> = {
       stack: ['JavaScript', 'Cloudflare', 'Python'],
     },
     {
+      title: 'KOST Sicherheitstechnik Shop',
+      url: 'https://c95787f1.kost-9h6.pages.dev/shop/',
+      problem: 'A supplied product base of around 1,500 security-technology items needed to be imported, structured, and made responsive and navigable.',
+      solution: 'React and Cloudflare shop with CSV import, a D1 catalogue schema, Pages Functions API, KOST taxonomy, product views, and a persistent browser cart.',
+      result: 'It prepares order requests with a test-covered draft, approval, and payment-link contract, including required customer data and legal consent.',
+      stack: ['React 19', 'Cloudflare Functions', 'D1'],
+      status: 'wip',
+      provenance: 'As of 20 Jul 2026 · KOST repository · Commit 7e52176 · Production and main unchanged',
+    },
+    {
+      title: 'Totti Vertical Agent',
+      url: 'https://c95787f1.kost-9h6.pages.dev/shop/totti/',
+      problem: 'Security-technology customer needs needed structured capture without presenting unclear or standards-critical cases as reliable specialist planning.',
+      solution: 'Catalogue-bound AI adviser with free-text input, guided questions, server-side hydration, product roles, and safety, standards, and third-party-brand guards.',
+      result: 'It narrows suitable KOST products, separates purchase, mixed, enquiry, and rejection paths, and hands unclear, standards-critical, or planning-intensive cases off for personal KOST review.',
+      stack: ['React', 'Cloudflare Functions', 'D1'],
+      status: 'wip',
+      provenance: 'As of 20 Jul 2026 · KOST repository · Commit 7e52176 · Production and main unchanged',
+    },
+    {
       title: 'Kaffee Faensen Commerce',
       url: 'https://www.kaffee-faensen.de/shop/homepage',
       problem: 'The shop and shipping flow needed to represent real address, postcode, and weight rules.',
@@ -138,64 +187,93 @@ const projects: Record<Language, ProjectItem[]> = {
 
 const Projects: React.FC<ProjectsProps> = ({ language }) => {
   return (
-    <section id="projects" className="space-y-12 py-12 border-t border-neutral-900 scroll-mt-28">
-      <div className="flex flex-col items-center text-center space-y-4">
-        <h3 className="mono text-blue-500 text-xs tracking-[0.3em] uppercase opacity-70" aria-hidden="true">
+    <section id="projects" className="scroll-mt-28 border-t border-[color:var(--border-subtle)] py-12">
+      <VStack gap={10}>
+        <VStack gap={4} hAlign="center">
+          <Text type="code" color="accent" display="block" justify="center" aria-hidden="true">
           <ASCIIText text="// SELECTED_WORK" />
-        </h3>
-        <h2 className="text-3xl font-bold uppercase tracking-[0.05em] mono">
-          <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} />
-        </h2>
-        <p className="max-w-[65ch] text-neutral-400 text-sm leading-relaxed">
+          </Text>
+          <Heading level={2} justify="center" textWrap="balance">
+            <ASCIIText text={language === 'de' ? 'Projektübersicht' : 'Project Overview'} />
+          </Heading>
+          <Text type="supporting" color="secondary" display="block" justify="center" textWrap="pretty" className="max-w-[65ch]">
           {language === 'de'
-            ? 'Repository-geprüfte Projekte im Format Problem → Lösung → Ergebnis. Die Texte nennen nur Aufgaben und Resultate, die sich im Code, in Tests oder im Live-Stand nachvollziehen lassen.'
-            : 'Repository-reviewed projects in a Problem → Solution → Result format. The descriptions only state work and results that can be traced in code, tests, or the live version.'}
-        </p>
-      </div>
+            ? 'Repository-geprüfte Projekte: bestehende Arbeiten als Problem → Lösung → Ergebnis, neue WIP-Systeme als Problem → Ansatz → belegter Stand.'
+            : 'Repository-reviewed projects: established work as Problem → Solution → Result, and new WIP systems as Problem → Approach → Verified state.'}
+          </Text>
+        </VStack>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects[language].map((p, i) => (
-          <motion.a
-            key={i}
-            href={p.url}
-            target={p.url ? '_blank' : undefined}
-            rel={p.url ? 'noopener noreferrer' : undefined}
+        <Grid columns={{ minWidth: 280, max: 3, repeat: 'fit' }} gap={6}>
+          {projects[language].map((p, i) => {
+            const cardContent = (
+              <>
+                <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
+                <VStack gap={4} className="relative z-10">
+                  <HStack gap={3} vAlign="center">
+                    <Layout className="h-4 w-4 text-[color:var(--accent-color)]" aria-hidden="true" />
+                    <Heading level={3}>{p.title}</Heading>
+                    {p.url && <ExternalLink className="ml-auto h-4 w-4 text-[color:var(--accent-color)]" aria-hidden="true" />}
+                  </HStack>
+                  {p.status === 'wip' && (
+                    <HStack gap={2} wrap="wrap">
+                      <Token label="Work in Progress" size="sm" color="cyan" />
+                      <Text type="code" color="secondary">{p.provenance}</Text>
+                    </HStack>
+                  )}
+                  <VStack gap={2}>
+                    <Text type="supporting" color="secondary" display="block">
+                      <Text type="supporting" color="accent">Problem:</Text> {p.problem}
+                    </Text>
+                    <Text type="supporting" color="secondary" display="block">
+                      <Text type="supporting" color="accent">
+                        {p.status === 'wip' ? (language === 'de' ? 'Ansatz:' : 'Approach:') : (language === 'de' ? 'Lösung:' : 'Solution:')}
+                      </Text> {p.solution}
+                    </Text>
+                    <Text type="supporting" color="secondary" display="block">
+                      <Text type="supporting" color="accent">
+                        {p.status === 'wip' ? (language === 'de' ? 'Belegter Stand:' : 'Verified state:') : (language === 'de' ? 'Ergebnis:' : 'Result:')}
+                      </Text> {p.result}
+                    </Text>
+                  </VStack>
+                  <HStack gap={2} wrap="wrap">
+                    {p.stack.map((item) => (
+                      <React.Fragment key={item}><Token label={item} size="sm" color="blue" icon={<Layers aria-hidden="true" />} /></React.Fragment>
+                    ))}
+                  </HStack>
+                </VStack>
+              </>
+            );
+
+            return (
+              <motion.article
+                key={p.title}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
-            className="group block bg-[#111111] p-6 rounded border border-neutral-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden"
+                className="h-full"
           >
-            <PixelCanvas colors={['#3b82f6', '#1d4ed8']} density={0.15} gap={10} />
-            {p.url && (
-              <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity text-blue-500" aria-hidden="true">
-                <ExternalLink className="w-5 h-5" />
-              </div>
-            )}
-
-            <div className="space-y-4 relative z-10">
-              <div className="flex items-center gap-3 mb-2">
-                <Layout className="w-4 h-4 text-neutral-600 group-hover:text-blue-500 transition-colors" />
-                <h3 className="font-semibold text-white uppercase tracking-[0.04em]">{p.title}</h3>
-              </div>
-
-              <div className="space-y-2 text-xs leading-relaxed text-neutral-300">
-                <p><span className="text-blue-400">{language === 'de' ? 'Problem:' : 'Problem:'}</span> {p.problem}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Lösung:' : 'Solution:'}</span> {p.solution}</p>
-                <p><span className="text-blue-400">{language === 'de' ? 'Ergebnis:' : 'Result:'}</span> {p.result}</p>
-              </div>
-
-              <div className="pt-2 border-t border-neutral-800/80 flex flex-wrap gap-2">
-                {p.stack.map((item) => (
-                  <span key={item} className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-700 rounded px-2 py-1">
-                    <Layers className="w-3 h-3" />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.a>
-        ))}
-      </div>
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${p.title} ${p.status === 'wip' ? 'WIP-Preview ' : ''}${language === 'de' ? 'in neuem Tab öffnen' : 'open in new tab'}`}
+                    className="project-card-link group block h-full rounded-[var(--radius-container)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-color)]"
+                  >
+                    <Card padding={6} className="relative h-full overflow-hidden transition-colors group-hover:border-[var(--accent-color)]">
+                      {cardContent}
+                    </Card>
+                  </a>
+                ) : (
+                  <Card padding={6} className="relative h-full overflow-hidden">
+                    {cardContent}
+                  </Card>
+                )}
+              </motion.article>
+            );
+          })}
+        </Grid>
+      </VStack>
     </section>
   );
 };
