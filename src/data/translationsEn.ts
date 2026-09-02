@@ -26,29 +26,29 @@ export const translationsEn: TranslationDictionary = {
     greeting: "Hello, I am",
     name: "Maximilian Unverricht",
     title: "AI Workflow & Web Delivery Specialist",
-    location: "Dortmund, Germany (Remote/Hybrid)",
-    tagline: "12 years web experience. Focus: React, Cloudflare Edge & deterministic AI agents.",
+    location: "Dortmund, Germany (Remote / Hybrid)",
+    tagline: "Pragmatic web developer with 12+ years of experience: Focus on React, Cloudflare Edge & deterministic AI agents.",
     bio: "Building web architectures that work. Zero hallucinations, zero slop.",
     statsYears: "12+ Years Experience",
     statsProjects: "1,460+ Catalog SKUs",
     statsAccuracy: "100% Positively-Bound",
-    primaryCta: "Contact",
-    secondaryCta: "Flagship Case Study",
-    ctaProjects: "Projects",
-    ctaContact: "Contact"
+    primaryCta: "Get in touch",
+    secondaryCta: "View Flagship Case Study",
+    ctaProjects: "View Projects",
+    ctaContact: "Get in Touch"
   },
   about: {
     title: "About Me",
     subtitle: "From performance marketing to deterministic AI engineering",
     paragraphs: [
-      "10+ years of CMS & performance marketing experience (Graphiks.de). Since 2025 focusing on React 19, Cloudflare Edge (Workers, D1), and pragmatic AI integration.",
-      "My approach: Builder over researcher. Generative AI needs strict guardrails and deterministic tool-calling to be enterprise-viable. No yak shaving, just an 80/20 focus on real results."
+      "For more than 12 years, I have been building and optimizing web applications at Graphiks.de. Focus: bespoke CMS, performance marketing, and reliable infrastructure.",
+      "Since August 2025, my clear focus has been on React 19, TypeScript, Cloudflare Edge (Workers, Pages, D1 SQL), and deterministic AI agents without hallucinations."
     ],
     highlights: [
       { label: "Experience", value: "12+ Years" },
       { label: "Focus since 08/2025", value: "React & AI Delivery" },
-      { label: "Infrastructure", value: "Cloudflare Edge" },
-      { label: "Location", value: "Dortmund (Remote)" }
+      { label: "Infrastructure", value: "Cloudflare Pages & Edge" },
+      { label: "Location", value: "Dortmund (Remote / Hybrid)" }
     ]
   },
   skills: {
