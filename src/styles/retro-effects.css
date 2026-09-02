@@ -325,3 +325,53 @@
   color: var(--bg1);
   border-left: 3px solid var(--accent1);
 }
+
+/* Sticky Genres Anchor Rail */
+.hyp-genres-anchor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: sticky;
+  top: 24px;
+}
+
+.hyp-genres-anchor a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-family: var(--monoFont);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--bgInverse);
+  background-color: var(--bg2);
+  border: 1px solid var(--bgInverse2);
+  border-radius: 4px;
+  transition: all var(--transition);
+}
+
+.hyp-genres-anchor a:hover,
+.hyp-genres-anchor a:focus-visible {
+  background-color: var(--accent1);
+  color: #ffffff;
+  border-color: var(--accent1);
+}
+
+.darkmode .hyp-genres-anchor a,
+[data-theme-mode="dark"] .hyp-genres-anchor a {
+  background-color: var(--darkBg2);
+  color: var(--bg1);
+  border-color: var(--darkInverse2);
+}
+
+.darkmode .hyp-genres-anchor a:hover,
+.darkmode .hyp-genres-anchor a:focus-visible,
+[data-theme-mode="dark"] .hyp-genres-anchor a:hover,
+[data-theme-mode="dark"] .hyp-genres-anchor a:focus-visible {
+  background-color: var(--accent1);
+  color: #ffffff;
+  border-color: var(--accent1);
+}
