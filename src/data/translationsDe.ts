@@ -26,29 +26,29 @@ export const translationsDe: TranslationDictionary = {
     greeting: "Hallo, ich bin",
     name: "Maximilian Unverricht",
     title: "AI Workflow & Web Delivery Specialist",
-    location: "Dortmund, Deutschland (Remote / Hybrid)",
-    tagline: "Pragmatischer Web-Entwickler mit 12+ Jahren Erfahrung: Verbindet moderne Web-Architekturen (React, TypeScript, Cloudflare) mit praxiserprobten AI-Agenten und deterministischen RAG-Pipelines.",
-    bio: "12+ Jahre professionelle Webentwicklung. Fokus auf React 19, Cloudflare Edge & D1 SQL, ReAct Tool-Calling und deterministische Guardrails ohne KI-Halluzinationen.",
+    location: "Dortmund (Remote/Hybrid)",
+    tagline: "12 Jahre Web-Erfahrung. Fokus: React, Cloudflare Edge & deterministische AI-Agenten.",
+    bio: "Baut Web-Architekturen, die funktionieren. Keine Halluzinationen, kein Slop.",
     statsYears: "12+ Jahre Erfahrung",
     statsProjects: "1.460+ Katalog-SKUs",
     statsAccuracy: "100% DB-gebunden",
-    primaryCta: "Kontakt aufnehmen",
-    secondaryCta: "Flagship Case Study ansehen",
-    ctaProjects: "Projekte ansehen",
-    ctaContact: "Kontakt aufnehmen"
+    primaryCta: "Kontakt",
+    secondaryCta: "Flagship Case Study",
+    ctaProjects: "Projekte",
+    ctaContact: "Kontakt"
   },
   about: {
     title: "Über mich",
-    subtitle: "Vom CMS- & Performance-Marketing-Fundament zur modernen AI-gestützten Web-Entwicklung",
+    subtitle: "Vom Performance-Marketing zur deterministischen AI-Entwicklung",
     paragraphs: [
-      "Seit über 12 Jahren entwickle und optimiere ich Webanwendungen im professionellen Agentur- und Kundenumfeld. Über ein Jahrzehnt lang lag mein Schwerpunkt bei Graphiks.de auf maßgeschneiderten WordPress- und Webflow-Lösungen, Performance-Marketing und stabiler technischer Kundenbetreuung.",
-      "Seit August 2025 liegt mein klarer Fokus auf moderner Web-Architektur (React 19, TypeScript, Vite, Tailwind CSS), Cloudflare Edge-Infrastrukturen (Workers, Pages, D1 SQL) und der Integration produktiver AI-Automationen. Dabei verstehe ich mich als pragmatischer Builder, der generative KI durch deterministische Guardrails und strukturierte Tool-Calling-Runtimes geschäftskritisch nutzbar macht."
+      "10+ Jahre Erfahrung in CMS & Performance Marketing (Graphiks.de). Seit 2025 Fokus auf React 19, Cloudflare Edge (Workers, D1) und pragmatische AI-Integration.",
+      "Mein Ansatz: Builder statt Researcher. Generative KI muss durch strikte Guardrails und deterministisches Tool-Calling geschäftskritisch nutzbar werden. Kein Yak-Shaving, sondern 80/20-Fokus auf echte Ergebnisse."
     ],
     highlights: [
       { label: "Erfahrung", value: "12+ Jahre" },
       { label: "Fokus seit 08/2025", value: "React & AI Delivery" },
-      { label: "Infrastruktur", value: "Cloudflare Pages & Edge" },
-      { label: "Standort", value: "Dortmund (Remote / Hybrid)" }
+      { label: "Infrastruktur", value: "Cloudflare Edge" },
+      { label: "Standort", value: "Dortmund (Remote)" }
     ]
   },
   skills: {

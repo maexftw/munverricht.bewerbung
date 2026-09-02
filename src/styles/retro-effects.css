@@ -30,7 +30,7 @@
 }
 
 /* ==========================================================================
-   SLANTED STRIPE HATCH PATTERNS (-45 deg)
+   CLEANER ACCENTS (Replaces Slanted Stripe Hatch Patterns)
    ========================================================================== */
 
 .hyp-slant {
@@ -38,8 +38,8 @@
   height: 100vh;
   position: sticky;
   top: 0;
-  background-color: var(--bg1);
-  background: repeating-linear-gradient(-45deg, var(--accent2) 0px 4px, transparent 4px 8px);
+  background-color: var(--bg2);
+  border-right: 1px solid var(--accent2);
   transition: background 0.3s ease;
   z-index: 40;
   flex-shrink: 0;
@@ -47,55 +47,61 @@
 
 .darkmode .hyp-slant,
 [data-theme-mode="dark"] .hyp-slant {
-  background-color: var(--darkBg1);
-  background: repeating-linear-gradient(-45deg, var(--accent2) 0px 4px, transparent 4px 8px);
+  background-color: var(--darkBg2);
+  border-right: 1px solid var(--accent2);
 }
 
 .hyp-hatch-accent1 {
-  background: repeating-linear-gradient(-45deg, var(--accent1) 0px 4px, transparent 4px 8px);
+  background-color: var(--accent1);
 }
 
 .hyp-hatch-accent2 {
-  background: repeating-linear-gradient(-45deg, var(--accent2) 0px 4px, transparent 4px 8px);
+  background-color: var(--accent2);
 }
 
 .hyp-hatch-bgInverse {
-  background: repeating-linear-gradient(-45deg, var(--bgInverse) 0px 4px, transparent 4px 8px);
+  background-color: var(--bgInverse);
 }
 
 .hyp-hatch-bg2 {
-  background: repeating-linear-gradient(-45deg, var(--bg2) 0px 4px, transparent 4px 8px);
+  background-color: var(--bg2);
 }
 
 /* ==========================================================================
-   STEPPED MULTI-BORDER BOX SHADOWS
+   CLEAN SOLID BOX SHADOWS
    ========================================================================== */
 
 .hyp-shadow-stepped-1 {
-  box-shadow: 5px 0px 0px var(--bg1), 10px 0px 0px var(--accent1);
+  box-shadow: 4px 4px 0px var(--accent1);
+  border: 2px solid var(--bgInverse);
 }
 
 .hyp-shadow-stepped-2 {
-  box-shadow: 5px 0px 0px var(--bg1), 10px 0px 0px var(--accent2);
+  box-shadow: 4px 4px 0px var(--accent2);
+  border: 2px solid var(--bgInverse);
 }
 
 .hyp-shadow-stepped-white {
-  box-shadow: 5px 0px 0px var(--bg1), 10px 0px 0px var(--notWhite);
+  box-shadow: 4px 4px 0px var(--notWhite);
+  border: 2px solid var(--bgInverse);
 }
 
 .darkmode .hyp-shadow-stepped-1,
 [data-theme-mode="dark"] .hyp-shadow-stepped-1 {
-  box-shadow: 5px 0px 0px var(--darkBg1), 10px 0px 0px var(--accent1);
+  box-shadow: 4px 4px 0px var(--accent1);
+  border-color: var(--accent1);
 }
 
 .darkmode .hyp-shadow-stepped-2,
 [data-theme-mode="dark"] .hyp-shadow-stepped-2 {
-  box-shadow: 5px 0px 0px var(--darkBg1), 10px 0px 0px var(--accent2);
+  box-shadow: 4px 4px 0px var(--accent2);
+  border-color: var(--accent2);
 }
 
 .darkmode .hyp-shadow-stepped-white,
 [data-theme-mode="dark"] .hyp-shadow-stepped-white {
-  box-shadow: 5px 0px 0px var(--darkBg1), 10px 0px 0px var(--notWhite);
+  box-shadow: 4px 4px 0px var(--notWhite);
+  border-color: var(--notWhite);
 }
 
 /* ==========================================================================

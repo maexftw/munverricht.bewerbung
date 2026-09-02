@@ -26,29 +26,29 @@ export const translationsEn: TranslationDictionary = {
     greeting: "Hello, I am",
     name: "Maximilian Unverricht",
     title: "AI Workflow & Web Delivery Specialist",
-    location: "Dortmund, Germany (Remote / Hybrid)",
-    tagline: "Pragmatic web developer with 12+ years of experience: Combining modern web architectures (React, TypeScript, Cloudflare) with production-ready AI agents and deterministic RAG pipelines.",
-    bio: "12+ years of professional web engineering. Focus on React 19, Cloudflare Edge & D1 SQL, ReAct tool-calling, and deterministic guardrails with zero AI hallucinations.",
+    location: "Dortmund, Germany (Remote/Hybrid)",
+    tagline: "12 years web experience. Focus: React, Cloudflare Edge & deterministic AI agents.",
+    bio: "Building web architectures that work. Zero hallucinations, zero slop.",
     statsYears: "12+ Years Experience",
     statsProjects: "1,460+ Catalog SKUs",
     statsAccuracy: "100% Positively-Bound",
-    primaryCta: "Get in touch",
-    secondaryCta: "View Flagship Case Study",
-    ctaProjects: "View Projects",
-    ctaContact: "Get in Touch"
+    primaryCta: "Contact",
+    secondaryCta: "Flagship Case Study",
+    ctaProjects: "Projects",
+    ctaContact: "Contact"
   },
   about: {
     title: "About Me",
-    subtitle: "From a 10+ year CMS & performance marketing foundation to modern AI-assisted web delivery",
+    subtitle: "From performance marketing to deterministic AI engineering",
     paragraphs: [
-      "For more than 12 years, I have been building and optimizing web applications in professional agency and client environments. For over a decade at Graphiks.de, my core focus was on bespoke WordPress and Webflow CMS solutions, performance marketing, and reliable client infrastructure.",
-      "Since August 2025, my clear focus has been on modern web architecture (React 19, TypeScript, Vite, Tailwind CSS), Cloudflare Edge infrastructure (Workers, Pages, D1 SQL), and the integration of production-grade AI automation. I operate as a pragmatic builder who makes generative AI enterprise-viable through deterministic guardrails and structured tool-calling runtimes."
+      "10+ years of CMS & performance marketing experience (Graphiks.de). Since 2025 focusing on React 19, Cloudflare Edge (Workers, D1), and pragmatic AI integration.",
+      "My approach: Builder over researcher. Generative AI needs strict guardrails and deterministic tool-calling to be enterprise-viable. No yak shaving, just an 80/20 focus on real results."
     ],
     highlights: [
       { label: "Experience", value: "12+ Years" },
       { label: "Focus since 08/2025", value: "React & AI Delivery" },
-      { label: "Infrastructure", value: "Cloudflare Pages & Edge" },
-      { label: "Location", value: "Dortmund (Remote / Hybrid)" }
+      { label: "Infrastructure", value: "Cloudflare Edge" },
+      { label: "Location", value: "Dortmund (Remote)" }
     ]
   },
   skills: {
