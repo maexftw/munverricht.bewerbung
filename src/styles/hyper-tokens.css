@@ -1,0 +1,322 @@
+/**
+ * HYPER LINK Design System — Tokens & Theming CSS Variables
+ * Reference: hyper-link-a-sandbox-concept / PROJECT.md
+ */
+
+:root {
+  --fontSize: 14px;
+  --lineHeight: 22px;
+  --fontScaleOffset: 0px;
+
+  --titleFont: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --bodyFont: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --monoFont: ui-monospace, "SF Mono", "Cascadia Code", "Fira Code", monospace;
+  --starFont: 'Starborn', 'Poppins', sans-serif;
+  --bubblyFont: 'Boldone', 'Poppins', sans-serif;
+
+  /* LIGHT MODE CANVAS (Default) */
+  --bg1: #e3e3e3;
+  --bg2: #d3d3d3;
+  --bg3: #dddddd;
+  --bgInverse: #333333;
+  --bgInverse2: #444444;
+
+  /* DARK MODE PRIMITIVES */
+  --darkBg1: #2e2e2e;
+  --darkBg2: #222222;
+  --darkInverse1: #222222;
+  --darkInverse2: #333333;
+  --darkDarker: #1a1a1a;
+
+  /* SEPIA MODE PRIMITIVES */
+  --sepia1: #dedbd5;
+  --sepia2: #c2bab0;
+  --sepia3: #b3aaa1;
+
+  /* STANDARD COLOR PRIMITIVES (Light / Sepia) */
+  --pinkDark: #e06594;
+  --pinkLight: #e39fb7;
+  --redDark: #c73854;
+  --redLight: #de6a7a;
+  --orangeDark: #d15f4d;
+  --orangeLight: #e6987e;
+  --yellowDark: #bd881e;
+  --yellowLight: #d9b86c;
+  --greenDark: #59804d;
+  --greenLight: #a6bf80;
+  --tealDark: #2a848c;
+  --tealLight: #79baba;
+  --blueDark: #6265b3;
+  --blueLight: #8b9be0;
+  --purpleDark: #8451a6;
+  --purpleLight: #b78ac2;
+
+  /* PREMIUM COLOR PRIMITIVES */
+  --silverMid: #8696b3;
+  --notWhite: #b0b0b0;
+  --brownDark: #735750;
+  --beigeLight: #b39f7d;
+  --pinkNeon: #e6478e;
+  --greenNeon: #65bd42;
+
+  /* ACTIVE ACCENTS (Default: Red Dark & Green Light) */
+  --accent1: var(--redDark);
+  --accent2: var(--greenLight);
+
+  --transition: 0.2s ease;
+  --bannerGrayscale: grayscale(100%) contrast(70%) brightness(115%);
+  --bannerSepia: grayscale(100%) contrast(70%) sepia(15%);
+
+  /* OUTLINE MULTI-SHADOWS */
+  --lightOutline1:
+    var(--bg1) 2px 0px 0px,
+    var(--bg1) 1.75517px 0.958851px 0px,
+    var(--bg1) 1.0806px 1.68294px 0px,
+    var(--bg1) 0.141474px 1.99499px 0px,
+    var(--bg1) -0.832294px 1.81859px 0px,
+    var(--bg1) -1.60229px 1.19694px 0px,
+    var(--bg1) -1.97999px 0.28224px 0px,
+    var(--bg1) -1.87291px -0.701566px 0px,
+    var(--bg1) -1.30729px -1.51361px 0px,
+    var(--bg1) -0.421592px -1.95506px 0px,
+    var(--bg1) 0.567324px -1.91785px 0px,
+    var(--bg1) 1.41734px -1.41108px 0px,
+    var(--bg1) 1.92034px -0.558831px 0px;
+
+  --darkOutline1:
+    var(--bgInverse) 2px 0px 0px,
+    var(--bgInverse) 1.75517px 0.958851px 0px,
+    var(--bgInverse) 1.0806px 1.68294px 0px,
+    var(--bgInverse) 0.141474px 1.99499px 0px,
+    var(--bgInverse) -0.832294px 1.81859px 0px,
+    var(--bgInverse) -1.60229px 1.19694px 0px,
+    var(--bgInverse) -1.97999px 0.28224px 0px,
+    var(--bgInverse) -1.87291px -0.701566px 0px,
+    var(--bgInverse) -1.30729px -1.51361px 0px,
+    var(--bgInverse) -0.421592px -1.95506px 0px,
+    var(--bgInverse) 0.567324px -1.91785px 0px,
+    var(--bgInverse) 1.41734px -1.41108px 0px,
+    var(--bgInverse) 1.92034px -0.558831px 0px;
+}
+
+/* ==========================================================================
+   TRI-MODE THEME DEFINITIONS (Light, Sepia, Dark)
+   ========================================================================== */
+
+/* SEPIA MODE */
+.sepiamode,
+[data-theme-mode="sepia"],
+body.sepiamode {
+  --bg1: var(--sepia1);
+  --bg2: var(--sepia2);
+  --notWhite: var(--sepia3);
+  --bannerGrayscale: var(--bannerSepia);
+}
+
+/* LOW CONTRAST FILTER */
+.contrastmode,
+[data-contrast="low"],
+body.contrastmode {
+  filter: contrast(95%) grayscale(25%);
+}
+
+/* DARK MODE */
+.darkmode,
+[data-theme-mode="dark"],
+body.darkmode {
+  --bgInverse: var(--darkInverse1);
+  --bgInverse2: var(--darkInverse2);
+  --bg1: #c0c0c0;
+  --bg2: #b0b0b0;
+  --bannerGrayscale: grayscale(100%) contrast(70%) brightness(100%);
+
+  /* Dark mode primitive tone mapping */
+  --pinkDark: #d46a92;
+  --pinkLight: #a64265;
+  --redDark: #bd4652;
+  --redLight: #80333d;
+  --orangeDark: #c96151;
+  --orangeLight: #8c4338;
+  --yellowDark: #b88725;
+  --yellowLight: #735b24;
+  --greenDark: #59804d;
+  --greenLight: #3c5936;
+  --tealDark: #2a848c;
+  --tealLight: #1f525c;
+  --blueDark: #6568ab;
+  --blueLight: #424278;
+  --purpleDark: #815a9c;
+  --purpleLight: #583763;
+
+  --silverMid: #7787a3;
+  --notWhite: #c0c0c0;
+  --brownDark: #735750;
+  --beigeLight: #b39f7d;
+  --pinkNeon: #c42d6c;
+  --greenNeon: #5aad34;
+}
+
+/* Darkmode root overrides */
+.darkmode .hyp,
+[data-theme-mode="dark"] .hyp {
+  background-color: var(--darkBg1);
+  color: var(--bg2);
+}
+
+.darkmode .hyp-main-menu,
+[data-theme-mode="dark"] .hyp-main-menu {
+  background-color: var(--darkBg1);
+  color: var(--bg1);
+}
+
+.darkmode .hyp-menu-links a,
+[data-theme-mode="dark"] .hyp-menu-links a {
+  color: var(--bg2);
+}
+
+.darkmode .hyp-menu-links a:hover,
+[data-theme-mode="dark"] .hyp-menu-links a:hover {
+  color: var(--accent2);
+}
+
+.darkmode .hyp-menu-links .notif:hover,
+[data-theme-mode="dark"] .hyp-menu-links .notif:hover {
+  color: var(--accent1);
+}
+
+/* ==========================================================================
+   THEME PALETTES (6 Curated + Catalog)
+   ========================================================================== */
+
+/* 1. Default Slate & Crimson */
+.defaultPalette,
+[data-theme-palette="default"] {
+  --bannerGrayscale: none;
+  --accent1: var(--redDark);
+  --accent2: var(--greenLight);
+}
+.darkmode .defaultPalette,
+.darkmode[data-theme-palette="default"],
+[data-theme-mode="dark"] .defaultPalette,
+[data-theme-mode="dark"][data-theme-palette="default"] {
+  --bannerGrayscale: contrast(70%) brightness(100%);
+  --accent1: var(--redDark);
+  --accent2: var(--pinkLight);
+}
+
+/* 2. Cyberpunk Neon */
+.cyberPunk,
+[data-theme-palette="cyberpunk"] {
+  --accent1: var(--silverMid);
+  --accent2: var(--greenNeon);
+}
+.darkmode .cyberPunk,
+.darkmode[data-theme-palette="cyberpunk"],
+[data-theme-mode="dark"] .cyberPunk,
+[data-theme-mode="dark"][data-theme-palette="cyberpunk"] {
+  --accent1: var(--greenNeon);
+  --accent2: var(--silverMid);
+}
+
+/* 3. Terminal Emerald */
+.leafyGreen,
+.greenerGrass,
+[data-theme-palette="emerald"] {
+  --accent1: var(--greenDark);
+  --accent2: var(--greenLight);
+}
+.darkmode .leafyGreen,
+.darkmode .greenerGrass,
+.darkmode[data-theme-palette="emerald"],
+[data-theme-mode="dark"] .leafyGreen,
+[data-theme-mode="dark"] .greenerGrass,
+[data-theme-mode="dark"][data-theme-palette="emerald"] {
+  --accent1: var(--greenDark);
+  --accent2: var(--tealLight);
+}
+
+/* 4. Monochrome & Newsprint */
+.newsPrint,
+.paintBlack,
+.monochrome,
+[data-theme-palette="newsprint"] {
+  --accent1: var(--bgInverse);
+  --accent2: var(--notWhite);
+}
+.darkmode .newsPrint,
+.darkmode .paintBlack,
+.darkmode .monochrome,
+.darkmode[data-theme-palette="newsprint"],
+[data-theme-mode="dark"] .newsPrint,
+[data-theme-mode="dark"] .paintBlack,
+[data-theme-mode="dark"] .monochrome,
+[data-theme-mode="dark"][data-theme-palette="newsprint"] {
+  --accent1: var(--bg1);
+  --accent2: #666666;
+}
+
+/* 5. Pastel Goth */
+.pastelGoth,
+[data-theme-palette="pastel"] {
+  --accent1: var(--bgInverse);
+  --accent2: var(--pinkDark);
+}
+.darkmode .pastelGoth,
+.darkmode[data-theme-palette="pastel"],
+[data-theme-mode="dark"] .pastelGoth,
+[data-theme-mode="dark"][data-theme-palette="pastel"] {
+  --accent1: var(--bg1);
+  --accent2: var(--pinkDark);
+}
+
+/* 6. Retro Amber / Gold */
+.glitterGold,
+.retroGamer,
+[data-theme-palette="amber"] {
+  --accent1: var(--yellowDark);
+  --accent2: var(--yellowLight);
+}
+.darkmode .glitterGold,
+.darkmode .retroGamer,
+.darkmode[data-theme-palette="amber"],
+[data-theme-mode="dark"] .glitterGold,
+[data-theme-mode="dark"] .retroGamer,
+[data-theme-mode="dark"][data-theme-palette="amber"] {
+  --accent1: var(--yellowDark);
+  --accent2: var(--yellowLight);
+}
+
+/* Extended Basic / Premium Catalog Styles */
+.prettyPink { --accent1: var(--pinkDark); --accent2: var(--pinkLight); }
+.cherryRed { --accent1: var(--redDark); --accent2: var(--redLight); }
+.tangyOrange { --accent1: var(--orangeDark); --accent2: var(--orangeLight); }
+.seafoamTeal { --accent1: var(--tealDark); --accent2: var(--tealLight); }
+.berryBlue { --accent1: var(--blueDark); --accent2: var(--blueLight); }
+.perfectPurple { --accent1: var(--purpleDark); --accent2: var(--purpleLight); }
+.bubblegumCrisis { --accent1: var(--pinkDark); --accent2: var(--redLight); }
+.pinkLemonade { --accent1: var(--pinkDark); --accent2: var(--yellowLight); }
+.hatsuneMiku { --accent1: var(--pinkDark); --accent2: var(--tealLight); }
+.unicornDust { --accent1: var(--pinkDark); --accent2: var(--purpleLight); }
+.appleOrchard { --accent1: var(--redDark); --accent2: var(--greenLight); }
+.summerSunshine { --accent1: var(--orangeDark); --accent2: var(--yellowLight); }
+.citrusTwist { --accent1: var(--orangeDark); --accent2: var(--greenLight); }
+.goldfishPond { --accent1: var(--orangeDark); --accent2: var(--blueLight); }
+.lightningBolt { --accent1: var(--yellowDark); --accent2: var(--tealLight); }
+.mayFlowers { --accent1: var(--yellowDark); --accent2: var(--purpleLight); }
+.melonSlice { --accent1: var(--greenDark); --accent2: var(--redLight); }
+.blindJustice { --accent1: var(--tealDark); --accent2: var(--redLight); }
+.circusTent { --accent1: var(--blueDark); --accent2: var(--pinkLight); }
+.popsicleStick { --accent1: var(--blueDark); --accent2: var(--redDark); }
+.blueberryLemonade { --accent1: var(--blueDark); --accent2: var(--yellowLight); }
+.gamecubeController { --accent1: var(--blueDark); --accent2: var(--purpleLight); }
+.mulberryBush { --accent1: var(--purpleDark); --accent2: var(--redLight); }
+.jokerBaby { --accent1: var(--purpleDark); --accent2: var(--greenLight); }
+.dixieCup { --accent1: var(--purpleDark); --accent2: var(--tealLight); }
+.preciousMetals { --accent1: var(--beigeLight); --accent2: var(--notWhite); }
+.cyberPink { --accent1: var(--silverMid); --accent2: var(--pinkNeon); }
+.sourCandies { --accent1: var(--pinkNeon); --accent2: var(--greenNeon); }
+.coffeeCake { --accent1: var(--brownDark); --accent2: var(--beigeLight); }
+.neaPolitan { --accent1: var(--brownDark); --accent2: var(--redLight); }
+.pikaPika { --accent1: var(--brownDark); --accent2: var(--yellowDark); }
+.camoGear { --accent1: var(--brownDark); --accent2: var(--greenDark); }
+.peppermintPatty { --accent1: var(--brownDark); --accent2: var(--tealLight); }
